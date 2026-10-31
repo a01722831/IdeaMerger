@@ -19,7 +19,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 ### Phase 1: landscape -> research/LANDSCAPE.md
 - [ ] 1.1 Subagent A: AI launches (PH, YC, BetaList, Uneed, Microlaunch, Peerlist, directories), 30+ products -> research/landscape/launches.md
 - [ ] 1.2 Subagent B: capability unlocks + current API prices -> research/landscape/capabilities.md
-- [ ] 1.3 Subagent C: theses (YC RFS, VC theses) + graveyard -> research/landscape/theses-graveyard.md
+- [x] 1.3 Subagent C: theses (YC RFS, VC theses) + graveyard -> research/landscape/theses-graveyard.md
 - [ ] 1.4 Synthesize research/LANDSCAPE.md (red zones, unlocks, timing, price table, traps)
 - [ ] 1.5 Commit and push
 
@@ -100,6 +100,8 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 12:50: Tool test done. WebSearch OK; WebFetch OK on most sites; curl OK for HN Algolia, Apple RSS reviews, Stack Exchange API, Discourse search.json. BLOCKED: Reddit (curl+WebFetch 403, mirrors 429/503), Product Hunt, G2, Trustpilot, Upwork, Fiverr, Indie Hackers, Peerlist, TAAFT, Bluesky API, web.archive.org. Network is not broadly restricted; lean on HN/StackExchange/app reviews for exact quotes and WebSearch for Reddit/PH (titles only).
 - 2026-10-31: Wrote scripts/hn_search.py and scripts/app_reviews.py so subagents get exact text cheaply.
 - 2026-10-31 12:55: Phase 0 committed and pushed. Launching Phase 1 (3 landscape subagents, model sonnet).
+- 2026-10-31 13:20: Landscape C (theses/graveyard) done: 20 theses, YC W27 RFS, 26 graveyard cases. Subagent overran fetch budget slightly (11 vs 10).
+- 2026-10-31 13:20: Decision: rolling waves. Keep max 4 subagents running at once; started T1 HN and T2 Reddit/founders while landscape A and B finish.
 
 ## Counts
 - Signals: 0
