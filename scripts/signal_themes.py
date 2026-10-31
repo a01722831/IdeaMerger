@@ -1,0 +1,115 @@
+"""Theme map and duplicate merges for research/SIGNALS.md (used by scripts/merge_signals.py --build).
+
+Assignments are the main thread's judgment after reading each signal's who/pain line.
+MERGES: duplicate -> canonical, only when it is the same person/comment captured by two tracks,
+or the same pain restated from the same thread.
+"""
+
+THEMES = [
+    ("smb-books", "Small-business bookkeeping, receipts and month-end close",
+     "Owners and bookkeepers drowning in categorization, receipt chasing, cleanup, multi-entity books; some already replace bookkeepers with general LLMs"),
+    ("getting-paid", "Getting paid: invoices, payouts, short-pays and disputes",
+     "Chasing late invoices, splitting revenue, carriers short-paid, refunds denied; money owed but not collected"),
+    ("tax", "Tax preparation and verification",
+     "Individuals and preparers fighting preparer errors, K-1 extraction, cross-border tax, filing fees"),
+    ("micro-compliance", "Compliance and company admin for tiny companies",
+     "SOC 2 for solo SaaS, state sales tax, VAT/PAYE gaps, upkeep of entities abroad, payment-processor issues"),
+    ("trade-compliance", "Cross-border selling: product compliance, customs and import paperwork",
+     "EU producer-responsibility registrations, CPSC eFiling, tariffs and drawback, import POs, label translation"),
+    ("ops-glue", "Small-company ops glue, intake and reporting",
+     "Multi-channel bookings and orders copied by hand, nobody owns recurring small jobs, reports need a person, knowledge in heads"),
+    ("legacy-data", "Spreadsheets and legacy systems",
+     "Inherited spreadsheets, formatting chores, AI analysis that misses data, legacy ERPs and dead-vendor software"),
+    ("trades", "Trades and field-service admin",
+     "Missed calls, dispatch, quotes and follow-ups, portal paperwork after jobs, after-hours admin, pricing jobs"),
+    ("construction", "Construction estimating, RFIs and change orders",
+     "Takeoffs from plan PDFs, AI-generated RFIs, scope creep and change orders, estimating software lock-in"),
+    ("property", "Landlords and property management",
+     "Maintenance phone tag, tenant requests across channels, compliance notices, fraudulent applications, work-order records"),
+    ("real-estate", "Real estate transaction paperwork",
+     "Transaction coordination bought per deal, contract forms on mobile, per-transaction admin fees, training on paperwork"),
+    ("insurance-agency", "Insurance agencies and brokers",
+     "Certificates of insurance, data chasing for submissions, AI-written prospect questions, non-pay reinstatement outreach"),
+    ("freight", "Freight and trucking: paperwork, verification and fraud",
+     "Check calls, fake load postings, MC hijacking with fake documents, detention and short-pay disputes"),
+    ("provider-health-admin", "Clinic admin: prior authorization, billing, denials and intake",
+     "Physicians and staff losing hours to prior auth and insurer calls, coding gaps, claim status, long insurer reports"),
+    ("vet-clinics", "Veterinary and small-clinic operations",
+     "Recalls and reminders, phone booking collisions, staffing shortages, lab-result transcription"),
+    ("legal-admin", "Legal admin for small firms and non-lawyers",
+     "Records digestion, estate backlogs, deadline docketing, practice data locked in incumbents, routine contracts"),
+    ("hiring", "Hiring and lean HR",
+     "Flood of AI-written and fake applicants, screening thousands per role, HR paperwork at small companies, payroll errors"),
+    ("patient-admin", "Patients fighting insurers and medical bills",
+     "Denials, inconsistent reasons, out-of-pocket claims, families managing a parent's health admin"),
+    ("aging-family", "Aging parents, scams and settling affairs",
+     "Elder fraud, scam calls, guiding parents through apps, nobody knows where documents are, executor paperwork"),
+    ("phone-chores", "Phone calls nobody wants to make",
+     "Calling businesses for quotes, hold queues, negotiating bills, after-hours answering"),
+    ("consumer-disputes", "Consumer bureaucracy, refunds and disputes",
+     "Refund fights with platforms, visa paperwork round-trips, government processes"),
+    ("ai-second-order", "Problems created by AI adoption",
+     "AI-generated noise others must triage, agent supervision, AI cost spikes, reliability of agents following rules"),
+    ("screen-ai", "Screen-aware and desktop AI: demand and limits",
+     "Context switching between apps and chat, privacy limits of always-on capture, platform risk for overlays"),
+    ("field-evidence", "Reconstructing what happened from media and records",
+     "Camera rolls, meeting archives and documents turned into usable evidence or clips"),
+]
+
+ASSIGN = {
+    # HN
+    "HN-01": "smb-books", "HN-02": "smb-books", "HN-03": "tax", "HN-04": "tax", "HN-05": "tax", "HN-06": "tax",
+    "HN-07": "getting-paid", "HN-08": "getting-paid", "HN-09": "micro-compliance", "HN-10": "micro-compliance",
+    "HN-11": "micro-compliance", "HN-12": "smb-books", "HN-13": "trade-compliance", "HN-14": "trade-compliance",
+    "HN-15": "trade-compliance", "HN-16": "provider-health-admin", "HN-17": "provider-health-admin",
+    "HN-18": "patient-admin", "HN-19": "patient-admin", "HN-20": "aging-family", "HN-21": "aging-family",
+    "HN-22": "aging-family", "HN-23": "aging-family", "HN-24": "phone-chores", "HN-25": "phone-chores",
+    "HN-26": "consumer-disputes", "HN-27": "consumer-disputes", "HN-28": "patient-admin", "HN-29": "aging-family",
+    "HN-30": "legacy-data", "HN-31": "legacy-data", "HN-32": "legacy-data", "HN-33": "legacy-data",
+    "HN-34": "legacy-data", "HN-35": "field-evidence", "HN-36": "field-evidence", "HN-37": "construction",
+    "HN-38": "legal-admin",
+    # RED
+    "RED-01": "smb-books", "RED-02": "smb-books", "RED-03": "smb-books", "RED-04": "smb-books", "RED-05": "smb-books",
+    "RED-06": "smb-books", "RED-07": "getting-paid", "RED-08": "getting-paid", "RED-09": "getting-paid",
+    "RED-10": "smb-books", "RED-11": "smb-books", "RED-12": "smb-books", "RED-13": "smb-books",
+    "RED-14": "micro-compliance", "RED-15": "smb-books", "RED-16": "ops-glue", "RED-17": "ops-glue",
+    "RED-18": "trade-compliance", "RED-19": "ops-glue", "RED-20": "ops-glue", "RED-21": "ops-glue",
+    "RED-22": "ops-glue", "RED-23": "ops-glue", "RED-24": "ops-glue", "RED-25": "ops-glue", "RED-26": "ops-glue",
+    "RED-27": "ops-glue", "RED-28": "ops-glue", "RED-29": "micro-compliance", "RED-30": "micro-compliance",
+    "RED-31": "trade-compliance", "RED-32": "micro-compliance", "RED-33": "micro-compliance",
+    "RED-34": "trade-compliance", "RED-35": "ai-second-order", "RED-36": "ai-second-order", "RED-37": "smb-books",
+    "RED-38": "getting-paid", "RED-39": "trades",
+    # PRO batch A
+    "PRO-001": "phone-chores", "PRO-002": "trades", "PRO-003": "trades", "PRO-004": "trades", "PRO-005": "trades",
+    "PRO-006": "trades", "PRO-007": "construction", "PRO-008": "construction", "PRO-009": "construction",
+    "PRO-010": "trades", "PRO-011": "property", "PRO-012": "property", "PRO-013": "property", "PRO-014": "property",
+    "PRO-015": "property", "PRO-016": "real-estate", "PRO-017": "real-estate", "PRO-018": "real-estate",
+    "PRO-019": "real-estate", "PRO-020": "real-estate", "PRO-021": "insurance-agency", "PRO-022": "insurance-agency",
+    "PRO-023": "insurance-agency", "PRO-024": "insurance-agency", "PRO-025": "insurance-agency",
+    "PRO-026": "freight", "PRO-027": "freight", "PRO-028": "freight", "PRO-029": "freight", "PRO-030": "freight",
+    "PRO-031": "trades", "PRO-032": "trades", "PRO-033": "trades", "PRO-034": "trades", "PRO-035": "trades",
+    # PRO batch B
+    "PRO-101": "tax", "PRO-102": "smb-books", "PRO-103": "smb-books", "PRO-104": "smb-books", "PRO-105": "smb-books",
+    "PRO-106": "micro-compliance", "PRO-107": "legal-admin", "PRO-108": "legal-admin", "PRO-109": "legal-admin",
+    "PRO-110": "legal-admin", "PRO-111": "legal-admin", "PRO-112": "provider-health-admin",
+    "PRO-113": "provider-health-admin", "PRO-114": "provider-health-admin", "PRO-115": "provider-health-admin",
+    "PRO-116": "provider-health-admin", "PRO-117": "ai-second-order", "PRO-118": "vet-clinics",
+    "PRO-119": "vet-clinics", "PRO-120": "vet-clinics", "PRO-121": "vet-clinics", "PRO-122": "vet-clinics",
+    "PRO-123": "provider-health-admin", "PRO-124": "provider-health-admin", "PRO-125": "provider-health-admin",
+    "PRO-126": "provider-health-admin", "PRO-127": "hiring", "PRO-128": "hiring", "PRO-129": "hiring",
+    "PRO-130": "hiring", "PRO-131": "hiring", "PRO-132": "hiring", "PRO-133": "hiring", "PRO-134": "hiring",
+    "PRO-135": "hiring", "PRO-136": "ai-second-order",
+    # Landscape demand signals
+    "LAND-01": "screen-ai", "LAND-02": "screen-ai", "LAND-03": "screen-ai", "LAND-04": "screen-ai",
+    "LAND-05": "ai-second-order", "LAND-06": "ai-second-order", "LAND-07": "ai-second-order",
+    "LAND-08": "ai-second-order", "LAND-09": "screen-ai", "LAND-10": "screen-ai", "LAND-11": "screen-ai",
+}
+
+MERGES = {
+    "RED-13": "HN-02",   # same two-member LLC commenter (Claude for Small Business thread)
+    "PRO-102": "HN-02",  # same commenter, captured by T3b
+    "RED-10": "HN-01",   # same "accountants are my biggest expense, $20/month SaaS" comment
+    "RED-09": "HN-07",   # same $15K revenue-split founder
+    "PRO-113": "HN-16",  # same endocrinologist's partner, one hour a day on prior auth
+    "PRO-106": "RED-14", # same SaaS founder seeking state-by-state sales-tax accountant
+}
