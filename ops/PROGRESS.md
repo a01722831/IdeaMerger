@@ -28,7 +28,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] T2 Reddit founder/SaaS communities (39 signals) -> tracks/02-reddit-founders.md
 - [x] T3a Professions batch A (35 signals) -> tracks/03a-professions.md
 - [x] T3b Professions batch B (36 signals) -> tracks/03b-professions.md
-- [ ] T3c Professions batch C -> tracks/03c-professions.md
+- [x] T3c Professions batch C (45 signals) -> tracks/03c-professions.md
 - [x] T4 Reviews of incumbent software (51 signals) -> tracks/04-reviews.md
 - [ ] T5 Service-to-software (Upwork/Fiverr) -> tracks/05-service-to-software.md
 - [ ] T6 Consumer life admin -> tracks/06-life-admin.md
@@ -108,9 +108,10 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 15:05: T3a done (35) and T3b done (36). Both ran well past the soft API-call cap (read-only public endpoints; acceptable). T3a flagged that some late-2026 Reddit/BiggerPockets posts look like founders' research-seeding posts and excluded them. Started T5 service-to-software and T6 life admin.
 - 2026-10-31 15:20: Wrote scripts/merge_signals.py (parses track tables) and scripts/signal_themes.py (24 themes + duplicate merges, main-thread judgment). Interim SIGNALS.md built: 153 distinct. Rebuild after each track lands.
 - 2026-10-31 15:40: T4 done (51; loudest theme: incumbents' bolted-on AI backfiring). Added themes incl. incumbent-ai. Started T7.
+- 2026-10-31 16:00: T3c done (45). Started T8 forcing functions. Running: T5, T6, T7, T8. T9 next.
 
 ## Counts
-- Signals: 210 raw / 201 distinct (48 strong) after T1, T2, T3a, T3b, T4 + LAND
+- Signals: 255 raw / 245 distinct after T1-T4 + LAND (T5-T9 pending)
 - Seeds: 0
 - Idea files: 0
 - Deep dives: 0
