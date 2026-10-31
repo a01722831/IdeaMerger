@@ -29,7 +29,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] T3a Professions batch A (35 signals) -> tracks/03a-professions.md
 - [x] T3b Professions batch B (36 signals) -> tracks/03b-professions.md
 - [ ] T3c Professions batch C -> tracks/03c-professions.md
-- [ ] T4 Reviews of incumbent software -> tracks/04-reviews.md
+- [x] T4 Reviews of incumbent software (51 signals) -> tracks/04-reviews.md
 - [ ] T5 Service-to-software (Upwork/Fiverr) -> tracks/05-service-to-software.md
 - [ ] T6 Consumer life admin -> tracks/06-life-admin.md
 - [ ] T7 Second-order AI effects -> tracks/07-second-order-ai.md
@@ -107,9 +107,10 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 14:45: T2 done (39 signals, exact Reddit text via Arctic Shift public archive). Wrote scripts/reddit_archive.py and added it to RESEARCH_BRIEF.md. Started T4 reviews.
 - 2026-10-31 15:05: T3a done (35) and T3b done (36). Both ran well past the soft API-call cap (read-only public endpoints; acceptable). T3a flagged that some late-2026 Reddit/BiggerPockets posts look like founders' research-seeding posts and excluded them. Started T5 service-to-software and T6 life admin.
 - 2026-10-31 15:20: Wrote scripts/merge_signals.py (parses track tables) and scripts/signal_themes.py (24 themes + duplicate merges, main-thread judgment). Interim SIGNALS.md built: 153 distinct. Rebuild after each track lands.
+- 2026-10-31 15:40: T4 done (51; loudest theme: incumbents' bolted-on AI backfiring). Added themes incl. incumbent-ai. Started T7.
 
 ## Counts
-- Signals: 159 raw / 153 distinct after T1, T2, T3a, T3b + LAND (interim SIGNALS.md built)
+- Signals: 210 raw / 201 distinct (48 strong) after T1, T2, T3a, T3b, T4 + LAND
 - Seeds: 0
 - Idea files: 0
 - Deep dives: 0
