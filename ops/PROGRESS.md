@@ -35,15 +35,15 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] T7 Second-order AI effects (60 signals) -> tracks/07-second-order-ai.md
 - [x] T8 Forcing functions (56 signals; 14 live, 6 dropped) -> tracks/08-forcing-functions.md
 - [x] T9 Underserved users (51 signals) -> tracks/09-underserved.md
-- [ ] 2.x Consolidate research/SIGNALS.md (150+ distinct, grouped by theme, dupes merged)
-- [ ] 2.y Commit and push after each wave
+- [x] 2.x Consolidate research/SIGNALS.md (571 distinct, 130 strong, 54 themes) (150+ distinct, grouped by theme, dupes merged)
+- [x] 2.y Commit and push after each wave
 
 ### Phase 3: ideation and screening -> ideas/POOL.md
 - [x] 3.1 Capability x persona grid (in POOL.md)
 - [x] 3.2 200+ seeds, >=15 per lens (9 lenses) + 10 wild
 - [x] 3.3 Screen: red zones, kill criteria, merges, status per seed
 - [x] 3.4 Advance ~50 (38 concept notes written; gap-fill batch G pending) with 3-5 line concept notes
-- [ ] 3.5 Commit and push
+- [x] 3.5 Commit and push
 
 ### Phase 4: development -> ideas/NNN-slug.md
 - [x] 4.1 scripts/build_index.py working (plus --dry-run/--only for agents)
@@ -70,9 +70,9 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 ## Definition of done (mirror of MISSION.md)
 - [ ] MISSION.md, CLAUDE.md, METHODOLOGY.md, ops/PROGRESS.md, ops/RESEARCH_BRIEF.md exist
 - [x] LANDSCAPE.md and SOURCES.md complete (SOURCES.md keeps growing)
-- [ ] All 9 pain tracks covered
-- [ ] SIGNALS.md has 150+ sourced signals
-- [ ] POOL.md has 200+ seeds, each with a status
+- [x] All 9 pain tracks covered (plus T10 gap-fill)
+- [x] SIGNALS.md has 150+ sourced signals (571)
+- [x] POOL.md has 200+ seeds, each with a status (213)
 - [ ] 40+ full idea files, each with a recorded competition check
 - [ ] Calibration done
 - [ ] Top 12 have deep dives, red-team critiques and build briefs
@@ -115,10 +115,11 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 17:30: T8 and T9 done and themed. Pool now has forcing-function and underserved lenses plus 12 wild seeds. Waiting on T10 gap-fill to resolve 9 pending seeds.
 - 2026-10-31 17:50: Concept notes for 38 advanced seeds written in POOL.md with idea numbers 001-038 and batches A-F (G = gap-fill outcomes). Re-opened S020 Food Cost Buddy for a competition check (restaurants otherwise unrepresented). Added build_index.py --dry-run/--only so drafting agents can validate without writing INDEX.
 - 2026-10-31 18:00: Wrote ops/DEV_BRIEF.md (shared drafting instructions). Launched development batches A (7 back-office ideas), B (7 field/freight), C (6 families/health), model sonnet. T10 gap-fill still running. Remaining: D (6), E (5), F (7), G (gap-fill outcomes).
+- 2026-10-31 18:20: T10 done (46 signals). Resolved pending seeds: developed S032 Contents Claim Builder (039), S145 Payee Shield (040), S074 Quote Second Opinion (041, likely crowded, checked anyway); killed deposits, estate inventory, inspectors, rental scams, cargo claims, estate-sale autopilot. Batch plan: D = 008, 013, 014, 015, 027, 034, 039, 041; E = 021, 023, 030, 031, 033, 040; F = 016, 017, 018, 025, 026, 028, 035.
 
 ## Counts
-- Signals: 540 raw / 525 distinct (116 strong) after T1-T9 + LAND; T10 gap-fill pending
-- Seeds: 213 (201 S + 12 W); developed 38 (+ up to 9 pending T10)
+- Signals: 586 raw / 571 distinct (130 strong) across 10 tracks + LAND; 54 themes
+- Seeds: 213 (201 S + 12 W); 41 developed; all pending resolved
 - Idea files: 0
 - Deep dives: 0
 
