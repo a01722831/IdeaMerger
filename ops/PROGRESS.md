@@ -106,9 +106,10 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 14:25: T1 HN done (38 signals; 13 strong). Started T3c.
 - 2026-10-31 14:45: T2 done (39 signals, exact Reddit text via Arctic Shift public archive). Wrote scripts/reddit_archive.py and added it to RESEARCH_BRIEF.md. Started T4 reviews.
 - 2026-10-31 15:05: T3a done (35) and T3b done (36). Both ran well past the soft API-call cap (read-only public endpoints; acceptable). T3a flagged that some late-2026 Reddit/BiggerPockets posts look like founders' research-seeding posts and excluded them. Started T5 service-to-software and T6 life admin.
+- 2026-10-31 15:20: Wrote scripts/merge_signals.py (parses track tables) and scripts/signal_themes.py (24 themes + duplicate merges, main-thread judgment). Interim SIGNALS.md built: 153 distinct. Rebuild after each track lands.
 
 ## Counts
-- Signals: 0
+- Signals: 159 raw / 153 distinct after T1, T2, T3a, T3b + LAND (interim SIGNALS.md built)
 - Seeds: 0
 - Idea files: 0
 - Deep dives: 0
