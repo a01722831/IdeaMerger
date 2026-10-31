@@ -1,6 +1,6 @@
 # Report: startup discovery
 
-Status: in progress (Phases 0 and 1 complete; pain mining under way). This report is refreshed after every phase. Sections below fill in as the research advances.
+Status: in progress. Phases 0 to 3 complete (landscape, 571 signals, 213 screened seeds). Phase 4 (full idea files with competition checks) under way. This report is refreshed after every phase. Sections below fill in as the research advances.
 
 ## 1. Executive summary
 Pending scoring (Phase 5). No ideas have been ranked yet.
@@ -9,6 +9,8 @@ Pending scoring (Phase 5). No ideas have been ranked yet.
 See [README.md](README.md) for the file map. Method and rubric are in [METHODOLOGY.md](METHODOLOGY.md).
 
 ## 3. Method
+**Counts so far:** 10 pain-mining tracks produced 586 raw signals, consolidated into **571 distinct signals (130 strong)** across 54 themes in [research/SIGNALS.md](research/SIGNALS.md). The landscape scan covered 95 recent AI products, 20 investor theses, YC's latest Requests for Startups and 26 dead or absorbed AI products. The idea pool has **213 seeds** (9 lenses plus 12 wild ideas); 41 advanced to full development.
+
 Nine pain-mining tracks (Hacker News, founder communities, ~20 professions, incumbent software reviews, service-to-software, consumer life admin, second-order AI effects, forcing functions, underserved users), a landscape scan, 200+ screened seeds, 40+ developed ideas with competition checks, and deep dives with red-team critiques on the top 12. Source access is logged in [research/SOURCES.md](research/SOURCES.md).
 
 ## 4. Landscape
@@ -20,13 +22,19 @@ Full synthesis: [research/LANDSCAPE.md](research/LANDSCAPE.md). The short versio
 - **Graveyard lessons:** thin wrappers, features that could be a button in the assistant, hardware, consumer novelty without retention, model cost above price, single-supplier dependency, and selling answers instead of outcomes.
 
 ## 5. Opportunity themes
-Pending (Phase 3).
+Preliminary, from the signal themes and the seeds that advanced (final version after scoring):
+- **Money owed but not collected:** carriers' detention and short-pays, service-business chargebacks, tariff refunds, overpaid duties, unpaid wages, depreciation holdbacks on insurance claims.
+- **Families carrying institutional paperwork:** aging parents' mail, Medicaid long-term-care applications, medical bills vs EOBs, agency notices, retirement transitions, HSA receipts.
+- **Rules that changed in 2025-2026:** IEEPA refunds, the end of de minimis, CPSC eFiling, EU packaging/WEEE/GPSR, the European Accessibility Act, Medicaid work requirements from 2027, FMCSA's Motus migration.
+- **Verification as a product in the AI era:** auditing AI-kept books, checking citations in AI-written submissions, oral defenses of student work, authenticating applicants, stopping payment-detail fraud, governing staff use of chatbots.
+- **Small operators' coordination glue:** landlord maintenance, change orders, portal closeouts, salon schedule gaps, wholesale orders, home-care visit exceptions.
+- **Chat-first and overlooked users:** WhatsApp-and-notebook businesses, home health aides on mandated apps, older adults who need a family-configured guide.
 
 ## 6. Picks by goal
 Pending (Phase 6).
 
 ## 7. Wildcards
-Pending (Phase 3).
+See the "Wild ideas" table in [ideas/POOL.md](ideas/POOL.md) (12 seeds). Final picks after scoring.
 
 ## 8. Full ranked table
 See [ideas/INDEX.md](ideas/INDEX.md) once ideas are developed (Phase 4).
