@@ -17,12 +17,12 @@ scores:
   ai_leverage: 4
   whitespace: 3
   novelty: 3
-  why_now: 4
+  why_now: 5
   solo_feasibility: 2
   distribution: 3
   wtp_economics: 3
   scale_defensibility: 3
-total: 64.2
+total: 65.3
 price_hypothesis: "$99/month per navigator seat; free SMS document upload for clients"
 model_cost_per_user_month: "$6.10 (about $6.70 on HIPAA-eligible endpoints)"
 gross_margin: "85%"
@@ -44,14 +44,16 @@ Browser side panel that guides navigators through state benefits portals, pre-fi
 | AI leverage | 2 | 4 | Screen reading, document extraction and hours reconstruction are model work; submission stays human |
 | Whitespace | 2 | 3 | ADJACENT ONLY: Fortuna Health (funded) sells navigation to plans; no navigator side panel found |
 | Novelty of insight | 1 | 3 | Equip the navigators instead of rebuilding the portals; HeyClicky pattern on a narrow job |
-| Why now | 1 | 4 | Work requirements due by 2027-01-01, GA screen-aware agents; court rulings add uncertainty (FORCE-12) |
+| Why now | 1 | 5 | Work requirements due by 2027-01-01, GA screen-aware agents; court rulings add uncertainty (FORCE-12) Calibrated 4 to 5: Medicaid work requirements start 2027-01-01 and screen-reading agents only became usable in 2026 |
 | Solo feasibility | 2 | 2 | HIPAA posture, 50 different portals, extensions blocked on hospital laptops |
 | Distribution | 2 | 3 | Health-center and legal-aid networks, Chrome Web Store, webinars; slow trust-heavy sales |
 | Willingness to pay and unit economics | 2 | 3 | Plans and hospitals lose money when people churn; nonprofit budgets are thin; margin about 85% |
 | Scale and defensibility | 2 | 3 | State-by-state playbooks and case data compound; policy and portals can change |
-| **Total** | | **64.2** | |
+| **Total** | | **65.3** | |
 
 Confidence: MED (important unknown: who pays and whether rules hold). FRONTIER: no.
+
+Calibration (main researcher, 2026-10-31): why now 4 to 5 (Medicaid work requirements start 2027-01-01 and screen-reading agents only became usable in 2026).
 
 ## 3. The problem
 - Who: navigators, enrollment specialists and caseworkers who help low-income clients apply, renew and now prove 80 hours a month of work, study or service; the clients themselves; the plans and hospitals who lose members when coverage lapses.

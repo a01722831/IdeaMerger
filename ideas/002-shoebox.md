@@ -12,17 +12,17 @@ confidence: "MED"
 status: "developed"
 signals: [LIFE-09, LIFE-10, LIFE-11]
 scores:
-  pain: 3
+  pain: 2
   evidence: 3
   ai_leverage: 3
   whitespace: 2
   novelty: 2
-  why_now: 3
+  why_now: 2
   solo_feasibility: 4
   distribution: 3
   wtp_economics: 2
   scale_defensibility: 2
-total: 54.7
+total: 50.5
 price_hypothesis: "$19/year after 25 free documents; $49 one-time backlog import and audit binder"
 model_cost_per_user_month: "$0.07 steady state; $5.2 one-time for a 250-document backlog"
 gross_margin: "90%"
@@ -39,19 +39,21 @@ Turns a decade of medical bills and EOBs into matched, audit-ready proof for tax
 ## 2. Scores
 | Criterion | Weight | Score | Why |
 |---|---|---|---|
-| Pain severity and frequency | 3 | 3 | Large dollars at stake (about $50K to substantiate in LIFE-10) but it bites once a year to once a decade, and Drive folders and spreadsheets mostly cope. |
+| Pain severity and frequency | 3 | 2 | Large dollars at stake (about $50K to substantiate in LIFE-10) but it bites once a year to once a decade, and Drive folders and spreadsheets mostly cope. Calibrated 3 to 2: niche, slow-burn pain for reimburse-later HSA holders; time cost, little money at risk |
 | Evidence quality | 2 | 3 | Three cited signals plus six more 2026 r/HSA threads; nobody states a willingness to pay and a dozen apps are free or under $7 a year. |
 | AI leverage | 2 | 3 | Extraction is a commodity; the model earns its keep pairing a messy itemized bill with the right EOB, but a manual tracker works without it. |
 | Whitespace | 2 | 2 | About ten small HSA receipt apps, most launched in 2026, and custodians store receipts for free; only automatic bill-to-EOB pairing is unclaimed. |
 | Novelty of insight | 1 | 2 | The matched pair is a useful framing, but HSA guides already say to keep the EOB with the itemized bill. |
-| Why now | 1 | 3 | Record 41.7M accounts and cheap extraction, but the same cheap build is what produced the indie flood. |
+| Why now | 1 | 2 | Record 41.7M accounts and cheap extraction, but the same cheap build is what produced the indie flood. Calibrated 3 to 2: receipt OCR and matching were feasible before 2025 |
 | Solo feasibility | 2 | 4 | Four weeks with off-the-shelf OCR and LLM calls; the risks are match accuracy and a 20-year storage promise. |
 | Distribution | 2 | 3 | Search plus r/HSA, Bogleheads and FIRE forums, but every competitor targets the same places and there is no built-in loop. |
 | Willingness to pay and unit economics | 2 | 2 | Price anchors are $0 to $7 a year and $4.99 once; margin is excellent but the price will not hold above about $20. |
 | Scale and defensibility | 2 | 2 | Feature-sized; custodians could add pairing; the only lock-in is a decade of archived documents. |
-| **Total** | | **54.7** | |
+| **Total** | | **50.5** | |
 
 Confidence: MED. FRONTIER: no.
+
+Calibration (main researcher, 2026-10-31): pain severity and frequency 3 to 2 (niche, slow-burn pain for reimburse-later HSA holders; time cost, little money at risk); why now 3 to 2 (receipt OCR and matching were feasible before 2025).
 
 ## 3. The problem
 - Who: HSA holders running the "20-year shoebox" strategy (pay medical costs from cash now, let the HSA compound, reimburse tax-free years later), including couples near retirement with 10+ years of paper.

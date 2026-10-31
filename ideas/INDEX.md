@@ -7,22 +7,22 @@ Ideas: 17 live, 24 killed after development. Total = sum(weight x score) / 95 x 
 | Rank | Idea | One-liner | Total | Confidence | Competition | FRONTIER | Lens | Form factor | Deep dive |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | [Medicaid Ready](006-medicaid-ready.md) | Builds a nursing-home Medicaid application packet from five years of statements, with flagged transfers and drafted explanation letters. | 65.3 | MED | WEAK DIRECT |  | Pain-first | web app |  |
-| 2 | [Paper Trail](008-paper-trail.md) | Photograph an IRS or SSA notice; get the plain-English meaning, a drafted reply, tracked certified mail and escalation. | 65.3 | MED | WEAK DIRECT |  | Pain-first | web app |  |
-| 3 | [Benefits Portal Pilot](027-benefits-portal-pilot.md) | Browser side panel that guides navigators through state benefits portals, pre-fills from client documents and builds work-requirement proof packets. | 64.2 | MED | ADJACENT ONLY |  | Interaction shift | browser extension |  |
-| 4 | [Retirement Desk](037-retirement-desk.md) | A case manager for the year around retirement or turning 65: deadlines, documents, forms, claims and appeals. | 63.2 | MED | ADJACENT ONLY |  | Underserved users | web app |  |
-| 5 | [Contents Claim Builder](039-contents-claim-builder.md) | Rebuilds an insurer-ready contents inventory from old photos, emails and card exports after a fire or flood. | 63.2 | MED | WEAK DIRECT |  | Newly possible | web app |  |
-| 6 | [Parent Mail Desk](007-parent-mail-desk.md) | A parent texts a photo of any letter; AI explains it and gives the adult child a one-tap action. | 62.1 | MED | WEAK DIRECT |  | Pain-first | web app |  |
-| 7 | [Grant Ledger](005-grant-ledger.md) | Allocates every nonprofit expense to the right grant from the award agreement and drafts funder and board reports. | 60.0 | MED | WEAK DIRECT |  | Pain-first | web app |  |
-| 8 | [Haul Paid](001-haul-paid.md) | Collects detention, layover and short-pays for small carriers by turning rate cons, BOLs and ELD logs into escalating claims. | 57.9 | MED | WEAK DIRECT |  | Pain-first | web app |  |
+| 2 | [Benefits Portal Pilot](027-benefits-portal-pilot.md) | Browser side panel that guides navigators through state benefits portals, pre-fills from client documents and builds work-requirement proof packets. | 65.3 | MED | ADJACENT ONLY |  | Interaction shift | browser extension |  |
+| 3 | [Contents Claim Builder](039-contents-claim-builder.md) | Rebuilds an insurer-ready contents inventory from old photos, emails and card exports after a fire or flood. | 63.2 | MED | WEAK DIRECT |  | Newly possible | web app |  |
+| 4 | [Parent Mail Desk](007-parent-mail-desk.md) | A parent texts a photo of any letter; AI explains it and gives the adult child a one-tap action. | 62.1 | MED | WEAK DIRECT |  | Pain-first | web app |  |
+| 5 | [Haul Paid](001-haul-paid.md) | Collects detention, layover and short-pays for small carriers by turning rate cons, BOLs and ELD logs into escalating claims. | 61.1 | MED | WEAK DIRECT |  | Pain-first | web app |  |
+| 6 | [Grant Ledger](005-grant-ledger.md) | Allocates every nonprofit expense to the right grant from the award agreement and drafts funder and board reports. | 60.0 | MED | WEAK DIRECT |  | Pain-first | web app |  |
+| 7 | [Paper Trail](008-paper-trail.md) | Photograph an IRS or SSA notice; get the plain-English meaning, a drafted reply, tracked certified mail and escalation. | 60.0 | MED | WEAK DIRECT |  | Pain-first | web app |  |
+| 8 | [Viva Voce](018-viva-voce.md) | After a student submits work, a short realtime voice conversation with an AI examiner checks they understand it. | 58.9 | MED | WEAK DIRECT |  | Newly possible | web app |  |
 | 9 | [Wage Check](034-wage-check.md) | Workers upload pay stubs, timecards and gig statements and get a pay-discrepancy report, inquiry draft and labor-agency claim packet. | 57.9 | LOW | ADJACENT ONLY |  | Underserved users | web app |  |
-| 10 | [Viva Voce](018-viva-voce.md) | After a student submits work, a short realtime voice conversation with an AI examiner checks they understand it. | 55.8 | MED | WEAK DIRECT |  | Newly possible | web app |  |
-| 11 | [Shoebox](002-shoebox.md) | Turns a decade of medical bills and EOBs into matched, audit-ready proof for tax-free HSA reimbursement. | 54.7 | MED | WEAK DIRECT |  | Pain-first | web app |  |
+| 10 | [Do It With Me](036-do-it-with-me.md) | A voice guide walks an older parent through bank and portal tasks, refuses scam-like steps, and calls the child. | 56.8 | LOW | WEAK DIRECT |  | Underserved users | voice agent |  |
+| 11 | [Retirement Desk](037-retirement-desk.md) | A case manager for the year around retirement or turning 65: deadlines, documents, forms, claims and appeals. | 55.8 | MED | ADJACENT ONLY |  | Underserved users | web app |  |
 | 12 | [Cite Check](025-cite-check.md) | Upload a manuscript or brief and get a reviewer report on which citations are fake or fail to support claims. | 54.7 | MED | WEAK DIRECT |  | Second-order AI | web app |  |
 | 13 | [Authority Guard](032-authority-guard.md) | Watches a small carrier's FMCSA authority, insurance filings and deadlines daily, and walks the owner through the fix. | 54.7 | MED | WEAK DIRECT |  | Forcing function | web app |  |
 | 14 | [Chat-to-Ledger](033-chat-to-ledger.md) | Micro-sellers forward WhatsApp orders, voice notes and payment receipts; AI keeps the ledger, matches payments and drafts reminders. | 54.7 | MED | WEAK DIRECT |  | Underserved users | other |  |
-| 15 | [Do It With Me](036-do-it-with-me.md) | A voice guide walks an older parent through bank and portal tasks, refuses scam-like steps, and calls the child. | 54.7 | LOW | WEAK DIRECT |  | Underserved users | voice agent |  |
-| 16 | [Closeout Copilot](010-closeout-copilot.md) | Turns a tech's photos and voice note into the exact closeout each facility-management portal demands. | 53.7 | LOW | ADJACENT ONLY |  | Pain-first | mobile app |  |
-| 17 | [Legacy App Buddy](028-legacy-app-buddy.md) | A hotkey voice overlay that shows staff how to do tasks in old desktop business software and replays approved steps. | 51.6 | LOW | WEAK DIRECT |  | Interaction shift | desktop app |  |
+| 15 | [Closeout Copilot](010-closeout-copilot.md) | Turns a tech's photos and voice note into the exact closeout each facility-management portal demands. | 53.7 | LOW | ADJACENT ONLY |  | Pain-first | mobile app |  |
+| 16 | [Legacy App Buddy](028-legacy-app-buddy.md) | A hotkey voice overlay that shows staff how to do tasks in old desktop business software and replays approved steps. | 51.6 | LOW | WEAK DIRECT |  | Interaction shift | desktop app |  |
+| 17 | [Shoebox](002-shoebox.md) | Turns a decade of medical bills and EOBs into matched, audit-ready proof for tax-free HSA reimbursement. | 50.5 | MED | WEAK DIRECT |  | Pain-first | web app |  |
 
 ## Killed after development
 
@@ -58,19 +58,19 @@ Ideas: 17 live, 24 killed after development. Total = sum(weight x score) / 95 x 
 | Rank | Idea | Pain (x3) | Evidence (x2) | AI leverage (x2) | Whitespace (x2) | Novelty (x1) | Why now (x1) | Solo feasibility (x2) | Distribution (x2) | WTP & economics (x2) | Scale & defensibility (x2) | Total |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | [Medicaid Ready](006-medicaid-ready.md) | 4 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 4 | 2 | 65.3 |
-| 2 | [Paper Trail](008-paper-trail.md) | 4 | 4 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 2 | 65.3 |
-| 3 | [Benefits Portal Pilot](027-benefits-portal-pilot.md) | 4 | 3 | 4 | 3 | 3 | 4 | 2 | 3 | 3 | 3 | 64.2 |
-| 4 | [Retirement Desk](037-retirement-desk.md) | 4 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 2 | 63.2 |
-| 5 | [Contents Claim Builder](039-contents-claim-builder.md) | 4 | 4 | 4 | 2 | 3 | 3 | 3 | 3 | 3 | 2 | 63.2 |
-| 6 | [Parent Mail Desk](007-parent-mail-desk.md) | 4 | 4 | 3 | 2 | 2 | 3 | 4 | 3 | 3 | 2 | 62.1 |
-| 7 | [Grant Ledger](005-grant-ledger.md) | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 2 | 60.0 |
-| 8 | [Haul Paid](001-haul-paid.md) | 4 | 3 | 3 | 2 | 3 | 2 | 3 | 3 | 3 | 2 | 57.9 |
+| 2 | [Benefits Portal Pilot](027-benefits-portal-pilot.md) | 4 | 3 | 4 | 3 | 3 | 5 | 2 | 3 | 3 | 3 | 65.3 |
+| 3 | [Contents Claim Builder](039-contents-claim-builder.md) | 4 | 4 | 4 | 2 | 3 | 3 | 3 | 3 | 3 | 2 | 63.2 |
+| 4 | [Parent Mail Desk](007-parent-mail-desk.md) | 4 | 4 | 3 | 2 | 2 | 3 | 4 | 3 | 3 | 2 | 62.1 |
+| 5 | [Haul Paid](001-haul-paid.md) | 4 | 4 | 3 | 2 | 3 | 3 | 3 | 3 | 3 | 2 | 61.1 |
+| 6 | [Grant Ledger](005-grant-ledger.md) | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 2 | 60.0 |
+| 7 | [Paper Trail](008-paper-trail.md) | 3 | 4 | 3 | 2 | 3 | 3 | 4 | 3 | 3 | 2 | 60.0 |
+| 8 | [Viva Voce](018-viva-voce.md) | 4 | 3 | 5 | 2 | 2 | 4 | 3 | 2 | 2 | 2 | 58.9 |
 | 9 | [Wage Check](034-wage-check.md) | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 2 | 2 | 57.9 |
-| 10 | [Viva Voce](018-viva-voce.md) | 3 | 3 | 4 | 3 | 2 | 4 | 3 | 2 | 2 | 2 | 55.8 |
-| 11 | [Shoebox](002-shoebox.md) | 3 | 3 | 3 | 2 | 2 | 3 | 4 | 3 | 2 | 2 | 54.7 |
+| 10 | [Do It With Me](036-do-it-with-me.md) | 3 | 3 | 5 | 2 | 3 | 4 | 2 | 2 | 3 | 2 | 56.8 |
+| 11 | [Retirement Desk](037-retirement-desk.md) | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 2 | 2 | 55.8 |
 | 12 | [Cite Check](025-cite-check.md) | 3 | 3 | 4 | 2 | 3 | 4 | 3 | 2 | 2 | 2 | 54.7 |
 | 13 | [Authority Guard](032-authority-guard.md) | 3 | 3 | 2 | 2 | 2 | 3 | 4 | 3 | 3 | 2 | 54.7 |
 | 14 | [Chat-to-Ledger](033-chat-to-ledger.md) | 3 | 3 | 4 | 2 | 3 | 4 | 3 | 2 | 2 | 2 | 54.7 |
-| 15 | [Do It With Me](036-do-it-with-me.md) | 3 | 3 | 4 | 2 | 3 | 4 | 2 | 2 | 3 | 2 | 54.7 |
-| 16 | [Closeout Copilot](010-closeout-copilot.md) | 3 | 2 | 4 | 3 | 3 | 3 | 2 | 2 | 3 | 2 | 53.7 |
-| 17 | [Legacy App Buddy](028-legacy-app-buddy.md) | 3 | 2 | 4 | 2 | 2 | 4 | 3 | 2 | 2 | 2 | 51.6 |
+| 15 | [Closeout Copilot](010-closeout-copilot.md) | 3 | 2 | 4 | 3 | 3 | 3 | 2 | 2 | 3 | 2 | 53.7 |
+| 16 | [Legacy App Buddy](028-legacy-app-buddy.md) | 3 | 2 | 4 | 2 | 2 | 4 | 3 | 2 | 2 | 2 | 51.6 |
+| 17 | [Shoebox](002-shoebox.md) | 2 | 3 | 3 | 2 | 2 | 2 | 4 | 3 | 2 | 2 | 50.5 |

@@ -47,9 +47,9 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 
 ### Phase 4: development -> ideas/NNN-slug.md
 - [x] 4.1 scripts/build_index.py working (plus --dry-run/--only for agents)
-- [ ] 4.2 Subagent batches of 5-8 ideas (competition check >=4 queries each, classification, draft file)
-- [ ] 4.3 Review every draft, kill/re-scope CROWDED, sharpen, own final scores
-- [ ] 4.4 40+ full idea files; rebuild index after every batch; commit and push per batch
+- [x] 4.2 Subagent batches of 5-8 ideas (A-F, 41 files) (competition check >=4 queries each, classification, draft file)
+- [x] 4.3 Review every draft (24 killed as CROWDED with reasons; 17 live), kill/re-scope CROWDED, sharpen, own final scores
+- [x] 4.4 40+ full idea files (41); rebuild index after every batch; commit and push per batch
 
 ### Phase 5: calibration, deep dives, red team
 - [ ] 5.1 Calibration pass across all ideas
@@ -73,7 +73,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] All 9 pain tracks covered (plus T10 gap-fill)
 - [x] SIGNALS.md has 150+ sourced signals (571)
 - [x] POOL.md has 200+ seeds, each with a status (213)
-- [ ] 40+ full idea files, each with a recorded competition check
+- [x] 40+ full idea files, each with a recorded competition check (41; wave 2 adds 3)
 - [ ] Calibration done
 - [ ] Top 12 have deep dives, red-team critiques and build briefs
 - [ ] REPORT.md, README.md, INDEX.md and scoreboard.csv complete and consistent
@@ -118,6 +118,8 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 18:20: T10 done (46 signals). Resolved pending seeds: developed S032 Contents Claim Builder (039), S145 Payee Shield (040), S074 Quote Second Opinion (041, likely crowded, checked anyway); killed deposits, estate inventory, inspectors, rental scams, cargo claims, estate-sale autopilot. Batch plan: D = 008, 013, 014, 015, 027, 034, 039, 041; E = 021, 023, 030, 031, 033, 040; F = 016, 017, 018, 025, 026, 028, 035.
 - 2026-10-31 17:05: Usage limit hit at about 16:40 UTC; all four drafting agents stopped. Batches A, B, C had finished writing all 20 files (validated clean); batch D had written nothing. After reset (user confirmed), resumed D via SendMessage and launched E and F.
 - 2026-10-31 17:20: Reviewed batches A-C. Killed 11 CROWDED drafts (003 Fix Desk, 004 Scope Guard, 009 Bill Detective, 011 Gap Filler, 012 Wholesale Desk, 019 Job Walk, 020 Service Chargebacks, 022 Backlog Books, 024 Books Second Opinion, 029 Forward-to-Post, 038 Food Cost Buddy); each keeps its competition check with a review note. Finding for the report: generic SMB back-office AI (bookkeeping, receipts, chargebacks, booking gaps, quotes from voice, wholesale POs, maintenance dispatch) is saturated by incumbents' own AI plus many small entrants as of late 2026. Live after review: 001, 002, 005, 006, 007, 010, 032, 036, 037. Decision: no second ideation wave; 41 developed files meets the 40+ target, and live ideas from D-F should give enough for a diverse top 12.
+- 2026-10-31 18:00: Batches D (4 killed), E (5 killed), F (4 killed) reviewed. Result: 41 files, 17 live, 24 killed. Decision: launch wave 2 (one agent mines evidence and drafts 3 new ideas in the surviving whitespace: LTC claims, guardianship accountings, comp audit defense; files 042-044, track 11, prefix WAV-).
+- 2026-10-31 18:10: First calibration pass via scripts/calibrate.py (changes recorded in each file's section 2). Live top 8 for deep dives: 006, 027, 039, 007, 001, 008, 005, 018. Last 4 slots after wave 2.
 
 ## Counts
 - Signals: 586 raw / 571 distinct (130 strong) across 10 tracks + LAND; 54 themes

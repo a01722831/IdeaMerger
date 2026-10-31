@@ -12,17 +12,17 @@ confidence: "MED"
 status: "developed"
 signals: [LIFE-27, LIFE-28, LIFE-29, LIFE-30, LIFE-31, LIFE-22, REV-45, REV-47, UND-30, LIFE-43]
 scores:
-  pain: 4
+  pain: 3
   evidence: 4
   ai_leverage: 3
-  whitespace: 3
+  whitespace: 2
   novelty: 3
   why_now: 3
   solo_feasibility: 4
   distribution: 3
   wtp_economics: 3
   scale_defensibility: 2
-total: 65.3
+total: 60.0
 price_hypothesis: "$59 per notice case (one tracked certified letter included), $12 per extra letter"
 model_cost_per_user_month: "$0.12 per case (about $12.50 of mail and print on top)"
 gross_margin: "72%"
@@ -39,19 +39,21 @@ Photograph an IRS or SSA notice; get the plain-English meaning, a drafted reply,
 ## 2. Scores
 | Criterion | Weight | Score | Why |
 |---|---|---|---|
-| Pain severity and frequency | 3 | 4 | Deadlines, unreachable phones and fear; people pay relief firms $2,000+; but any one person gets a notice rarely |
+| Pain severity and frequency | 3 | 3 | Deadlines, unreachable phones and fear; people pay relief firms $2,000+; but any one person gets a notice rarely Calibrated 4 to 3: notices are infrequent per household and usually lower-stakes than a Medicaid or disaster case |
 | Evidence quality | 2 | 4 | 10 recent signals across Reddit, App Store and HN, 4 strong; demand for the mailing and escalation layer is inferred |
 | AI leverage | 2 | 3 | Model reads notices and drafts replies; rules, mailing and escalation are not AI, and OweRight shows reading is a commodity |
-| Whitespace | 2 | 3 | WEAK DIRECT: OweRight (8 days old) reads and drafts; I found nobody who mails, tracks and escalates for individuals |
+| Whitespace | 2 | 2 | WEAK DIRECT: OweRight (8 days old) reads and drafts; I found nobody who mails, tracks and escalates for individuals Calibrated 3 to 2: OweRight (live 2026-10-23) reads about 150 notice types and drafts replies, and general assistants read notices well |
 | Novelty of insight | 1 | 3 | Owning case state, proof of mailing and the escalation playbook is a useful twist, not a new category |
 | Why now | 1 | 3 | Cheap vision reading and mail APIs, IRS phones unreachable in 2026; a version was buildable in 2024 |
 | Solo feasibility | 2 | 4 | About 6 weeks with off-the-shelf APIs; the curated rules library is the real labour |
 | Distribution | 2 | 3 | Notice-code SEO and r/IRS style communities, but IRS, TurboTax and TaxAct pages hold the top results |
 | Willingness to pay and unit economics | 2 | 3 | $59 against $2,000+ relief fees; postage caps margin near 72%; owners of small bills will not pay |
 | Scale and defensibility | 2 | 2 | Episodic use; Intuit, H&R Block or the assistants can copy the explain-and-draft slice |
-| **Total** | | **65.3** | |
+| **Total** | | **60.0** | |
 
 Confidence: MED. FRONTIER: no.
+
+Calibration (main researcher, 2026-10-31): pain severity and frequency 4 to 3 (notices are infrequent per household and usually lower-stakes than a Medicaid or disaster case); whitespace 3 to 2 (OweRight (live 2026-10-23) reads about 150 notice types and drafts replies, and general assistants read notices well).
 
 ## 3. The problem
 - Who: people who get an IRS, SSA or state notice and cannot reach a human, often an adult child handling a parent's mail (LIFE-27, LIFE-29).

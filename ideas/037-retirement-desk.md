@@ -12,17 +12,17 @@ confidence: "MED"
 status: "developed"
 signals: [UND-12, UND-13, UND-19, LIFE-19, LIFE-55, LIFE-29, LIFE-33]
 scores:
-  pain: 4
-  evidence: 4
+  pain: 3
+  evidence: 3
   ai_leverage: 3
   whitespace: 3
   novelty: 3
   why_now: 3
   solo_feasibility: 3
   distribution: 3
-  wtp_economics: 3
+  wtp_economics: 2
   scale_defensibility: 2
-total: 63.2
+total: 55.8
 price_hypothesis: "$149 one-time for a 12-month case; free personal deadline calendar"
 model_cost_per_user_month: "$0.19 ($2.3 per 12-month case including reminders)"
 gross_margin: "95%"
@@ -39,19 +39,21 @@ A case manager for the year around retirement or turning 65: deadlines, document
 ## 2. Scores
 | Criterion | Weight | Score | Why |
 |---|---|---|---|
-| Pain severity and frequency | 3 | 4 | Permanent penalties for missed windows and a pile of simultaneous tasks, each needing repeated calls; once per person, so not a 5. |
-| Evidence quality | 2 | 4 | Five strong signals (UND-12, UND-13, LIFE-19, LIFE-55, LIFE-29) plus three new r/medicare threads; nobody states a willingness to pay for case management. |
+| Pain severity and frequency | 3 | 3 | Permanent penalties for missed windows and a pile of simultaneous tasks, each needing repeated calls; once per person, so not a 5. Calibrated 4 to 3: a once-in-a-lifetime transition; real penalties but free help exists (SHIP counselors) |
+| Evidence quality | 2 | 3 | Five strong signals (UND-12, UND-13, LIFE-19, LIFE-55, LIFE-29) plus three new r/medicare threads; nobody states a willingness to pay for case management. Calibrated 4 to 3: five signals, none showing willingness to pay |
 | AI leverage | 2 | 3 | The model reads notices, drafts forms and appeals and explains; much of the value is a rules and deadline engine that needs little AI. |
 | Whitespace | 2 | 3 | ADJACENT ONLY, but Chapter (funded) sits one step away and free SHIP counselors cover plan advice; vertical-incumbent risk caps this at 3. |
 | Novelty of insight | 1 | 3 | Treating the retirement-year admin cluster as one case, not a plan-choice problem, is a useful twist backed by the threads. |
 | Why now | 1 | 3 | About 4.1M people turn 65 each year through 2027 and long-context reading is cheap, but the problem is old. |
 | Solo feasibility | 2 | 3 | Seven weeks for a timeline engine, document intake and drafting; rules accuracy and yearly upkeep are the hard risk. |
 | Distribution | 2 | 3 | High-intent search and r/medicare, r/retirement with a free calendar as a lead magnet; one-time and seasonal use; no loop. |
-| Willingness to pay and unit economics | 2 | 3 | Margin is 95%, but free options (Chapter advisors, SHIP, AARP pages) cover plan choice and I found no price anchor for paperwork help. |
+| Willingness to pay and unit economics | 2 | 2 | Margin is 95%, but free options (Chapter advisors, SHIP, AARP pages) cover plan choice and I found no price anchor for paperwork help. Calibrated 3 to 2: Chapter anchors the adjacent service at $0 for consumers; no price evidence for paperwork help |
 | Scale and defensibility | 2 | 2 | A funded incumbent may extend into seniors' financial products; one-time use; the moat is rules content and employer packets. |
-| **Total** | | **63.2** | |
+| **Total** | | **55.8** | |
 
 Confidence: MED. FRONTIER: no.
+
+Calibration (main researcher, 2026-10-31): pain severity and frequency 4 to 3 (a once-in-a-lifetime transition; real penalties but free help exists (SHIP counselors)); evidence quality 4 to 3 (five signals, none showing willingness to pay); willingness to pay and unit economics 3 to 2 (Chapter anchors the adjacent service at $0 for consumers; no price evidence for paperwork help).
 
 ## 3. The problem
 - Who: people in the 12 months around retirement or 65, their spouses, adult children, and widowed spouses inheriting a partner's paperwork.

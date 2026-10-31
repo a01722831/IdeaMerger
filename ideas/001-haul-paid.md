@@ -13,16 +13,16 @@ status: "developed"
 signals: [PRO-029, PRO-030, GAP-20, PRO-026, REV-35]
 scores:
   pain: 4
-  evidence: 3
+  evidence: 4
   ai_leverage: 3
   whitespace: 2
   novelty: 3
-  why_now: 2
+  why_now: 3
   solo_feasibility: 3
   distribution: 3
   wtp_economics: 3
   scale_defensibility: 2
-total: 57.9
+total: 61.1
 price_hypothesis: "20% of money recovered, nothing if nothing is recovered"
 model_cost_per_user_month: "$1.15"
 gross_margin: "90%"
@@ -40,18 +40,20 @@ Collects detention, layover and short-pays for small carriers by turning rate co
 | Criterion | Weight | Score | Why |
 |---|---|---|---|
 | Pain severity and frequency | 3 | 4 | Short-pays of $100-375 on $1,000 loads and a $650 detention rejection (PRO-030, GAP-20) recur load after load; real money. |
-| Evidence quality | 2 | 3 | Two strong and one medium carrier signal plus a strong claim-rejection story, but no signal states willingness to pay for a collection tool. |
+| Evidence quality | 2 | 4 | Two strong and one medium carrier signal plus a strong claim-rejection story, but no signal states willingness to pay for a collection tool. Calibrated 3 to 4: GAP-20 adds a strong detention-claim rejection signal; five signals with money lost per load |
 | AI leverage | 2 | 3 | Model reads rate cons and writes clause-cited claims; dwell math, sending and scheduling are deterministic. |
 | Whitespace | 2 | 2 | Hey Bubba, WaitClaim, Detention Source and ELD-marketplace apps already log detention claims; only the escalate-and-collect half looks open. |
 | Novelty of insight | 1 | 3 | Selling the broker-AP and surety escalation ladder instead of another timestamp log is a useful twist. |
-| Why now | 1 | 2 | Contract extraction and ELD APIs have worked for 2+ years; only the 2026 rejection stories are new. |
+| Why now | 1 | 3 | Contract extraction and ELD APIs have worked for 2+ years; only the 2026 rejection stories are new. Calibrated 2 to 3: cheap document models make per-load claims worth assembling |
 | Solo feasibility | 2 | 3 | About 6 weeks for upload, extraction, packets and follow-ups; ELD OAuth and contingency billing add risk. |
 | Distribution | 2 | 3 | Trucker forums, SEO and ELD marketplaces are plausible but crowded or gatekept; a broker scorecard is a possible loop. |
 | Willingness to pay and unit economics | 2 | 3 | No upfront price removes the barrier and margin is high, but fee per user is about $30 a month and fee leakage is real. |
 | Scale and defensibility | 2 | 2 | Feature-sized next to ELD vendors and Hey Bubba; only the broker-behavior dataset compounds. |
-| **Total** | | **57.9** | |
+| **Total** | | **61.1** | |
 
 Confidence: MED. FRONTIER: no.
+
+Calibration (main researcher, 2026-10-31): evidence quality 3 to 4 (GAP-20 adds a strong detention-claim rejection signal; five signals with money lost per load); why now 2 to 3 (cheap document models make per-load claims worth assembling).
 
 ## 3. The problem
 - Who: owner-operators and 1-10 truck carriers hauling for brokers under a rate confirmation (rate con). The rate con promises detention (usually after about 2 free hours), layover, TONU and lumper reimbursement, but only if the carrier gives notice on time, proves the times (signed BOL, ELD or GPS) and submits paperwork inside the broker's window.

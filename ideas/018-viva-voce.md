@@ -12,17 +12,17 @@ confidence: "MED"
 status: "developed"
 signals: [AI2-52, AI2-47, AI2-50, AI2-54, AI2-48, AI2-49]
 scores:
-  pain: 3
+  pain: 4
   evidence: 3
-  ai_leverage: 4
-  whitespace: 3
+  ai_leverage: 5
+  whitespace: 2
   novelty: 2
   why_now: 4
   solo_feasibility: 3
   distribution: 2
   wtp_economics: 2
   scale_defensibility: 2
-total: 55.8
+total: 58.9
 price_hypothesis: "$1.50 per completed viva (5-8 minutes); semester pack of 100 for $129"
 model_cost_per_user_month: "$15 to $40 per 100 vivas"
 gross_margin: "66% to 86%"
@@ -39,19 +39,21 @@ After a student submits work, a short realtime voice conversation with an AI exa
 ## 2. Scores
 | Criterion | Weight | Score | Why |
 |---|---|---|---|
-| Pain severity and frequency | 3 | 3 | Acute during grading periods (a third of one class, hundreds of hours of paperwork) but seasonal, and the instructor is not the budget holder. |
+| Pain severity and frequency | 3 | 4 | Acute during grading periods (a third of one class, hundreds of hours of paperwork) but seasonal, and the instructor is not the budget holder. Calibrated 3 to 4: integrity work hits every assignment (AI2-47, AI2-48 strong) |
 | Evidence quality | 2 | 3 | Six cited signals (two strong, all instructor-side, four from 2026-10) plus a published pilot; no statement of willingness to pay. |
-| AI leverage | 2 | 4 | The voice examiner and rubric scoring are the product; a human reviews the flags, so not a 5. |
-| Whitespace | 2 | 3 | Early direct entrants (OralExam.AI, verballi, better-ed) and a free published recipe, but no funded leader or LMS-native tool found. |
+| AI leverage | 2 | 5 | The voice examiner and rubric scoring are the product; a human reviews the flags, so not a 5. Calibrated 4 to 5: the voice examiner is the product; without the model nothing is left |
+| Whitespace | 2 | 2 | Early direct entrants (OralExam.AI, verballi, better-ed) and a free published recipe, but no funded leader or LMS-native tool found. Calibrated 3 to 2: early direct rivals (OralExam.AI, verballi, better-ed) and a free NYU recipe at $0.42 per student |
 | Novelty of insight | 1 | 2 | Oral defense as an authorship test is well known and now studied in papers; the twist is its $0.15 to $0.42 cost. |
 | Why now | 1 | 4 | Realtime voice at $0.05/min or less and the AI-authorship crisis arrived together; one NYU pilot ran 36 exams for $15. |
 | Solo feasibility | 2 | 3 | A web voice agent is 6 weeks; LMS integration, student privacy and accommodations add risk. |
 | Distribution | 2 | 2 | Instructors are reachable in communities and by SEO, but schools gate student-data tools and the culture is wary of AI. |
 | Willingness to pay and unit economics | 2 | 2 | An instructor can copy the NYU setup for about $0.42 a student; institutions have budgets but buy slowly. |
 | Scale and defensibility | 2 | 2 | DIY recipe, LMS vendors and AI labs can add a "defend your work" mode; the moat is thin. |
-| **Total** | | **55.8** | |
+| **Total** | | **58.9** | |
 
 Confidence: MED. FRONTIER: no.
+
+Calibration (main researcher, 2026-10-31): pain severity and frequency 3 to 4 (integrity work hits every assignment (AI2-47, AI2-48 strong)); ai leverage 4 to 5 (the voice examiner is the product; without the model nothing is left); whitespace 3 to 2 (early direct rivals (OralExam.AI, verballi, better-ed) and a free NYU recipe at $0.42 per student).
 
 ## 3. The problem
 - Who: instructors of large or online courses, and high-school teachers, who see work that looks AI-written but cannot prove it.

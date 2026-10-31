@@ -14,7 +14,7 @@ signals: [HN-21, UND-15, UND-16, UND-12, UND-19, HN-20]
 scores:
   pain: 3
   evidence: 3
-  ai_leverage: 4
+  ai_leverage: 5
   whitespace: 2
   novelty: 3
   why_now: 4
@@ -22,7 +22,7 @@ scores:
   distribution: 2
   wtp_economics: 3
   scale_defensibility: 2
-total: 54.7
+total: 56.8
 price_hypothesis: "$14.99/month per parent device with 60 guided minutes included; first two routines free"
 model_cost_per_user_month: "$1.4 on Gemini Live voice, up to $3.4 on GPT Live"
 gross_margin: "72% to 86%"
@@ -41,7 +41,7 @@ A voice guide walks an older parent through bank and portal tasks, refuses scam-
 |---|---|---|---|
 | Pain severity and frequency | 3 | 3 | Heavy emotionally, but help is needed monthly rather than daily, parents often resist, and a phone call or FaceTime works for many. |
 | Evidence quality | 2 | 3 | Six cited signals (two strong, one possibly staged) plus three new posts; only HN-21 states willingness to pay, and it reacts to a generic arrow tool. |
-| AI leverage | 2 | 4 | Voice plus screen understanding is the interaction; remove the model and a screen-share call (CareLink) is left. Not a 5 because a human is the fallback. |
+| AI leverage | 2 | 5 | Voice plus screen understanding is the interaction; remove the model and a screen-share call (CareLink) is left. Not a 5 because a human is the fallback. Calibrated 4 to 5: the guide is the interaction (the HeyClicky test) |
 | Whitespace | 2 | 2 | About five small direct entrants, free Gemini Live screen sharing, iOS 27 Siri on-screen awareness; only the family-configured, scam-refusing, child-escalating version is open. |
 | Novelty of insight | 1 | 3 | A useful twist on the HeyClicky pattern: the child configures routines and the guide's main job is declining unsafe steps. |
 | Why now | 1 | 4 | Realtime voice at $0.05/min or less and cheap screen understanding make a guided month cost about $1.4; impossible at this price in 2022. |
@@ -49,9 +49,11 @@ A voice guide walks an older parent through bank and portal tasks, refuses scam-
 | Distribution | 2 | 2 | Seniors will not find or install it; the child must set up the parent's device; communities exist but there is no store channel or built-in loop. |
 | Willingness to pay and unit economics | 2 | 3 | Adult children pay for family help (a rival lists $19/month), but Gemini Live and FaceTime are free; margin 72% to 86%. |
 | Scale and defensibility | 2 | 2 | OS assistants own the primitives, which caps this at 2; the routine library and family trust are the moat. |
-| **Total** | | **54.7** | |
+| **Total** | | **56.8** | |
 
 Confidence: LOW (the platform feasibility and the willingness to pay are untested). FRONTIER: no.
+
+Calibration (main researcher, 2026-10-31): ai leverage 4 to 5 (the guide is the interaction (the HeyClicky test)).
 
 ## 3. The problem
 - Who: adult children whose parent (70+) is online but fragile: bank transfers, MyChart bill pay and booking, Medicare and Social Security sites, saving a contact in WhatsApp.
