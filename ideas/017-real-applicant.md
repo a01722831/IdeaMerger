@@ -9,7 +9,7 @@ lens: "Pain-first"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [PRO-127, PRO-128, PRO-129, PRO-130, PRO-131, AI2-23, AI2-24, AI2-25]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Real Applicant
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Greenhouse Voice AI (September 2026) sells the same role-specific voice screen to any ATS, and rivals charge $1 to $6 per screen. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Small employers drown in AI-written applications; applicants take a short role-specific voice screen and the owner reviews a ranked shortlist.
@@ -87,7 +89,7 @@ Confidence: MED. FRONTIER: no. Honest read: CROWDED; section 18 recommends again
 
 ## 8. Why now, and why this does not exist yet
 - Why now: GPT Live bills $0.05 a minute and Gemini 3.8 Live about $0.005 in and $0.018 out (`research/LANDSCAPE.md` section 6); application volume is up (PRO-128).
-- Why it already exists: it was built by many teams in 2025 to 2026, including the largest independent ATS (section 10). The honest answer to "why not yet" is that it is already here.
+- Why it already exists: it was built by many teams in 2025 to 2026, including Greenhouse, a well-known ATS vendor (section 10). The honest answer to "why not yet" is that it is already here.
 
 ## 9. Inspiration and derivation
 - Parents: Greenhouse Voice AI, Ribbon and Alex (AI phone and video screens), Proof and Sardine (identity fraud checks), oral exams.

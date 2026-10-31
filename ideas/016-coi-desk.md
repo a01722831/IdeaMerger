@@ -9,7 +9,7 @@ lens: "Pain-first"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [PRO-021, PRO-022, PRO-023, PRO-025, PRO-024]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # COI Desk
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Certificial prices agency certificate issuance at $0 and the agency-management systems (Vertafore, Applied, HawkSoft, EZLynx) bundle certificate tools; the open slice is a loss-run and non-pay chaser, which would need its own evidence. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 An agent for small insurance agencies that drafts certificates of insurance from email requests and chases loss runs.
