@@ -32,7 +32,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] T4 Reviews of incumbent software (51 signals) -> tracks/04-reviews.md
 - [ ] T5 Service-to-software (Upwork/Fiverr) -> tracks/05-service-to-software.md
 - [ ] T6 Consumer life admin -> tracks/06-life-admin.md
-- [ ] T7 Second-order AI effects -> tracks/07-second-order-ai.md
+- [x] T7 Second-order AI effects (60 signals) -> tracks/07-second-order-ai.md
 - [ ] T8 Forcing functions -> tracks/08-forcing-functions.md
 - [ ] T9 Underserved users -> tracks/09-underserved.md
 - [ ] 2.x Consolidate research/SIGNALS.md (150+ distinct, grouped by theme, dupes merged)
@@ -109,6 +109,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 15:20: Wrote scripts/merge_signals.py (parses track tables) and scripts/signal_themes.py (24 themes + duplicate merges, main-thread judgment). Interim SIGNALS.md built: 153 distinct. Rebuild after each track lands.
 - 2026-10-31 15:40: T4 done (51; loudest theme: incumbents' bolted-on AI backfiring). Added themes incl. incumbent-ai. Started T7.
 - 2026-10-31 16:00: T3c done (45). Started T8 forcing functions. Running: T5, T6, T7, T8. T9 next.
+- 2026-10-31 16:20: T7 done (60). Split AI themes into ai-slop, ai-verify, ai-fakes, agent-oversight, ai-cost, scams, ai-education, shadow-ai. Started T9 (last pain track). T5/T6 files are on disk but agents not yet reported back.
 
 ## Counts
 - Signals: 255 raw / 245 distinct after T1-T4 + LAND (T5-T9 pending)
