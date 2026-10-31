@@ -10,11 +10,11 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] 0.1 MISSION.md (brief verbatim)
 - [x] 0.2 CLAUDE.md (standing orders)
 - [x] 0.3 ops/PROGRESS.md (this file)
-- [ ] 0.4 ops/RESEARCH_BRIEF.md for subagents
-- [ ] 0.5 METHODOLOGY.md (rubric + kill criteria)
-- [ ] 0.6 research/SOURCES.md + skeleton (README.md, REPORT.md, ideas/INDEX.md, ideas/POOL.md, research/SIGNALS.md, research/LANDSCAPE.md, scripts/build_index.py)
-- [ ] 0.7 Tool test: one WebSearch, one WebFetch, one curl
-- [ ] 0.8 Commit and push
+- [x] 0.4 ops/RESEARCH_BRIEF.md for subagents
+- [x] 0.5 METHODOLOGY.md (rubric + kill criteria)
+- [x] 0.6 research/SOURCES.md + skeleton (README.md, REPORT.md, ideas/INDEX.md, ideas/POOL.md, research/SIGNALS.md, research/LANDSCAPE.md, scripts/build_index.py)
+- [x] 0.7 Tool test: one WebSearch, one WebFetch, one curl
+- [x] 0.8 Commit and push
 
 ### Phase 1: landscape -> research/LANDSCAPE.md
 - [ ] 1.1 Subagent A: AI launches (PH, YC, BetaList, Uneed, Microlaunch, Peerlist, directories), 30+ products -> research/landscape/launches.md
@@ -96,6 +96,10 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 12:34 UTC: Session start. Repo had only Init.txt ("Start here.."). Kept it (harmless). Branch exists locally and on origin.
 - 2026-10-31: Decision: landscape subagents write to research/landscape/*.md (one file each), main thread synthesizes research/LANDSCAPE.md. Keeps the "two subagents never write the same file" rule.
 - 2026-10-31: Decision: subagents for pain mining use model "sonnet" (mid-tier) per brief. Development drafting also uses sonnet to save budget; main thread (this one) reviews and owns scores.
+
+- 2026-10-31 12:50: Tool test done. WebSearch OK; WebFetch OK on most sites; curl OK for HN Algolia, Apple RSS reviews, Stack Exchange API, Discourse search.json. BLOCKED: Reddit (curl+WebFetch 403, mirrors 429/503), Product Hunt, G2, Trustpilot, Upwork, Fiverr, Indie Hackers, Peerlist, TAAFT, Bluesky API, web.archive.org. Network is not broadly restricted; lean on HN/StackExchange/app reviews for exact quotes and WebSearch for Reddit/PH (titles only).
+- 2026-10-31: Wrote scripts/hn_search.py and scripts/app_reviews.py so subagents get exact text cheaply.
+- 2026-10-31 12:55: Phase 0 committed and pushed. Launching Phase 1 (3 landscape subagents, model sonnet).
 
 ## Counts
 - Signals: 0
