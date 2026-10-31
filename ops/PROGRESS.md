@@ -40,9 +40,9 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 
 ### Phase 3: ideation and screening -> ideas/POOL.md
 - [x] 3.1 Capability x persona grid (in POOL.md)
-- [ ] 3.2 200+ seeds, >=15 per lens (9 lenses) + 10 wild
-- [ ] 3.3 Screen: red zones, kill criteria, merges, status per seed
-- [ ] 3.4 Advance ~50 with 3-5 line concept notes
+- [x] 3.2 200+ seeds, >=15 per lens (9 lenses) + 10 wild
+- [x] 3.3 Screen: red zones, kill criteria, merges, status per seed
+- [x] 3.4 Advance ~50 (38 concept notes written; gap-fill batch G pending) with 3-5 line concept notes
 - [ ] 3.5 Commit and push
 
 ### Phase 4: development -> ideas/NNN-slug.md
@@ -113,10 +113,11 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 16:40: T5 (63) and T6 (55) done and themed; new themes freelance-market, data-conversion, accessibility-remediation, translation, household-records, immigration, family-records. Running: T8, T9.
 - 2026-10-31 17:00: Launched T10 gap-fill (prefix GAP-) to test 9 candidate areas with thin evidence (contents claims, deposits, estate cleanouts, cargo claims, rental scams, tariff refunds, contractor quotes, inspectors, vendor payment fraud). Drafted POOL.md (159 seeds, 31 developed). Decision: kills based on known incumbents say 'not re-searched' when not verified in this project.
 - 2026-10-31 17:30: T8 and T9 done and themed. Pool now has forcing-function and underserved lenses plus 12 wild seeds. Waiting on T10 gap-fill to resolve 9 pending seeds.
+- 2026-10-31 17:50: Concept notes for 38 advanced seeds written in POOL.md with idea numbers 001-038 and batches A-F (G = gap-fill outcomes). Re-opened S020 Food Cost Buddy for a competition check (restaurants otherwise unrepresented). Added build_index.py --dry-run/--only so drafting agents can validate without writing INDEX.
 
 ## Counts
 - Signals: 540 raw / 525 distinct (116 strong) after T1-T9 + LAND; T10 gap-fill pending
-- Seeds: 159 drafted (7 lenses); forcing, underserved, wild pending T8/T9/T10
+- Seeds: 213 (201 S + 12 W); developed 38 (+ up to 9 pending T10)
 - Idea files: 0
 - Deep dives: 0
 

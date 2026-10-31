@@ -100,9 +100,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fix", action="store_true")
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--dry-run", action="store_true", help="validate only; do not write INDEX.md or scoreboard.csv")
+    ap.add_argument("--only", default="", help="validate only files whose name contains this substring")
     a = ap.parse_args()
 
     files = sorted(glob.glob(os.path.join(IDEAS, "[0-9][0-9][0-9]-*.md")))
+    if a.only:
+        files = [f for f in files if a.only in os.path.basename(f)]
     rows, warnings = [], []
     sig_ids = known_signal_ids()
 
@@ -182,6 +186,12 @@ def main():
     dead = [r for r in rows if r["status"] == "killed"]
     live.sort(key=lambda r: (-r["total"], r["id"]))
     dead.sort(key=lambda r: (-r["total"], r["id"]))
+
+    if a.dry_run or a.only:
+        print(f"Validated {len(rows)} idea files (dry run, nothing written). Known signal IDs: {len(sig_ids)}.")
+        for wmsg in warnings:
+            print("WARN", wmsg)
+        return 1 if warnings else 0
 
     # INDEX.md
     out = ["# Idea index", "",
