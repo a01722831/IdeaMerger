@@ -1,7 +1,7 @@
 # Landscape (October 2026)
 
 Synthesis of three research files in `research/landscape/`:
-- `launches.md`: what is launching (Product Hunt, YC batches, launch sites, directories), crowded vs emerging, 35+ products worth remixing.
+- `launches.md`: what is launching (Product Hunt, YC batches, launch sites, directories), crowded vs emerging, 95 products worth remixing, HeyClicky calibration.
 - `capabilities.md`: what models can newly do, what the big assistants now ship natively, full price tables, cost cheat sheet.
 - `theses-graveyard.md`: YC Requests for Startups, 20 VC theses, 26 dead or absorbed AI products and why.
 
@@ -30,6 +30,11 @@ Generic chat assistants and chat-with-your-docs; meeting notetakers, note-taking
 | "AI-native services" in insurance brokerage, accounting/audit, healthcare revenue cycle, legal transactions | Most crowded VC thesis (Sequoia, Bessemer, General Catalyst $1.5B, Mayfield $100M fund); licenses and enterprise procurement also hit kill criteria |
 | Standalone consumer novelty apps (AI video feeds, AI social) | Sora: ~1M users to under 500k, ~$1M/day burn; Huxe, Yupp, Figgs, Dot died |
 | Hardware companions and pendants | Humane, Rabbit, Limitless (also violates the no-hardware rule) |
+| AI visibility / GEO trackers ("get recommended by ChatGPT") | Many PH launches in 2025 to 2026 (ReSO, Promptmonitor, Anvil), 2 YC S26 companies (Scope, Armature), several on BetaList |
+| Dictation and push-to-talk typing | Wispr Flow (reported $280M raise), MacWhisper, superwhisper, Aqua Voice, many PH launches; OpenAI desktop voice 2026-07-23 |
+| Generic Mac/PC voice assistants and overlays (indie Clicky clones) | Six Show HN clones in 10 months (Lenma, VibeWhisper, Hitoku Draft, Wisp, Atticus, Ida), plus VoiceOS, Goldfish, Clico, Sider Omni; labs entering |
+| Invisible live-coaching overlays (sales calls, interviews) | Cluely (~$7M ARR claimed 2025) and copycats (Glass, TalkPilot, PitchMonster); also a cheating risk |
+| Developer agent infrastructure (MCP servers, sandboxes, gateways, evals, agent memory) | 22 of 40 Launch HN posts since April 2026; "agent" or "MCP" in 42 to 48% of top-50 PH names mid-2026 |
 
 ## 3. Capability unlocks and what they enable
 Maturity: production = runs unattended at volume; usable = real products with human oversight or narrow scope; experimental = demos.
@@ -133,4 +138,38 @@ Caveats: Haiku 5.5 reprices the whole request to $0.50/$2.50 above 100K prompt t
 12. **"Services as software" is not a free pass**: most crowded thesis; implementation-heavy delivery does not fit a solo founder unless the product is self-serve.
 
 ## 8. AI launches: crowded vs emerging
-See section 9 (added after `launches.md` lands).
+Source: `launches.md` (95 products with links, YC batch counts from a mirror of YC's directory, Product Hunt via mirrors, BetaList, Uneed, Microlaunch, Futurepedia).
+
+**Baseline.** AI words appear in 73 to 85% of every YC batch since Winter 2025, so AI is no longer a differentiator. "Agent" language rose to 29 to 30% of one-liners (Spring and Fall 2026); robotics rose from 1 to 5% (2025) to 8 to 11% (2026). YC has nearly stopped funding AI SDRs, support bots and notetakers (0 to 2% of one-liners in 2026) while launch sites stay full of them (BetaList ~32% AI; ~35 to 42% of Microlaunch AI listings are media-generation wrappers). Extruct's analysis of W26 puts "AI-native service" companies at 28% of the batch, the largest cluster.
+
+**Crowded on launch sites:** media generators and model wrappers; coding agents and their tooling; developer agent infrastructure; GEO/AI-visibility trackers; chat widgets, AI receptionists, support bots and SDRs; dictation; indie Mac voice overlays; notetakers and inbox assistants; invisible live-coaching overlays; "Cursor for X / Lovable for X" positioning.
+
+**Emerging (each with products in `launches.md`):**
+1. Hold-a-key desktop voice agents (HeyClicky cluster). New but already contested by labs.
+2. Ambient work memory that agents can query (Screenpipe YC S26, Littlebird, Sentient OS). Privacy objections are the sharpest in the sample (LAND-01).
+3. Proactive agents behind approval gates (jo, Moonshot, Memoir; labs arrived in Oct 2026 with Claude Duet and OpenAI Dots).
+4. Supervising fleets of agents (Rindler, Paradev, Muster, Nowdex): "past two or three sessions, you become the bottleneck" (LAND-08).
+5. Agents as customers: payments, identity, discovery (Orthogonal, Bluerails, Armature).
+6. No-API automation sold as an API or finished service (Minicor, Kampala, Lance, Zomma).
+7. Shipping inside the LLM client as MCP apps (Kipper, Floot, Skybridge).
+8. AI-native services with outcome or milestone pricing (Panacea, Altair Health with a theorem-prover gate, Arden audit workpapers).
+9. Bring-your-own-subscription agents where the user's model plan carries cost of goods (Atticus, Turnstone, Agibot, OpenWork).
+10. The post-build stack for vibe coders: distribution, payments, security (CREEM, Pancake, Harden).
+11. Physical AI (context only; outside this project's constraints).
+
+### HeyClicky calibration (the interaction bar)
+HeyClicky (YC Spring 2026, from Farza's open-source Clicky) sits by the cursor, sees the screen only when you press a hotkey, answers by voice, points at UI elements, and can spawn background agents. Pricing: Free, $20 Pro, $100 Max, metering "agent messages" while talk stays unlimited. It reached Product Hunt #6 of the day (2026-04-11) and claims 25,000+ users [UNVERIFIED]; no revenue figure was found. Within months it was cloned (six Mac voice or overlay Show HNs) and absorbed (ChatGPT desktop voice plus computer control 2026-07-23; Claude Duet 2026-10-21; OpenAI Dots on PH Oct 2026). **Lesson for this project (interpretation):** the HeyClicky interaction pattern is the right bar for "AI is the interaction", but the generic version is now a lab feature. A defensible version attaches the pattern to a narrow job with domain data, a specific system of record, or a workflow the labs will not go deep on (for example a niche professional app, a government portal, a regulated checklist).
+
+### Interaction patterns worth stealing
+1. Consent by gesture: capture only while a key is held (HeyClicky, Goldfish, Atticus). Always-on capture draws privacy objections.
+2. The cursor as context and pointer (VoiceOS, Clicky pointing, "spatial feedback loops").
+3. Meter the expensive thing, not the conversation (HeyClicky caps agent messages, talk is unlimited).
+4. Ride the user's existing model access (Atticus via `claude -p`, Agibot "free forever with your key"). Moves cost of goods to the user; vendor-terms risk.
+5. Cheap path first: local routing, replay saved steps without AI, "show it once, let it run" (Atticus, IrisGo, Minicor).
+6. Autonomy with explicit approval gates (Dardaris, Claude Duet, Altair Health's theorem-prover gate with human fallback).
+7. The agent lives in a channel people already use (iMessage, Slack, Teams, Telegram, email).
+8. Background and overnight work, ready by morning (Sentient OS, HeyClicky Agent).
+9. One orchestrator to talk to, plus a phone remote (Rindler, Paradev, Muster).
+10. Outcome, milestone or per-call pricing (Panacea, Orthogonal, Altair Health, pay-per-minute transcription).
+11. Deliver the finished artifact, not a chat answer (Open Portal, Arden workpapers, Memoir).
+12. Open-source seed, paid product on top (Clicky to HeyClicky, Agent Relay, OpenWork).

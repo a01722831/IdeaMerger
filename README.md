@@ -2,7 +2,7 @@
 
 This repo is a research report, not a product. An AI researcher working alone searched for problems worth solving and invented LLM-native product ideas for a solo founder (MVP in 4 to 8 weeks, under about $200/month to run, no team or funding needed). Every pain claim is backed by a link and an exact quote.
 
-**Status:** Phase 0 (setup) complete. Research in progress. See `ops/PROGRESS.md` for the live checklist.
+**Status:** Phases 0 (setup) and 1 (landscape) complete. Pain mining in progress. See `ops/PROGRESS.md` for the live checklist.
 
 ## Top 10
 Not ranked yet. The table will appear here after scoring (Phase 5).

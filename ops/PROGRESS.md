@@ -17,11 +17,11 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] 0.8 Commit and push
 
 ### Phase 1: landscape -> research/LANDSCAPE.md
-- [ ] 1.1 Subagent A: AI launches (PH, YC, BetaList, Uneed, Microlaunch, Peerlist, directories), 30+ products -> research/landscape/launches.md
-- [ ] 1.2 Subagent B: capability unlocks + current API prices -> research/landscape/capabilities.md
+- [x] 1.1 Subagent A: AI launches (PH, YC, BetaList, Uneed, Microlaunch, Peerlist, directories), 30+ products -> research/landscape/launches.md
+- [x] 1.2 Subagent B: capability unlocks + current API prices -> research/landscape/capabilities.md
 - [x] 1.3 Subagent C: theses (YC RFS, VC theses) + graveyard -> research/landscape/theses-graveyard.md
-- [ ] 1.4 Synthesize research/LANDSCAPE.md (red zones, unlocks, timing, price table, traps)
-- [ ] 1.5 Commit and push
+- [x] 1.4 Synthesize research/LANDSCAPE.md (red zones, unlocks, timing, price table, traps)
+- [x] 1.5 Commit and push
 
 ### Phase 2: pain mining -> research/tracks/*.md, then research/SIGNALS.md
 - [ ] T1 Hacker News (Ask HN wishes, frustrations, would-pay; Show HN AI comments) -> tracks/01-hn.md
@@ -69,7 +69,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 
 ## Definition of done (mirror of MISSION.md)
 - [ ] MISSION.md, CLAUDE.md, METHODOLOGY.md, ops/PROGRESS.md, ops/RESEARCH_BRIEF.md exist
-- [ ] LANDSCAPE.md and SOURCES.md complete
+- [x] LANDSCAPE.md and SOURCES.md complete (SOURCES.md keeps growing)
 - [ ] All 9 pain tracks covered
 - [ ] SIGNALS.md has 150+ sourced signals
 - [ ] POOL.md has 200+ seeds, each with a status
@@ -102,6 +102,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 12:55: Phase 0 committed and pushed. Launching Phase 1 (3 landscape subagents, model sonnet).
 - 2026-10-31 13:20: Landscape C (theses/graveyard) done: 20 theses, YC W27 RFS, 26 graveyard cases. Subagent overran fetch budget slightly (11 vs 10).
 - 2026-10-31 13:20: Decision: rolling waves. Keep max 4 subagents running at once; started T1 HN and T2 Reddit/founders while landscape A and B finish.
+- 2026-10-31 14:05: Phase 1 done. LANDSCAPE.md synthesized from launches.md (95 products, YC batch stats, HeyClicky calibration), capabilities.md (9 unlocks, native features, price tables), theses-graveyard.md. Added 18 red zones. Started T3b. Note: subagents run 20-40 min each and use 250-500k tokens; keep prompts tight.
 
 ## Counts
 - Signals: 0

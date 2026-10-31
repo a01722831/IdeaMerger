@@ -27,5 +27,22 @@ Every source used or attempted, with access status. Track files list their exact
 | web.archive.org | curl | BLOCKED (connection reset) | |
 | ContractorTalk, DuckDuckGo HTML | curl 202 | challenge page | |
 
+## Sources added in Phase 1 (landscape)
+| Source | Status | Used for |
+|---|---|---|
+| hunted.space, aitoolly.com (Product Hunt mirrors) | works, deep pages flaky (8 failed requests) | Product Hunt daily and monthly rankings |
+| yc-oss mirror of YC directory | works | YC batch counts (regex over one-liners), spot-checked against live YC pages |
+| Modelence YC RFS mirrors | works (titles only) | YC Fall and Summer 2026 RFS titles |
+| ycombinator.com/rfs | partial (only Winter 2027 tab readable) | YC W27 RFS |
+| Official pricing pages: Anthropic (platform.claude.com), OpenAI (developers.openai.com), Google (ai.google.dev), DeepSeek, Deepgram, ElevenLabs | works | Price table (read 2026-10-31) |
+| LiteLLM model price JSON | works | Cross-check of headline prices |
+| npm, PyPI, Hugging Face JSON | works | MCP SDK adoption counts |
+| Futurepedia, BetaList, Microlaunch, Uneed | works | Directory category counts |
+| TechCrunch AI graveyard list, Google News RSS | works (RSS links are redirects) | Graveyard cases |
+| Toolify | BLOCKED (403) | |
+| GitHub REST API | BLOCKED (403) | |
+| help.openai.com | BLOCKED (403) | |
+| CNBC | BLOCKED (403); FT, Bloomberg, 404 Media paywalled | Headlines only |
+
 ## Sources added by research tracks
 Each track file has a "Method" and "Blocked sources" section. The main thread merges notable additions here after each wave.
