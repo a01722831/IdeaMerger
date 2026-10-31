@@ -26,8 +26,8 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 ### Phase 2: pain mining -> research/tracks/*.md, then research/SIGNALS.md
 - [x] T1 Hacker News (38 signals) (Ask HN wishes, frustrations, would-pay; Show HN AI comments) -> tracks/01-hn.md
 - [x] T2 Reddit founder/SaaS communities (39 signals) -> tracks/02-reddit-founders.md
-- [ ] T3a Professions batch A -> tracks/03a-professions.md
-- [ ] T3b Professions batch B -> tracks/03b-professions.md
+- [x] T3a Professions batch A (35 signals) -> tracks/03a-professions.md
+- [x] T3b Professions batch B (36 signals) -> tracks/03b-professions.md
 - [ ] T3c Professions batch C -> tracks/03c-professions.md
 - [ ] T4 Reviews of incumbent software -> tracks/04-reviews.md
 - [ ] T5 Service-to-software (Upwork/Fiverr) -> tracks/05-service-to-software.md
@@ -105,6 +105,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 14:05: Phase 1 done. LANDSCAPE.md synthesized from launches.md (95 products, YC batch stats, HeyClicky calibration), capabilities.md (9 unlocks, native features, price tables), theses-graveyard.md. Added 18 red zones. Started T3b. Note: subagents run 20-40 min each and use 250-500k tokens; keep prompts tight.
 - 2026-10-31 14:25: T1 HN done (38 signals; 13 strong). Started T3c.
 - 2026-10-31 14:45: T2 done (39 signals, exact Reddit text via Arctic Shift public archive). Wrote scripts/reddit_archive.py and added it to RESEARCH_BRIEF.md. Started T4 reviews.
+- 2026-10-31 15:05: T3a done (35) and T3b done (36). Both ran well past the soft API-call cap (read-only public endpoints; acceptable). T3a flagged that some late-2026 Reddit/BiggerPockets posts look like founders' research-seeding posts and excluded them. Started T5 service-to-software and T6 life admin.
 
 ## Counts
 - Signals: 0
