@@ -16,7 +16,9 @@ Every source used or attempted, with access status. Track files list their exact
 | BetaList, Uneed, Microlaunch | curl 200 | works | |
 | Capterra, Chrome Web Store | curl 200 | works (partial, JS-heavy) | |
 | BiggerPockets forums, Shopify Community | curl 200 | works | |
-| Reddit | curl and WebFetch | BLOCKED (403; mirrors 429/503) | Use WebSearch with site filter; quote titles only, marked (title) |
+| Reddit | curl and WebFetch | BLOCKED (403; mirrors 429/503; WebSearch allowed_domains reddit.com gives HTTP 400) | Use Arctic Shift public archive via `scripts/reddit_archive.py` (exact text) |
+| Arctic Shift Reddit archive (arctic-shift.photon-reddit.com) | listing endpoint | works (full-text query times out) | Exact Reddit titles and bodies with dates; found by track T2 |
+| PullPush Reddit API | curl | BLOCKED (429, refuses agents) | |
 | Product Hunt | curl | BLOCKED (403) | Use WebSearch and roundups |
 | G2 | curl | BLOCKED (403) | Use WebSearch snippets, Capterra, app stores |
 | Trustpilot | curl | BLOCKED (403) | |

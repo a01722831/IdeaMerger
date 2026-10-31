@@ -28,7 +28,7 @@ Works:
 - Lobsters JSON (`https://lobste.rs/hottest.json`), Google News RSS (`https://news.google.com/rss/search?q=<query>`), YC company pages, BetaList, Uneed, Microlaunch, Capterra pages, Chrome Web Store pages, BiggerPockets forums, Shopify Community (try WebFetch).
 
 Blocked or unreliable (do not retry more than once):
-- Reddit (403 for curl and WebFetch, mirrors rate-limited). Use WebSearch with `site:reddit.com` or `allowed_domains: ["reddit.com"]`; you may quote a thread title verbatim and mark it `(title)`. Do not claim body text you did not see.
+- Reddit direct (403 for curl and WebFetch; WebSearch with allowed_domains reddit.com returns HTTP 400). **Use the public Arctic Shift archive instead, via the helper:** `python3 scripts/reddit_archive.py <sub1,sub2> --since 2025-05-01 --windows 3 --grep "is there|tool|software|hours|pay for" --max-chars 400`. It returns exact titles and post bodies with dates and permalinks (`https://www.reddit.com/r/<sub>/comments/<id>/`). It pulls the newest 100 posts per window and filters locally (its server-side full-text search times out), so pick subreddits carefully and keep windows small. PullPush answers 429 for agents; do not use it.
 - Product Hunt, G2, Trustpilot, Upwork, Fiverr, Indie Hackers, Peerlist, There's An AI For That (403 to curl). Try WebFetch once; if blocked, use WebSearch results, newsletters, roundups, or mirrors that cover the same launches or reviews.
 - web.archive.org (connection reset). archive.org availability API works but is rarely useful.
 If a source fails twice, list it under "Blocked sources" at the bottom of your file.
