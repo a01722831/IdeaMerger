@@ -9,7 +9,7 @@ lens: "Pain-first"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [REV-33, REV-32, REV-34, PRO-229, PRO-226]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Gap Filler
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Vagaro's Fill My Books with Vera (included in the subscription), Boulevard's Precision Scheduling (raised $80M) and waitlists in Fresha and GlossGenius fill gaps from inside the booking platform that owns the calendar. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Compacts a stylist's day by offering clients earlier or later slots and filling cancellations from a waitlist.

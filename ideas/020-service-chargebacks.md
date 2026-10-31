@@ -9,7 +9,7 @@ lens: "Transplant"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [REV-03, REV-31, REV-24, PRO-218, PRO-219, SVC-45]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Service Chargebacks
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Stripe Smart Disputes compiles and submits evidence automatically, Chargeflow (raised $35M, integrates with Square), ChargePilot (Stripe app, 15% fee) and Shopify dispute apps cover the job, and processors control the dispute channel. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Builds reason-code-specific chargeback evidence packets from job records for salons, trades and studios paid by card.

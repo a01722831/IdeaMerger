@@ -9,7 +9,7 @@ lens: "Interaction shift"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [REV-17, REV-01, REV-18, REV-23, REV-30]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Forward-to-Post
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Receiptor AI, Dext, Hubdoc, Tailride (WhatsApp to QuickBooks or Xero with plain-language rules), Receipt Bot and Inbox Ledger already post forwarded documents and learn rules. Correction memory is a feature. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Forward receipts, invoices and work orders; they post to the right record in your existing software and learn corrections.

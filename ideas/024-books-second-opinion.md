@@ -9,7 +9,7 @@ lens: "Second-order AI"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [HN-02, PRO-103, PRO-104, REV-18, REV-19, REV-21, SVC-05, SVC-20]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Books Second Opinion
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Intuit's own Accounting Agent reviews QuickBooks books for duplicates and accounting issues, and XBert, VERIFYiQ, Scrutinize and Xenett sell review tools to bookkeepers. The 'independent auditor' angle does not outrun the platform. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Audits AI-kept or human-kept QuickBooks and Xero books monthly and writes a CPA-ready memo with proposed journal entries.

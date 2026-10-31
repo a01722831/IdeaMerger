@@ -9,7 +9,7 @@ lens: "Pain-first"
 frontier: false
 competition: "CROWDED"
 confidence: "LOW"
-status: "developed"
+status: "killed"
 signals: [RED-19, RED-20, RED-06, RED-18]
 scores:
   pain: 2
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Wholesale Desk
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. More than ten Shopify apps turn emailed POs into draft orders (NoRetype, Orderseam, FolioPO, POinbox and others, from free to $199 a month), and funded order-entry agents (Comena YC S25, Stockline) sit one segment up. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Turns wholesale purchase orders arriving by email, PDF or chat into checked Shopify draft orders and net-terms invoices.

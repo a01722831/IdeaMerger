@@ -9,7 +9,7 @@ lens: "Newly possible"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [REV-07, REV-08, REV-09, PRO-005, PRO-003, REV-10]
 scores:
   pain: 4
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Job Walk
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Jobber's AI voice mode creates quotes, Housecall Pro ships voice-to-invoice, and ServiceTitan's Atlas with Max reached all residential contractors in October 2026. The vertical incumbents own the price book and the workflow. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Tech talks while walking the job and snaps photos; AI returns good-better-best estimates from the shop's price book.

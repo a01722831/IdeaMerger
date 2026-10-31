@@ -9,7 +9,7 @@ lens: "Service-to-software"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [SVC-07, SVC-08, SVC-09, SVC-11, SVC-12, SVC-15, SVC-19, RED-37, PRO-104]
 scores:
   pain: 4
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Backlog Books
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Accounting Ketchup sells exactly this shape (AI QuickBooks cleanup at a flat rate per backlog month), alongside Otto, Docyt, Botkeeper, Booke and Balance (YC). An unexplored re-scope: financial reconstruction for divorce or loan files (SVC-11), which would need its own evidence. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Turns months of unreconciled statements into a categorized, evidence-linked ledger and accountant-ready export at a fixed price per month.

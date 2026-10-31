@@ -9,7 +9,7 @@ lens: "Pain-first"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [PRO-011, PRO-012, PRO-013, REV-13, REV-14, REV-15, REV-17]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Fix Desk
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Vendoroo (AI maintenance coordinator, about $3 to $8.50 per door), Latchel ($15 to $25 per unit, owners can add their own technicians), AppFolio Realm-X Maintenance Performer and DoorLoop's AI intake already triage and dispatch. 'Own vendors plus owner approval' is a feature, not a moat. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Text-and-voice maintenance line that triages tenant requests and books a landlord's own vendors, with one-tap owner approval.

@@ -9,7 +9,7 @@ lens: "Pain-first"
 frontier: false
 competition: "CROWDED"
 confidence: "LOW"
-status: "developed"
+status: "killed"
 signals: [PRO-009, PRO-006, RED-39, PRO-031, PRO-010]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Scope Guard
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Handoff (YC W20, raised $5.8M) ships AI change orders with client e-signature and payment; Houzz Pro, JobTread and Foreman (YC) cover the rest, plus several small text-to-change-order tools. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Turns client texts and site voice notes into priced change orders signed before the extra work starts.

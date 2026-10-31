@@ -9,7 +9,7 @@ lens: "Pain-first"
 frontier: false
 competition: "CROWDED"
 confidence: "HIGH"
-status: "developed"
+status: "killed"
 signals: [LIFE-01, LIFE-02, LIFE-03, LIFE-04, LIFE-05, LIFE-07, LIFE-08, LIFE-12, HN-18, SVC-47, REV-40]
 scores:
   pain: 4
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Bill Detective
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Granted Health, Sheer Health, BillFighter ($39 per bill), Hedical, ApproveIt, Claimer, MedBillAI and Nayya already reconcile bills and EOBs and fight denials, some including phone calls. The pain is real and strong; the market is not open. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Reconciles medical bills against EOBs line by line, then drafts the letters and appeals to fix them.

@@ -116,11 +116,13 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 17:50: Concept notes for 38 advanced seeds written in POOL.md with idea numbers 001-038 and batches A-F (G = gap-fill outcomes). Re-opened S020 Food Cost Buddy for a competition check (restaurants otherwise unrepresented). Added build_index.py --dry-run/--only so drafting agents can validate without writing INDEX.
 - 2026-10-31 18:00: Wrote ops/DEV_BRIEF.md (shared drafting instructions). Launched development batches A (7 back-office ideas), B (7 field/freight), C (6 families/health), model sonnet. T10 gap-fill still running. Remaining: D (6), E (5), F (7), G (gap-fill outcomes).
 - 2026-10-31 18:20: T10 done (46 signals). Resolved pending seeds: developed S032 Contents Claim Builder (039), S145 Payee Shield (040), S074 Quote Second Opinion (041, likely crowded, checked anyway); killed deposits, estate inventory, inspectors, rental scams, cargo claims, estate-sale autopilot. Batch plan: D = 008, 013, 014, 015, 027, 034, 039, 041; E = 021, 023, 030, 031, 033, 040; F = 016, 017, 018, 025, 026, 028, 035.
+- 2026-10-31 17:05: Usage limit hit at about 16:40 UTC; all four drafting agents stopped. Batches A, B, C had finished writing all 20 files (validated clean); batch D had written nothing. After reset (user confirmed), resumed D via SendMessage and launched E and F.
+- 2026-10-31 17:20: Reviewed batches A-C. Killed 11 CROWDED drafts (003 Fix Desk, 004 Scope Guard, 009 Bill Detective, 011 Gap Filler, 012 Wholesale Desk, 019 Job Walk, 020 Service Chargebacks, 022 Backlog Books, 024 Books Second Opinion, 029 Forward-to-Post, 038 Food Cost Buddy); each keeps its competition check with a review note. Finding for the report: generic SMB back-office AI (bookkeeping, receipts, chargebacks, booking gaps, quotes from voice, wholesale POs, maintenance dispatch) is saturated by incumbents' own AI plus many small entrants as of late 2026. Live after review: 001, 002, 005, 006, 007, 010, 032, 036, 037. Decision: no second ideation wave; 41 developed files meets the 40+ target, and live ideas from D-F should give enough for a diverse top 12.
 
 ## Counts
 - Signals: 586 raw / 571 distinct (130 strong) across 10 tracks + LAND; 54 themes
 - Seeds: 213 (201 S + 12 W); 41 developed; all pending resolved
-- Idea files: 0
+- Idea files: 20 drafted (A, B, C); 9 live, 11 killed as CROWDED after review; D, E, F (21) in progress
 - Deep dives: 0
 
 ## Blocked sources

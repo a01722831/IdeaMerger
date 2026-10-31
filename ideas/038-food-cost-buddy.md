@@ -9,7 +9,7 @@ lens: "Pain-first"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [PRO-221, PRO-223, PRO-225, REV-49, REV-50]
 scores:
   pain: 4
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Food Cost Buddy
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. MarginEdge (raised an $80M Series D in August 2026, 13,000+ restaurants, photo invoice capture), Toast xtraCHEF, Restaurant365 and MarketMan serve the job; chat-first intake is a feature they can add. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Text a photo of a supplier invoice; get updated recipe costs, price-jump alerts and a weekly reconciliation.
