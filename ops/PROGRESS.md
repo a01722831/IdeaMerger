@@ -24,7 +24,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] 1.5 Commit and push
 
 ### Phase 2: pain mining -> research/tracks/*.md, then research/SIGNALS.md
-- [ ] T1 Hacker News (Ask HN wishes, frustrations, would-pay; Show HN AI comments) -> tracks/01-hn.md
+- [x] T1 Hacker News (38 signals) (Ask HN wishes, frustrations, would-pay; Show HN AI comments) -> tracks/01-hn.md
 - [ ] T2 Reddit founder/SaaS communities -> tracks/02-reddit-founders.md
 - [ ] T3a Professions batch A -> tracks/03a-professions.md
 - [ ] T3b Professions batch B -> tracks/03b-professions.md
@@ -103,6 +103,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 13:20: Landscape C (theses/graveyard) done: 20 theses, YC W27 RFS, 26 graveyard cases. Subagent overran fetch budget slightly (11 vs 10).
 - 2026-10-31 13:20: Decision: rolling waves. Keep max 4 subagents running at once; started T1 HN and T2 Reddit/founders while landscape A and B finish.
 - 2026-10-31 14:05: Phase 1 done. LANDSCAPE.md synthesized from launches.md (95 products, YC batch stats, HeyClicky calibration), capabilities.md (9 unlocks, native features, price tables), theses-graveyard.md. Added 18 red zones. Started T3b. Note: subagents run 20-40 min each and use 250-500k tokens; keep prompts tight.
+- 2026-10-31 14:25: T1 HN done (38 signals; 13 strong). Started T3c.
 
 ## Counts
 - Signals: 0
