@@ -134,7 +134,7 @@ Columns: ID / Name / One-liner / Target user / Lens / Signals / Status.
 | S090 | Benefits Plaid | YC's "Plaid for government benefits" moved to the caseworker's desk | Benefits navigators | Transplant | LIFE-32, LIFE-33, REV-48 | merged into S156 Benefits Portal Pilot |
 | S091 | Duty Contingency | Ownwell's contingency model moved to duty and tariff refunds | Small importers | Transplant | HN-15, PRO-213 | merged into S181 Tariff Refund Finder |
 | S092 | Landlord Notices | Rocket Lawyer-style document subscription moved to local landlord compliance notices (rent caps, just-cause) | Self-managing landlords | Transplant | PRO-013 | merged into S003 Fix Desk (compliance module) |
-| S093 | Shopify A11y Fixes | App-store distribution of real accessibility code fixes (not overlays) for stores selling into the EU | Shopify merchants selling to the EU | Transplant | SVC-32 | pending (forcing-function track T8) |
+| S093 | Shopify A11y Fixes | App-store distribution of real accessibility code fixes (not overlays) for stores selling into the EU | Shopify merchants selling to the EU | Transplant | FORCE-20, FORCE-22, FORCE-23, FORCE-24, SVC-32 | developed |
 | S094 | Household Payroll | Gusto pattern moved to families employing nannies and caregivers | Household employers | Transplant | none | killed: crowded (HomePay, GTM Payroll) |
 | S095 | City Hall Desk | YC "AI for City Hall": permit intake and 311 triage for small towns | Small municipalities | Transplant | SVC-46 | killed: public-sector procurement is slow (enterprise-procurement kill criterion) |
 | S096 | Rate Terminal | Bloomberg-style freight-rate intelligence for owner-operators | Owner-operators | Transplant | PRO-028 | killed: DAT and Truckstop rate tools |
@@ -191,7 +191,7 @@ Columns: ID / Name / One-liner / Target user / Lens / Signals / Status.
 | S145 | Payee Shield | Verifies vendor bank-detail changes and urgent payment requests through independent channels | SMB finance and bookkeepers | Second-order AI | AI2-46, AI2-45 | pending (gap-fill topic 9) |
 | S146 | Workslop Squeeze | Compresses AI-padded documents to their real content | Knowledge workers | Second-order AI | AI2-14, AI2-15 | killed: summarization is native in every assistant |
 | S147 | Report Fact Check | Checks numbers and claims in AI-written client reports | Agencies, consultants | Second-order AI | AI2-14, AI2-19 | killed: weak willingness-to-pay evidence |
-| S148 | AI Label Desk | Tracks AI-generated assets and applies EU AI Act Article 50 labels | Small publishers and marketers | Second-order AI | AI2-59 | pending (forcing-function track T8) |
+| S148 | AI Label Desk | Tracks AI-generated assets and applies EU AI Act Article 50 labels | Small publishers and marketers | Second-order AI | AI2-59, FORCE-53 | killed: thin evidence, AI Act dates moving (FORCE-53), and creation tools embed provenance labels themselves |
 | S150 | Scam Call Screen | Screens calls to elderly parents for voice-clone scams | Families of older adults | Second-order AI | AI2-41, AI2-42, AI2-43, AI2-44, HN-29 | killed: platform features (Pixel scam detection, iOS call screening, carrier scam shields) plus Truecaller and Aura |
 | S151 | Family Code Word | Family verification phrases and drills | Families | Second-order AI | AI2-43, AI2-44 | killed: feature-sized, low willingness to pay |
 | S152 | RFI Deduper | Dedupes AI-generated RFIs and prospect questions | GCs, insurance agents | Second-order AI | PRO-007, PRO-024 | killed: thin; Procore adds AI RFI tools; agency side folded into S026 |
@@ -220,12 +220,30 @@ Columns: ID / Name / One-liner / Target user / Lens / Signals / Status.
 | S180 | Walk-in Count | Voice inventory counts in the kitchen | Restaurants | Interaction shift | PRO-221 | killed: restaurant back office crowded |
 
 ### Lens 8: Forcing function
-Pending track T8 (forcing functions). Seeds already identified:
+Based on track T8 (14 live forcing functions; 6 dropped or delayed rules are in `research/SIGNALS.md` under "Forcing functions that were dropped or delayed").
 
 | ID | Name | One-liner | Target user | Lens | Signals | Status |
 |---|---|---|---|---|---|---|
-| S181 | Tariff Refund Finder | Finds overpaid duties and tariff refunds a small importer is owed and prepares the protest, correction or refund packet | Small importers and cross-border e-commerce sellers | Forcing function | HN-15, PRO-213, PRO-214, RED-18 | developed |
-| S182 | Product Compliance Desk | Tells a micro-seller exactly which product rules apply per country (EPR, WEEE, packaging, GPSR, CPSC eFiling), fills registrations and tracks reports | Micro-makers and small brands selling physical goods cross-border | Forcing function | HN-13, HN-14, RED-31, RED-34, PRO-220 | developed |
+| S181 | Tariff Refund Finder | Finds IEEPA tariff refunds and overpaid duties a small importer is owed and builds the CAPE refund files and correction packets | Small importers and cross-border e-commerce sellers | Forcing function | FORCE-04, FORCE-05, FORCE-06, HN-15, PRO-213, FORCE-01 | developed |
+| S182 | Product Compliance Desk | One product record becomes per-country obligations (EU packaging, WEEE, GPSR, EUR 3 duty; US CPSC eFiling), registrations, labels and report reminders | Micro-makers and small brands selling physical goods cross-border | Forcing function | HN-13, HN-14, FORCE-07, FORCE-08, FORCE-30, FORCE-33, FORCE-35, RED-31, PRO-220 | developed |
+| S183 | Micro Customs Desk | Ongoing HTS classification, entry prep and landed-cost checks now that de minimis is gone | Micro-importers | Forcing function | FORCE-01, FORCE-02, FORCE-03, PRO-214 | merged into S181 Tariff Refund Finder (ongoing duty-accuracy module) |
+| S184 | Proof of Hours | Collects and submits Medicaid and SNAP work-requirement proofs (pay stubs, gig earnings, exemptions) before each deadline | Medicaid expansion and SNAP enrollees; navigators | Forcing function | FORCE-11, FORCE-12, FORCE-13, FORCE-14, FORCE-15, FORCE-16 | merged into S156 Benefits Portal Pilot (same buyers: navigators and plans) |
+| S185 | Pay Range Desk | Checks job postings and pay ranges against EU and US state pay-transparency rules | SMB employers hiring across jurisdictions | Forcing function | FORCE-38, FORCE-39, FORCE-40 | killed: crowded (Syndio, Trusaic, Figures, Ravio, Payscale; known, not re-searched) and enterprise-leaning |
+| S186 | E-Invoice Fixer | Validates and repairs KSeF, Factur-X and XRechnung invoices for micro-businesses | EU micro-businesses | Forcing function | FORCE-25, FORCE-26, FORCE-27, FORCE-28, FORCE-29 | killed: accounting and e-invoicing vendors bundle it (FORCE-29 notes vendor panic-selling); crowded |
+| S187 | Authority Guard | Keeps a micro-carrier's FMCSA authority alive: Motus migration, insurance-filing mismatches, MCS-150, hijack alerts | Owner-operators and 1-10 truck carriers | Forcing function | FORCE-44, FORCE-42, FORCE-41, PRO-027, FORCE-45 | developed |
+| S188 | Roadside English | Voice practice for the roadside English-proficiency check and English-only CDL tests, taught from the driver's native language | Immigrant truck drivers | Forcing function | FORCE-43, FORCE-45 | pending (underserved track T9) |
+| S189 | EAD Gap Watch | Plans EAD renewals now that automatic extensions ended and tracks I-9 reverification | EAD holders and their employers | Forcing function | FORCE-46, FORCE-47 | killed: employer I-9 tools (Tracker, Equifax I-9) and immigration case software; consumer side is a reminder feature |
+| S190 | Traffic Rescue | Recovers small-site traffic lost to AI Overviews | Independent publishers | Forcing function | FORCE-48, FORCE-49, FORCE-50 | killed: red zone (GEO / AI visibility) |
+| S191 | Tips W-2 Fixer | New W-2 tip and overtime codes for small employers | Restaurants and salons | Forcing function | FORCE-09, FORCE-10, PRO-230 | killed: payroll providers (Gusto, ADP, Square, Toast) ship the codes |
+| S192 | EU Duty Calculator | Prices the EUR 3 per-item duty and handling fees into landed cost for non-EU sellers | Non-EU micro-sellers | Forcing function | FORCE-36, FORCE-37 | merged into S182 Product Compliance Desk |
+| S193 | Prior Auth API | Helps small practices use payers' new prior-authorization APIs | Small practices | Forcing function | FORCE-17, HN-16, PRO-112 | killed: crowded prior-auth automation (Infinitus, Tennr, Silna, Myndshft, Availity) |
+| S194 | WISeR Desk | Prior authorization for traditional-Medicare providers in the six WISeR states | Providers in NJ, OH, OK, TX, AZ, WA | Forcing function | FORCE-18 | killed: same crowding as S193; narrow geography |
+| S195 | CAPE Files for Brokers | Builds CAPE refund CSVs for small customs brokers | Customs brokers | Forcing function | FORCE-05 | merged into S181 Tariff Refund Finder (broker tier) |
+| S196 | Exemption Navigator | Tells chronically ill and disabled enrollees whether and how they are exempt | Medicaid and SNAP enrollees | Forcing function | FORCE-12, FORCE-13, FORCE-16 | merged into S156 Benefits Portal Pilot |
+| S197 | Gig Hours Proof | Converts gig-platform earnings into proof of hours | Gig workers on Medicaid | Forcing function | FORCE-15 | merged into S156 Benefits Portal Pilot |
+| S198 | EU Rep Finder | Matches micro-sellers with EU authorised representatives | Non-EU micro-sellers | Forcing function | FORCE-31, FORCE-35 | killed: the representative role needs an EU legal entity (license/partnership); matching is a marketplace |
+| S199 | GPSR Listing Fixer | Answers Amazon EU GPSR document requests | Amazon sellers expanding to the EU | Forcing function | FORCE-33, FORCE-34, FORCE-35 | merged into S182 Product Compliance Desk |
+| S200 | ADA Title II Desk | Remediates state and local government sites and documents before the (delayed) WCAG deadlines | Small public entities | Forcing function | FORCE-21, SVC-32 | merged into S107 Remediate |
 
 ### Lens 9: Underserved users
 Pending track T9 (underserved users). Seed already identified:
