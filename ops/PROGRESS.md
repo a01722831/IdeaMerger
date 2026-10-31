@@ -30,8 +30,8 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] T3b Professions batch B (36 signals) -> tracks/03b-professions.md
 - [x] T3c Professions batch C (45 signals) -> tracks/03c-professions.md
 - [x] T4 Reviews of incumbent software (51 signals) -> tracks/04-reviews.md
-- [ ] T5 Service-to-software (Upwork/Fiverr) -> tracks/05-service-to-software.md
-- [ ] T6 Consumer life admin -> tracks/06-life-admin.md
+- [x] T5 Service-to-software (63 signals, 48 with prices) -> tracks/05-service-to-software.md
+- [x] T6 Consumer life admin (55 signals) -> tracks/06-life-admin.md
 - [x] T7 Second-order AI effects (60 signals) -> tracks/07-second-order-ai.md
 - [ ] T8 Forcing functions -> tracks/08-forcing-functions.md
 - [ ] T9 Underserved users -> tracks/09-underserved.md
@@ -110,9 +110,10 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 15:40: T4 done (51; loudest theme: incumbents' bolted-on AI backfiring). Added themes incl. incumbent-ai. Started T7.
 - 2026-10-31 16:00: T3c done (45). Started T8 forcing functions. Running: T5, T6, T7, T8. T9 next.
 - 2026-10-31 16:20: T7 done (60). Split AI themes into ai-slop, ai-verify, ai-fakes, agent-oversight, ai-cost, scams, ai-education, shadow-ai. Started T9 (last pain track). T5/T6 files are on disk but agents not yet reported back.
+- 2026-10-31 16:40: T5 (63) and T6 (55) done and themed; new themes freelance-market, data-conversion, accessibility-remediation, translation, household-records, immigration, family-records. Running: T8, T9.
 
 ## Counts
-- Signals: 255 raw / 245 distinct after T1-T4 + LAND (T5-T9 pending)
+- Signals: 433 raw / 420 distinct after T1-T7 + LAND (T8, T9 pending)
 - Seeds: 0
 - Idea files: 0
 - Deep dives: 0
