@@ -33,8 +33,8 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] T5 Service-to-software (63 signals, 48 with prices) -> tracks/05-service-to-software.md
 - [x] T6 Consumer life admin (55 signals) -> tracks/06-life-admin.md
 - [x] T7 Second-order AI effects (60 signals) -> tracks/07-second-order-ai.md
-- [ ] T8 Forcing functions -> tracks/08-forcing-functions.md
-- [ ] T9 Underserved users -> tracks/09-underserved.md
+- [x] T8 Forcing functions (56 signals; 14 live, 6 dropped) -> tracks/08-forcing-functions.md
+- [x] T9 Underserved users (51 signals) -> tracks/09-underserved.md
 - [ ] 2.x Consolidate research/SIGNALS.md (150+ distinct, grouped by theme, dupes merged)
 - [ ] 2.y Commit and push after each wave
 
@@ -112,9 +112,10 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 16:20: T7 done (60). Split AI themes into ai-slop, ai-verify, ai-fakes, agent-oversight, ai-cost, scams, ai-education, shadow-ai. Started T9 (last pain track). T5/T6 files are on disk but agents not yet reported back.
 - 2026-10-31 16:40: T5 (63) and T6 (55) done and themed; new themes freelance-market, data-conversion, accessibility-remediation, translation, household-records, immigration, family-records. Running: T8, T9.
 - 2026-10-31 17:00: Launched T10 gap-fill (prefix GAP-) to test 9 candidate areas with thin evidence (contents claims, deposits, estate cleanouts, cargo claims, rental scams, tariff refunds, contractor quotes, inspectors, vendor payment fraud). Drafted POOL.md (159 seeds, 31 developed). Decision: kills based on known incumbents say 'not re-searched' when not verified in this project.
+- 2026-10-31 17:30: T8 and T9 done and themed. Pool now has forcing-function and underserved lenses plus 12 wild seeds. Waiting on T10 gap-fill to resolve 9 pending seeds.
 
 ## Counts
-- Signals: 433 raw / 420 distinct after T1-T7 + LAND (T8, T9 pending)
+- Signals: 540 raw / 525 distinct (116 strong) after T1-T9 + LAND; T10 gap-fill pending
 - Seeds: 159 drafted (7 lenses); forcing, underserved, wild pending T8/T9/T10
 - Idea files: 0
 - Deep dives: 0

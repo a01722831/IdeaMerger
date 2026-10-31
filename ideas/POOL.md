@@ -231,7 +231,7 @@ Based on track T8 (14 live forcing functions; 6 dropped or delayed rules are in 
 | S185 | Pay Range Desk | Checks job postings and pay ranges against EU and US state pay-transparency rules | SMB employers hiring across jurisdictions | Forcing function | FORCE-38, FORCE-39, FORCE-40 | killed: crowded (Syndio, Trusaic, Figures, Ravio, Payscale; known, not re-searched) and enterprise-leaning |
 | S186 | E-Invoice Fixer | Validates and repairs KSeF, Factur-X and XRechnung invoices for micro-businesses | EU micro-businesses | Forcing function | FORCE-25, FORCE-26, FORCE-27, FORCE-28, FORCE-29 | killed: accounting and e-invoicing vendors bundle it (FORCE-29 notes vendor panic-selling); crowded |
 | S187 | Authority Guard | Keeps a micro-carrier's FMCSA authority alive: Motus migration, insurance-filing mismatches, MCS-150, hijack alerts | Owner-operators and 1-10 truck carriers | Forcing function | FORCE-44, FORCE-42, FORCE-41, PRO-027, FORCE-45 | developed |
-| S188 | Roadside English | Voice practice for the roadside English-proficiency check and English-only CDL tests, taught from the driver's native language | Immigrant truck drivers | Forcing function | FORCE-43, FORCE-45 | pending (underserved track T9) |
+| S188 | Roadside English | Voice practice for the roadside English-proficiency check and English-only CDL tests, taught from the driver's native language | Immigrant truck drivers | Forcing function | FORCE-43, FORCE-45 | killed: T9 found no further signals; see S222 |
 | S189 | EAD Gap Watch | Plans EAD renewals now that automatic extensions ended and tracks I-9 reverification | EAD holders and their employers | Forcing function | FORCE-46, FORCE-47 | killed: employer I-9 tools (Tracker, Equifax I-9) and immigration case software; consumer side is a reminder feature |
 | S190 | Traffic Rescue | Recovers small-site traffic lost to AI Overviews | Independent publishers | Forcing function | FORCE-48, FORCE-49, FORCE-50 | killed: red zone (GEO / AI visibility) |
 | S191 | Tips W-2 Fixer | New W-2 tip and overtime codes for small employers | Restaurants and salons | Forcing function | FORCE-09, FORCE-10, PRO-230 | killed: payroll providers (Gusto, ADP, Square, Toast) ship the codes |
@@ -246,11 +246,48 @@ Based on track T8 (14 live forcing functions; 6 dropped or delayed rules are in 
 | S200 | ADA Title II Desk | Remediates state and local government sites and documents before the (delayed) WCAG deadlines | Small public entities | Forcing function | FORCE-21, SVC-32 | merged into S107 Remediate |
 
 ### Lens 9: Underserved users
-Pending track T9 (underserved users). Seed already identified:
+Based on track T9 (accessibility, older adults, emerging markets, deskless workers, niche businesses).
 
 | ID | Name | One-liner | Target user | Lens | Signals | Status |
 |---|---|---|---|---|---|---|
-| S201 | Chat-to-Ledger | Orders, bookings and payments that arrive in WhatsApp and Instagram chats become a ledger, invoices and matched payments | Chat-first micro-businesses (LatAm, India, activity businesses) | Underserved users | RED-17 | developed |
+| S201 | Chat-to-Ledger | Orders, bookings and payments that arrive in chats become a ledger, invoices, payment reminders and matched transfers, outside the chat app | Chat-first micro-businesses (Brazil, Mexico, India; DM-booked activity businesses) | Underserved users | UND-21, UND-22, UND-24, UND-51, RED-17, UND-27 | developed |
+| S202 | Form Voice | Fill any PDF or paper form by conversation and get a filled, signed, tagged PDF back | Blind, dyslexic and second-language users | Underserved users | UND-04, UND-05, UND-08, UND-30 | killed: general assistants with camera and file input now explain and fill forms; accessible output alone is a feature |
+| S203 | Onboarding Packets Accessible | Remediates employers' onboarding PDFs into fillable, screen-reader-ready forms | Employers hiring blind staff | Underserved users | UND-04, UND-05 | merged into S107 Remediate |
+| S204 | Wage Check | Reads pay stubs, timecards and gig statements to find unpaid hours, overtime and breaks, and prepares the dispute or agency complaint | Hourly, delivery and gig workers | Underserved users | UND-37, UND-38, UND-40, UND-42, UND-34 | developed |
+| S205 | Shift Saver | Reconciles EVV records with schedules and caregiver confirmations, fixes visit exceptions before billing, and phones caregivers to fill call-outs | Home care agencies (10-200 caregivers) | Underserved users | UND-43, UND-44, UND-45, UND-46, UND-33, UND-34, UND-35, UND-36, UND-17 | developed |
+| S206 | Pharmacy Phone Agent | AI phone assistant for independent pharmacies | Independent pharmacies | Underserved users | UND-50 | killed: older callers rejected an AI phone assistant (UND-50) and a funded pharmacy-AI vendor exists [UNVERIFIED] |
+| S207 | Funeral Paperwork | Death certificates, permits and pre-need contracts for funeral homes | Funeral homes | Underserved users | none | killed: no owner-voice evidence found (T9) |
+| S208 | Repair Write-up Merge | Consolidates DVI photos, scan-tool exports and labor guides into one repair order | Independent auto repair shops | Underserved users | UND-47, UND-48 | killed: labor-time data (ALLDATA, Mitchell) needs licenses; shop systems (Tekmetric, Shopmonkey, Shop-Ware) add AI |
+| S209 | Church Office | Giving statements and volunteer scheduling for small churches | Small churches | Underserved users | none | killed: no evidence found (T9) |
+| S210 | Farm Paperwork | USDA program and grant paperwork for small farms | Small farms | Underserved users | none | killed: no evidence found (T9) |
+| S211 | Relay Caller | Makes and takes voice calls for deaf and hard-of-hearing users by text | Deaf and hard-of-hearing adults | Underserved users | UND-01, UND-03, UND-09 | killed: free FCC-funded relay and captioned-call services plus OS live captions and type-to-speak |
+| S212 | Do It With Me | Family-configured routines (pay a bill, book a portal appointment) that an AI guides a parent through by voice and pointing, escalating to the adult child live | Older adults and their adult children | Underserved users | HN-21, UND-15, UND-16, UND-12, UND-19 | developed |
+| S213 | Remit Unstuck | Resolves remittance compliance holds | Migrants sending money home | Underserved users | UND-28, UND-29 | killed: holds are inside the provider's compliance process; a third party cannot act |
+| S214 | Notice in My Language | Explains foreign-language government notices and drafts replies | Migrants and international students | Underserved users | UND-30, UND-31 | merged into S008 Paper Trail (international variant) |
+| S215 | Hours Registry MX | Electronic work-hours registry for Mexican SMBs ahead of the 2027 rule | Mexican small employers | Underserved users | UND-32, UND-42 | killed: AI not load-bearing; HR and time-tracking vendors (Buk, Runa, Factorial, Sesame) will cover it |
+| S216 | Spec Book Reader | Finds a trade's own rules inside dense spec books for dyslexic tradespeople | Dyslexic project managers | Underserved users | UND-07 | killed: general assistants already do this (UND-07 uses them) |
+| S217 | Reading Aid | Reading support for dyslexic office workers | Dyslexic office workers | Underserved users | UND-08 | killed: crowded (Speechify, NaturalReader, OS features) |
+| S218 | Shift Grabber | Helps hourly workers win shift pickups | Hourly workers | Underserved users | UND-39, UND-41 | killed: employer-controlled systems with no access; automation would breach terms |
+| S219 | Gig Pay Reconciler | Matches gig app earnings to payouts | Gig drivers | Underserved users | UND-40 | merged into S204 Wage Check |
+| S220 | Call-out Filler | Phones available caregivers to fill a shift gap | Home care agencies | Underserved users | UND-44 | merged into S205 Shift Saver |
+| S221 | Tech Hiring Shop | Finds experienced technicians for auto shops | Auto repair shops | Underserved users | UND-49 | killed: hiring marketplace with network effects; job boards exist |
+| S222 | Roadside English | (moved from S188) Voice practice for roadside English checks | Immigrant truck drivers | Underserved users | FORCE-43, FORCE-45 | killed: two signals only, rule still proposed (FORCE-43), tutoring red zone |
+| S223 | CART Booker | Books live captioning for medical appointments | Deaf and hard-of-hearing patients | Underserved users | UND-02, UND-03 | killed: providers must supply accommodations; phone AI captions cover most cases |
 
 ### Wild ideas
-Pending.
+Deliberately unconventional seeds, screened like the rest.
+
+| ID | Name | One-liner | Target user | Lens | Signals | Status |
+|---|---|---|---|---|---|---|
+| W01 | Casework Copilot | Prepares a congressional casework request (privacy release, case summary, documents) when the IRS, SSA, VA or USCIS stalls | Constituents stuck with federal agencies | Wild | LIFE-29, LIFE-30, LIFE-31, LIFE-27, REV-47 | merged into S008 Paper Trail (escalation channel) |
+| W02 | Regulatory Twin | A live model of every rule that applies to one micro-business (tax, labor, product, privacy) that pushes diffs and to-dos | Micro-business owners | Wild | FORCE-01, FORCE-30, HN-13, RED-33, UND-32 | killed: scope too broad for a solo MVP; the product-rules slice lives in S182 |
+| W03 | Scam Honeypot Line | A line that keeps scammers talking and reports them, sold to families as a public-good subscription | Families of older adults | Wild | AI2-41, AI2-45, UND-14 | killed: no clear payer (O2's Daisy did this as PR) |
+| W04 | Estate Sale Autopilot | Photograph a home; AI prices, lists and sells the contents and books the haul-away | Families downsizing a parent's home | Wild | HN-22 | pending (gap-fill topic 3) |
+| W05 | Policy Genome | Public database of decoded insurance policies with a "will this be covered?" checker | Consumers | Wild | LIFE-05, REV-43 | killed: coverage answers are high-liability; policy documents are hard to obtain |
+| W06 | HOA Mediator | AI mediator for HOA violation disputes that cites the bylaws | Homeowners and HOA boards | Wild | AI2-26 | killed: single tangential signal |
+| W07 | Permit Predictor | Predicts permit approval time and objections from public records | Builders and homeowners | Wild | SVC-46 | killed: data access varies by city; PermitFlow-adjacent |
+| W08 | Life Admin Black Box | A tamper-evident record of everything you sent to and received from institutions | Consumers in disputes | Wild | LIFE-27, LIFE-48, LIFE-43 | merged into S008 Paper Trail |
+| W09 | Maintainer Second Chair | Company-funded AI triage seat for critical open-source projects | Open-source maintainers | Wild | AI2-01, AI2-03 | killed: no reliable payer |
+| W10 | Council Watch | Reads every local government agenda and tells a small business what affects it | Small businesses | Wild | HN-36 | killed: Hamlet and civic-tech players cover meeting monitoring (known, not re-searched) |
+| W11 | Product Rule Scanner | Scan a product's barcode and see which rules apply in each country | Micro-sellers | Wild | FORCE-07, FORCE-30 | merged into S182 Product Compliance Desk |
+| W12 | Job Audition Line | Applicants call a number and do a 10-minute voice simulation of the actual job | Employers hiring hourly roles | Wild | PRO-127, PRO-131, AI2-25 | merged into S027 Real Applicant |
