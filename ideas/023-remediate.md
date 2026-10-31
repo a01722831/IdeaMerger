@@ -9,7 +9,7 @@ lens: "Service-to-software"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [SVC-29, SVC-30, SVC-31, SVC-32, SVC-33, UND-04, UND-05, FORCE-21]
 scores:
   pain: 4
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Remediate
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Adobe's auto-tag API, the MIT-licensed AWS remediation pipeline, Allyant and Equidox, and self-serve rivals from $0.50 a page commoditize the core; the fresh angle (blind recipients of onboarding PDFs, UND-04, UND-05) has no payer. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Self-serve PDF accessibility remediation: upload documents, get tagged PDF/UA files with a validation report, priced per page.

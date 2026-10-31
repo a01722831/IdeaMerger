@@ -9,7 +9,7 @@ lens: "Second-order AI"
 frontier: false
 competition: "CROWDED"
 confidence: "LOW"
-status: "developed"
+status: "killed"
 signals: [GAP-43, GAP-44, GAP-45, GAP-46, AI2-46, AI2-45]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Payee Shield
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Eftsure, Trustpair and Trustmi verify payees, Bill.com confirms bank-detail changes, and the Federal Reserve plans payee-name verification; a solo startup also faces a trust wall for mailbox access. Nacha's 2026 fraud-monitoring rule is the one tailwind. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Inbox add-on and payment checkpoint that catches vendor bank-detail changes and runs an independent callback before money moves.
@@ -108,7 +110,7 @@ Findings:
 - [Eftsure](https://www.eftsure.com/vendor-email-compromise/): verification network where an analyst calls the vendor and a bank-link option exists; says it serves all sizes; pricing is quote-based and, per a review site, scales with annual spend and new-vendor onboarding; 39 countries; backed by Level Equity ([Eftsure announcement](https://www.eftsure.com/blog/industry-news/eftsure-partners-with-level-equity/), amount not found); publishes a [Nacha 2026 explainer](https://www.eftsure.com/blog/industry-news/nachas-2026-fraud-monitoring-rules-what-every-finance-team-needs-to-know/).
 - [Trustpair](https://trustpair.com/eftsure-alternative/): enterprise procure-to-pay with ERP connectors (SAP listing), "price available upon request", and a third-party review calls it less accessible to small businesses.
 - Trustmi: [$17M Series A, TechCrunch 2023-07-26](https://techcrunch.com/2023/07/26/trustmi-lands-17m-to-scale-its-payments-fraud-prevention-tech); described as a Nacha Preferred Partner for fraud prevention and account validation (search summary); no small-business pricing found.
-- PaymentWorks (supplier onboarding and payee verification, skews enterprise and education; see its [Nacha guide](https://www.paymentworks.com/?p=9099)); Corpay and Kognitos publish AP-control guides and sell AP automation.
+- PaymentWorks (supplier onboarding and payee verification, skews enterprise; see its [Nacha guide](https://www.paymentworks.com/?p=9099)); Corpay and Kognitos publish AP-control guides and sell AP automation.
 - Bill.com: when a user changes a vendor's bank details, Bill emails the vendor to confirm; payments can still be scheduled before the vendor responds ([help page](https://support.wf.bill.com/hc/en-us/articles/360056648691)). I could not confirm what QuickBooks Bill Pay does.
 - Detection stack: [Abnormal AI](https://abnormal.ai/ja/threat-intelligence/digest/vendor-impersonation-used-to-siphon-invoice-payments) tracks vendor impersonation in email; Huntress ITDR is the tool in GAP-44's thread; Microsoft and Google protections not checked.
 - Bank guidance: JPMorgan treats the callback as the key control and publishes [why callbacks go wrong](https://www.jpmorgan.com/insights/cybersecurity/business-email-compromise/when-callbacks-go-wrong) (snippet only).
@@ -145,7 +147,7 @@ Platform risk: high. Banks and the Federal Reserve (payee name checks), Bill.com
 ## 15. Solo feasibility
 - MVP (8 weeks): Microsoft 365 add-in and mail read via Graph (admin consent), thread analysis, vendor record import from QuickBooks Online and Xero (read-only), alert and hold task, SMS or email confirmation link, a voice callback agent with call consent and AI disclosure, evidence log PDF, bookkeeper console.
 - Running cost before revenue: about $110/month (hosting $30, database $20, model tests $20, telephony and voice tests $30, domain and email $10) [ESTIMATE].
-- Hardest technical risk: trust and permissions. Finance buyers expect a security review (SOC 2 or similar) before granting mailbox access, Gmail restricted scopes need an external assessment, and QuickBooks Bill Pay may not allow payment holds through any API [UNVERIFIED]. AI-voice outbound calls raise consent and disclosure questions (TCPA) that need a lawyer. A missed fraud creates liability, so the pitch must be "evidence and process", not a guarantee.
+- Hardest technical risk: trust and permissions. Finance buyers expect a security review (SOC 2 or similar) before granting mailbox access, Gmail restricted scopes may need an external security assessment [UNVERIFIED], and QuickBooks Bill Pay may not allow payment holds through any API [UNVERIFIED]. AI-voice outbound calls raise consent and disclosure questions (TCPA) that need a lawyer. A missed fraud creates liability, so the pitch must be "evidence and process", not a guarantee.
 
 ## 16. Pre-mortem
 1. Trust wall: bookkeepers and MSPs will not give a solo founder's startup mailbox access to payables mail, and larger names (Eftsure, Abnormal, Microsoft) win the same buyers.

@@ -9,7 +9,7 @@ lens: "Forcing function"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [HN-13, HN-14, FORCE-07, FORCE-08, FORCE-30, FORCE-33, FORCE-35, RED-31, PRO-220]
 scores:
   pain: 4
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Product Compliance Desk
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Complir (reported $11M seed) and free Shopify GPSR apps cover EU product-compliance documents, and most of the seller's cost is fixed third-party fees (authorized representative, producer-responsibility organizations), not finding the rules. Open sliver: a ship-or-skip calculator and CPSC certificate data for small US importers. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 One product record becomes per-country compliance obligations, documents and a ship-or-skip verdict for micro-sellers.

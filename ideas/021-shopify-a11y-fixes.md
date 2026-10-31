@@ -9,7 +9,7 @@ lens: "Forcing function"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [FORCE-20, FORCE-22, FORCE-23, FORCE-24, SVC-32]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Shopify A11y Fixes
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED. Patrol ($200 a month) and TestParty ($599 a month, $4M seed) already sell 'code fixes, not overlays' on the Shopify App Store with strong reviews; the only wedge left is a lower price point or agency white-label. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Shopify app that writes reviewable theme-code accessibility fixes and an evidence log for merchants facing EAA or ADA claims.

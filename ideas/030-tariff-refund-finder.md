@@ -9,7 +9,7 @@ lens: "Forcing function"
 frontier: false
 competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [FORCE-04, FORCE-05, FORCE-06, FORCE-01, GAP-28, GAP-29, GAP-30, GAP-31, GAP-32, HN-15, PRO-213, PRO-214]
 scores:
   pain: 3
@@ -32,6 +32,8 @@ red_team: false
 ---
 
 # Tariff Refund Finder
+
+> **Main-thread review, 2026-10-31: KILLED.** CROWDED and time-boxed. Carrier pass-through refund programs, Tarifflo (YC S26), brokers charging about 5% and free estimators cover the refund job, per-entry clocks are closing (80-day CAPE, 180-day protest), and percentage fees may require a customs broker license. Worth knowing, not worth building as a company. The file is kept as a record of the competition check.
 
 ## 1. One-liner
 Small importers upload duty documents; AI finds IEEPA refunds, picks the filing route per entry, and builds the files.
