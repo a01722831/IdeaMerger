@@ -46,7 +46,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [ ] 3.5 Commit and push
 
 ### Phase 4: development -> ideas/NNN-slug.md
-- [ ] 4.1 scripts/build_index.py working
+- [x] 4.1 scripts/build_index.py working (plus --dry-run/--only for agents)
 - [ ] 4.2 Subagent batches of 5-8 ideas (competition check >=4 queries each, classification, draft file)
 - [ ] 4.3 Review every draft, kill/re-scope CROWDED, sharpen, own final scores
 - [ ] 4.4 40+ full idea files; rebuild index after every batch; commit and push per batch
@@ -114,6 +114,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 17:00: Launched T10 gap-fill (prefix GAP-) to test 9 candidate areas with thin evidence (contents claims, deposits, estate cleanouts, cargo claims, rental scams, tariff refunds, contractor quotes, inspectors, vendor payment fraud). Drafted POOL.md (159 seeds, 31 developed). Decision: kills based on known incumbents say 'not re-searched' when not verified in this project.
 - 2026-10-31 17:30: T8 and T9 done and themed. Pool now has forcing-function and underserved lenses plus 12 wild seeds. Waiting on T10 gap-fill to resolve 9 pending seeds.
 - 2026-10-31 17:50: Concept notes for 38 advanced seeds written in POOL.md with idea numbers 001-038 and batches A-F (G = gap-fill outcomes). Re-opened S020 Food Cost Buddy for a competition check (restaurants otherwise unrepresented). Added build_index.py --dry-run/--only so drafting agents can validate without writing INDEX.
+- 2026-10-31 18:00: Wrote ops/DEV_BRIEF.md (shared drafting instructions). Launched development batches A (7 back-office ideas), B (7 field/freight), C (6 families/health), model sonnet. T10 gap-fill still running. Remaining: D (6), E (5), F (7), G (gap-fill outcomes).
 
 ## Counts
 - Signals: 540 raw / 525 distinct (116 strong) after T1-T9 + LAND; T10 gap-fill pending
