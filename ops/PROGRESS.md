@@ -39,7 +39,7 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [ ] 2.y Commit and push after each wave
 
 ### Phase 3: ideation and screening -> ideas/POOL.md
-- [ ] 3.1 Capability x persona grid
+- [x] 3.1 Capability x persona grid (in POOL.md)
 - [ ] 3.2 200+ seeds, >=15 per lens (9 lenses) + 10 wild
 - [ ] 3.3 Screen: red zones, kill criteria, merges, status per seed
 - [ ] 3.4 Advance ~50 with 3-5 line concept notes
@@ -111,10 +111,11 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 16:00: T3c done (45). Started T8 forcing functions. Running: T5, T6, T7, T8. T9 next.
 - 2026-10-31 16:20: T7 done (60). Split AI themes into ai-slop, ai-verify, ai-fakes, agent-oversight, ai-cost, scams, ai-education, shadow-ai. Started T9 (last pain track). T5/T6 files are on disk but agents not yet reported back.
 - 2026-10-31 16:40: T5 (63) and T6 (55) done and themed; new themes freelance-market, data-conversion, accessibility-remediation, translation, household-records, immigration, family-records. Running: T8, T9.
+- 2026-10-31 17:00: Launched T10 gap-fill (prefix GAP-) to test 9 candidate areas with thin evidence (contents claims, deposits, estate cleanouts, cargo claims, rental scams, tariff refunds, contractor quotes, inspectors, vendor payment fraud). Drafted POOL.md (159 seeds, 31 developed). Decision: kills based on known incumbents say 'not re-searched' when not verified in this project.
 
 ## Counts
 - Signals: 433 raw / 420 distinct after T1-T7 + LAND (T8, T9 pending)
-- Seeds: 0
+- Seeds: 159 drafted (7 lenses); forcing, underserved, wild pending T8/T9/T10
 - Idea files: 0
 - Deep dives: 0
 
