@@ -13,22 +13,22 @@ status: "developed"
 signals: [UND-37, UND-38, UND-40, UND-42, UND-34]
 scores:
   pain: 3
-  evidence: 3
+  evidence: 2
   ai_leverage: 3
-  whitespace: 4
+  whitespace: 3
   novelty: 3
   why_now: 3
   solo_feasibility: 3
   distribution: 3
-  wtp_economics: 2
+  wtp_economics: 1
   scale_defensibility: 2
-total: 57.9
+total: 51.6
 price_hypothesis: "Free first audit; $19 per claim packet; $199/month per worker center"
 model_cost_per_user_month: "$0.12 per audit ($0.19 with a claim packet)"
 gross_margin: "80%"
 mvp_weeks: 7
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Wage Check
@@ -40,18 +40,20 @@ Workers upload pay stubs, timecards and gig statements and get a pay-discrepancy
 | Criterion | Weight | Score | Why |
 |---|---|---|---|
 | Pain severity and frequency | 3 | 3 | Small amounts every pay period for people with little slack; but workers ask rather than pay or hack |
-| Evidence quality | 2 | 3 | 5 recent signals, all medium; none states willingness to pay |
+| Evidence quality | 2 | 2 | 5 recent signals, all medium; none states willingness to pay Red team: 3 to 2, red team: only one of five signals is a US employee wage-law question |
 | AI leverage | 2 | 3 | Model reads messy stubs and screenshots and drafts; the pay math must be deterministic code |
-| Whitespace | 2 | 4 | ADJACENT ONLY: hours trackers, a form filler and hackathon prototypes; no real audit product found |
+| Whitespace | 2 | 3 | ADJACENT ONLY: hours trackers, a form filler and hackathon prototypes; no real audit product found Red team: 4 to 3, red team: Reclamo AI and OvertimeLaw.ai are free purpose-built wage checkers |
 | Novelty of insight | 1 | 3 | Documentable small repeated amounts; the evidence file may matter more than the dollar figure |
 | Why now | 1 | 3 | Cheap screenshot reading and Spanish voice; no regulatory trigger |
 | Solo feasibility | 2 | 3 | 7 weeks, but rules across states and local ordinances plus trust are hard |
 | Distribution | 2 | 3 | Worker subreddits, worker centers and legal aid are reachable; calculator SEO is held by big sites |
-| Willingness to pay and unit economics | 2 | 2 | Workers will not pay much; lawyer-referral revenue may be restricted; worker centers have thin budgets |
+| Willingness to pay and unit economics | 2 | 1 | Workers will not pay much; lawyer-referral revenue may be restricted; worker centers have thin budgets Red team: 2 to 1, red team: payer still unidentified; break-even needs 1.4% of free users to buy |
 | Scale and defensibility | 2 | 2 | Small market, low lock-in; assistants compute overtime from pasted stubs |
-| **Total** | | **57.9** | |
+| **Total** | | **51.6** | |
 
 Confidence: LOW (the payer is unproven). FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): whitespace 4 to 3 (red team: Reclamo AI and OvertimeLaw.ai are free purpose-built wage checkers); evidence quality 3 to 2 (red team: only one of five signals is a US employee wage-law question); willingness to pay and unit economics 2 to 1 (red team: payer still unidentified; break-even needs 1.4% of free users to buy).
 
 ## 3. The problem
 - Who: hourly employees, delivery drivers, home-care aides and gig workers whose paid hours, overtime, lunches or payouts do not match what they worked.
@@ -219,3 +221,16 @@ Base case: 15,200 visitors, 1,140 finished audits, 51 packets and 2 organization
 - Key risks to test first: (1) the payer (the test above); (2) one state's rules checked by an employment lawyer; (3) extraction on handwritten timecards; (4) whether workers will upload records at all; (5) edited or forged stubs and retaliation fear.
 
 Notes for the main researcher: Reclamo AI (Justicia Lab with NYLAG, early 2026) is a direct rival with a legal-aid nonprofit partner that section 10 missed, so Whitespace 4 looks generous (I would say 3) and the free-price anchor makes the organization arm harder. Federal data now give an average recovery of $1,465 per worker, so a $19 packet is 1.3% of an average recovery, but that is still a worker-pays model with no stated willingness to pay. Keep WTP at 2 until a payer shows up in the test. UND-42 is a Mexico-law thread (r/mexico), so it supports the Spanish need but not US demand.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_B.md`). Verdict: **pass**.
+
+**Top attacks (summarized):**
+1. **Every route to a payer is free or restricted.** Reclamo AI (Justicia Lab with NYLAG) and OvertimeLaw.ai (new) check wages free; workers would need to convert at 1.4% of free audits to a $19 packet to break even; lawyer-lead money sits behind referral-fee rules.
+2. **The one on-target signal asks the question the product must not answer.** Only UND-37 is a US employee asking about wage law ("Isn't this illegal?"), and the product must never say "illegal"; the other signals are app, gig or Mexico-law issues.
+3. **Liability lives in the copy.** The FTC's DoNotPay order shows "AI lawyer" claims draw action without a licensing finding, and an inquiry telling payroll the worker is owed money is legal-adjacent output for retaliation-sensitive users.
+What would change the red team's mind: a worker center, legal-aid unit, union local or city labor office signing a paid pilot at $99+ a month, or 3 paid $19 packets from 200 visitors, plus counsel clearing the copy.
+
+**Response (main researcher):**
+- All three attacks land. Whitespace drops from 4 to 3 (free purpose-built wage checkers exist), evidence from 3 to 2 (one on-target US signal), and willingness to pay from 2 to 1 (no payer identified).
+- What survives: the pain is real and recurring, and an institution-paid model (worker centers, unions, city labor offices funding seats) is the only plausible business; test that first or drop the idea.

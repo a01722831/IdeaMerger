@@ -20,15 +20,15 @@ scores:
   why_now: 4
   solo_feasibility: 2
   distribution: 2
-  wtp_economics: 3
-  scale_defensibility: 2
-total: 56.8
+  wtp_economics: 2
+  scale_defensibility: 1
+total: 52.6
 price_hypothesis: "$14.99/month per parent device with 60 guided minutes included; first two routines free"
 model_cost_per_user_month: "$1.4 on Gemini Live voice, up to $3.4 on GPT Live"
 gross_margin: "72% to 86%"
 mvp_weeks: 8
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Do It With Me
@@ -47,11 +47,13 @@ A voice guide walks an older parent through bank and portal tasks, refuses scam-
 | Why now | 1 | 4 | Realtime voice at $0.05/min or less and cheap screen understanding make a guided month cost about $1.4; impossible at this price in 2022. |
 | Solo feasibility | 2 | 2 | Mobile OS limits on overlays, accessibility-permission policies, bank-flow safety and device testing push the MVP to 8 weeks with one hard platform risk. |
 | Distribution | 2 | 2 | Seniors will not find or install it; the child must set up the parent's device; communities exist but there is no store channel or built-in loop. |
-| Willingness to pay and unit economics | 2 | 3 | Adult children pay for family help (a rival lists $19/month), but Gemini Live and FaceTime are free; margin 72% to 86%. |
-| Scale and defensibility | 2 | 2 | OS assistants own the primitives, which caps this at 2; the routine library and family trust are the moat. |
-| **Total** | | **56.8** | |
+| Willingness to pay and unit economics | 2 | 2 | Adult children pay for family help (a rival lists $19/month), but Gemini Live and FaceTime are free; margin 72% to 86%. Red team: 3 to 2, red team: price signals are a $19 rival with a free tier and $20 to $40 scam plans; the guided half competes with free Gemini Live |
+| Scale and defensibility | 2 | 1 | OS assistants own the primitives, which caps this at 2; the routine library and family trust are the moat. Red team: 2 to 1, red team: the routine library is upkeep, not a moat; OS makers ship the primitives |
+| **Total** | | **52.6** | |
 
 Confidence: LOW (the platform feasibility and the willingness to pay are untested). FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): willingness to pay and unit economics 3 to 2 (red team: price signals are a $19 rival with a free tier and $20 to $40 scam plans; the guided half competes with free Gemini Live); scale and defensibility 2 to 1 (red team: the routine library is upkeep, not a moat; OS makers ship the primitives).
 
 Calibration (main researcher, 2026-10-31): ai leverage 4 to 5 (the guide is the interaction (the HeyClicky test)).
 
@@ -256,3 +258,17 @@ Demand (days 3 to 7):
 - Key risks to test first: (1) the platform baseline; (2) bank terms and screen privacy; (3) whether parents press the button; (4) setup friction (Android 16 blocks accessibility grants mid-call, so setup is in person or by a QR link, not by phone); (5) a scam getting through.
 
 Notes for the main researcher: Whitespace 2 holds. Pointing is free on Windows and Android, so the wedge is the trio of family rules, a stop, and a named escalation, which I could not find anywhere (not tested yet). Section 12's 5% adoption looks high given free alternatives; my conservative case uses 0.5%. The Android 16 in-call protections cut both ways: they cover part of the scam problem for participating banks and block mid-call setup. Whether to fold this into 007 Parent Mail Desk stays open; the family-configuration layer is what both would share.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_B.md`). Verdict: **pass**.
+
+**Top attacks (summarized):**
+1. **The demand is on mobile and the MVP is not.** The only willingness-to-pay signal (HN-21) asks for an iPad button and MyChart reviews come from phones, yet the MVP is a desktop extension; Google Play restricts accessibility-service use by non-accessibility apps, and banking apps blank screen capture (FLAG_SECURE).
+2. **The scam-refusal wedge is thin.** Family scam alerts already sell for $20 to $40 a month, and Android 16 adds call-time protections.
+3. **Free generic help covers the rest.** Gemini Live screen sharing, Copilot Vision highlights and iOS 27 Siri read the screen for free; only family rules plus a scam stop plus named escalation is unique, and untested.
+What would change the red team's mind: the file's platform baseline test passing (the best free assistant stops at most 1 of 4 scams and never hands off to family), a Play reviewer accepting the accessibility declaration, and 4 of 8 adult children paying a refundable $15.
+
+**Response (main researcher):**
+- All three attacks land. Willingness to pay drops from 3 to 2 and scale from 2 to 1 (a routine library breaks with every app change, and the OS makers own the primitives).
+- The platform-baseline test in the deep dive is the right first step: if the free assistants already stop scams and offer handoffs, drop the idea.
+- Kept live because the HeyClicky-style interaction for older adults with family escalation is the clearest interaction-shift idea in the set, but it is a platform-risk bet.

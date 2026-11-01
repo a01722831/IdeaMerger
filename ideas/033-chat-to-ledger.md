@@ -20,9 +20,9 @@ scores:
   why_now: 4
   solo_feasibility: 3
   distribution: 2
-  wtp_economics: 2
+  wtp_economics: 1
   scale_defensibility: 2
-total: 54.7
+total: 52.6
 price_hypothesis: "$6/month per business after a free tier of 30 orders a month; localized in BRL, MXN and INR"
 model_cost_per_user_month: "$0.45 model, about $0.55 with hosting"
 gross_margin: "87%"
@@ -47,11 +47,13 @@ Micro-sellers forward WhatsApp orders, voice notes and payment receipts; AI keep
 | Why now | 1 | 4 | Voice transcription at $0.003 a minute and cheap vision made multilingual capture affordable; Pix, UPI and SPEI make payments traceable. |
 | Solo feasibility | 2 | 3 | Capture, extraction and a ledger fit in about 7 weeks; localization, accuracy on money and WhatsApp rules are the risks. |
 | Distribution | 2 | 2 | Informal, low-income buyers in three languages and no marketplace; the only loop is merchant receipts that customers see. |
-| Willingness to pay and unit economics | 2 | 2 | Model cost is tiny, but ARPU near $6, free incumbents and price anger (UND-27) leave thin room; collections in local currencies add friction. |
+| Willingness to pay and unit economics | 2 | 1 | Model cost is tiny, but ARPU near $6, free incumbents and price anger (UND-27) leave thin room; collections in local currencies add friction. Calibrated: 2 to 1, main-thread skeptical pass (no red team run): no payment signal, free ledger apps (Khatabook, OkCredit) and owners resisting paid tools (UND-20) |
 | Scale and defensibility | 2 | 2 | A ledger is sticky once populated, but Meta's agent and the incumbents hold distribution; platform risk caps this at 2. |
-| **Total** | | **54.7** | |
+| **Total** | | **52.6** | |
 
 Confidence: MED. FRONTIER: no.
+
+Skeptical pass (main researcher, 2026-11-01; applied to live ideas without a red team so scores stay comparable): willingness to pay and unit economics 2 to 1 (main-thread skeptical pass (no red team run): no payment signal, free ledger apps (Khatabook, OkCredit) and owners resisting paid tools (UND-20)).
 
 ## 3. The problem
 - Who: owners of micro-businesses (food sellers, resellers, class organizers, small distributors) whose orders, prices and promises to pay live in WhatsApp chats and voice notes, and whose books are a paper notebook.

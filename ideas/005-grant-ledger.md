@@ -28,7 +28,7 @@ model_cost_per_user_month: "$2.50"
 gross_margin: "94%"
 mvp_weeks: 7
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Grant Ledger
@@ -250,3 +250,18 @@ RISKS TO TEST FIRST: 1 one wrong "allowed" call destroys trust (suggest-only mod
 ```
 
 **Notes for the main researcher:** The IRS file gives 169,515 public charities with $250K to $5M of latest-return income, so section 12's 100,000 is a plausible upper bound after the grant and QuickBooks filters, not a count. Marketplace fees are low (Intuit Builder tier $0), but listing review and reach are unverified, so Distribution 3 rests on bookkeepers and associations. No score change proposed.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_B.md`). Verdict: **maybe**.
+
+**Top attacks (summarized):**
+1. **The hardest allocation is out of scope and the accuracy bar is loose for a fiduciary.** Payroll and time-and-effort are non-goals, yet salaries charged to several grants are usually the biggest grant line; a 90% to 95% accuracy bar means 30 to 60 wrong lines a month on a nonprofit's books [ESTIMATE in the red-team file].
+2. **The channel sells against its partners.** 60 of the first 100 organizations come through bookkeepers whose billable hours the tool removes, and the Intuit listing path is unreviewed.
+3. **The platform is both data source and competitor.** Intuit staffs an AI-native nonprofit product and ships an Accounting Agent; Anthropic ships a QuickBooks connector; Intuit's and Xero's terms on AI use of data are unresolved.
+What would change the red team's mind: five concierge nonprofits where the finance lead leaves 95%+ of auto-allowed lines unchanged (including a salary test), 3 paying the $99 deposit, and one CPA who audits federal awards accepting clause-cited, approver-logged allocations as support.
+
+**Response (main researcher):**
+- Attack 1 lands as a product gap, not a score change. v1 adds salary allocation from simple time-and-effort percentages (the biggest grant line), and every allocation is a proposal the finance lead approves, so the miss rate becomes review time, not wrong books. The CPA acceptance letter is added to the validation plan.
+- Attack 2 lands partly. Bookkeepers on fixed monthly fees gain from removing allocation grunt work; hourly bookkeepers do not. Direct channels (nonprofit finance communities, state nonprofit associations, TechSoup) carry the rest. Distribution stays at 3.
+- Attack 3 is already priced in: whitespace 3 and scale 2 reflect the platform cap.
+- Evidence stays at 3: four on-job signals, two strong, one with real spend (a $10K to $15K consultant, PRO-209). No score changes; this is the only idea in the second batch the red team did not pass on.

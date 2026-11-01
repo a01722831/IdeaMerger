@@ -18,17 +18,17 @@ scores:
   whitespace: 3
   novelty: 3
   why_now: 3
-  solo_feasibility: 3
-  distribution: 3
+  solo_feasibility: 2
+  distribution: 2
   wtp_economics: 2
   scale_defensibility: 2
-total: 55.8
+total: 51.6
 price_hypothesis: "$149 one-time for a 12-month case; free personal deadline calendar"
 model_cost_per_user_month: "$0.19 ($2.3 per 12-month case including reminders)"
 gross_margin: "95%"
 mvp_weeks: 7
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Retirement Desk
@@ -45,13 +45,15 @@ A case manager for the year around retirement or turning 65: deadlines, document
 | Whitespace | 2 | 3 | ADJACENT ONLY, but Chapter (funded) sits one step away and free SHIP counselors cover plan advice; vertical-incumbent risk caps this at 3. |
 | Novelty of insight | 1 | 3 | Treating the retirement-year admin cluster as one case, not a plan-choice problem, is a useful twist backed by the threads. |
 | Why now | 1 | 3 | About 4.1M people turn 65 each year through 2027 and long-context reading is cheap, but the problem is old. |
-| Solo feasibility | 2 | 3 | Seven weeks for a timeline engine, document intake and drafting; rules accuracy and yearly upkeep are the hard risk. |
-| Distribution | 2 | 3 | High-intent search and r/medicare, r/retirement with a free calendar as a lead magnet; one-time and seasonal use; no loop. |
+| Solo feasibility | 2 | 2 | Seven weeks for a timeline engine, document intake and drafting; rules accuracy and yearly upkeep are the hard risk. Red team: 3 to 2, red team: thirty yearly rule modules, licensing check and mixed-notice extraction exceed one hard risk |
+| Distribution | 2 | 2 | High-intent search and r/medicare, r/retirement with a free calendar as a lead magnet; one-time and seasonal use; no loop. Red team: 3 to 2, red team: one-time, seasonal, no loop; search dominated by medicare.gov, AARP and lead-gen sites |
 | Willingness to pay and unit economics | 2 | 2 | Margin is 95%, but free options (Chapter advisors, SHIP, AARP pages) cover plan choice and I found no price anchor for paperwork help. Calibrated 3 to 2: Chapter anchors the adjacent service at $0 for consumers; no price evidence for paperwork help |
 | Scale and defensibility | 2 | 2 | A funded incumbent may extend into seniors' financial products; one-time use; the moat is rules content and employer packets. |
-| **Total** | | **55.8** | |
+| **Total** | | **51.6** | |
 
 Confidence: MED. FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): distribution 3 to 2 (red team: one-time, seasonal, no loop; search dominated by medicare.gov, AARP and lead-gen sites); solo feasibility 3 to 2 (red team: thirty yearly rule modules, licensing check and mixed-notice extraction exceed one hard risk).
 
 Calibration (main researcher, 2026-10-31): pain severity and frequency 4 to 3 (a once-in-a-lifetime transition; real penalties but free help exists (SHIP counselors)); evidence quality 4 to 3 (five signals, none showing willingness to pay); willingness to pay and unit economics 3 to 2 (Chapter anchors the adjacent service at $0 for consumers; no price evidence for paperwork help).
 
@@ -239,3 +241,17 @@ Timely: threads on the annual enrollment period are active until 2026-12-07.
 - Key risks to test first: (1) willingness to pay next to free SHIP and Chapter (the test above); (2) a rule error that misses a window, so counselor review before launch; (3) the advice boundary and any TPMO exposure if money ever changes hands on referrals; (4) Blue Button production access; (5) the yearly rule refresh each autumn and a Chapter move into paperwork.
 
 Notes for the main researcher: Open question 3 is partly answered: the CMS Blue Button API covers Part A, B and D data for 60M+ people with consent, so claims tracking need not depend on uploads, but production approval is unverified. Open question 2: CMS treats compensated lead generation as TPMO activity, so a paid broker referral is not a harmless extra; v1 should carry none. Human advocates charge $300 to $1,500 flat per appeal on commercial pages, which supports the $149 anchor, but SHIP is free, so I would keep WTP at 2.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_B.md`). Verdict: **pass**.
+
+**Top attacks (summarized):**
+1. **The licensing answer is open.** Some states license fee-charging insurance consultants; a $149 product explaining COBRA, Medigap and claim notices could be read as consulting, which would trip kill criterion 3.
+2. **The price anchor is $0.** SHIP counselors, AARP tools, state notebooks, Chapter's free advisors and general assistants already explain most of it.
+3. **One-time, seasonal revenue and a slow first season.** The 7-week build misses the 2026-12-07 enrollment deadline, so the first season is January to March 2027, with rules to refresh every autumn.
+What would change the red team's mind: the one-week test passing with adult children and widowed spouses as buyers, plus written answers from two launch-state insurance departments (or counsel) that a flat-fee, no-commission, no-recommendation product needs no consultant license.
+
+**Response (main researcher):**
+- Attacks 2 and 3 land. Distribution drops from 3 to 2 (one-time, seasonal, search dominated by medicare.gov, AARP and lead-gen sites) and solo feasibility from 3 to 2 (thirty rule modules refreshed yearly, a licensing check, mixed-notice extraction).
+- Attack 1 is the gating risk; the insurance-department letter joins the validation plan before any build.
+- Strongest use of this idea: as a module inside a broader family case file (with 006 and 007), not as a standalone company.

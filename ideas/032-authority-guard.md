@@ -15,14 +15,14 @@ scores:
   pain: 3
   evidence: 3
   ai_leverage: 2
-  whitespace: 2
+  whitespace: 1
   novelty: 2
   why_now: 3
   solo_feasibility: 4
   distribution: 3
   wtp_economics: 3
   scale_defensibility: 2
-total: 54.7
+total: 52.6
 price_hypothesis: "$12/month per carrier"
 model_cost_per_user_month: "$0.20"
 gross_margin: "98%"
@@ -42,16 +42,18 @@ Watches a small carrier's FMCSA authority, insurance filings and deadlines daily
 | Pain severity and frequency | 3 | 3 | A suspended MC stops revenue, but events are rare per carrier (a few a year at most) and the Motus peak may be passing. |
 | Evidence quality | 2 | 3 | One strong first-person case (FORCE-44), five regulatory facts or adjacent signals, plus three new October 2026 posts and press titles. |
 | AI leverage | 2 | 2 | Monitoring and filing-amount checks are deterministic; the model reads policy PDFs, explains and drafts. |
-| Whitespace | 2 | 2 | J.J. Keller, Dotra, TruckDocsAI, HaulComply, Trucking Comply and Fleetworthy sell authority or compliance monitoring; the filing-mismatch fix flow is the open slice. |
+| Whitespace | 2 | 1 | J.J. Keller, Dotra, TruckDocsAI, HaulComply, Trucking Comply and Fleetworthy sell authority or compliance monitoring; the filing-mismatch fix flow is the open slice. Calibrated: 2 to 1, main-thread skeptical pass (no red team run): the competition check itself names eight monitoring tools (Dotra, TruckDocsAI, HaulComply, Trucking Comply, Fleetworthy, CarrierOK, Bobtail, Sky Transport) |
 | Novelty of insight | 1 | 2 | "Monitor the public record and warn the owner" is obvious; the policy-versus-filing reconciliation is a modest twist. |
 | Why now | 1 | 3 | Motus (Dec 2025 to 2026) produced suspensions and mismatches; FMCSA is cleaning up, so the spike is partly temporary. |
 | Solo feasibility | 2 | 4 | Public data, policy-PDF extraction and alerts fit in about 4 weeks; post-Motus data freshness is the unknown. |
 | Distribution | 2 | 3 | Free DOT-number check, SEO and carrier forums work; programmatic carrier pages from rivals already own many lookups. |
 | Willingness to pay and unit economics | 2 | 3 | Margin is 98% at $12 a month, but small carriers are price-sensitive and rivals' prices are unknown. |
 | Scale and defensibility | 2 | 2 | Public data and small tickets; the moat is trust and alert accuracy only. |
-| **Total** | | **54.7** | |
+| **Total** | | **52.6** | |
 
 Confidence: MED. FRONTIER: no.
+
+Skeptical pass (main researcher, 2026-11-01; applied to live ideas without a red team so scores stay comparable): whitespace 2 to 1 (main-thread skeptical pass (no red team run): the competition check itself names eight monitoring tools (Dotra, TruckDocsAI, HaulComply, Trucking Comply, Fleetworthy, CarrierOK, Bobtail, Sky Transport)).
 
 ## 3. The problem
 - Who: owner-operators and 1-10 truck carriers whose own MC authority is their license to earn. Since FMCSA moved registration to Motus (Phase I opened 2025-12-08; FORCE-42), carriers report suspensions over insurance filings that did not match, inactive status after renewals, and brokers rejecting an MC that looks "ineligible" in one database and active in another.

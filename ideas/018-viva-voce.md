@@ -12,7 +12,7 @@ confidence: "MED"
 status: "developed"
 signals: [AI2-52, AI2-47, AI2-50, AI2-54, AI2-48, AI2-49]
 scores:
-  pain: 4
+  pain: 3
   evidence: 3
   ai_leverage: 5
   whitespace: 2
@@ -21,14 +21,14 @@ scores:
   solo_feasibility: 3
   distribution: 2
   wtp_economics: 2
-  scale_defensibility: 2
-total: 58.9
+  scale_defensibility: 1
+total: 53.7
 price_hypothesis: "$1.50 per completed viva (5-8 minutes); semester pack of 100 for $129"
 model_cost_per_user_month: "$15 to $40 per 100 vivas"
 gross_margin: "66% to 86%"
 mvp_weeks: 6
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Viva Voce
@@ -39,7 +39,7 @@ After a student submits work, a short realtime voice conversation with an AI exa
 ## 2. Scores
 | Criterion | Weight | Score | Why |
 |---|---|---|---|
-| Pain severity and frequency | 3 | 4 | Acute during grading periods (a third of one class, hundreds of hours of paperwork) but seasonal, and the instructor is not the budget holder. Calibrated 3 to 4: integrity work hits every assignment (AI2-47, AI2-48 strong) |
+| Pain severity and frequency | 3 | 3 | Acute during grading periods (a third of one class, hundreds of hours of paperwork) but seasonal, and the instructor is not the budget holder. Calibrated 3 to 4: integrity work hits every assignment (AI2-47, AI2-48 strong) Red team: 4 to 3, red team: the strongest signal (AI2-47) is the reporting process the product leaves in place; seasonal use |
 | Evidence quality | 2 | 3 | Six cited signals (two strong, all instructor-side, four from 2026-10) plus a published pilot; no statement of willingness to pay. |
 | AI leverage | 2 | 5 | The voice examiner and rubric scoring are the product; a human reviews the flags, so not a 5. Calibrated 4 to 5: the voice examiner is the product; without the model nothing is left |
 | Whitespace | 2 | 2 | Early direct entrants (OralExam.AI, verballi, better-ed) and a free published recipe, but no funded leader or LMS-native tool found. Calibrated 3 to 2: early direct rivals (OralExam.AI, verballi, better-ed) and a free NYU recipe at $0.42 per student |
@@ -48,10 +48,12 @@ After a student submits work, a short realtime voice conversation with an AI exa
 | Solo feasibility | 2 | 3 | A web voice agent is 6 weeks; LMS integration, student privacy and accommodations add risk. |
 | Distribution | 2 | 2 | Instructors are reachable in communities and by SEO, but schools gate student-data tools and the culture is wary of AI. |
 | Willingness to pay and unit economics | 2 | 2 | An instructor can copy the NYU setup for about $0.42 a student; institutions have budgets but buy slowly. |
-| Scale and defensibility | 2 | 2 | DIY recipe, LMS vendors and AI labs can add a "defend your work" mode; the moat is thin. |
-| **Total** | | **58.9** | |
+| Scale and defensibility | 2 | 1 | DIY recipe, LMS vendors and AI labs can add a "defend your work" mode; the moat is thin. Red team: 2 to 1, red team: feature-sized and copyable; FeedbackFruits sells LMS-integrated oral assessment to 200+ institutions |
+| **Total** | | **53.7** | |
 
 Confidence: MED. FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): pain severity and frequency 4 to 3 (red team: the strongest signal (AI2-47) is the reporting process the product leaves in place; seasonal use); scale and defensibility 2 to 1 (red team: feature-sized and copyable; FeedbackFruits sells LMS-integrated oral assessment to 200+ institutions).
 
 Calibration (main researcher, 2026-10-31): pain severity and frequency 3 to 4 (integrity work hits every assignment (AI2-47, AI2-48 strong)); ai leverage 4 to 5 (the voice examiner is the product; without the model nothing is left); whitespace 3 to 2 (early direct rivals (OralExam.AI, verballi, better-ed) and a free NYU recipe at $0.42 per student).
 
@@ -244,3 +246,17 @@ RISKS TO TEST FIRST: 1 payer (the validation test); 2 student fairness and stres
 ```
 
 **Notes for the main researcher:** OralExam.AI states "Pricing is not set yet" and is already Canvas-integrated, so Whitespace 2 and WTP 2 look right. Payer is unresolved: instructor-paid caps near $2M ARR, department licences carry the upside but face security review, and student-paid earns about 4.7x per course with a fairness problem. The test splits all three; no score change proposed.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_B.md`). Verdict: **pass**.
+
+**Top attacks (summarized):**
+1. **The card-paying instructor is a legal and procurement dead end, and an incumbent is already on approved lists.** An instructor's purchase creates no institutional FERPA "direct control", and FeedbackFruits (missed by the file) sells LMS-integrated Oral Assessment to 200+ institutions.
+2. **The marketing asset is the product.** The free starter kit (prompt, rubric, consent text) lets instructors run vivas with any voice assistant; the hosted price is about 3x the DIY cost (the NYU recipe).
+3. **The strongest pain signal is not the pain removed.** AI2-47 is the integrity-reporting process, which the product feeds rather than removes; fairness complaints can end an instructor's use.
+What would change the red team's mind: three department chairs or teaching-center directors signing a paid pilot with a named budget line, plus a privacy office confirming a per-course agreement within 30 days.
+
+**Response (main researcher):**
+- Attacks 1 and 3 land. Pain returns from 4 to 3 (it was raised in calibration on AI2-47, which describes the reporting process the product leaves in place), and scale drops from 2 to 1 (feature-sized, copyable, and FeedbackFruits already sells this through LMS integrations). Whitespace stays at 2, the cap for a funded direct competitor.
+- Attack 2 is a real tension: the free kit should be a lead magnet for a department license, not the product.
+- Honest read: interesting as a FRONTIER behavior, weak as a solo business unless a department-license pilot is signed first.

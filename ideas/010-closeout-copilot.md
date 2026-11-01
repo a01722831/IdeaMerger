@@ -20,9 +20,9 @@ scores:
   why_now: 3
   solo_feasibility: 2
   distribution: 2
-  wtp_economics: 3
+  wtp_economics: 2
   scale_defensibility: 2
-total: 53.7
+total: 51.6
 price_hypothesis: "$149/month per shop (up to 5 techs)"
 model_cost_per_user_month: "$5.30"
 gross_margin: "96%"
@@ -47,11 +47,13 @@ Turns a tech's photos and voice note into the exact closeout each facility-manag
 | Why now | 1 | 3 | Cheap voice and vision plus portal APIs make it practical; the demand side is not new. |
 | Solo feasibility | 2 | 2 | Portal access, per-client rules and a no-automation constraint (platform terms) make it hard for one person. |
 | Distribution | 2 | 2 | Niche buyer (office manager at a commercial shop), no store or marketplace channel found, mostly outbound. |
-| Willingness to pay and unit economics | 2 | 3 | Office labor saved is concrete and margin is 96%, but the buyer pool is small and WTP is untested. |
+| Willingness to pay and unit economics | 2 | 2 | Office labor saved is concrete and margin is 96%, but the buyer pool is small and WTP is untested. Calibrated: 3 to 2, main-thread skeptical pass (no red team run): payer plausible but unproven, and per-portal API access can be revoked by the portal owners |
 | Scale and defensibility | 2 | 2 | A shared client-rule library compounds, yet ServiceChannel and ServiceTitan sit on the workflow. |
-| **Total** | | **53.7** | |
+| **Total** | | **51.6** | |
 
 Confidence: LOW (thin evidence, portal API access unverified). FRONTIER: no.
+
+Skeptical pass (main researcher, 2026-11-01; applied to live ideas without a red team so scores stay comparable): willingness to pay and unit economics 3 to 2 (main-thread skeptical pass (no red team run): payer plausible but unproven, and per-portal API access can be revoked by the portal owners).
 
 ## 3. The problem
 - Who: HVAC, refrigeration, plumbing and electrical shops that take work orders from national accounts (retailers, restaurants, banks) through facility-management portals such as ServiceChannel, Corrigo and Ariba.

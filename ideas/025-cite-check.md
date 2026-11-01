@@ -7,31 +7,33 @@ target_user: "Peer reviewers, journal and conference editors, grant reviewers, a
 form_factor: "web app"
 lens: "Second-order AI"
 frontier: false
-competition: "WEAK DIRECT"
+competition: "CROWDED"
 confidence: "MED"
-status: "developed"
+status: "killed"
 signals: [PRO-238, AI2-07, AI2-12, AI2-13, AI2-17]
 scores:
   pain: 3
   evidence: 3
   ai_leverage: 4
-  whitespace: 2
+  whitespace: 1
   novelty: 3
   why_now: 4
   solo_feasibility: 3
   distribution: 2
-  wtp_economics: 2
+  wtp_economics: 1
   scale_defensibility: 2
-total: 54.7
+total: 50.5
 price_hypothesis: "$12 per document report, $39/month for 5; journal or conference plan about $499/year"
 model_cost_per_user_month: "$2 (5 documents)"
 gross_margin: "91%"
 mvp_weeks: 7
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Cite Check
+
+> **Main-thread review, 2026-11-01: KILLED after red team.** CROWDED: free citation lookups (CourtListener, CaseRead, CiteAudit), Westlaw Quick Check Judicial, Clearbrief, LawDroid CiteCheck, scite and Grounded AI cover existence and claim checks, and the people in pain (reviewers, clerks) do not pay. The file, deep dive and red team are kept as a record.
 
 ## 1. One-liner
 Upload a manuscript or brief and get a reviewer report on which citations are fake or fail to support claims.
@@ -42,16 +44,18 @@ Upload a manuscript or brief and get a reviewer report on which citations are fa
 | Pain severity and frequency | 3 | 3 | Real and rising (28% of one conference track flagged as AI-written; 2,246 court matters), but a reviewer meets it a few times a year. |
 | Evidence quality | 2 | 3 | Five signals, three strong, all about the verification burden; none states willingness to pay, and the reviewer is unpaid. |
 | AI leverage | 2 | 4 | Judging whether a cited passage supports a specific claim is reading work a model now does; retrieval and human review remain. |
-| Whitespace | 2 | 2 | Grounded AI (publisher channel, Nature analysis), scite Reference Check, Manusights, CiteAudit and legal cite-checkers (Clearbrief, CiteSentinel) all do parts of it. |
+| Whitespace | 2 | 1 | Grounded AI (publisher channel, Nature analysis), scite Reference Check, Manusights, CiteAudit and legal cite-checkers (Clearbrief, CiteSentinel) all do parts of it. Red team: 2 to 1, red team: ten or more named tools including Westlaw Quick Check, Clearbrief and free CourtListener lookups |
 | Novelty of insight | 1 | 3 | A reader-side framing (the person who bears the cost of verifying) is a useful twist on author-side checkers. |
 | Why now | 1 | 4 | AI-fabricated references went from curiosity to a flood in 2025 to 2026, and long context makes claim-by-claim reading cheap. |
 | Solo feasibility | 2 | 3 | Reference resolution is easy; getting full text of cited sources (paywalls) is the hard part, so coverage is partial. |
 | Distribution | 2 | 2 | Free author-side check can bring traffic, but reviewers and clerks have no budget and journals, courts and firms buy slowly. |
-| Willingness to pay and unit economics | 2 | 2 | Cost per report is about $0.40 and margin is high, but the people in pain are unpaid; paying buyers are publishers and law firms who have incumbents. |
+| Willingness to pay and unit economics | 2 | 1 | Cost per report is about $0.40 and margin is high, but the people in pain are unpaid; paying buyers are publishers and law firms who have incumbents. Red team: 2 to 1, red team: readers are unpaid, lawyers have bundled tools, publishers build in-house |
 | Scale and defensibility | 2 | 2 | Labs' research agents and publisher integrity suites can add a "check the references" step; no data moat. |
-| **Total** | | **54.7** | |
+| **Total** | | **50.5** | |
 
 Confidence: MED. FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): whitespace 2 to 1 (red team: ten or more named tools including Westlaw Quick Check, Clearbrief and free CourtListener lookups); willingness to pay and unit economics 2 to 1 (red team: readers are unpaid, lawyers have bundled tools, publishers build in-house).
 
 ## 3. The problem
 - Who: volunteer peer reviewers, conference area chairs, grant panel members, journal editors, opposing counsel, judges and their clerks.
@@ -234,3 +238,16 @@ Accuracy gate first (days 1 to 3), then the payer test (days 4 to 7).
 - Key risks to test first: (1) the payer (the test above); (2) the legal reader side being served by Westlaw Quick Check Judicial and Clearbrief; (3) coverage: if under about 50% of citations are checkable the memo is too sparse; (4) a false "no matching record" label harming an author; (5) CourtListener and API limits for commercial use.
 
 Notes for the main researcher: Section 10 only assumed that legal incumbents sell brief analysis; Westlaw Quick Check Judicial is now confirmed as a reader-side product that compares briefs from both sides and is open to opposing counsel and judges, so the legal gap is narrower than "less visibly served"; Whitespace 2 is fair and I would not raise it. CiteAudit is free for 500 citations a day, so individual academics will not pay for existence checks; the only paying wedge I can see is claim support for litigators without Westlaw, plus journals. Clearbrief lists $300 a brief, so $12 may read as a toy to lawyers; the test prices lawyers at $29. WTP 2 holds.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_B.md`). Verdict: **pass**.
+
+**Top attacks (summarized):**
+1. **The easy half is free and the hard half is crowded or unproven.** Existence checks are free (CourtListener's Citation Lookup API, CaseRead, CiteAudit at 500 citations a day); legal readers have Westlaw Quick Check Judicial and Clearbrief ($150 a user a month or $300 a brief); LawDroid CiteCheck, QiXCite and CiteProof add more; scite and Grounded AI cover research.
+2. **The precision bar is loose for the harm a false flag does.** Under 5% false flags means about 3 false accusations per clean 60-reference paper.
+3. **The people in pain do not pay, and the people who pay buy elsewhere.** Reviewers are unpaid, lawyers have bundled tools, publishers build in-house; the journal funnel yields about 0.1 journals a week [ESTIMATE in the red-team file].
+What would change the red team's mind: the accuracy gate passing with false flags under 2%, plus 3 paid reservations from non-Westlaw litigators or a journal naming a budget for a paid pilot.
+
+**Response (main researcher):**
+- All three attacks land, and attack 1 changes the classification: with ten or more named tools including the dominant legal-research incumbent, this is CROWDED by the methodology's definition. Whitespace drops from 2 to 1 and willingness to pay from 2 to 1.
+- **Decision: killed after red team.** Consistent with how other crowded drafts were treated. The deep dive stays in the file as a record; the claim-support check for academic peer review is the only unproven sliver.
