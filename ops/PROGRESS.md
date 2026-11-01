@@ -120,6 +120,15 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 17:20: Reviewed batches A-C. Killed 11 CROWDED drafts (003 Fix Desk, 004 Scope Guard, 009 Bill Detective, 011 Gap Filler, 012 Wholesale Desk, 019 Job Walk, 020 Service Chargebacks, 022 Backlog Books, 024 Books Second Opinion, 029 Forward-to-Post, 038 Food Cost Buddy); each keeps its competition check with a review note. Finding for the report: generic SMB back-office AI (bookkeeping, receipts, chargebacks, booking gaps, quotes from voice, wholesale POs, maintenance dispatch) is saturated by incumbents' own AI plus many small entrants as of late 2026. Live after review: 001, 002, 005, 006, 007, 010, 032, 036, 037. Decision: no second ideation wave; 41 developed files meets the 40+ target, and live ideas from D-F should give enough for a diverse top 12.
 - 2026-10-31 18:00: Batches D (4 killed), E (5 killed), F (4 killed) reviewed. Result: 41 files, 17 live, 24 killed. Decision: launch wave 2 (one agent mines evidence and drafts 3 new ideas in the surviving whitespace: LTC claims, guardianship accountings, comp audit defense; files 042-044, track 11, prefix WAV-).
 - 2026-10-31 18:10: First calibration pass via scripts/calibrate.py (changes recorded in each file's section 2). Live top 8 for deep dives: 006, 027, 039, 007, 001, 008, 005, 018. Last 4 slots after wave 2.
+- 2026-10-31 18:20: Second usage limit hit (resets 22:00 UTC). Wave 2, deep-dive 1 and deep-dive 2 agents stopped before writing anything.
+- 2026-11-01 11:40: Resumed (user asked). Decision: prioritize required steps under usage limits. Order: (1) resume deep-dive batches 1 (006, 027, 039, 007) and 2 (001, 008, 005, 018); (2) deep-dive batch 3 (034 Wage Check, 036 Do It With Me, 037 Retirement Desk, 025 Cite Check; Cite Check chosen over the tied 032/033 for user diversity and because 032 scores AI leverage 2); (3) red team on top 12 -> research/RED_TEAM.md, then main thread writes critique + response into each file and adjusts scores; (4) synthesis (REPORT, README), QA. Wave 2 (042-044) deferred: only if budget remains after (3); otherwise documented as next step for EXTEND.
+
+## NEXT STEPS (keep current)
+1. Wait for deep-dive batches 1-3; check each file got a '## Deep dive' section and deep_dive: true; rebuild index; commit.
+2. Launch red team (ops/REDTEAM_BRIEF.md) on the 12 deep-dived ideas.
+3. Integrate red team into idea files ('## Red team' section: critique summary, response, score changes via scripts/calibrate.py); set red_team: true.
+4. Final calibration check; rebuild index.
+5. Write REPORT.md (10 sections) and README.md (top 10 table); QA (scripts/build_index.py --check, URL spot checks, no TODOs); update PROGRESS; commit and push; reply with top 10.
 
 ## Counts
 - Signals: 586 raw / 571 distinct (130 strong) across 10 tracks + LAND; 54 themes
