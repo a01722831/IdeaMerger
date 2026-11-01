@@ -27,7 +27,7 @@ price_hypothesis: "$14.99/month per parent device with 60 guided minutes include
 model_cost_per_user_month: "$1.4 on Gemini Live voice, up to $3.4 on GPT Live"
 gross_margin: "72% to 86%"
 mvp_weeks: 8
-deep_dive: false
+deep_dive: true
 red_team: false
 ---
 
@@ -165,3 +165,94 @@ Platform risk: high. Google, Apple and Microsoft each ship screen-aware voice he
 - Is desktop-first (web banking, portals) acceptable when most parents use phones?
 - Do bank terms of service forbid reading a customer's screen in this way?
 - Should this fold into 007 Parent Mail Desk as the parent-side "Help me" button, instead of standing alone?
+
+## Deep dive
+
+Added 2026-11-01. New facts were read 2026-11-01; "idea file" means sections 10 to 12 above (read 2026-10-31). Search-summary means I saw the fact only in a search result summary, not on the page. Platform risk comes first, because it decides whether the rest matters.
+
+### Competitor table
+Platform test (what the free assistants already do for an older adult):
+- Gemini Live on Android: screen and camera sharing, free to Android users since April 2025 ([9to5Google, 2025-04-01](https://9to5google.com/2025/04/01/gemini-live-camera-any-android/), [Tom's Guide](https://tomsguide.com/ai/gemini-live-video-and-screen-sharing-is-now-free-for-android-heres-how-to-use-it), [Android Central](https://androidcentral.com/apps-software/android-os/gemini-live-real-time-screen-sharing-now-available-to-all-android-users)). Coverage describes step-by-step guidance, including "highlighting what to tap in settings" (search-summary of a 2025 article; not checked against current builds). Not seniors-specific.
+- Copilot Vision with Highlights on Windows 10 and 11 in the US since 2025-06-12: "show me how" points out where to click in the shared window and never clicks for you ([Microsoft](https://blogs.windows.com/windowsexperience/2025/06/12/copilot-vision-on-windows-with-highlights-now-available-in-us/), [PCWorld](https://www.pcworld.com/article/2657888/copilot-vision-for-windows-can-walk-you-through-tech-issues-step-by-step.html), search-summary). Pointing on desktop is therefore not a differentiator.
+- iOS 27 Siri (September 2026): a WSJ review is headlined "Siri finally grows up: Apple's new assistant can see your screen, search your photos, and get real work done" ([MacDailyNews, 2026-09-16](https://macdailynews.com/2026/09/16/wsj-siri-finally-grows-up-apples-new-assistant-can-see-your-screen-search-your-photos-and-get-real-work-done/), title). MacStories says Siri reads metadata from compatible apps rather than screenshots, so results depend on developer adoption ([review](https://www.macstories.net/stories/ios-and-ipados-27-review/6/), search-summary). Websites and non-adopting bank apps may be weak [UNVERIFIED].
+- Android 16 in-call protections ([Google, 2025-05-13](https://blog.google/security/whats-new-in-android-security-privacy-2025/)): first-time sideloading and granting accessibility permissions are blocked during a call (Android 16); opening a participating banking app while screen sharing with an unknown contact triggers a warning (pilot UK banks Monzo, NatWest, Revolut; later US banks including Chase and Cash App per a [BleepingComputer](https://www.bleepingcomputer.com/news/security/google-expands-android-scam-protection-feature-to-chase-cash-app-in-us/) headline). Two consequences: the child cannot walk a parent through enabling an accessibility service by phone, and escalation must reach a saved contact, not an unknown one.
+- Verdict: generic screen help and pointing are free on desktop and Android. I found no source showing family-set approved payees and limits, a refusal that stops a scam step, or automatic escalation to a named family member with the screen shared. That is an absence in what I read, not a tested fact; the validation test below tests it.
+
+| Competitor | Link | What it does | Price (as published, with date read) | Funding or traction (sourced) | Gap this idea exploits |
+|---|---|---|---|---|---|
+| Gemini Live and Magic Pointer (Google) | links above; [Google Sept 2026 updates](https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/) (per `capabilities.md`) | Live screen and camera help; Magic Pointer "point and ask Gemini about anything on your screen" on Googlebook | Free on Android; Googlebook pre-order [UNVERIFIED] | Platform scale | User-started and generic; no family rules, no stop, no named escalation |
+| Copilot Vision with Highlights (Microsoft) | links above | Shows where to click in a shared Windows window | Not verified for 2026 | Platform scale | Windows only; generic |
+| iOS 27 Siri (Apple) | links above | On-screen awareness, personal context | Bundled with iOS 27 [UNVERIFIED] | Platform scale | Depends on app metadata; no family layer |
+| Android 16 in-call scam protections (Google) | [Google post](https://blog.google/security/whats-new-in-android-security-privacy-2025/) | Blocks risky actions during a call; bank warnings | Free | Bank coverage partial (UK pilot, then some US banks) | Covers calls from unknown contacts only; not in-task guidance |
+| Memory Lane "Geni" | [listing](https://aigregator.com/tools/memory-lane/llms.txt) | On-screen AI tech support, reminders, scam detection, WhatsApp updates to family (vendor claims) | Free 15 daily messages; $19/month premium (idea file) | Not published | Family rules and escalation not described |
+| CareLink | [App Store](https://apps.apple.com/us/app/id6801002430) | Parent taps "Ask for help"; child sees the screen and can draw | Free listing (idea file) | US release 2026-09-20, 0 ratings | Human only, no AI guide; the escalation half |
+| Siggi, AI Elder Assist | [Siggi](https://apps.apple.com/us/app/id6747631567), [AI Elder Assist](https://apps.apple.com/us/app/ai-elder-assist/id6753666581) | Voice guides for phone settings; reminders | $8.49; free (idea file) | 0 ratings each | Generic, no bank tasks |
+| helpmee.ai, Nini, Kolvia, ElderMate, Elsy, EDNA | [helpmee mirror](https://hunted.space/product/helpmee-ai), [Nini mirror](https://hunted.space/product/nini) | Senior computer help, check-in calls, companions (snippets) | Not published | None found | Not task guidance |
+| EverSafe NEW | [pricing](https://www.eversafe.com/pricing/) | Elder financial monitoring with caregiver read-only access | Core $7.49, Plus $16.99, Gold $26.99 a month; 15% off annual (search-summary, 2026-11-01) | Pricing page says it acquired CATCH.ai (search-summary) | After-the-fact alerts; no guided task. Shows what families pay for protection |
+| Aura Family NEW | [Cybernews](https://cybernews.com/identity-theft-protection/aura-review/aura-pricing/) | Identity and fraud protection for up to 5 adults | $29 a month billed annually, $39 monthly (search-summary) | Not verified | General identity theft, not parent task help |
+| Scam Scanner, Phonely CallGuard, Carefull, bank trusted-contact tools | [Scam Scanner](https://apps.apple.com/us/app/scam-scanner-ai-scam-detector/id6758177873) | Message checks, phrase alerts, money monitoring | Carefull price not found | Not verified | Detection after the fact |
+| FaceTime screen sharing with drawing | none read | Child draws on the parent's screen on a call | Free [UNVERIFIED] | Platform | Human only |
+
+### Market sizing (bottom-up)
+- Count: 63M US family caregivers (AARP and NAC 2025, figure from section 12; I did not re-open the report). 20% help a parent with phone or computer tasks and have a parent who would use a guide [ASSUMPTION] = 12.6M.
+- Adoption: conservative 0.5% (assumes the free assistants satisfy half of would-be buyers) = 63,000; optimistic 5% (section 12) = 630,000. Price $14.99 x 12 = $179.88 a year.
+- Serviceable market: conservative 63,000 x $179.88 = $11.3M; optimistic 630,000 x $179.88 = $113.3M. Obtainable at 3% of that: 1,890 subscribers = $0.34M, to 18,900 = $3.40M ARR.
+- Revenue at 100 / 1,000 / 10,000 subscribers: $17,988 / $179,880 / $1.80M (annual plan $129: $12,900 / $129,000 / $1.29M). 10,000 is 1.6% of the optimistic pool.
+- Reading: the market is real but the adoption rate is the weakest number; the validation test measures it.
+
+### Unit economics
+Per active parent device per month (60 guided minutes). Prices from `research/LANDSCAPE.md` section 6. All [ESTIMATE].
+- Gemini 3.8 Live: 60 min parent audio x $0.005 = $0.300; 30 min AI speech x $0.018 = $0.540; screen input 60 x $0.002 = $0.120; 48 step checks on Sonnet 5.5, each 1,500 x $2/1M + 300 x $10/1M = $0.006, so $0.288; 6 live-session text loads on Gemini 3.8 Flash, each 20,000 x $0.75/1M + 3,000 x $3.75/1M = $0.026, so $0.158. Model total $1.41 (the file used $4.50 for output, a $0.014 difference).
+- Other variable: escalation video, 1 call x 5 min x 2 people x $0.004 a person-minute = $0.04 [ASSUMPTION]; weekly summary emails 4 x $0.001 = $0.004; payment fee $14.99 x 2.9% + $0.30 = $0.735; infrastructure $150 a month / 100 customers = $1.50, or $0.15 at 1,000.
+- Gross margin: at 100 customers cost $3.68, margin 75%; at 1,000 cost $2.33, margin 84%. If Google prices double after 2026-12-31: $3.74 and 75% at 1,000. On GPT Live (60 x $0.05 = $3.00 + $0.12 + $0.288 = $3.41 model): $4.34 and 71% at 1,000. Budget on the doubled and GPT cases.
+- Heavy user, 300 minutes (5x): voice $1.50 + speech $2.70 + screen $0.60 + 240 step checks $1.44 + 30 text loads $0.79 = $7.03; with other costs $7.96, margin 47%. Pricing cap: 60 minutes included, hard cap 150 minutes (model $3.51, margin 70%), top-up of 60 minutes at $4.99 [ASSUMPTION] (cost $1.41 plus fee $0.45, margin 63%).
+- No human QA per customer; the routine library is founder time.
+
+### First 100 customers
+Funnel [ESTIMATE]: visit to child signup 6%; signup to parent device set up 45% (80% with a free 30-minute setup call, offered to the first 40 families, because setup is the real funnel); set up to first guided task within 7 days 70%; first task to paid after the two free routines 35%. Visit to paid = 0.06 x 0.45 x 0.7 x 0.35 = 0.66%.
+| Week | Channel and action | Message and offer | Visitors | Paid (cumulative) |
+|---|---|---|---|---|
+| 1 | Show HN (the HN-21 audience) and one post in r/AgingParents | "Mom presses one button; you set the rules; it stops scams and calls you." Two routines free, setup call for 40 families | 300 | 2 |
+| 2 | Answer open parent-tech threads in r/AgingParents and r/eldercare (e.g. "Technology illiterate parent") | Free "set up Mom's phone safely" checklist, then the trial | 400 | 5 |
+| 3 | Search pages: "help my mom with online banking", "senior safe bank transfer", "stop my parent falling for gift card scams" | Scam-rules checklist for email capture | 500 | 8 |
+| 4 | AgingCare.com forums and AARP Online Community answers; labeled prototype demo video | Same | 600 | 12 |
+| 5 | Individual emails to geriatric care managers and senior move managers | Three free families each, referral link | 800 | 17 |
+| 6 | In-product sibling invite on the family dashboard | "Add your sister; she sees the weekly summary" | 1,000 | 24 |
+| 7 | Second Show HN or blog post on the first real "scam stopped" cases, with consent | Same | 1,200 | 32 |
+| 8 | Review funnel; fix setup friction first | Same | 1,500 | 42 |
+Base case: 6,300 visitors, 42 paying by week 8, 100 around week 13 if weekly visitors keep rising 10% to 15%. Growth loop after 100: siblings (the dashboard invite), gifting ("give Mom a Guide"), and routines recorded for one bank that serve every family at that bank after review.
+
+### One-week validation test (under $50)
+Platform baseline first (days 1 to 2, about 6 hours):
+- Build a three-page fake bank site (login, pay bills, add payee) marked "FAKE BANK, test only". Write 10 scripted scenarios: 6 routine tasks and 4 scams (caller demands gift cards; caller asks to install a remote-access app; urgent "government" new payee; "grandchild in jail" wire).
+- Run each scenario twice (20 runs per assistant) on Gemini Live (Android, screen share), Copilot Vision with Highlights (Windows) and iOS 27 Siri (only if I own a compatible iPhone; otherwise mark "not tested"). Log three yes/no items per run: correct next step; flagged or stopped the scam; offered a call to a named family member with the screen shared. A scam scenario counts as stopped only if both of its runs stop.
+- Platform pass (wedge open): the best assistant stops at most 1 of the 4 scam scenarios and offers a family handoff in 0 of its 20 runs. Platform fail: any assistant stops 3 or more of 4 and offers a handoff in at least 5 of 20 runs; stop, and fold into 007 or drop. In between: go on, and narrow the pitch to what is missing.
+Demand (days 3 to 7):
+- One static page, "Guardrails for Mom's AI helper, pre-launch, not live", with a 60-second mock-up video labeled as a prototype, a free waitlist, and a refundable $15 reservation (Stripe Payment Link, refund promised on the page).
+- One question-led post (not a pitch) in r/AgingParents and r/eldercare if their rules allow: how do you handle a scam call mid-task? Offer 20-minute calls; book 8.
+- Budget: domain $12 [ASSUMPTION]; assistants on free tiers $0; Stripe fees on 3 refunded reservations 3 x $0.735 = $2.21 [ASSUMPTION: fees not returned]; page, form and analytics on free tiers $0. Total about $14, cap $50.
+- Valid if at least 150 unique visitors. Pass = platform not failed, and at least 15 waitlist entries (10%) and at least 2 paid reservations and at least 4 of 8 interviewed adult children say they would pay $15 a month and name a scam or help-call incident in the last 90 days. Fail = platform fail, or fewer than 8 waitlist entries, or 0 reservations at 150+ visitors.
+
+### Build brief (paste into a coding session)
+- Product summary: A family-configured voice guide for a parent aged 70 or more. The child records routines and sets rules (approved payees, limits). The parent presses "Help me"; the guide gives one short step at a time with an on-page highlight, stops and explains when a step looks like a scam, and phones the child with the screen shared. It never clicks, types or moves money.
+- MVP features (each testable):
+  1. Chrome and Edge extension with a large "Help me" button, push-to-talk, a visible sharing indicator and per-session consent (no audio or frames leave the browser before the press; check the network log).
+  2. Screen classification into a routine step or "unknown" (at least 90% of steps over 5 sites x 3 routines).
+  3. One spoken instruction of at most 15 words plus a DOM highlight of the target (correct on at least 90% of steps).
+  4. Child web app: record a routine as ordered labeled steps; set payees, per-payment limit and blocked actions (a rule edit applies to the next session).
+  5. Money-step confirmation: read payee and amount from the page, require a spoken "yes", and stop and escalate on any mismatch with the rules (20 of 20 mismatches stop; done in code, not by the model).
+  6. Scam stop on speech and page text (gift cards, crypto ATM, remote-access app, new payee under urgency): stop, explain in plain words, call the child.
+  7. Live escalation by WebRTC to the child's saved contact; the child can draw but not control.
+  8. Weekly summary email: sessions, tasks, stops, minutes.
+  9. Metering and Stripe billing: 60 minutes included, hard cap 150, $14.99 a month, $129 a year, $4.99 top-up.
+  10. Privacy: no screenshots stored; mask long digit strings before frames reach the model; 24-hour debug capture only with the child's opt-in.
+- Non-goals (v1): automatic clicking, typing or payment; iPhone or iPad overlays; Android build before the platform test and a bank-terms check; call screening; general chat or companion; financial or medical advice; storing bank credentials; bank or senior-living deals.
+- Core AI loop: parent speech (streamed) + screen frame on change (at most 1 per second) + routine step + child rules -> Gemini 3.8 Live (mid tier, $0.005/$0.018 a minute) hears the parent and sees the screen -> Sonnet 5.5 ($2/$10) verifies the step and the money fields at decision points (about 48 a month) while plain code compares payee and amount to the rules; Haiku 5.5 ($0.10/$0.50) may filter frame changes -> one short instruction and highlight, or stop and escalate -> checkpoints: the child sets the rules and receives escalations; the founder reviews every routine before it is shared across families.
+- Data model: Family, Child, ParentDevice, Routine, RoutineStep, Rule (payee, limit, blocked action), Session, Event (step, stop, escalation), Summary, Subscription, UsageMeter.
+- Integrations (docs): [Chrome extensions](https://developer.chrome.com/docs/extensions), [Gemini Live API](https://ai.google.dev/gemini-api/docs/live), [OpenAI Realtime](https://platform.openai.com/docs/guides/realtime) as the alternate voice, [LiveKit](https://docs.livekit.io/) for WebRTC, [Stripe Billing](https://docs.stripe.com/billing), [Supabase](https://supabase.com/docs); later Android [AccessibilityService](https://developer.android.com/guide/topics/ui/accessibility/service) with Google Play's accessibility policy (page not verified).
+- Stack (about $100 to $150 a month): TypeScript Manifest V3 extension, Next.js child dashboard on Vercel, Supabase auth and Postgres, LiveKit Cloud, Stripe, Resend, Sentry; 20 pilot users x $1.41 = $28 of model spend.
+- Evals: (1) 5 sites x 3 routines with a scripted confused-parent persona: at least 85% finished without escalation. (2) 20 scripted scam utterances: at least 18 stopped, each with a plain-words reason. (3) 20 benign sessions containing urgency words ("the bill is due today"): at most 1 stopped. (4) Payee or amount outside the rules: 20 of 20 stop. (5) First spoken step within 2.5 s of a screen change (median) and escalation connected within 10 s.
+- Build plan (8 weeks): W1 extension, consent, voice session; W2 screen classification and highlight on 2 sites; W3 child app and rules; W4 money confirmation, scam stop, eval harness; W5 WebRTC escalation; W6 billing, metering, summaries; W7 pilot with 10 families (hand-operated fallback for failures) and 3 more sites; W8 privacy hardening, bank-terms review, waitlist launch.
+- Key risks to test first: (1) the platform baseline; (2) bank terms and screen privacy; (3) whether parents press the button; (4) setup friction (Android 16 blocks accessibility grants mid-call, so setup is in person or by a QR link, not by phone); (5) a scam getting through.
+
+Notes for the main researcher: Whitespace 2 holds. Pointing is free on Windows and Android, so the wedge is the trio of family rules, a stop, and a named escalation, which I could not find anywhere (not tested yet). Section 12's 5% adoption looks high given free alternatives; my conservative case uses 0.5%. The Android 16 in-call protections cut both ways: they cover part of the scam problem for participating banks and block mid-call setup. Whether to fold this into 007 Parent Mail Desk stays open; the family-configuration layer is what both would share.

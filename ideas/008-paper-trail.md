@@ -13,22 +13,22 @@ status: "developed"
 signals: [LIFE-27, LIFE-28, LIFE-29, LIFE-30, LIFE-31, LIFE-22, REV-45, REV-47, UND-30, LIFE-43]
 scores:
   pain: 3
-  evidence: 4
+  evidence: 3
   ai_leverage: 3
   whitespace: 2
   novelty: 3
   why_now: 3
-  solo_feasibility: 4
+  solo_feasibility: 3
   distribution: 3
-  wtp_economics: 3
+  wtp_economics: 2
   scale_defensibility: 2
-total: 60.0
+total: 53.7
 price_hypothesis: "$59 per notice case (one tracked certified letter included), $12 per extra letter"
 model_cost_per_user_month: "$0.12 per case (about $12.50 of mail and print on top)"
 gross_margin: "72%"
 mvp_weeks: 6
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Paper Trail
@@ -40,18 +40,20 @@ Photograph an IRS or SSA notice; get the plain-English meaning, a drafted reply,
 | Criterion | Weight | Score | Why |
 |---|---|---|---|
 | Pain severity and frequency | 3 | 3 | Deadlines, unreachable phones and fear; people pay relief firms $2,000+; but any one person gets a notice rarely Calibrated 4 to 3: notices are infrequent per household and usually lower-stakes than a Medicaid or disaster case |
-| Evidence quality | 2 | 4 | 10 recent signals across Reddit, App Store and HN, 4 strong; demand for the mailing and escalation layer is inferred |
+| Evidence quality | 2 | 3 | 10 recent signals across Reddit, App Store and HN, 4 strong; demand for the mailing and escalation layer is inferred Red team: 4 to 3, red team: signals show phone failure and fear; demand for mailing and escalation is inferred |
 | AI leverage | 2 | 3 | Model reads notices and drafts replies; rules, mailing and escalation are not AI, and OweRight shows reading is a commodity |
 | Whitespace | 2 | 2 | WEAK DIRECT: OweRight (8 days old) reads and drafts; I found nobody who mails, tracks and escalates for individuals Calibrated 3 to 2: OweRight (live 2026-10-23) reads about 150 notice types and drafts replies, and general assistants read notices well |
 | Novelty of insight | 1 | 3 | Owning case state, proof of mailing and the escalation playbook is a useful twist, not a new category |
 | Why now | 1 | 3 | Cheap vision reading and mail APIs, IRS phones unreachable in 2026; a version was buildable in 2024 |
-| Solo feasibility | 2 | 4 | About 6 weeks with off-the-shelf APIs; the curated rules library is the real labour |
+| Solo feasibility | 2 | 3 | About 6 weeks with off-the-shelf APIs; the curated rules library is the real labour Red team: 4 to 3, red team: reviewed rules library, proof-of-mailing and Circular 230 questions |
 | Distribution | 2 | 3 | Notice-code SEO and r/IRS style communities, but IRS, TurboTax and TaxAct pages hold the top results |
-| Willingness to pay and unit economics | 2 | 3 | $59 against $2,000+ relief fees; postage caps margin near 72%; owners of small bills will not pay |
+| Willingness to pay and unit economics | 2 | 2 | $59 against $2,000+ relief fees; postage caps margin near 72%; owners of small bills will not pay Red team: 3 to 2, red team: OweRight at $29.99 and the free IRS upload tool cap the price |
 | Scale and defensibility | 2 | 2 | Episodic use; Intuit, H&R Block or the assistants can copy the explain-and-draft slice |
-| **Total** | | **60.0** | |
+| **Total** | | **53.7** | |
 
 Confidence: MED. FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): evidence quality 4 to 3 (red team: signals show phone failure and fear; demand for mailing and escalation is inferred); willingness to pay and unit economics 3 to 2 (red team: OweRight at $29.99 and the free IRS upload tool cap the price); solo feasibility 4 to 3 (red team: reviewed rules library, proof-of-mailing and Circular 230 questions).
 
 Calibration (main researcher, 2026-10-31): pain severity and frequency 4 to 3 (notices are infrequent per household and usually lower-stakes than a Medicaid or disaster case); whitespace 3 to 2 (OweRight (live 2026-10-23) reads about 150 notice types and drafts replies, and general assistants read notices well).
 
@@ -236,3 +238,16 @@ RISKS TO TEST FIRST: 1 proof of mailing under IRC 7502 when a vendor mails; 2 un
 ```
 
 **Notes for the main researcher:** The IRS Document Upload Tool lets CP2000 replies be filed free online, so the mailing wedge is narrower than section 7 implies; it holds where a notice offers no upload and where a statutory deadline makes a postmarked certified receipt matter, but only if the mail vendor returns an acceptable receipt (untested). WTP 3 stands only if the $59 tier beats a $29 draft-only tier in the test.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_A.md`). Verdict: **pass**.
+
+**Top attacks (summarized):**
+1. **The wedge is a receipt that may not exist, next to a free one that does.** The IRS Document Upload Tool gives free electronic confirmation; elsewhere, IRC 7502 proof needs a USPS-postmarked receipt, and r/IRS evidence shows a third-party mail unit stamping a generic date.
+2. **The liability line carves out the people who would pay.** The $2,000+ relief-firm anchor is for large debts (levies, liens, audits, identity theft), which the product refers out.
+3. **Licensing is also federal.** Composing and mailing a taxpayer's reply for a fee raises a Circular 230 practice-before-the-IRS question the file does not ask.
+What would change the red team's mind: five test letters through the mail API returning a postmarked receipt a CPA accepts under IRC 7502, 25+ paid pre-orders with 40%+ choosing $59 over $29, and a written practitioner view on Circular 230.
+
+**Response (main researcher):**
+- All three attacks land. Evidence drops from 4 to 3 (the signals show phone failure and fear; demand for mailing and escalation is inferred), willingness to pay from 3 to 2 (OweRight at $29.99 and the free upload tool set the ceiling), solo feasibility from 4 to 3 (a reviewed rules library plus the proof-of-mailing and Circular 230 questions).
+- Possible re-scope: Social Security and state-agency notices (payment suspensions, overpayment demands), where no IRS-style upload confirmation exists and the strongest signal in this file came from (LIFE-29, 347 comments).

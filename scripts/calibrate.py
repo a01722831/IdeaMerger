@@ -17,6 +17,8 @@ LABEL = {"pain": "Pain severity and frequency", "evidence": "Evidence quality", 
 def main():
     changes = json.load(open(sys.argv[1]))
     for num, ch in changes.items():
+        ch = dict(ch)
+        label = ch.pop("_label", "Calibration (main researcher, 2026-10-31)")
         path = glob.glob(f"ideas/{num}-*.md")[0]
         t = open(path).read()
         notes = []
@@ -28,14 +30,15 @@ def main():
             rx = re.compile(rf"(?m)^\|\s*{re.escape(LABEL[crit])}\s*\|\s*(\d)\s*\|\s*(\d)\s*\|(.*)\|\s*$")
             mm = rx.search(t)
             if mm:
-                row = f"| {LABEL[crit]} | {mm.group(1)} | {new} | {mm.group(3).strip()} Calibrated {old} to {new}: {why} |"
+                verb = "Red team" if "Red-team" in label else "Calibrated"
+                row = f"| {LABEL[crit]} | {mm.group(1)} | {new} | {mm.group(3).strip()} {verb}: {old} to {new}, {why} |"
                 t = t[:mm.start()] + row + t[mm.end():]
             notes.append(f"{LABEL[crit].lower()} {old} to {new} ({why})")
         scores = {k: int(re.search(rf"(?m)^\s+{k}:\s*(\d)", t).group(1)) for k in WEIGHTS}
         total = round(sum(WEIGHTS[k] * v for k, v in scores.items()) / 95 * 100, 1)
         t = re.sub(r"(?m)^total:.*$", f"total: {total}", t, count=1)
         t = re.sub(r"(?m)^\|\s*\*\*Total\*\*\s*\|\s*\|\s*\*\*[\d.]+\*\*\s*\|", f"| **Total** | | **{total}** |", t, count=1)
-        note = "Calibration (main researcher, 2026-10-31): " + "; ".join(notes) + "."
+        note = label + ": " + "; ".join(notes) + "."
         t = re.sub(r"(?m)^(Confidence: [^\n]*\n)", lambda m: m.group(1) + "\n" + note + "\n", t, count=1)
         open(path, "w").write(t)
         print(num, "->", total)

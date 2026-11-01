@@ -27,7 +27,7 @@ price_hypothesis: "$12 per document report, $39/month for 5; journal or conferen
 model_cost_per_user_month: "$2 (5 documents)"
 gross_margin: "91%"
 mvp_weeks: 7
-deep_dive: false
+deep_dive: true
 red_team: false
 ---
 
@@ -153,3 +153,84 @@ Platform risk: medium to high. Claude, ChatGPT and Gemini with search and file u
 - Does the reader-side framing beat Clearbrief and scite for litigators and reviewers, or is it one feature of theirs?
 - Should the first market be legal (more budget, more incumbents) or academic (less budget, more pain)?
 - How should the report word a "not supported" finding so an editor can act on it without accusing an author?
+
+## Deep dive
+
+Added 2026-11-01. New facts were read 2026-11-01; "idea file" means sections 10 to 12 above (read 2026-10-31). Search-summary means I saw the fact only in a search result summary, not on the page. The payer is the crux: the people in pain (reviewers, clerks) rarely pay, so each part below tests who does.
+
+### Competitor table
+| Competitor | Link | What it does | Price (as published, with date read) | Funding or traction (sourced) | Gap this idea exploits |
+|---|---|---|---|---|---|
+| Westlaw Quick Check and Quick Check Judicial (Thomson Reuters) NEW | [TR page](https://legal.thomsonreuters.com/en/c/quick-check-judicial-on-westlaw-edge), [LawNext 2020-08](https://lawnext.com/2020/08/if-your-judge-is-using-this-new-ai-tool-should-you-be-using-it-too.html) | Upload up to six briefs from one matter, three per party; "analyze multiple documents from a single matter - your own and your opponent's"; flags inaccurate quotes and cases the parties missed; used by judges, and opposing counsel can use it too (search-summary) | At the 2020 launch, "no additional charge to all Westlaw Edge subscribers"; 2026 Westlaw Advantage $256.75 to $399.75 a month for firms up to 10 attorneys per a third-party blog ([Vaquill](https://www.vaquill.ai/blog/westlaw-precision-ai-review-honest-assessment), citing Thomson Reuters, June 2026); Quick Check pricing itself unconfirmed [UNVERIFIED] | Platform scale | The legal reader side is not empty. Open: lawyers without Westlaw, pro se opponents, non-US, academic |
+| Clearbrief Cite Check Report | [LawNext Dec 2025](https://www.lawnext.com/2025/12/clearbrief-launches-cite-check-report-to-give-law-firm-partners-an-audit-trail-against-ai-hallucinations.html), [LawNext directory](https://directory.lawnext.com/products/clearbrief/pricing/) | Audit trail of a filer's citations; says it uses classic ML and NLP, not generative AI (idea file) | "$150 Per User/Month" unlimited or "$300 Per Brief" (directory listing, search-summary 2026-11-01); [G2](https://www.g2.com/products/clearbrief-clearbrief/pricing) lists no price | Not found | Filer-side. Its $300 a brief is the legal price anchor, 25 times a $12 report |
+| CiteSentinel, CiteCheck AI | [CiteSentinel](https://www.cuinsight.com/press-release/tech-startup-launches-tool-built-to-catch-ai-hallucinations-in-legal-citations/), [Daily Record](https://thedailyrecord.com/2026/08/28/ai-hallucination-tech-tools/) | Flag nonexistent or mismatched case and statute citations in briefs | Not found | Launched May 2026 and by Aug 2026 (idea file) | Filer-side; claim support unproven |
+| CiteAudit (checkcitation.com) | [paper](https://arxiv.org/abs/2602.23452), [The Decoder, 2026-03-08](https://the-decoder.com/hallucinated-references-are-passing-peer-review-at-top-ai-conferences-and-a-new-open-tool-wants-to-fix-that/) | Open benchmark and web app that detects hallucinated citations | Free: the team is "making CiteAudit freely available as a web application"; up to 500 citations a day after an email sign-up (The Decoder, as summarized by my fetch) | Academic team (Yuan et al.), no company named | Existence checking is free, so individual academics are unlikely to pay for it |
+| GPTZero | [The Decoder](https://the-decoder.com/hallucinated-references-are-passing-peer-review-at-top-ai-conferences-and-a-new-open-tool-wants-to-fix-that/) | Found "more than 50 hallucinated references in ICLR 2026 submissions" (The Decoder) | Not found for citation checking | Funding not verified [UNVERIFIED] | Conference-side detection; support checks not shown |
+| scite Reference Check | [CaSRAI](https://casrai.org/research-tools/ai-research-assistants/scite), [Manusights](https://manusights.com/blog/is-scite-worth-it) | Flags retractions, editorial notices, contrasting citations | Not verified: scite.ai/plans returned a 404 on 2026-11-01 | Not found | Citation graph, not passage-level support |
+| Grounded AI "Veracity", Manusights citation checker | [Manusights](https://manusights.com/blog/ai-citation-checker) | Publisher-side checks (Nature analysis of 4,000+ publications, search-summary); abstract-level claim labels | Not found | Not verified | Sold to publishers; abstract-level only |
+| RefVerifier, sciwrite-lint, SemanticCite, HalluCiteChecker | [RefVerifier](https://arxiv.org/pdf/2609.07652), [sciwrite-lint](https://arxiv.org/pdf/2604.08501) | Open pipelines | Free (idea file) | None | The DIY floor |
+| ChatGPT, Claude, Gemini with upload and search | none | Rough reference checks on request | Subscription or free (idea file) | Platform scale | No resolver stack, "could not check" states or shareable memo |
+| Free data rails: Crossref, OpenAlex, Semantic Scholar, Unpaywall, CourtListener, [Charlotin database](https://www.damiencharlotin.com/hallucinations/) | see build brief | Records, open full text, case law; 2,246 cases logged (idea file) | Free APIs (limits unverified) | n/a | Inputs, and the top of the funnel |
+
+### Market sizing (bottom-up)
+- Legal: 1.37M US lawyers in 2025 ([ABA Profile via TaxProf Blog](https://taxprofblog.aals.org/2025/12/10/aba-profile-of-the-legal-profession-number-of-lawyers-increase/), search-summary). 30% litigate [ASSUMPTION] = 411,000; 40% lack a Westlaw-class checker [ASSUMPTION] = 164,400. At $39 a month ($468 a year): conservative 1% = 1,644 x $468 = $0.77M; optimistic 4% = 6,576 x $468 = $3.08M.
+- Academic individuals ($12 a report, 4 a year = $48): conservative 2,000 payers = $0.10M (free CiteAudit caps willingness to pay); optimistic 20,000 (idea file) = $0.96M.
+- Journals, societies, conferences at $499 a year: conservative 300 = $0.15M; optimistic 1,500 (about 5% of a roughly 30,000-journal universe, count not verified) = $0.75M.
+- Serviceable market: conservative $1.02M, optimistic $4.79M a year. Legal is 75% of the conservative and 64% of the optimistic total, so the first market is legal.
+- Revenue at 100 / 1,000 / 10,000 customers: subscribers at $39 a month $46,800 / $468,000 / $4.68M (10,000 is above the optimistic legal pool of 6,576); journal plans $49,900 / $499,000 / not reachable.
+
+### Unit economics
+Per document, then per month. Prices from `research/LANDSCAPE.md` section 6. All [ESTIMATE].
+- One 30-page, 60-reference document: OCR 30 x $4/1,000 = $0.12 (price [UNVERIFIED]); reference extraction on Haiku 5.5, 8,000 x $0.10/1M + 3,000 x $0.50/1M = $0.0023; first-pass support check, 60 x (3,500 x $0.10/1M + 300 x $0.50/1M = $0.0005) = $0.03; second pass on Sonnet 5.5 for 30% (18) x (3,500 x $2/1M + 400 x $10/1M = $0.011) = $0.198; memo 6,000 x $2/1M + 2,000 x $10/1M = $0.032. File total $0.382. Added here: embeddings, 60 papers x 8,000 tokens x $0.02/1M = $0.0096; web-search fallback for unresolved references, 10 x $10/1,000 = $0.10 [ASSUMPTION]. Total $0.49.
+- Subscriber, 5 documents a month: model 5 x $0.49 = $2.46; payment fee $39 x 2.9% + $0.30 = $1.43; human QA, 1 report in 20 read for 10 minutes at $30 an hour = $0.25 each, so $1.25 [ASSUMPTION]; infrastructure $80 a month / 100 customers = $0.80 (or $0.08 at 1,000). Cost $5.94 at 100 customers, margin (39 - 5.94) / 39 = 85%; $5.22 and 87% at 1,000.
+- Single $12 report: $0.49 + fee $0.65 + QA $0.25 + infrastructure $0.16 = $1.55, margin 87%. If lawyers pay $29 a report: cost $2.04, margin 93%.
+- Journal plan, $499 a year for 150 submissions: 150 x $0.49 = $73.78 + fee $14.77, margin 82%.
+- Heavy user, 40 long briefs a month (80 pages, 150 citations): per brief OCR $0.32 + extraction $0.006 + first pass 150 x $0.0005 = $0.075 + second pass 45 x $0.011 = $0.495 + memo $0.05 + embeddings $0.024 + search 20 x $0.01 = $0.20 = $1.17, so $46.80 a month, more than the $39 price. Pricing cap: 5 reports included, then $6 each (cost $1.17 + fee $0.47, margin 73%).
+
+### First 100 customers
+Three payer tracks with a stop rule. Funnel [ESTIMATE]: legal visitor to a free partial run (first 10 citations) 20%, run to paid report 5%, so 1.0% visitor to paid; academic 15% x 2% = 0.3%; journals: 10 individual emails a week, 20% reply, 25% of replies take a free pilot, 25% of pilots pay $499. Worked examples use court sanction orders (public record) and a synthetic manuscript with seeded errors; no author or lawyer is named beyond the court's own order.
+| Week | Channel and action | Message and offer | Legal visitors | Legal paid (cumulative) |
+|---|---|---|---|---|
+| 1 | Five worked examples from the Charlotin database plus a synthetic manuscript; one post in r/LawyerTalk if the moderators agree; legal posts on Bluesky and Mastodon | "Check an opposing brief's citations in minutes. First 10 free, full report $12 (lawyers $29)" | 200 | 2 |
+| 2 | Email the editors of two legal-tech outlets (LawNext among them) with a worked example; ask for a directory listing | Same | 250 | 5 |
+| 3 | Individual emails to 10 law librarians at firms and courts offering a free trial | Same | 300 | 8 |
+| 4 | r/AskAcademia and Academia StackExchange threads like PRO-238 ("reject on one false citation?") | Free reviewer report; decision gate at the end of the week | 400 | 12 |
+| 5 | 10 emails to small society journals and workshop organizers with the synthetic sample | Free pilot for 30 submissions, then $499 a year | 500 | 17 |
+| 6 | Pitch a solo and small-firm section of a state bar for a short session | Same | 600 | 23 |
+| 7 | Convert $12 buyers: 5 reports, then $6 each, for $39 a month | Subscription offer | 700 | 30 |
+| 8 | Show HN with the sanction-database example; review the funnel | Same | 800 | 38 |
+Base case: 3,750 legal visitors and 38 paid, plus about 3 academic buyers and 1 journal = 41 paying by week 8; 100 around week 15. Stop rule at the end of week 4: fewer than 10 paying litigators and no journal agreeing to a paid pilot means the product is a free tool; fold it into a legal-tech product or stop. Growth loop after 100: each report carries a "checked with Cite Check" footer and a verify link, lawyers attach it to motions, and clerks and opposing counsel who see it become users.
+
+### One-week validation test (under $50)
+Accuracy gate first (days 1 to 3), then the payer test (days 4 to 7).
+- Gate: script a rough pipeline (reference extraction, Crossref, OpenAlex and CourtListener lookups, a two-step support judge). Run it on 8 public filings from the Charlotin database and 4 clean public filings; check by hand. Pass the gate if it finds at least 85% of the known fabricated citations, wrongly flags no more than 5% of citations in the clean filings, and never labels a paywalled source "verified". If it fails, skip the rest and fix it.
+- Page (day 4): one static page, "Cite Check, pre-launch", saying reports this week are produced by a script I run by hand, with one worked example. Legal section: reserve a $29 report on any public filing, refundable, delivered within 48 hours. Reviewer section: reserve a $12 report. Journal section: request a free 30-submission pilot. All via Stripe Payment Links and a form.
+- Reach (days 4 to 7): one disclosed post in r/LawyerTalk and one in r/AskAcademia, only if rules allow; 12 individually written emails to public addresses (6 solo or small-firm litigators who write publicly about AI-citation sanctions, 6 editors or organizers of small society journals and workshops). No unsolicited messages beyond those, no accounts but my own.
+- Budget: model calls $10 (12 documents x $0.49 = $5.90 plus retries and up to 5 delivered reports); domain $12 [ASSUMPTION]; Stripe fees on 3 refunded $29 reservations 3 x $1.14 = $3.42 and 2 refunded $12 reservations 2 x $0.65 = $1.30 [ASSUMPTION: fees not returned]; APIs, hosting and forms free. Total about $27, cap $50.
+- Valid if at least 150 unique legal-section visitors.
+- Legal arm: pass = at least 3 paid $29 reservations; 1 to 2 = weak, retest at $12 and $49; 0 = fail. Reviewer arm: record only; 2 or more paid reservations would be a surprise worth noting. Journal arm: pass = at least 1 reply asking for a pilot that names who holds the budget (editors are slow; if none by day 7, extend to day 14).
+- Overall pass = gate passed and (legal arm passes or journal arm passes). Fail = gate failed, or 0 paid reservations at 150+ visitors and 0 pilot requests by day 14.
+
+### Build brief (paste into a coding session)
+- Product summary: A reader-side citation check. Upload a manuscript, grant or brief you did not write; get a ranked evidence memo of citations that have no matching record or do not support the claim, with the source passage quoted. "Could not check" (paywall, missing text) is a first-class result with a reason. It states findings of fact about records, never accusations.
+- MVP features (each testable):
+  1. PDF and DOCX parsing that extracts the reference list and each in-text claim tied to a reference (at least 95% of references extracted on 30 documents).
+  2. Resolution of each reference against Crossref, OpenAlex, Semantic Scholar and, for case law, CourtListener, with a match confidence.
+  3. A second-source search before any "no matching record found" label (test: 20 real but obscure references are not mislabeled).
+  4. Open full-text retrieval through Unpaywall and passage retrieval; otherwise "could not check" with the reason (paywalled sources are never "verified").
+  5. Two-stage support judgment: Haiku 5.5 screens every pair, Sonnet 5.5 judges the uncertain 30%; labels are verified, partly supported, not supported, no matching record found, could not check.
+  6. A one-page memo, highest risk first, with the source quote beside the claim.
+  7. Shareable report link that can be revoked, with a "checked with Cite Check" footer and a verify link.
+  8. Agree or disagree buttons per finding, saved as labeled data.
+  9. Stripe: first 10 citations free; per-report prices set by the test ($12 reviewers, $29 lawyers); $39 a month for 5 reports; $6 per extra; journal plan $499 a year.
+  10. A wording filter so memos contain no accusatory terms ("fabricated", "fraud").
+- Non-goals (v1): AI-text detection; judgments of scientific merit or legal advice; plagiarism checks; paywall circumvention; a browser extension; a publisher API; Westlaw or Lexis integration.
+- Core AI loop: document -> text extraction in code (OCR only for scans, $4 per 1,000 pages) -> Haiku 5.5 ($0.10/$0.50) extracts references and claims into JSON -> resolvers in code -> passage retrieval by embeddings ($0.02/1M tokens) -> Haiku screens each claim-source pair -> Sonnet 5.5 ($2/$10) judges uncertain pairs and writes the memo -> checkpoints: the founder reads the first 100 reports and 1 in 20 after that; the reader agrees or disagrees; the wording filter runs last.
+- Data model: Account, Document, Reference, Citation (claim sentence, reference id), Resolution (source, record id, confidence), SourceText (URL, license, passages), Judgment (label, quote, rationale, model, confidence), Report (share token, revoked), Feedback, Plan.
+- Integrations (docs): [Crossref REST API](https://www.crossref.org/documentation/retrieve-metadata/rest-api/), [OpenAlex](https://docs.openalex.org/), [Semantic Scholar](https://www.semanticscholar.org/product/api), [Unpaywall](https://unpaywall.org/products/api), [CourtListener](https://www.courtlistener.com/help/api/) (rate limits and commercial terms [UNVERIFIED]), [Stripe](https://docs.stripe.com/), [Anthropic API](https://docs.anthropic.com/).
+- Stack (about $100 to $150 a month): Next.js on Vercel for the app; a Python worker (PyMuPDF for parsing) on Fly.io or Render; Supabase Postgres with pgvector, auth and storage; Stripe; Sentry; Langfuse free tier for traces and evals; model spend about $40 for 100 test documents.
+- Evals: (1) 10 court filings and 10 flagged papers: at least 85% of fabricated references found. (2) The same set: at least 60% of unsupported-claim cases flagged. (3) 10 clean papers: under 5% of citations wrongly flagged. (4) 20 paywalled-only sources: none labeled verified. (5) 50 memos: no accusatory words.
+- Build plan (7 weeks): W1 parsing, reference and claim extraction, eval harness; W2 resolvers with second-source search; W3 Unpaywall retrieval and passage matching; W4 two-stage judge and memo; W5 share links, feedback, wording filter; W6 Stripe, free tier, case-law module; W7 pilot with 10 users, QA sampling, launch.
+- Key risks to test first: (1) the payer (the test above); (2) the legal reader side being served by Westlaw Quick Check Judicial and Clearbrief; (3) coverage: if under about 50% of citations are checkable the memo is too sparse; (4) a false "no matching record" label harming an author; (5) CourtListener and API limits for commercial use.
+
+Notes for the main researcher: Section 10 only assumed that legal incumbents sell brief analysis; Westlaw Quick Check Judicial is now confirmed as a reader-side product that compares briefs from both sides and is open to opposing counsel and judges, so the legal gap is narrower than "less visibly served"; Whitespace 2 is fair and I would not raise it. CiteAudit is free for 500 citations a day, so individual academics will not pay for existence checks; the only paying wedge I can see is claim support for litigators without Westlaw, plus journals. Clearbrief lists $300 a brief, so $12 may read as a toy to lawyers; the test prices lawyers at $29. WTP 2 holds.

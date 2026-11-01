@@ -13,22 +13,22 @@ status: "developed"
 signals: [PRO-029, PRO-030, GAP-20, PRO-026, REV-35]
 scores:
   pain: 4
-  evidence: 4
+  evidence: 3
   ai_leverage: 3
   whitespace: 2
-  novelty: 3
+  novelty: 2
   why_now: 3
   solo_feasibility: 3
   distribution: 3
-  wtp_economics: 3
+  wtp_economics: 2
   scale_defensibility: 2
-total: 61.1
+total: 55.8
 price_hypothesis: "20% of money recovered, nothing if nothing is recovered"
 model_cost_per_user_month: "$1.15"
 gross_margin: "90%"
 mvp_weeks: 6
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Haul Paid
@@ -40,18 +40,20 @@ Collects detention, layover and short-pays for small carriers by turning rate co
 | Criterion | Weight | Score | Why |
 |---|---|---|---|
 | Pain severity and frequency | 3 | 4 | Short-pays of $100-375 on $1,000 loads and a $650 detention rejection (PRO-030, GAP-20) recur load after load; real money. |
-| Evidence quality | 2 | 4 | Two strong and one medium carrier signal plus a strong claim-rejection story, but no signal states willingness to pay for a collection tool. Calibrated 3 to 4: GAP-20 adds a strong detention-claim rejection signal; five signals with money lost per load |
+| Evidence quality | 2 | 3 | Two strong and one medium carrier signal plus a strong claim-rejection story, but no signal states willingness to pay for a collection tool. Calibrated 3 to 4: GAP-20 adds a strong detention-claim rejection signal; five signals with money lost per load Red team: 4 to 3, red team: only one of five signals is clearly a small carrier; no WTP statement |
 | AI leverage | 2 | 3 | Model reads rate cons and writes clause-cited claims; dwell math, sending and scheduling are deterministic. |
 | Whitespace | 2 | 2 | Hey Bubba, WaitClaim, Detention Source and ELD-marketplace apps already log detention claims; only the escalate-and-collect half looks open. |
-| Novelty of insight | 1 | 3 | Selling the broker-AP and surety escalation ladder instead of another timestamp log is a useful twist. |
+| Novelty of insight | 1 | 2 | Selling the broker-AP and surety escalation ladder instead of another timestamp log is a useful twist. Red team: 3 to 2, red team: the third-party escalation insight does not survive the compliant design |
 | Why now | 1 | 3 | Contract extraction and ELD APIs have worked for 2+ years; only the 2026 rejection stories are new. Calibrated 2 to 3: cheap document models make per-load claims worth assembling |
 | Solo feasibility | 2 | 3 | About 6 weeks for upload, extraction, packets and follow-ups; ELD OAuth and contingency billing add risk. |
 | Distribution | 2 | 3 | Trucker forums, SEO and ELD marketplaces are plausible but crowded or gatekept; a broker scorecard is a possible loop. |
-| Willingness to pay and unit economics | 2 | 3 | No upfront price removes the barrier and margin is high, but fee per user is about $30 a month and fee leakage is real. |
+| Willingness to pay and unit economics | 2 | 2 | No upfront price removes the barrier and margin is high, but fee per user is about $30 a month and fee leakage is real. Red team: 3 to 2, red team: contingency fee is license-gated; $29 flat untested with cancel-after-win churn |
 | Scale and defensibility | 2 | 2 | Feature-sized next to ELD vendors and Hey Bubba; only the broker-behavior dataset compounds. |
-| **Total** | | **61.1** | |
+| **Total** | | **55.8** | |
 
 Confidence: MED. FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): evidence quality 4 to 3 (red team: only one of five signals is clearly a small carrier; no WTP statement); willingness to pay and unit economics 3 to 2 (red team: contingency fee is license-gated; $29 flat untested with cancel-after-win churn); novelty of insight 3 to 2 (red team: the third-party escalation insight does not survive the compliant design).
 
 Calibration (main researcher, 2026-10-31): evidence quality 3 to 4 (GAP-20 adds a strong detention-claim rejection signal; five signals with money lost per load); why now 2 to 3 (cheap document models make per-load claims worth assembling).
 
@@ -233,3 +235,18 @@ RISKS TO TEST FIRST: 1 collections law (attorney hour before any percentage fee)
 ```
 
 **Notes for the main researcher:** Licensing is unresolved, so I would not lead with the 20% contingency price until counsel clears it; a flat $29 plus escalation fees gives about the same revenue with no fee leakage. Hey Bubba's owner-operator page already shows broker days-to-pay (overlaps the section 13 scorecard loop). Reddit supplies only about 5 matching threads a week, so Distribution 3 depends on the dispatcher-service channel. No score change proposed.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_A.md`). Verdict: **pass**.
+
+**Top attacks (summarized):**
+1. **The insight and the compliant design contradict each other.** The thesis is third-party escalation pressure, but the licensing-safe design sends every message in the carrier's own name.
+2. **The demand evidence is mostly not the buyer.** Only PRO-030 is clearly a small carrier; PRO-029 and GAP-20 come from broker forums, PRO-026 is broker workload, REV-35 an ELD review; none states willingness to pay.
+3. **Competition is closer than stated.** Hey Bubba already reads detention terms, runs the dwell clock on 100+ ELDs, files claims with timestamps and shows broker days-to-pay.
+What would change the red team's mind: a 15-carrier hand run where 40%+ of supportable claims are paid within 30 days from carrier-name emails alone, 5 carriers paying $29 a month after a real recovery, and one collections-attorney hour confirming the late escalation rungs need no license in the launch states.
+
+**Response (main researcher):**
+- Attack 1 lands partly. Carriers can file surety-bond (BMC-84) claims and FMCSA complaints in their own name, so escalation leverage survives without a third-party collector; what is lost is the "outside party" effect. Novelty drops from 3 to 2.
+- Attack 2 lands. Evidence drops from 4 to 3 (reverting the earlier calibration bump).
+- Attack 3 lands: Hey Bubba covers much of the evidence half; whitespace stays at 2. Willingness to pay drops from 3 to 2 because the contingency model is license-gated and $29 flat is untested.
+- Distribution stays at 3: trucker forums, YouTube and Facebook groups are large and reachable by one person.

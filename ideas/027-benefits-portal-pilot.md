@@ -15,20 +15,20 @@ scores:
   pain: 4
   evidence: 3
   ai_leverage: 4
-  whitespace: 3
+  whitespace: 2
   novelty: 3
   why_now: 5
   solo_feasibility: 2
-  distribution: 3
-  wtp_economics: 3
+  distribution: 2
+  wtp_economics: 2
   scale_defensibility: 3
-total: 65.3
+total: 58.9
 price_hypothesis: "$99/month per navigator seat; free SMS document upload for clients"
 model_cost_per_user_month: "$6.10 (about $6.70 on HIPAA-eligible endpoints)"
 gross_margin: "85%"
 mvp_weeks: 8
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Benefits Portal Pilot
@@ -42,16 +42,18 @@ Browser side panel that guides navigators through state benefits portals, pre-fi
 | Pain severity and frequency | 3 | 4 | Coverage loss for millions; CMS counts 8.8M people documenting every 6 months at about 2 hours each (FORCE-11) |
 | Evidence quality | 2 | 3 | 9 recent signals, but all enrollee-side; no navigator or plan says it would pay |
 | AI leverage | 2 | 4 | Screen reading, document extraction and hours reconstruction are model work; submission stays human |
-| Whitespace | 2 | 3 | ADJACENT ONLY: Fortuna Health (funded) sells navigation to plans; no navigator side panel found |
+| Whitespace | 2 | 2 | ADJACENT ONLY: Fortuna Health (funded) sells navigation to plans; no navigator side panel found Red team: 3 to 2, red team: free grant-funded pre-fill tools (Nava/Amplifi, CfA with Anthropic) |
 | Novelty of insight | 1 | 3 | Equip the navigators instead of rebuilding the portals; HeyClicky pattern on a narrow job |
 | Why now | 1 | 5 | Work requirements due by 2027-01-01, GA screen-aware agents; court rulings add uncertainty (FORCE-12) Calibrated 4 to 5: Medicaid work requirements start 2027-01-01 and screen-reading agents only became usable in 2026 |
 | Solo feasibility | 2 | 2 | HIPAA posture, 50 different portals, extensions blocked on hospital laptops |
-| Distribution | 2 | 3 | Health-center and legal-aid networks, Chrome Web Store, webinars; slow trust-heavy sales |
-| Willingness to pay and unit economics | 2 | 3 | Plans and hospitals lose money when people churn; nonprofit budgets are thin; margin about 85% |
+| Distribution | 2 | 2 | Health-center and legal-aid networks, Chrome Web Store, webinars; slow trust-heavy sales Red team: 3 to 2, red team: institutional, trust-heavy sales and IT-blocked extensions |
+| Willingness to pay and unit economics | 2 | 2 | Plans and hospitals lose money when people churn; nonprofit budgets are thin; margin about 85% Red team: 3 to 2, red team: no navigator employer shown paying; incentives are not budgets |
 | Scale and defensibility | 2 | 3 | State-by-state playbooks and case data compound; policy and portals can change |
-| **Total** | | **65.3** | |
+| **Total** | | **58.9** | |
 
 Confidence: MED (important unknown: who pays and whether rules hold). FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): whitespace 3 to 2 (red team: free grant-funded pre-fill tools (Nava/Amplifi, CfA with Anthropic)); willingness to pay and unit economics 3 to 2 (red team: no navigator employer shown paying; incentives are not budgets); distribution 3 to 2 (red team: institutional, trust-heavy sales and IT-blocked extensions).
 
 Calibration (main researcher, 2026-10-31): why now 4 to 5 (Medicaid work requirements start 2027-01-01 and screen-reading agents only became usable in 2026).
 
@@ -261,3 +263,19 @@ Goal: learn which payer type will name a budget line, an approver and a price, b
 **Key risks to test first.** (1) Who pays (before building past week 2). (2) IT blocking extensions. (3) Portal terms and layout changes. (4) HIPAA diligence cost per customer. (5) Rule volatility (FORCE-12) and the 2027-01-01 start. (6) Hours reconstruction accuracy on gig data.
 
 **Notes for the main researcher.** The payer evidence is still indirect (incentive, not budget), so Evidence 3 stands. Margin is about 80% to 83% with infrastructure and verified Twilio prices, not 85%, and 100 seats takes roughly month 6 to 8, not 8 weeks.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_A.md`). Verdict: **pass**.
+
+**Top attacks (summarized):**
+1. **Nobody is shown paying, and nonprofits get this free.** The deep dive itself concludes health-center revenue and plan churn are incentives, not budgets; plans cannot make exemption determinations; grant-funded tools already pre-fill with approval (the open-source Nava/Amplifi form-filler, Nava Labs' navigator tool, Code for America's navigator built with Anthropic).
+2. **Compliance and maintenance load.** A browser panel reading logged-in portals inside covered entities needs a BAA chain, audit logs and IT approval, and dozens of portals change constantly.
+3. **"Never decides" is thin.** Reconstructing hours from gig and wage documents under a state rule is the decision in practice, and the rules keep moving (a court vacatur; 25 states and DC sued over the interim final rule per a search summary).
+What would change the red team's mind: two health centers or legal-aid groups that name a budget line and sign a paid pilot at $60+ per seat per month, with IT confirming the extension installs, or a plan or funder sponsoring seats.
+
+**Response (main researcher):**
+- Attack 1 lands. Free, grant-funded tools doing the same in-portal pre-fill change the classification in practice: whitespace drops from 3 to 2, willingness to pay from 3 to 2.
+- Attack 2 lands. Distribution drops from 3 to 2 (trust-heavy institutional sales, IT-blocked extensions; the deep dive projects 100 seats near week 26 to 34).
+- Attack 3 is a design constraint: show the navigator the arithmetic and the source document for every hour counted, and leave determinations to the agency.
+- Why now stays at 5: the 2027-01-01 date mostly holds per HFMA.
+- Re-scope worth testing before building: start with legal aid (likely not HIPAA-covered, fastest to sign) or sell hosting, support and state playbooks around the open-source tools rather than competing with them.

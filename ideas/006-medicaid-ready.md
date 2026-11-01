@@ -20,15 +20,15 @@ scores:
   why_now: 3
   solo_feasibility: 3
   distribution: 3
-  wtp_economics: 4
+  wtp_economics: 3
   scale_defensibility: 2
-total: 65.3
+total: 63.2
 price_hypothesis: "$349 one-time per applicant (packet plus 90 days of request tracking); free flagged-items preview"
 model_cost_per_user_month: "$4.3 per case, one-time (about $1.4/month over a 90-day case)"
 gross_margin: "93%"
 mvp_weeks: 7
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Medicaid Ready
@@ -47,11 +47,13 @@ Builds a nursing-home Medicaid application packet from five years of statements,
 | Why now | 1 | 3 | Reading hundreds of pages now costs dollars, but the problem is old and long-context models are already in families' hands. |
 | Solo feasibility | 2 | 3 | Statement analysis is about 4 weeks of work; state forms, state rules and legal framing push the MVP to 7 weeks for three states. |
 | Distribution | 2 | 3 | High-intent search and forum Q&A (AgingCare, r/EstatePlanning); discharge planners can point to it; a one-time purchase has no loop. |
-| Willingness to pay and unit economics | 2 | 4 | Payers already budget $6K to $15K; at $349 the margin is above 90% even with spot-check QA. |
+| Willingness to pay and unit economics | 2 | 3 | Payers already budget $6K to $15K; at $349 the margin is above 90% even with spot-check QA. Red team: 4 to 3, red team: no software WTP signal; the validation test pre-sells at $199 |
 | Scale and defensibility | 2 | 2 | One-time purchase, a DIY substitute and state-by-state upkeep; the rules library is a modest moat. |
-| **Total** | | **65.3** | |
+| **Total** | | **63.2** | |
 
 Confidence: MED. FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): willingness to pay and unit economics 4 to 3 (red team: no software WTP signal; the validation test pre-sells at $199).
 
 ## 3. The problem
 - Who: families placing a parent in a nursing home or memory care. The facility, usually after a hospital stay, needs a Medicaid long-term-care application and sets the deadline.
@@ -263,3 +265,18 @@ Funnel [ESTIMATE]: visit to started upload 8%, started to finished preview 60%, 
 **Key risks to test first.** (1) The unauthorized-practice line for letter drafting in the launch state. (2) Whether caseworkers accept the letters and packet (5 real filings). (3) Scan quality, and families without power of attorney (LIFE-17). (4) Families preferring a general assistant. (5) State asset-verification systems already surfacing accounts [UNVERIFIED].
 
 **Notes for the main researcher.** Section 10 can drop "[UNVERIFIED]" on MedicaidSoft (real, attorney channel, $200K prize, "$2 million seed round" mentioned). Section 13 is faster than the bottom-up math supports (about 21 customers by week 8, 100 near week 19); section 11's 93% margin is about 88% with support and infrastructure; no score change proposed.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_A.md`). Verdict: **maybe**.
+
+**Top attacks (summarized):**
+1. **Unauthorized practice of law.** Preparing the application is permitted, but the flagged-items report and explanation letters decide which transfers matter and how to describe them, a part of the map no bar opinion found covers.
+2. **The channel is held by the other side.** Facility business offices steer families to contracted vendors (sometimes paid by the facility), and elder-law attorneys, MedicaidSoft's buyers, are unlikely referrers. Missed competitor: Medicaid Done Right (facility-linked service).
+3. **No willingness-to-pay evidence for software.** The only price signal is a relayed $6K service quote (LIFE-18), and the validation test pre-sells at $199, not $349.
+What would change the red team's mind: a written elder-law opinion in the launch state that a counts-only preview plus letters restating the family's own answers is not practice of law, and 3 paid pre-orders at $299+ from families whose facility offered to file for them.
+
+**Response (main researcher):**
+- Attack 1 lands and is the gating risk. Design response: flags state facts only (date, amount, counterparty, account) next to the state's published rule text; the product never says whether a transfer is exempt, cured or penalized; letters restate the family's own answers in the first person; flagged cases get a no-fee referral list of elder-law attorneys (no fee splitting). A written opinion from an elder-law attorney in the first launch state becomes step one of validation (budget under $500, outside the $50 test).
+- Attack 2 lands partly. Facility-linked vendors exist, but many families are never offered help, and high-intent search plus caregiver forums are unconflicted channels. Distribution stays at 3.
+- Attack 3 lands. Willingness to pay drops from 4 to 3; launch at the $199 founding price the deep dive already tests.
+- Whitespace stays at 3: MedicaidSoft sells prepared files to attorneys, a different buyer; human services are the real substitute.

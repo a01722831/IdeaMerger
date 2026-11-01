@@ -12,7 +12,7 @@ confidence: "MED"
 status: "developed"
 signals: [LIFE-14, LIFE-13, HN-22, HN-28, LIFE-25, LIFE-15, LIFE-16, LIFE-26]
 scores:
-  pain: 4
+  pain: 3
   evidence: 4
   ai_leverage: 3
   whitespace: 2
@@ -20,15 +20,15 @@ scores:
   why_now: 3
   solo_feasibility: 4
   distribution: 3
-  wtp_economics: 3
+  wtp_economics: 2
   scale_defensibility: 2
-total: 62.1
+total: 56.8
 price_hypothesis: "$14.99/month per family (one parent, up to four relatives); first scam check free"
 model_cost_per_user_month: "$0.22 model plus about $1.5 for text messages and a phone number"
 gross_margin: "84%"
 mvp_weeks: 6
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Parent Mail Desk
@@ -39,7 +39,7 @@ A parent texts a photo of any letter; AI explains it and gives the adult child a
 ## 2. Scores
 | Criterion | Weight | Score | Why |
 |---|---|---|---|
-| Pain severity and frequency | 3 | 4 | Weekly mail, hours of calls, emotionally heavy (LIFE-13 has 108 points); not a 5 because many children cope with a photo and a phone call. |
+| Pain severity and frequency | 3 | 3 | Weekly mail, hours of calls, emotionally heavy (LIFE-13 has 108 points); not a 5 because many children cope with a photo and a phone call. Red team: 4 to 3, red team: the product as scoped leaves out calling, proxy authority and paying |
 | Evidence quality | 2 | 4 | Eight cited signals from 2026, two strong; no one states a willingness to pay (LIFE-16 only hears a suggestion to hire a care manager). |
 | AI leverage | 2 | 3 | Explaining and classifying a letter is native to any assistant; the model does the triage and drafting, but the value is the workflow around it. |
 | Whitespace | 2 | 2 | About ten small caregiver apps in one App Store search plus Adrina AI and TendTo; none funded as far as I saw, and the household-agent red zone sits on top. |
@@ -47,11 +47,13 @@ A parent texts a photo of any letter; AI explains it and gives the adult child a
 | Why now | 1 | 3 | Vision models read a letter for a fraction of a cent and caregivers grew 45% in a decade, but free assistants have the same capability. |
 | Solo feasibility | 2 | 4 | Text and email intake, a web queue and classification are about 6 weeks; the risks are parent adoption and scam-check errors. |
 | Distribution | 2 | 3 | Dense intent communities (r/AgingParents, AgingCare), a shareable letter checker and sibling invites; crowded by lookalikes. |
-| Willingness to pay and unit economics | 2 | 3 | Caregivers pay for help and a related senior-AI plan lists $19/month, but free apps abound and caregiving episodes end, so churn is structural. |
+| Willingness to pay and unit economics | 2 | 2 | Caregivers pay for help and a related senior-AI plan lists $19/month, but free apps abound and caregiving episodes end, so churn is structural. Red team: 3 to 2, red team: no payment signal; Antigrift at $9 to $19 a month and free assistants set the ceiling |
 | Scale and defensibility | 2 | 2 | Platform risk from household agents (Gemini, Siri, ChatGPT) caps this at 2; the family case log and vault are the only lock-in. |
-| **Total** | | **62.1** | |
+| **Total** | | **56.8** | |
 
 Confidence: MED. FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): pain severity and frequency 4 to 3 (red team: the product as scoped leaves out calling, proxy authority and paying); willingness to pay and unit economics 3 to 2 (red team: no payment signal; Antigrift at $9 to $19 a month and free assistants set the ceiling).
 
 ## 3. The problem
 - Who: the adult child (usually one "designated" child) of a parent aged 70 or more, plus siblings who help unevenly.
@@ -266,3 +268,17 @@ Funnel [ESTIMATE]: a helpful reply brings 10 visits; visit to 7-day trial (a par
 **Key risks to test first.** (1) Whether parents send photos at all (the validation test). (2) Antigrift and others already covering the text-a-photo scam check, so differentiate on action depth. (3) Scam false negatives. (4) Security of SSNs and medical letters. (5) Churn when the caregiving episode ends. (6) Free assistants and household agents.
 
 **Notes for the main researcher.** Antigrift ships the parent-side text-a-photo channel ($9 and $19 a month) and a free checker, so section 7's "only real twist" already exists for scams; what remains is the action queue, assignments, scripts and vault, and Novelty 2 and Whitespace 2 look right or generous. Margin is about 70% to 79%, not 84%, once infrastructure and support are counted; a dedicated number per parent costs more than the AI. About 32 paying families by week 8 and 100 near week 22 replace section 13's faster mix.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_A.md`). Verdict: **pass**.
+
+**Top attacks (summarized):**
+1. **It solves the easy half.** LIFE-14 asks to summarize the letter and to call customer service; LIFE-25 adds proxy two-factor login and LIFE-26 reconciliation. The product stops before calling, proving authority and paying.
+2. **No one is shown paying.** Paid neighbors sell through institutions, Antigrift ($9 to $19 a month) already runs the text-a-photo channel, and free assistants explain letters.
+3. **Adoption is heavier than planned.** A parent who already sends photos to a child has little reason to adopt a new number, so the child may pay for a channel the parent does not use.
+What would change the red team's mind: a concierge pilot where 6 of 10 parents text 6+ photos unprompted over two weeks and 4 children pay $15 knowing the product will not call, pay or file; or a bank, plan or employer paying per family.
+
+**Response (main researcher):**
+- Attacks 1 and 2 land. Pain drops from 4 to 3 (the product as scoped leaves out the most painful step) and willingness to pay from 3 to 2.
+- Attack 3 is answered by the deep dive's concierge test, which already measures unprompted parent texting before any build.
+- Re-scope worth testing: add the hard half (a three-way call where the agent dials and waits on hold with the parent on the line, plus the authorized-representative forms each company needs), which is where an adult child's time actually goes; or sell per family through employers' caregiver benefits.

@@ -20,15 +20,15 @@ scores:
   why_now: 3
   solo_feasibility: 3
   distribution: 3
-  wtp_economics: 3
+  wtp_economics: 2
   scale_defensibility: 2
-total: 63.2
+total: 61.1
 price_hypothesis: "$249 flat per claim for households; $149/month per licensed public adjuster"
 model_cost_per_user_month: "$4.80 per claim (about $1.60 per active month)"
 gross_margin: "91%"
 mvp_weeks: 8
 deep_dive: true
-red_team: false
+red_team: true
 ---
 
 # Contents Claim Builder
@@ -47,11 +47,13 @@ Rebuilds an insurer-ready contents inventory from old photos, emails and card ex
 | Why now | 1 | 3 | Cheap batch vision, the 2025 LA fires; California's 60% advance rule changes timing |
 | Solo feasibility | 2 | 3 | 8 weeks; pricing credibility, carrier formats and state licensing review are the hard parts |
 | Distribution | 2 | 3 | Survivor communities and public adjusters; demand is spiky around disasters |
-| Willingness to pay and unit economics | 2 | 3 | Families pay adjusters 12.5% to 15%, so $249 is easy to justify; free rivals cap price |
+| Willingness to pay and unit economics | 2 | 2 | Families pay adjusters 12.5% to 15%, so $249 is easy to justify; free rivals cap price Red team: 3 to 2, red team: free and cheap inventory tools cap the household price; valuable services are license-gated |
 | Scale and defensibility | 2 | 2 | Episodic, regulated, a free adjuster-owned tool exists; insurers can offer their own |
-| **Total** | | **63.2** | |
+| **Total** | | **61.1** | |
 
 Confidence: MED. FRONTIER: no.
+
+Red-team adjustment (main researcher, 2026-11-01): willingness to pay and unit economics 3 to 2 (red team: free and cheap inventory tools cap the household price; valuable services are license-gated).
 
 ## 3. The problem
 - Who: households after a fire, flood or storm that must give the insurer an item-by-item list of everything lost, and the public adjusters who build those lists for a fee.
@@ -242,3 +244,18 @@ Three questions, none needing a household's money: where can households buy (lic
 **Key risks to test first.** (1) Licensing: the state map, then counsel. (2) Item detection on cluttered photos. (3) Whether adjusters and carriers accept the prices and templates. (4) Free competitors (ProofList, Bevel, Loti, a Claude skill). (5) Spiky demand: be ready with an event page within 72 hours.
 
 **Notes for the main researcher.** Fla. Stat. 626.854 carves out inventorying but covers preparing or completing a claim for pay, so section 5's household "draft proof of loss" should move behind the adjuster license or counsel clearance. Bevel (free) and ClaimLedger AI are new competitors; whitespace 2 holds. Not in the file: Triple-I's 47% pre-loss inventory figure and the $0.27 cost of live versus batch processing.
+
+## Red team
+Skeptical-investor review on 2026-11-01 (full text: `research/RED_TEAM_A.md`). Verdict: **pass**.
+
+**Top attacks (summarized):**
+1. **The sellable household product is a commodity; the valuable one is gated.** After the licensing guardrail the household tier is an inventory, an evidence appendix and an attestation, which ProofList ($59 to $499), Bevel (free), Loti (free), ClaimLedger AI and a free Claude skill approximate.
+2. **The $249 vs 12.5% to 15% anchor compares different jobs.** Adjusters sell negotiation, appraisal strategy and carrying the fight, all license-gated.
+3. **The adjuster channel is thin and carriers have their own AI.** InventoryQuant (YC W26) and Adjusto serve the professional and insurer side; the adjuster count is an assumption.
+What would change the red team's mind: counsel clearing household sale in four high-volume states, order history adding 30%+ evidenced items in 2 of 3 households, and an adjuster firm or carrier confirming an output was accepted on a real claim.
+
+**Response (main researcher):**
+- Attack 1 lands on willingness to pay, which drops from 3 to 2. The household tier is positioned as a reconstruction engine (camera roll, videos, order history, card exports into a priced inventory), which is exempt from adjuster licensing in Florida's statute ("photograph or inventory"), and is priced against ProofList rather than adjuster fees.
+- Attack 2 lands: drop the adjuster-fee comparison from all marketing.
+- Attack 3 lands partly. The professional tier (the licensed adjuster is the user of record) is the safer business but faces InventoryQuant; whitespace stays at 2. Solo feasibility stays at 3 because the inventory-only scope needs no state-by-state legal gating.
+- Pain (4) and evidence (4) stay: the strongest signals in the project (GAP-01, GAP-02, GAP-04, GAP-05) show households already paying 12.5% to 15% to get this done.
