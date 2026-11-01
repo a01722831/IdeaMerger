@@ -27,7 +27,7 @@ price_hypothesis: "$59 per notice case (one tracked certified letter included), 
 model_cost_per_user_month: "$0.12 per case (about $12.50 of mail and print on top)"
 gross_margin: "72%"
 mvp_weeks: 6
-deep_dive: false
+deep_dive: true
 red_team: false
 ---
 
@@ -142,3 +142,97 @@ Cost under $200 and about 20 hours over 3 weeks. Landing page plus free decoder 
 - Which states treat paid letter drafting as unauthorized practice, and is E&O insurance needed? Get one hour each with a CPA or enrolled agent and an attorney.
 - SSA fixes are often a call or office visit (LIFE-29): is it a fit, or only a call script and document pack?
 - Start with notice types where proof of mailing matters (CP2000 disputes, penalty abatement, Form 1310 refunds for deceased taxpayers) rather than all 150? Watch whether OweRight adds sending.
+
+## Deep dive
+
+Method (reads dated 2026-10-31): iTunes lookup of the OweRight listing, 4 web searches (IRS online reply options, IRS notice volumes, proof-of-mailing rules, consumer notice apps), an iTunes app search, and the Arctic Shift Reddit archive for channel volume and live threads. Model prices: `research/LANDSCAPE.md` section 6. Not tax or legal advice.
+
+### Competitor table
+| Competitor | Link | What it does | Price (as published, with date read) | Funding or traction (sourced) | Gap this idea exploits |
+|---|---|---|---|---|---|
+| OweRight: IRS Letter Help | [App Store](https://apps.apple.com/us/app/oweright-irs-letter-help/id6822549187) | Reads about 150 IRS notice types (English, Spanish), quotes facts, drafts a reply, says how to send it "upload, fax or mail, the way your notice allows"; "Reminders stay on your phone" | App free; reply letter $29.99 once; Resolution Options $79.99; "No account needed. No subscription." (listing, 2026-10-31) | Seller OweRight LLC, released 2026-10-23, v1.0.1 on 2026-10-27, 2 to 3 ratings; no funding found | "OweRight does not send or file anything for you" and "does not keep your pages": no mailing, no proof, no case memory, no escalation |
+| TaxGPT (YC Summer 2024) | [notice workflow](https://www.taxgpt.com/taxgpt-insights/respond-to-irs-notice), [YC](https://www.ycombinator.com/companies/taxgpt) | AI tax assistant with a "respond to IRS notice" workflow, built for tax pros | [Product Hunt](https://www.producthunt.com/products/taxgpt) lists "File your taxes for only $50" (first pass) | YC S24 | Pro tool; no mailing or consumer case |
+| CCH AnswerConnect Document Analysis (Wolters Kluwer) | [article, 2026-07-06](https://www.wolterskluwer.com/en/expert-insights/how-to-respond-to-irs-notices-with-a-clear-structured-workflow) | Reads an uploaded notice and drafts a response for a reviewer | not found | not found | Professional seat product |
+| Canopy Notices, NoticeNinja, IRS Solutions Software | [Canopy](https://www.accountingtoday.com/news/canopy-releases-tool-to-manage-irs-notices), [NoticeNinja](https://blog.noticeninja.com/blog/how-to-resolve-tax-notices-tips-and-tools-for-success), [IRS Solutions](https://directory.lawnext.com/products/irs-solutions-software/) | Notice triage and resolution workflow for tax firms | not found | not found | Sold to firms, not to the person holding the letter |
+| Acculink IRS Notice Decoder | [tool](https://acculinkcpa.com/tools/irs-notice-decoder) | Explains a pasted notice and drafts a starting response; warns it is a template (search summary) | free | not found | Does not mail or track anything |
+| Tax-relief firms | [Bench guide](https://www.bench.co/blog/tax-tips/tax-relief-companies) | Human negotiation of larger debts | about $2,000 to $5,000 (comparison-site summaries, [UNVERIFIED]) | n/a | Minimum debts; ignore small notices |
+| IRS Document Upload Tool, IRS app | [Topic 652 (CP2000)](https://www.irs.gov/node/68416), [IRS app](https://apps.apple.com/us/app/irs/id414113282) | CP2000 reply "through the Document Upload Tool, by fax, or by mail"; window 30 days (60 outside the US) (search summary of IRS pages) | free | IRS app 4.6 stars, 11,228 ratings (2026-10-31) | Free official channel for eligible notices, so mailing matters only where upload is not offered. No drafting, no case memory |
+| Taxpayer Advocate Service (Form 911) and congressional casework | [r/IRS 2026-10-24](https://www.reddit.com/r/IRS/comments/1xdzj86/) | Free escalation; the poster: "Took TAS and local gov 28 days to finally tell me that u have an agent assigned to my case and look into my refund." | free | n/a | Free but unguided and slow; people assemble the packet themselves |
+| Claimyr | [IRS page](https://claimyr.com/government-services/irs/IRS-sent-me-this-letter-in-the-mail-Should-I-be-worried/2025-04-11) | Appears to sell help reaching the IRS by phone (page not opened) | not read [UNVERIFIED] | not found | Phone access, not a reply or a record |
+| ChatGPT, Claude, Gemini; TurboTax and H&R Block | (LIFE-43, REV-45) | Explain a pasted letter and draft a reply; tax suites could add notice help | free tiers | very large | The free baseline for reading and drafting |
+
+**The wedge, stated plainly.** Reading and drafting are now free or $29.99. What is left to charge for:
+| Job | OweRight | Free assistants | IRS free channels | Paper Trail |
+|---|---|---|---|---|
+| Read and explain, draft a reply | Yes ($29.99) | Yes (free) | No | Free decoder, so no moat here |
+| Send with proof (certified mail, return receipt, tracked) | No, "you sign and send" | No | Upload or fax for some notices; no mail proof service | Yes: a USPS certified letter with tracking events and receipt kept in the case |
+| Deadlines | Reminder on the phone | Forgets next session | Date printed on the notice | Server-side countdown, SMS and email, shared with a family member |
+| Follow-up after sending | No | No | None | Day 30, 60, 75 prompts; photo of the agency reply updates the next step |
+| Escalation | Resolution Options $79.99 (payment options) | Can explain Form 911 if asked | TAS, congressional offices: free, slow | Form 911 and congressional release prepared for signature when the case stalls |
+Why proof matters: under IRC 7502 a USPS postmark on or before the deadline counts as timely; registered or certified mail with the sender's receipt is the strongest proof, while certificates of mailing, Priority Mail receipts and delivery confirmations are not accepted, and courts have refused the common-law mailbox rule ([Texas CPA Society, 2025-10-17](https://www.tx.cpa/news-publications/news-announcements/article/2025/10/17/establishing-proof-of-timely-mailing-under-the-irs-mailbox-rule); [Current Federal Tax Developments, 2023-09-23](https://www.currentfederaltaxdevelopments.com/blog/2023/9/23/taxpayer-cannot-use-common-law-mailbox-rule-to-prove-timely-filing-of-a-refund-claim); search summaries). Warning sign: a r/IRS poster (2026-10-14) who used a third-party USPS mail unit wrote "however, when they stamped the certified mail receipt, they did so with a generic date stamp for today and not the usual circle stamp that traditional post offices use." ([thread](https://www.reddit.com/r/IRS/comments/1x63q0b/)). A mail API may not return a postmarked sender's receipt; this is risk 1 below.
+
+### Market sizing (bottom-up)
+Cited anchor: the IRS Automated Underreporter program closed 987,460 cases in fiscal 2025 and assessed $5.9 billion ([NYSSCPA, 2026-06-09](https://nysscpa.org/news/1047348-new-irs-data-shows-strong-filing-season-despite-workforce-decline-2026-06-09), search summary). That is one notice family; no official count of all notices was found. Buyers are cases a year that need a reply: conservative 987,460 x 3 = 2.96M (AUR plus balance-due, penalty, identity and SSA/state notices, the x3 is an [ASSUMPTION]); optimistic 7.8M (150M returns x 4% x 1.3 for SSA and state, section 12 [ASSUMPTION]). Price per case: $59 + 0.3 extra letters x $12 = $62.60.
+| Case | Buyers | Adoption | Price | Serviceable cases / revenue |
+|---|---|---|---|---|
+| Conservative | 2,962,380 | 0.5% = 14,812 | $62.60 | $0.93M a year |
+| Optimistic | 7,800,000 | 2% = 156,000 | $62.60 | $9.77M a year |
+Revenue at 100 / 1,000 / 10,000 cases: $6.3K / $62.6K / $626K. Customers are episodic (one case, then gone), so these are cases sold per year, not recurring revenue; 10,000 cases a year is 0.34% of the conservative pool. A $9 a month "notice watch" for adult children is an untested recurring layer [ASSUMPTION].
+
+### Unit economics
+Per case, 90 days, one Haiku 5.5 / Sonnet 5.5 pipeline (LANDSCAPE prices, [ESTIMATE]): read notice, Haiku, 4,000 in + 500 out = $0.0004 + $0.00025 = $0.00065; explain, Sonnet, 6,000 + 1,500 = $0.012 + $0.015 = $0.027; extract documents, Haiku, 15,000 + 1,500 = $0.0015 + $0.00075 = $0.00225; draft reply, Sonnet, 10,000 + 1,500 = $0.020 + $0.015 = $0.035; check pass, Sonnet, 6,000 + 800 = $0.012 + $0.008 = $0.020; 5 chat turns, 8,000 cached x $0.10/1M + 1,000 x $2/1M + 500 x $10/1M = $0.0078 x 5 = $0.039; 2 agency replies read and next step, 2 x ($0.00065 + $0.020) = $0.041. Model total $0.17.
+| Other variable cost | Arithmetic | $ |
+|---|---|---|
+| Certified mail | ($5.30 + $2.82 return receipt + $0.78 postage + about $0.75 print) = $9.65 x 1.3 letters ([PostGrid](https://www.postgrid.com/usps-certified-mail-costs-rates/), [Lob](https://www.lob.com/pricing), first pass) | 12.55 |
+| Stripe on $59 | 2.9% x $59 + $0.30 | 2.01 |
+| Support, SMS, email | $1.67 [ASSUMPTION] + 6 x $0.008 + $0.01 | 1.73 |
+| Infrastructure share | $80 / 100 cases a month | 0.80 |
+| **Total with model** | 0.17 + 12.55 + 2.01 + 1.73 + 0.80 | **17.26** |
+Gross margin: (59 - 17.26) / 59 = 71%. Postage, not models, is the cost. **Heavy user:** a family manager with a 6-letter case and 40 chat turns: model $0.93, mail 6 x $9.65 = $57.90, Stripe $2.01, support $5.00, other $0.86 = $66.70 against $59, a 13% loss. Cap: the $59 case includes 30 chat turns and one certified letter, each extra letter is $12 (cost $9.65 + about $0.35 fees). Then revenue 59 + 5 x 12 = $119 against $68.44, margin 42%. Form 911 packets are a $19 add-on (one certified letter plus support).
+
+### First 100 customers
+Channel volume (Arctic Shift, 2026-10-24 to 10-30; broad regex, upper bounds): r/IRS about 21 posts a day, about 49 a week on notices, letters, CP codes or penalties; r/tax about 25 a day, about 52 a week; r/SocialSecurity about 17 a day, about 26 a week. I cannot read the sub rules (Reddit is blocked here), so assume no links until the sidebar says otherwise: help in the thread, link only in the profile or when allowed. The long tail is by notice code; recent r/IRS titles include "CP504, tax debt" (2026-10-20), "Received notice CP15 and owe $10'000" (2026-10-18), "CP05A notice: question about paystubs" (2026-10-19), "Letter 6255C" (2026-10-12). Message: "Understand your notice for free. If you need to reply, we send it certified, keep the proof, and tell you what to do on day 30, 60 and 75." Offer: free decoder; $29 reply kit; $59 send-and-track. Funnel [ESTIMATE]: per 100 visits, 40 use the decoder, 10 leave an email, 3 buy.
+| Week | Action | New paid | Cum. |
+|---|---|---|---|
+| 1 | Ship the decoder for 10 codes (CP2000, CP14, CP501, CP503, CP504, CP05A, CP15, 5071C, 6255C, LT11) with a reply-channel map (upload/fax/mail) for each; 10 helpful replies; founding price for the first 20 cases | 4 | 4 |
+| 2 | One SEO page per code ("CP2000 response letter", "CP504 what to do"); 15 replies; email 20 enrolled agents and CPAs who turn away small notice work, $10 referral per case | 5 | 9 |
+| 3 | One-page handout and email to 10 low-income taxpayer clinics, 10 libraries or senior centers | 6 | 15 |
+| 4 | "Handling a parent's IRS letter" page for adult children; caregiver communities (r/AgingParents, check rules) | 7 | 22 |
+| 5 | Add 3 SSA notice types and the Form 1310 refund-for-deceased flow | 8 | 30 |
+| 6 | "TAS and Form 911: what to send" explainer plus 3 consented outcome stories | 9 | 39 |
+| 7 | Referral credit: send a letter, get a letter | 8 | 47 |
+| 8 | Review reply-channel map vs mailing demand; price test $59 vs $49 | 8 | 55 |
+Base case 55 cases by week 8; 100 around week 12, matching section 13. Loop after 100: consented "what happened with notice X" pages, family invites, EA/CPA and clinic referrals, shareable proof-of-mailing receipt with personal data redacted.
+
+### One-week validation test (under $50)
+**What:** an honest pre-order page, not a live product. One page (Carrd free or GitHub Pages) with a free guide "10 common IRS notices, what each says, the deadline printed on it" (static text from IRS pages, labeled not advice), 3 sample explainers (CP2000, CP504, CP05A), and the line: "Paper Trail is not launched. Reserve a founding case with a $9 refundable deposit, credited to the price. Choose: $29 reply kit, or $59 send-and-track (certified mail, proof, deadlines, follow-ups). Refundable any time before launch." One question: "What would you do if this did not exist?" (call the IRS / ChatGPT / pay a CPA / OweRight / nothing). Traffic: answer 10 notice threads by hand (no link), post the guide once in r/tax or r/IRS only if self-posts with links are allowed, share with your own network, email 3 libraries or clinics. No ads, no fake accounts, one account per place.
+**Budget:** domain $12 (optional); Stripe fees on 5 refunded deposits 5 x (2.9% x $9 + $0.30 = $0.56) = $2.81; model credit $5 for the samples; everything else free. About $20.
+**Pass:** 150 or more unique visitors, 10 or more emails, 5 or more deposits (3.3%), and 50% or more of depositors pick $59. **Fail:** 2 or fewer deposits, or 25% or fewer pick $59 (then mailing and escalation are not valued: fold into a draft-only product or kill). Under 100 visitors is inconclusive: extend to 14 days.
+
+### Build brief (paste into a coding session)
+```text
+PRODUCT: Paper Trail turns a photographed IRS, SSA or state notice into a quoted explanation, a user-approved reply, a tracked certified mailing with proof, and a deadline-and-escalation timeline.
+It prepares, organizes, mails and tracks the user's own correspondence. It does not give tax advice, represent anyone (no Form 2848), or prepare returns.
+Levies, liens, audits, identity theft and large balances show a referral card (CPA, enrolled agent, attorney, low-income taxpayer clinic) and no draft.
+MVP FEATURES (each testable)
+1 Upload photos/PDF (up to 8 pages); mask SSNs in the browser; encrypt at rest; auto-delete at 90 days. Test: no SSN pattern in DB or logs.
+2 Notice reader: code, tax year, amount, response date, return address; each fact with quote and page region and confidence; ask the user when a date is unreadable. Test: 50-notice set.
+3 Versioned rules library (YAML) per code: options the notice lists, forms, reply channels (upload/fax/mail), address, escalation and referral triggers.
+4 Reply drafter from user facts and documents; check pass flags unsupported claims; user approves and signs.
+5 Certified mail with return receipt through a mail API; store tracking events and receipt scans.
+6 Timeline with reminders (SMS/email) at T-10 and T-3 days and after mailing at day 30, 60, 75.
+7 Agency-reply intake: photo updates the case and next action.
+8 Escalation packets: Form 911 and a congressional casework release, prepared for signature.
+9 Family mode with a recorded consent from the parent.
+10 Stripe: $29 reply kit, $59 send-and-track, $12 per extra letter, $19 escalation packet.
+NON-GOALS: representation, return preparation, advice on agree/disagree, phone automation, native apps, more than 25 notice types and 3 states in v1, a separate OCR vendor.
+CORE AI LOOP: read notice (Haiku 5.5 vision) -> explain (Sonnet 5.5) -> extract user documents (Haiku 5.5) -> draft (Sonnet 5.5) -> check pass (Sonnet 5.5) -> read agency reply (Haiku 5.5) -> next action (Sonnet 5.5). Prompts quote the source, cite the rules entry, refuse to invent dates or amounts. Humans: the user approves every letter; a CPA or enrolled agent reviews the rules library; low confidence means ask or refuse.
+DATA MODEL: User, Case(agency, notice_code, tax_year, deadline, status), Document, Fact(key, value, quote, page), Draft(version, text, approved_at), Mailing(tracking, events, receipt_file, mailed_on), Reminder, AgencyReply, EscalationPacket, FamilyLink(consent), AuditLog.
+INTEGRATIONS: Lob https://docs.lob.com/ (certified mail); USPS tracking https://developers.usps.com/; Stripe https://docs.stripe.com/payments/payment-links; Twilio https://www.twilio.com/docs/messaging; Resend https://resend.com/docs. The IRS Document Upload Tool has no API: the app links the user to it when a notice allows it.
+STACK (about $100 a month): Next.js on Vercel, Supabase (Postgres, auth, storage) with libsodium envelope encryption for files, Inngest for reminders and delete jobs, Stripe, Sentry, Langfuse free tiers.
+EVALS: 1 Reader, 50 notices incl. angled photos and Spanish: code, year, amount, date exact in 95%, zero invented dates. 2 Referral triggers, 10 notices (levy warning, lien, audit, identity theft, balance over $10,000): referral card shown 10/10, no draft. 3 Rules fidelity: for 10 codes the listed options match the notice text, signed off by a CPA or EA. 4 Mail proof: send 5 test letters to a friendly address; confirm what proof comes back and ask a CPA whether it meets IRC 7502. 5 Privacy: SSN search in DB and logs returns zero; the delete job removes files at day 90.
+BUILD PLAN (6 weeks): W1 intake, reader, rules for 10 codes, eval set. W2 explain, draft, check. W3 mail API, Stripe, receipts. W4 timeline, reminders, agency-reply intake. W5 Form 911 packet, family mode, privacy hardening. W6 CPA and attorney review, disclaimers, beta with 10 cases.
+RISKS TO TEST FIRST: 1 proof of mailing under IRC 7502 when a vendor mails; 2 unauthorized-practice line; 3 upload and fax channels shrinking mailing demand (map the top 25 notices); 4 SSN data handling; 5 OweRight adding send; 6 episodic demand and slow SEO.
+```
+
+**Notes for the main researcher:** The IRS Document Upload Tool lets CP2000 replies be filed free online, so the mailing wedge is narrower than section 7 implies; it holds where a notice offers no upload and where a statutory deadline makes a postmarked certified receipt matter, but only if the mail vendor returns an acceptable receipt (untested). WTP 3 stands only if the $59 tier beats a $29 draft-only tier in the test.

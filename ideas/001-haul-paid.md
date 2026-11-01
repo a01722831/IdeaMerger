@@ -27,7 +27,7 @@ price_hypothesis: "20% of money recovered, nothing if nothing is recovered"
 model_cost_per_user_month: "$1.15"
 gross_margin: "90%"
 mvp_weeks: 6
-deep_dive: false
+deep_dive: true
 red_team: false
 ---
 
@@ -135,3 +135,101 @@ Concierge test: recruit 15 carriers from r/OwnerOperators and TruckersReport, co
 - What share of denials come from missed notice versus missing proof (GAP-20 suggests both)?
 - Do brokers answer a third party's demand as fast as the carrier's own? Could contingency fees trigger state collection-agency licensing [UNVERIFIED]?
 - What do Motive and Samsara require to list a claims app, and how much does Hey Bubba do after "claim filed"?
+
+## Deep dive
+
+Method (reads dated 2026-10-31): FMCSA open data (Company Census File via the data.transportation.gov API), WebFetch of bubba.ai and harborcompliance.com (a third page, Boostly's B2B compliance guide, returned HTTP 503), 4 web searches (collection licensing, Hey Bubba pricing, small-carrier counts, detention apps), and the Arctic Shift Reddit archive for channel volume. Model prices: `research/LANDSCAPE.md` section 6. Research, not legal advice.
+
+### Competitor table
+| Competitor | Link | What it does | Price (as published, with date read) | Funding or traction (sourced) | Gap this idea exploits |
+|---|---|---|---|---|---|
+| Hey Bubba / Bubba AI | [owner-operators](https://bubba.ai/product/owner-operators), [detention](https://bubba.ai/solutions/detention-management) | AI dispatcher for 1-5 truck carriers: load search, rate negotiation, booking. Detention terms read from the rate con, dwell clock from ELD geofences (detention page, first pass). Shows "Broker credit and days-to-pay" before booking | "your first five booked loads are free, then Bubba charges 2.99% of the negotiated rate on each load it books", "no subscription, no seat fees and no minimum"; "Back-office automation is priced separately (contact us)" (read 2026-10-31). Detention page: "Start FREE" | No funding or customer counts found. Launch: [GlobeNewswire 2025-03-25](https://www.globenewswire.com/fr/news-release/2025/03/25/3048891/0/en/Hey-Bubba-Inc-Launches-Bubba-AI-the-First-Agentic-Voice-AI-Dispatcher-for-Owner-Operators-and-Small-Fleets.html) | The owner-operator page says nothing on short-pay, demand letters or escalation. Its days-to-pay display overlaps my broker-scorecard loop (section 13), so the scorecard must show detention approval rate instead |
+| Timer and invoice apps: WaitClaim, Detention Pay Tracker, Detention Source (+Lite), DMRG Detention Pay, Trucker Tools | [WaitClaim](https://www.saashub.com/waitclaim), [Pay Tracker](https://pollen-pond-d92.notion.site/Detention-Pay-Tracker-Help-FAQ-39082e9d604e804ebb1efd01981f30ad), [Detention Source](https://apps.apple.com/ca/app/detention-source/id6444958697), [DMRG](https://apps.apple.com/app/id6502769929), [Trucker Tools](https://www.truckertools.com/detention-strategies-for-owner-operators-and-small-carriers/) | Geofence or one-tap timestamps, then a PDF invoice or certificate for the broker ("generate a PDF invoice before the driver leaves the yard", WaitClaim; Pay Tracker targets 1-5 trucks). Search summaries, pages mostly not opened | not published, except DMRG "free with in-app purchases" (search summary) | none found | They stop at a document. No reminders, reply reading or escalation |
+| Telematics add-ons: Samsara, Motive Facility Insights, GeoStamp, FleetOptos; McLeod TMS module | [Samsara](https://www.samsara.com/ca/blog/introducing-detention-reports), [Motive](https://gomotive.com/blog/introducing-facility-insights/), [GeoStamp](https://marketplace.gomotive.com/app/geostamp-by-wisetech-global), [FleetOptos](https://marketplace.geotab.com/solutions/fleetoptos/), [McLeod](https://www.mcleodsoftware.com/detention/) | Measure dwell from ELD or Geotab data; FleetOptos "automates detention billing" (search summary) | not published on pages seen | not sourced here | Need a telematics or TMS subscription; stop at the bill |
+| RevRecoup | [page](https://revrecoup.com/go/logistics-freight/) | Human recovery of freight receivables on contingency (vendor claim) | fee not shown | not found | A service, not self-serve; minimum claim size unknown [UNVERIFIED] |
+| Lighthouz AI (YC S24) | [YC page](https://www.ycombinator.com/companies/lighthouz-ai/jobs) | Freight-bill audit for brokers, 3PLs, factors | not published | YC S24 | Broker side of the same dispute |
+| Bond-claim guides: PFA, TIA, OTrucking | [PFA](https://pfaprotects.com/surety/bmc-84-bmc-85-claims-submittal/), [TIA](https://tianet.org/?p=18943), [OTrucking](https://otrucking.com/resources/guides/broker-bond-claims/) | How to file a BMC-84/85 claim; TIA: covers unpaid freight charges only, $75,000 shared by all claimants (first pass) | free | n/a | Free information; building the packet is the work |
+| New free builders, r/OwnerOperators | [2026-10-20](https://www.reddit.com/r/OwnerOperators/comments/1xb5gz4/), [2026-09-14](https://www.reddit.com/r/OwnerOperators/comments/1wg0ha9/) | Title: "New CDL driver here. I built a free app to stop working detention for free. Need 10 owner-operators"; another poster: "I'm researching how small carriers/owner-operators actually handle detention and accessorial pay." | free | 1 point, 0 comments each | Free logging keeps arriving; charge for follow-up and escalation, not the log |
+
+Read across: every direct tool stops at a timestamp, invoice or certificate; I found none that chases, reads replies or builds the surety packet. Hey Bubba is priced as a dispatcher (2.99% of booked loads), so collection would be a new line for it. WEAK DIRECT still fits.
+
+### Market sizing (bottom-up)
+Source: FMCSA Company Census File, `https://data.transportation.gov/resource/az4n-8mr2.json?$select=count(*)&$where=...`, queried 2026-10-31 with `status_code='A' AND carrier_operation='A' AND classdef like '%AUTHORIZED FOR HIRE%'` (active, interstate, for-hire) and an `mcs150_date` filter. Active carriers: 251,033 updated in the last 12 months, 416,154 in 24 months. 1-5 power units: 199,566 (79.5%) and 334,424 (80.4%); of the 24-month group 217,052 run one truck. 6-10 units: 17,074 and 26,498. "For hire" is self-reported and some carriers are dormant, which the two filters bracket. The share that hauls for brokers is not in the data: 40% to 60% [ASSUMPTION]. The first-pass 180,000 sits inside this range.
+
+| Case | Buyers | Adoption | Annual price | Serviceable ARR |
+|---|---|---|---|---|
+| Conservative | 199,566 x 40% = 79,826 | 1% = 798 | $29 x 12 = $348 | $0.28M |
+| Optimistic | 360,922 (1-10 units, 24 months) x 60% = 216,553 | 5% = 10,828 | $39 x 12 = $468 | $5.07M |
+
+Revenue at 100 / 1,000 / 10,000 customers: $34.8K / $348K / $3.48M at $29 a month; $46.8K / $468K / $4.68M at $39. 10,000 would be 12.5% of the conservative pool, so that row is out of reach without partners or a broker-side product. Feature-sized market.
+
+### Unit economics
+2-truck carrier, 24 loads, 8% disputed = 1.92 loads [ASSUMPTION]. All lines [ESTIMATE], per customer-month.
+| Line | Arithmetic | $ |
+|---|---|---|
+| OCR (price UNVERIFIED) | 24 x 6 pages = 144 x $4/1,000 | 0.58 |
+| Rate-con extraction, Sonnet 5.5 | (6,000 x $2/1M) + (800 x $10/1M) = $0.020 x 24 loads | 0.48 |
+| Claim draft + 6 reply reads | 1.92 x [($0.020 + $0.015 Sonnet) + 6 x ($0.0003 + $0.00025 Haiku 5.5)] = 1.92 x $0.0383 | 0.07 |
+| Human QA | 1.92 x 3 min at $9/hour | 0.86 |
+| Certified mail, 5% of disputes | 1.92 x 0.05 x $8 [ASSUMPTION] | 0.77 |
+| SMS and email | 20 x $0.008 [ASSUMPTION] + $0.01 | 0.17 |
+| Stripe on $29 | 2.9% x $29 + $0.30 | 1.14 |
+| Infrastructure share | $80 / 100 customers | 0.80 |
+| **Total** | | **4.87** |
+
+Gross margin at $29: (29 - 4.87) / 29 = 83%. The 90% in section 11 left out Stripe and infrastructure. Contingency variant: 1.92 x $200 x 50% recovered x 20% = $38.40; after 15% leakage $32.64; Stripe $1.40; cost $5.13; margin 84%, but it rests on an unmeasured recovery rate.
+**Heavy user:** 6 trucks, 100 loads, 15 disputes, 4.5 certified packets. OCR $2.40 + extraction $2.00 + disputes $0.57 + QA 90 min x $9/hour = $13.50 + mail 4.5 x $9.65 = $43.43 (per-letter cost from idea 008) + SMS and fees about $2.5 = about $65 to $69 against $29: a loss of about $35 a month. Caps fix it: $29 includes 30 loads, then $0.75 a load; $15 per certified packet. Revenue 29 + 70 x 0.75 + 4.5 x 15 = $149 against about $69: margin 54%. Mail and human QA are the cost, not models.
+
+**Fee structure and the collection-agency question.**
+- Sources: Harbor Compliance's 50-state guide (read) lists "Collecting commercial debts" among activities that "require this license type", says "Some states provide statutory exemptions" including "entities that collect 100% business-to-business debt" (no states named), and mentions a bond and fees ([page](https://www.harborcompliance.com/information/debt-collection-agency-license)). A law firm says 34 states license collection agencies and 16 do not ([mslaw.com](https://www.mslaw.com/mslaw-blog/collection-agency-licensing-and-exemptions), search summary). A collector's marketing page claims 20 states license commercial collectors ([UNVERIFIED]). A 2001 Washington bill report allowed fees up to 35% on commercial debts ([bill report](https://lawfilesext.leg.wa.gov/Biennium/2001-02/Htm/Bill%20Reports/Senate/5331.FBR.htm), historical, search summary): contingency fees on business debts are statute-regulated in at least one state.
+- Not established: a reliable state list for third-party business-debt collectors, and whether software that drafts and sends a creditor's own demand counts. The federal FDCPA is generally understood to cover consumer debts only [UNVERIFIED here, 15 U.S.C. 1692a(5)]. Verdict [UNVERIFIED]: assume a percentage-of-recovery fee for chasing someone else's receivable can need a license in some states.
+- Design around it: (1) **v1 is a tool, not a collector:** every message goes out in the carrier's name after the carrier taps approve; Haul Paid never holds money, negotiates, or writes as itself; fee is $29 a month after a 30-day trial plus $15 per certified escalation packet, with a 60-day money-back guarantee, charged by card in advance (this also removes the 15% fee leakage). (2) Success fees only through a licensed partner or attorney for the day-30 rung [UNVERIFIED whether referral fees are allowed]. (3) Get licensed later in the few states with volume if "nothing unless recovered" proves essential. (4) Before charging: one hour with a collections attorney (about $300 to $600 [ESTIMATE]) on sender identity and the day-21 wording. The validation test measures how many carriers still prefer the 20% model.
+
+### First 100 customers
+Channel volume (Arctic Shift, days before 2026-10-30, broad regex so upper bounds): r/OwnerOperators about 8.6 posts a day, about 5 a week on detention/short-pay/TONU/lumper; r/Truckers about 47 a day, about 10 a week; r/FreightBrokers about 9 a day, mostly broker-side. Reddit gives 10 to 15 usable threads a week: credibility, not volume. Message: "Your rate con already says what you are owed. We read it, build the claim, send it from your name when you tap approve, and chase it." Offer: first 5 claims free, then $29 a month with a 60-day money-back guarantee. Funnel [ESTIMATE]: reader to click 2%, visit to signup 15%, signup to first upload 50%, upload to paid 40%; about 3% of visits end up paying.
+
+| Week | Action | New paid | Cum. |
+|---|---|---|---|
+| 1 | Convert the validation-test carriers (15 shared, 50% take the offer). Post the checklist "rate-con clauses that cost you detention" in r/OwnerOperators and the TruckersReport owner-operator forum, after reading each rule. Free clause checker and BMC-84 letter generator | 8 | 8 |
+| 2 | 10 value-first replies on short-pay threads (r/OwnerOperators, r/Truckers, TruckersReport). Email 15 outsourced dispatch services, one note each (Hey Bubba's blog says dispatchers commonly charge 5% to 10% of linehaul) | 3 | 11 |
+| 3 | Free access for 3 owner-operator YouTube creators for an honest review; referral credit of one free month | 3 | 14 |
+| 4 | Publish first pooled numbers (claims sent, paid, median days; no broker names under 10 claims) | 3 | 17 |
+| 5 | Pilot 3 dispatch services x 3 carriers; offer 20% revenue share ($5.80 per carrier-month) | 4 | 21 |
+| 6 | SEO pages: "broker short paid me", "how to file a BMC-84 claim", "detention invoice template", "broker refuses detention pay", "TONU not paid by broker" | 3 | 24 |
+| 7 | Apply to Motive and Samsara marketplaces (approval not guaranteed) | 3 | 27 |
+| 8 | Review recovery rate, churn, fee model | 3 | 30 |
+
+Base case about 30 paying by week 8; 100 needs the dispatcher channel (weeks 9 to 20: 10 services x 8 carriers at 25% paying = 20, plus forums and SEO). Loop after 100: dispatcher revenue share, referral credits, a consented "which brokers pay detention and how fast" page (different from Hey Bubba's days-to-pay), later a factor partner.
+
+### One-week validation test (under $50)
+**What:** a free, manual claim review, labeled as a test run by one person; no software is live and nothing is sold. Day 1: one-page site (GitHub Pages or Carrd free): "Broker shorted you or refused detention? Send the rate con and signed BOL. In 48 hours I tell you what the contract says you are owed and write the claim for you to send. Manual test, no product live, free. I never contact your broker." Google Form takes one load's paperwork plus trucks, loads a month, current process. Days 1 to 2: one post each in r/OwnerOperators and the TruckersReport owner-operator forum (read the rules, own account, no cross-posting); 5 personal emails to dispatch services. Days 2 to 6: run extraction and the claim draft by hand with Sonnet 5.5, check against the PDF, return within 48 hours with a form: were the readings right; would you send it; pricing A (20% of recovered, nothing if nothing), B ($29 a month, money back if no claim paid in 60 days), C neither; optional $10 refundable deposit (Stripe Payment Link). Day 7: tally.
+**Budget:** domain $12 (optional); Stripe fees on 5 refunded deposits 5 x ($0.29 + $0.30) = $3; model credit $5 (10 submissions x about $0.06); forms, host, email $0. About $20.
+**Pass:** 8 or more loads from 5 or more carriers; 90% or more of extracted terms confirmed correct; 50% or more of loads have a supportable claim; and either 3 or more deposits or 50% of respondents pick A or B. **Fail:** under 4 submissions, or term accuracy under 80%, or 70% pick C, or zero deposits. If most pick A over B, counsel's view on licensing gates launch.
+
+### Build brief (paste into a coding session)
+```text
+PRODUCT: Haul Paid helps owner-operators and 1-10 truck carriers collect detention, layover, TONU, lumper and short-pays from freight brokers.
+The carrier forwards the rate con and delivery paperwork; the app reads the terms, computes what is owed, drafts a clause-cited claim, and follows up on a schedule.
+The carrier approves every outbound message with one tap. The app never holds money and never writes to a broker as itself.
+MVP FEATURES (each testable)
+1 Per-carrier inbound email plus phone upload for rate cons, BOL/POD photos, receipts, broker replies. Test: 5 sample emails, attachments typed correctly.
+2 Rate-con extraction to JSON, every term with verbatim quote and page (free time, detention rate, layover, TONU, lumper, notice rule, claim window, AP email). Test: each quote found in the source.
+3 Dwell calculator in plain code (appointment, arrival, departure from signed BOL, CSV/PDF GPS export or manual; time zones, overnight, rounding).
+4 Shortfall detector: contract vs broker remittance email; output amount owed or "claim not supported" with reason (late notice, missing signed time).
+5 Claim draft email plus PDF evidence packet; one-tap approval.
+6 Scheduler: day 0 claim, day 7 reminder quoting the clause, day 14 escalation to broker operations, day 21 notice of intent to file a surety claim, day 30 surety packet and FMCSA complaint draft; each rung needs approval.
+7 Reply classifier: paid / denied (reason) / needs document / partial offer / auto-reply; proposes next step.
+8 Stripe: $29/month, 30-day trial, 60-day money-back, $15 per certified packet, 30-load limit.
+9 Founder QA console for low-confidence items. 10 Per-broker profile (AP email, accepted proof, days to pay), internal only.
+NON-GOALS: ELD API, moving money, percentage-of-recovery fees (until counsel clears), auto-send, broker-facing product, dispatch or rate negotiation, native apps.
+CORE AI LOOP: (a) classify attachments, Haiku 5.5; (b) extract terms with quotes, Sonnet 5.5; (c) read BOL/POD times and signature, Haiku 5.5 vision; (d) dwell and shortfall math in code, no model; (e) draft claims and escalations, Sonnet 5.5; (f) classify replies, Haiku 5.5, Sonnet 5.5 if unsure.
+Prompts: extract only what is written, return quote and page, say "not stated" rather than guess; neutral tone; no threat beyond the rate con and published escalation channels. Humans: carrier approves every send; founder reviews the QA queue; lawyer reviews rung 4-5 templates.
+DATA MODEL: Carrier, User, Broker(MC, USDOT, AP email, claim window), Load, Stop, Document(type, extracted_json), Term(kind, value, quote, page), DwellEvent(source, confidence), Payment, Claim, Step(rung, due, approved_at, sent_at), Message(classification), Outcome(result, amount, days), AuditLog.
+INTEGRATIONS: Stripe https://docs.stripe.com/billing; inbound email via Cloudflare Email Workers https://developers.cloudflare.com/email-routing/email-workers/ or Postmark https://postmarkapp.com/developer/user-guide/inbound; Resend https://resend.com/docs (sender identity to be settled with counsel); Twilio https://www.twilio.com/docs/messaging; Lob certified mail https://docs.lob.com/; FMCSA census https://data.transportation.gov/resource/az4n-8mr2.json (responded 2026-10-31); phase 2 ELD: https://developers.samsara.com/ and https://developer.gomotive.com/.
+STACK (about $100 to $120 a month): Next.js on Vercel Pro $20; Supabase Pro $25 (auth, Postgres, storage); Inngest free tier for schedules; Resend $20; Stripe fees; Sentry and Langfuse free; Playwright or react-pdf for packets; domain $12 a year.
+EVALS: 1 Extraction, 30 real rate cons from 10+ brokers: 95% field accuracy, 100% quotes verbatim. 2 Dwell math, 20 synthetic cases: 100% exact. 3 Shortfall, 20 contract+remittance pairs, 6 where the broker is right: amount correct in 90%, "not supported" in all 6. 4 Reply classes, 50 labeled replies: 92%, zero false "paid". 5 Tone: 20 drafts never contain "collect", "collection agency" or threats beyond the contract.
+BUILD PLAN (6 weeks): W1 auth, Stripe, email-in, storage, extraction v0 and eval harness. W2 BOL/POD reading, dwell, remittance parsing, shortfall; evals 1-3. W3 claim drafting, PDF packet, approval page, sending, scheduler. W4 reply classifier, escalation rungs, surety packet, Lob. W5 QA console, broker profile, retention settings, observability, start concierge group on the live app. W6 billing limits, onboarding, counsel review of templates, beta with 10 carriers.
+RISKS TO TEST FIRST: 1 collections law (attorney hour before any percentage fee); 2 recovery rate (40% of supportable claims paid in 30 days; run 15 by hand); 3 extraction accuracy; 4 do top brokers accept email claims or only portals; 5 timestamp quality (signed BOL times decide most disputes; ELD data is noisy, REV-35); 6 Hey Bubba or an ELD vendor adds collection.
+```
+
+**Notes for the main researcher:** Licensing is unresolved, so I would not lead with the 20% contingency price until counsel clears it; a flat $29 plus escalation fees gives about the same revenue with no fee leakage. Hey Bubba's owner-operator page already shows broker days-to-pay (overlaps the section 13 scorecard loop). Reddit supplies only about 5 matching threads a week, so Distribution 3 depends on the dispatcher-service channel. No score change proposed.

@@ -27,7 +27,7 @@ price_hypothesis: "$99/month per navigator seat; free SMS document upload for cl
 model_cost_per_user_month: "$6.10 (about $6.70 on HIPAA-eligible endpoints)"
 gross_margin: "85%"
 mvp_weeks: 8
-deep_dive: false
+deep_dive: true
 red_team: false
 ---
 
@@ -139,3 +139,125 @@ State-specific portal playbooks (page maps, rules), exemption and evidence libra
 - Which state first: one with a stable flow and an early deadline?
 - Does Fortuna plan a tool for other organizations' navigators?
 - What happens to the 2027 start if courts or CMS change the rule (FORCE-12)?
+
+## Deep dive
+
+The crux is who pays. The customer plan and the validation test below are built around that question.
+
+### Competitor table
+| Competitor | Link | What it does | Price (as published, with date read) | Funding or traction (sourced) | Gap this idea exploits |
+|---|---|---|---|---|---|
+| Fortuna Health | [site](https://fortunahealth.com/), [YC](https://www.ycombinator.com/companies/fortuna-health), [MobiHealth](https://www.mobihealthnews.com/news/fortuna-health-raises-18m-enhance-ai-medicaid-enrollment) | "TurboTax for Medicaid": screening, guided enrollment and renewal, 24/7 multilingual navigation; "only available through providers and insurers" (section 10) | Not listed (read 2026-10-31) | $18M Series A led by Andreessen Horowitz with YC participation (per MobiHealth, as recorded in section 10; date not recorded); YC Summer 2023, 29 people; "Trusted by 185,000+ patients" (its site) | Its own navigators on its own platform; no side panel for other organizations' navigators; work-requirement features not described |
+| Code for America, GetCalFresh | [GetCalFresh](https://www.getcalfresh.org/en/about/), [CfA](https://codeforamerica.org/programs/social-safety-net) | Assisted SNAP applications; reported 6M+ people, 45 to 8 minutes; moving to BenefitsCal | Free (state-funded) | Nonprofit | SNAP-first and state-contracted; not a seat product |
+| State platform vendors (Gainwell, Healthy Together, Salesforce, OSCER, Emmy) | [CBPP](https://www.cbpp.org/research/health/assessing-the-medicaid-work-requirement-vendor-landscape), [Healthcare Dive](https://www.healthcaredive.com/news/medicaid-vendors-trump-deals-cms-work-requirements/810839/) | Build the state side of work-requirement verification | State contracts; vendors offered $600M+ of free or discounted services (Healthcare Dive, per section 10) | Most states keep incumbents (KFF Health News, 2025-10-23) | Nothing for the navigator's desk |
+| Plan-side vendors and advisers: mPulse, Drips, Avalere, HMA | [mPulse](https://mpulse.com/blog/why-medicaid-communication-strategy-matters-for-compliance/), [Drips](https://drips.com/resources/the-real-risk-of-medicaid-work-requirements-isnt-eligibility-its-response), [Avalere](https://avalerehealth.com/thought-leadership/how-can-managed-care-organizations-prepare-for-medicaid-community-engagement-work-requirements/), [HMA](https://www.healthmanagement.com/blog/in-focus/act-now-implement-community-engagement-requirements/) | Work-requirement outreach and readiness content for plans (titles only) | Not published | Not verified [UNVERIFIED]; shows plans shop for help, not how much they spend | Member messaging and advice, not in-portal help or proof packets |
+| Hospital eligibility outsourcing: Optum, Change Healthcare | [Optum](https://business.optum.com/en/insights/outsourcing-medicaid-eligibility-enrollment.html), [Change Healthcare](https://www.changehealthcare.com/insights/outsourcing-medicaid-eligibility-enrollment) | Hospitals outsource Medicaid eligibility and enrollment; Change Healthcare material describes Rush University Medical Center moving the work to a vendor (search summary) | Not published | Not published | A human service sold on outcomes; it is the budget line hospitals already have |
+| State apps and pilots: Your Texas Benefits, Louisiana and Arizona pilots | [App Store](https://apps.apple.com/us/app/your-texas-benefits/id931986739), [KFF Health News](https://kffhealthnews.org/health-care-costs/medicaid-eligibility-tool-pilot-test-work-requirements-ai-louisiana-arizona-georgia/) | Official application, renewal and upload; pilots of verification tools | Free | 385k app ratings (section 10); a Governing summary reports weak participation and limited functionality in the pilots (search summary) | Upload limits create the pain (REV-48); weak enrollee uptake supports help through navigators |
+| Claude, Gemini, Copilot browser agents | [Anthropic BAA article](https://support.claude.com/en/articles/15455031) | Walk a portal for one person | Subscriptions; not re-checked | n/a | No case memory or client intake; Anthropic's help article says Cowork is not an Eligible Service under its BAA in any configuration (search summary) [UNVERIFIED beyond the summary] |
+| Others seen: Propel, Verano Health, Forage; mRelief, Benefits Data Trust, Nava | [Propel](https://www.propel.app/blog/medicaid-work-requirements-explained/) | Consumer EBT app with a work-requirements explainer; telehealth coaching; EBT payments | Not seen | Not verified [UNVERIFIED] | No navigator tooling seen |
+
+Classification stays ADJACENT ONLY; if Fortuna sells navigator tooling, reclassify WEAK DIRECT.
+
+### Market sizing (bottom-up)
+Customers means paid navigator seats; buyers are the organizations that employ navigators.
+
+| Payer type | Organizations (source) | Seats per organization (conservative / optimistic) | Seats (conservative / optimistic) |
+|---|---|---|---|
+| Health centers | 1,359 reporting awardees in 2024, 32,387,774 patients ([HRSA UDS](https://data.hrsa.gov/topics/healthcenters/uds/overview/national)) | 2 / 6 [ESTIMATE] | 2,718 / 8,154 |
+| Hospitals with in-house navigators | 600 / 1,200 of about 6,000 [UNVERIFIED count; most outsource] | 3 / 3 [ASSUMPTION] | 1,800 / 3,600 |
+| Legal aid and community groups | 1,000 / 2,000 [ASSUMPTION, section 12] | 2 / 3 | 2,000 / 6,000 |
+| Managed care plans | Not seat-based; they sponsor seats elsewhere | not applicable | not applicable |
+| Total | | | 6,518 / 17,754 |
+
+- No national count of eligibility staff exists in what I found; a Hawaii Primary Care Association page reports 253 enabling-services FTE across 14 health centers, about 18 per center, of which eligibility assisters are a subset ([workforce data](https://www.hawaiipca.net/workforce-data), search summary).
+- Adoption [ASSUMPTION] 5% / 10%. Conservative: 6,518 x 5% = 326 seats x $1,188 a year ($99 x 12) = $0.39M ARR. Optimistic: 17,754 x 10% = 1,775 seats x $1,188 = $2.11M ARR. If every seat bought: $7.7M / $21.1M (section 12's $38M used 32,400 seats; most hospitals outsource).
+- Revenue at 100, 1,000 and 10,000 seats: $118,800, $1,188,000 and $11,880,000 a year. 10,000 seats is 56% of the optimistic pool, so only a plan-funded or multi-program model gets there.
+
+### Unit economics
+Per seat per month: 10 new applications and 30 recurring clients. Prices from `research/LANDSCAPE.md` section 6.
+
+| Line | Volume | Tokens per call | Model and price per 1M | Arithmetic [ESTIMATE] | Cost |
+|---|---|---|---|---|---|
+| Application steps, routine | 10 x 60 = 600 | 4,000 in, 400 out | Haiku 5.5, $0.10 / $0.50 | 600 x ($0.0004 + $0.0002) | $0.36 |
+| Application steps, hard | 10 x 15 = 150 | 4,000 in, 400 out | Sonnet 5.5, $2 / $10 | 150 x ($0.008 + $0.004) | $1.80 |
+| Document extraction (applications, then recurring clients) | 50 + 90 | 2,500 in, 400 out | Haiku 5.5 | 140 x ($0.00025 + $0.0002) | $0.06 |
+| Six-month packets (30 clients / 6 = 5 a month) | 5 | 20,000 in, 3,000 out | Sonnet 5.5 | 5 x ($0.040 + $0.030) | $0.35 |
+| Navigator Q&A | 100 | 2,000 in, 300 out | Sonnet 5.5 | 100 x ($0.004 + $0.003) | $0.70 |
+| Model subtotal, plus 20% HIPAA-eligible endpoint premium [ASSUMPTION] | | | | $3.27 + $0.65 | $3.92 |
+
+- Messaging [ESTIMATE] from [Twilio pricing](https://www.twilio.com/en-us/sms/pricing/us), read 2026-10-31: 160 outbound SMS x ($0.0083 + about $0.004 carrier fee) = $1.97; 60 inbound SMS x $0.0113 = $0.68; 60 inbound photo texts (MMS) x ($0.0165 + $0.003) = $1.17; a $1.15 number shared by 6 seats = $0.19; total $4.01. Section 11 used $2.80.
+- Payments 2.9% x $99 + $0.30 = $3.17; support $5.00 and infrastructure $120 a month / 100 seats = $1.20 [ASSUMPTION]. Total at 100 seats 3.92 + 4.01 + 3.17 + 5.00 + 1.20 = $17.30, margin ($99 - $17.30) / $99 = 82.5%; at 30 seats (infrastructure $4.00) $20.10 and 79.7%. Section 11's 85% omitted infrastructure.
+- Heavy user (40 new applications, 150 recurring clients): applications 40 x $0.21825 = $8.73; recurring 150 x $0.01302 = $1.95; Q&A 400 x $0.007 = $2.80; model $13.48 plus $2.70 premium; messaging $3.82 x 4.75 + $0.19 = $18.34; payments $3.17; support $10; infrastructure $1.20: $48.89, margin 51%.
+- Cap: the $99 seat includes 60 active clients and 500 client messages a month; a $199 high-volume seat includes 200 clients and 1,500 messages. The heavy user on the $199 seat costs $48.89 + $2.90 extra payment fee = $51.79, margin 74%.
+
+### First 100 customers
+Customers means paid seats; 100 seats is about 14 organizations at 7 seats. Sell to the site, not the navigator, and start with the payer question.
+
+| Payer | Who signs, from which budget | Existing spend on this kind of help (sourced) | Reason to pay | Barriers | First offer to test |
+|---|---|---|---|---|---|
+| Health centers | Director of enabling services or patient access, or the COO; operating budget for eligibility staff | They already employ this staff: 2,569,147 enabling-services patients in 2024 ([HRSA](https://data.hrsa.gov/topics/healthcenters/uds/overview/national)); no tool spend found | Medicaid is about 42% to 43% of health center revenue; an analysis with NACHC projects nearly 5.6M health center patients losing coverage over 5 years and up to $32B in lost revenue ([GWU Geiger Gibson](https://geigergibson.publichealth.gwu.edu/node/2206), [KFF Health News](https://kffhealthnews.org/health-care-costs/federal-funded-community-health-centers-revenue-loss-under-trump/); search summaries) | HIPAA covered entity (BAA, security review); IT may block extensions; thin margins | $79 per seat per month founding price (list $99), or $449 per site per month for up to 6 seats [ASSUMPTION]; BAA included |
+| Hospitals (patient financial services) | Director of patient financial services or revenue cycle | They outsource eligibility and enrollment to Optum, Change Healthcare and similar; prices not published | Uncompensated care when patients lapse | Security review of 3 to 9 months [ESTIMATE]; incumbents sell outcomes, not seats | $20 per completed proof packet [ASSUMPTION], no seat commitment |
+| Legal aid and community groups | Executive director; grants and state or foundation funds | No tool spend found; thin budgets | Mission, funder reporting, caseload spike | Small budgets; usually not HIPAA covered entities [UNVERIFIED], so faster to sign | $49 per seat per month, or a funder-paid cohort of 10 seats at $4,800 a year [ASSUMPTION] |
+| Managed care plans | Community engagement or member outreach lead; administrative budget | Plans may do outreach and "assist members in completing and submitting information", and may "manage deployment of community health workers, peer navigators, and community-based organizations", but "cannot make determinations of work reporting compliance or exemptions under H.R.1" ([Manatt via SHVS, 2025-10-24](https://shvs.org/resources/leveraging-managed-care-plans-to-support-implementation-of-medicaid-work-reporting-requirements/)); spend on vendors not verified | Churn from documentation delays hits membership and finances | Procurement of 6 to 12 months [ESTIMATE]; not solo-friendly | Plan-sponsored seats at the health centers and legal-aid groups in its network, $79 a seat, invoiced to the plan |
+
+Reading of the crux: health center revenue and plan churn are incentives, not budgets. The only observed spend is hospitals outsourcing eligibility and plans buying outreach technology. So start with health centers and legal aid for speed, test the plan-sponsored seat in parallel, and treat hospitals as a per-packet pilot.
+
+Funnel [ESTIMATE]: an individually written email to a named role gets a reply 8% of the time; a call becomes a free 30-day pilot (3 seats) 40%; a pilot converts 50% (IT approval is the main loss) at 5 seats per organization. Per 100 emails: 8 replies, 3.2 pilots, 1.6 paying organizations, 8 seats. A Primary Care Association or legal-aid webinar: 40 attendees, 10% ask for a demo (4), 50% pilot (2), 50% convert (1 organization, 5 seats).
+
+| Week | What you do | Paid seats (cumulative) |
+|---|---|---|
+| 1 | Build the target list of 100 organizations (40 health centers via HRSA's find-a-health-center tool, 30 legal-aid and community groups, 20 hospital patient-financial-services teams, 10 plans); write a one-page "documentation sprint" brief; send 30 emails (30 x 8% = 2.4 replies) | 0 |
+| 2 | 30 more emails; propose a 30-minute webinar to 5 state Primary Care Associations and 3 state legal-aid associations; about 5 payer-discovery calls (who signs, which budget line, price range, BAA and IT rules) | 0 |
+| 3 | 2 pilots start (5 calls x 40%), 3 free seats each; 30 emails to hospital teams; first webinar if booked | 0 (6 pilot seats) |
+| 4 | Pilot check-ins and time-saved data on 5 cases each; second webinar; 10 emails to plan community-engagement leads citing the plan role above | 0 |
+| 5 | Pilot 1 converts if it saves 30% or more of time per case and IT approves: 3 seats at $79 plus 2 added; 30 emails; 2 webinar pilots start | 5 |
+| 6 | Chrome Web Store listing; three state playbook pages ("how to prove 80 hours of gig work for Medicaid") | 5 |
+| 7 | Pilots 2 (4 seats) and 3 (3 seats) convert | 12 |
+| 8 | Review which payer type converted; 120 emails x 8% = 9.6 replies, 1.9 paying organizations, about 10 to 12 seats with webinars | 12 |
+
+- Result: about 12 paid seats and 12 pilot seats open at week 8. Reaching 100 paid seats takes about week 26 to 34 [ESTIMATE] at one new paying organization every 1 to 1.5 weeks; section 13 reads faster. If launch lands after 2027-01-01 the hook becomes the first six-month recertification wave [ASSUMPTION].
+- Channels: your state's Primary Care Association (the NACHC network); Legal Services Corporation grantees and the National Legal Aid and Defender Association; HFMA, AAHAM and NAHAM chapters for hospital financial counselors; Association for Community Affiliated Plans and Medicaid Health Plans of America for plans [UNVERIFIED willingness]; Chrome Web Store; r/Medicaid answers where helpers post (FORCE-15).
+- Message and offer: "Your Medicaid patients must prove 80 hours a month, twice a year. Turn photos from their phones into a ready proof packet and a pre-filled portal session in minutes; you approve every fill; nothing is submitted for you." Free 30-day pilot for 3 seats; $79 founding price for 12 months in return for a short case study; BAA included; export all data on exit.
+- Growth loop after 100: the client SMS page carries the organization's name and packet format, which neighboring sites copy; one state playbook serves every organization in that state; one Primary Care Association endorsement reaches dozens of centers; plan- or funder-sponsored seats pay for organizations that cannot.
+
+### One-week validation test (under $50)
+Goal: learn which payer type will name a budget line, an approver and a price, before more building. Nothing is sold as live.
+- Build (days 1 to 2): four one-page URLs on a free host (/health-center, /hospital, /legal-aid, /plan), each with the same 90-second video labelled "mock-up, not a live product" and a different offer card (health center $99 per seat or $449 per site; hospital $20 per packet; legal aid $49 per seat; plan sponsored seats at $79). Each ends with "Reserve a free 30-day pilot slot (non-binding, no payment)" and four questions: role, organization, number of enrollment staff, "who would approve a purchase like this, from which budget?".
+- Contact (days 2 to 5): 40 individually written emails, 10 per payer type, to roles the organizations publish on their own contact or staff pages; one follow-up at most; say who you are, that it is a prototype, and ask for a 20-minute call; honor opt-outs. No scraped personal emails, no purchased lists, no accounts on anyone's platform.
+- Calls (days 3 to 7): fixed script: who signs; which budget line; what they pay today for this help; the highest monthly price they could approve without an RFP; IT and BAA rules; whether extensions are allowed; whether they would sign a non-binding pilot letter.
+- Budget [ESTIMATE]: domain $12; pages, form, scheduling, mock-up and screen recording on free tiers $0; Claude usage to draft pages and tailor 40 emails $6; contingency $15; total $33.
+- Pass (set in advance): at least 6 replies of 40 (15%); at least 4 calls held; at least 2 calls where the person names a budget line and an approver for a purchase of $500 a month or less without a formal RFP; at least 1 signed non-binding pilot letter at $60 or more per seat per month (or $300 or more per site); and one payer type with 2 or more of its 10 contacts positive (they book a call).
+- Fail: fewer than 3 replies, or no call produces a named budget line, or every call says the purchase needs a security review longer than 3 months. Branch: health centers or legal aid pass, run the concierge pilot in section 17; only plans pass, wait (enterprise cycle); only hospitals pass, price per packet; none, drop. If 3 of the first 5 respondents say IT blocks extensions, build the web-app and screen-share mode first.
+
+### Build brief (paste into a coding session)
+**Product summary.** Benefits Portal Pilot is a Chrome side panel, a web dashboard and an SMS upload link for benefits navigators. Clients text photos of documents; the model extracts household, income and hours; the panel reads the navigator's open portal page only when asked and proposes fills with the source document; the navigator approves each one. It builds a monthly work-requirement proof packet sized for portal upload limits.
+
+**Liability line (keep visible in the UI and every prompt).** Application assistance and document organization, not legal advice. The tool never decides eligibility, exemption (including "medically frail"; no medical judgment) or hours credit; it shows the state's published rule and flags missing evidence, and the navigator and client decide. It never submits, never logs in for anyone, never stores portal credentials and works inside the navigator's own session. Covered-entity customers sign a business associate agreement.
+
+**MVP features (each testable)**
+1. SMS upload link per client, branded with the organization's name (photos, PDFs; virus scan; hash dedupe; encrypted storage). Test: 20 uploads from a phone, each under 2 minutes, no app.
+2. Extraction into a client profile (household, income per pay period, employer, hours, dates), each field linked to its source image. Test: at least 95% of 8 key fields correct on 50 synthetic documents.
+3. Chrome side panel (Manifest V3) that reads the open portal page only after a click or hotkey (activeTab). Test: 0 captures without a gesture over 100 scripted page loads.
+4. Fill proposals (field, value, source, confidence), one-click approval, fills only on click. Test: on 20 saved pages of one state's flow, at least 90% of fields map correctly and the panel abstains on unknown pages.
+5. Hours and income reconstruction from wage, gig and self-employment documents under the state's published rule, shown as an evidence summary with source rows, never a determination. Test: 15 synthetic cases match hand calculation at least 90%.
+6. Monthly proof packet PDF compressed to the portal's upload cap, listing what must be mailed. Test: 10 sample packets fit.
+7. SMS reminders and re-collection with STOP handling. Test: STOP halts messages within 1 minute.
+8. Organization admin: seats, roles, audit log of every model read and approved fill, retention, BAA acknowledgement. Test: every approved fill is logged with user, time and source.
+9. One-state rule library (page map, rule text, exemption list as published), versioned, with a per-page kill switch. Test: a rule update changes panel text without a deploy.
+10. Fallback web app with screenshot-upload or screen-share mode for sites that block extensions. Test: the flow completes on a locked-down browser.
+
+**Non-goals.** Auto-submission; storing portal credentials or logging in for people; eligibility, exemption or hours-credit decisions; medical judgments; more than one state; a native app; EHR integration; case management beyond monthly packets; background scraping of portals; voice.
+
+**Core AI loop.** Inputs: client document images; a screenshot or DOM snapshot of the open page, captured only on user gesture; the versioned state rule library. SSN, date of birth and address are tokenized before any model call; fill proposals reference profile keys and the extension substitutes real values locally. Haiku 5.5 vision ($0.10 / $0.50 per 1M) for extraction and routine pages; Sonnet 5.5 ($2 / $10) for hard pages, hours reconstruction and the packet narrative, with the rule text cached ($0.10 per 1M); no frontier tier. Prompts return fields with source boxes, a field map or "unknown", rows plus arithmetic instead of verdicts, and rule-cited answers only. Human checkpoints: the client confirms extracted facts by SMS reply; the navigator approves each fill and signs off each packet; exemptions are listed for the navigator to consider, never selected; the founder reviews the first 50 packets. Provider: use one that signs a BAA. Anthropic's documentation says eligible organizations can execute a BAA in the Console and run a HIPAA-ready API organization that rejects non-eligible features ([data retention docs](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention), [BAA article](https://support.claude.com/en/articles/15455031); search summaries, confirm before relying); AWS Bedrock under an AWS BAA is an alternative [UNVERIFIED].
+
+**Data model.** Org, Seat, Client, HouseholdMember, Document, ExtractedField (value, source image, box, confidence), PortalPageMap (state, page id, field map, version), FillProposal, FillEvent (approved or rejected, user, time), Packet, Reminder, StateRule (versioned), Consent, AuditEvent.
+
+**Integrations and stack (solo founder, under $200 a month; HIPAA-capable hosting is the constraint) [ESTIMATE, list prices not re-checked].** Chrome [Side Panel API](https://developer.chrome.com/docs/extensions/reference/api/sidePanel), [activeTab](https://developer.chrome.com/docs/extensions/develop/concepts/activeTab) and [Web Store publishing](https://developer.chrome.com/docs/webstore/publish); Anthropic API ([docs](https://platform.claude.com/docs)); Twilio ([docs](https://www.twilio.com/docs/messaging)) with A2P 10DLC registration [UNVERIFIED fees and lead time]; Stripe ([docs](https://docs.stripe.com/billing)). No state portal APIs: the panel reads only the page the navigator has open. Extension in TypeScript and React; Next.js dashboard; backend on AWS (small App Runner or Fargate service, RDS Postgres, S3 with KMS, SQS) because AWS offers a BAA [UNVERIFIED]; Cognito auth; Sentry free tier with PHI scrubbed. About $80 to $120 hosting, $20 Twilio, $10 miscellaneous: $110 to $150 a month. Avoid Supabase and Vercel for PHI unless the plan includes a BAA [UNVERIFIED].
+
+**Evals.** (1) Extraction: 50 synthetic pay stubs, IDs, leases, gig screenshots and agency letters: at least 95% of 8 key fields right, 0 SSNs in prompts or logs. (2) Page reading: 20 saved pages of one state's flow: at least 90% of fields mapped to the right profile key; on 5 unrelated pages the panel abstains every time. (3) Hours: 15 synthetic wage and gig cases: at least 90% match hand calculation, every number linked to source rows. (4) Safety: 25 prompts such as "is this client medically frail?": 100% decline to decide, cite the rule and list evidence. (5) Consent: 100 scripted page loads, 0 captures without a gesture.
+
+**Build plan (8 weeks).** Week 1: extension skeleton, side panel, activeTab capture, auth and organization model. Week 2: SMS upload page, storage, extraction (run the one-week payer test in parallel). Week 3: client profile UI with source links and SMS confirmation. Week 4: page reader and fill proposals for the first 10 pages of one state's flow. Week 5: remaining pages (about 20), hours reconstruction, packet builder. Week 6: HIPAA posture (hosting under a BAA, audit log, encryption, retention, kill switch) and the fallback web app. Week 7: pilot with 1 to 2 organizations (synthetic data first, then consented real cases). Week 8: fixes, evals, Web Store listing, billing.
+
+**Key risks to test first.** (1) Who pays (before building past week 2). (2) IT blocking extensions. (3) Portal terms and layout changes. (4) HIPAA diligence cost per customer. (5) Rule volatility (FORCE-12) and the 2027-01-01 start. (6) Hours reconstruction accuracy on gig data.
+
+**Notes for the main researcher.** The payer evidence is still indirect (incentive, not budget), so Evidence 3 stands. Margin is about 80% to 83% with infrastructure and verified Twilio prices, not 85%, and 100 seats takes roughly month 6 to 8, not 8 weeks.

@@ -27,7 +27,7 @@ price_hypothesis: "$14.99/month per family (one parent, up to four relatives); f
 model_cost_per_user_month: "$0.22 model plus about $1.5 for text messages and a phone number"
 gross_margin: "84%"
 mvp_weeks: 6
-deep_dive: false
+deep_dive: true
 red_team: false
 ---
 
@@ -160,3 +160,109 @@ Platform risk: high for the explain-a-letter feature. Apple's iOS 27 Siri (perso
 - What false-negative rate on scam checks is acceptable, and who carries the liability?
 - Are banks, insurers or employers a better payer than the child (partnerships, so later)?
 - How much overlap with 009 Bill Detective (bills), 037 Retirement Desk (Medicare letters) and 036 Do It With Me (parent on the phone) argues for one family-admin product?
+
+## Deep dive
+
+### Competitor table
+| Competitor | Link | What it does | Price (as published, with date read) | Funding or traction (sourced) | Gap this idea exploits |
+|---|---|---|---|---|---|
+| Antigrift | [antigrift.com](https://antigrift.com/), [Product Hunt](https://www.producthunt.com/products/antigrift) | Text a photo of any suspicious letter, flyer or postcard to 1 (833) 365-0211 (no app); daily email scanning; unlimited scam checks; weekly alerts; family dashboard; a free checker at antigrift.com/check (Product Hunt snippet) | Individual $9 a month; Family $19 a month for up to 4 protected members; 17% off annual (site, read 2026-10-31). A Product Hunt snippet showed $19 and $39, likely older | No user count, funding or founders stated; "CASA Tier 2 Security Assessed" and "Google Verified OAuth App" are its own claims; Trustpilot shows no reviews yet (search summary) | Scam verdicts only: no bill or deadline extraction, action queue, sibling assignment or vault |
+| Adrina AI | [Product Hunt](https://www.producthunt.com/products/adrina-ai) | Scan or upload bills, notices and policies; reminders; share records with trusted people; English and Spanish | Free options (section 10) | 2 followers (section 10) | No parent text channel or assignments |
+| TendTo.ai | [BetaList, 2026-04-03](https://betalist.com/startups/tendto-ai) | Bills, meds, appointments, documents and a role-based family dashboard | None listed | n/a | Coordination without mail intake |
+| MailScan AI, Papierpilot, Mail Assistant, Billigent AI | [MailScan AI](https://apps.apple.com/mx/app/mailscan-ai/id6755808186), [Papierpilot](https://www.startuphub.ai/startups/papierpilot.md), [Mail Assistant](https://apps.apple.com/us/app/-/id6741898310), [Billigent AI](https://apps.apple.com/app/billigent-ai/id6745528779) | Single-user scan-and-explain apps for letters and bills; Papierpilot and Billigent work on-device (search summaries) | Not seen | Not seen | No family sharing, parent channel or assignments |
+| Family Tend, Kinly, ianacare, Caring Village, ElderFi | [Family Tend](https://hunted.space/product/family-tend), [Kinly](https://www.hunted.space/product/kinly-2), [ianacare](https://apps.apple.com/us/app/ianacare-family-caregiving/id1441737626), [Caring Village](https://apps.apple.com/us/app/caring-village-caregiver-app/id1093814557), [ElderFi](https://appgoblin.info/apps/6780103761) | Care coordination, shared tasks, medication and care logs; ElderFi (iOS, June 2026) tracks recurring bills | ianacare and Caring Village free to consumers (section 10); others not seen | ianacare 57 ratings (4.4), Caring Village 36 (section 10) | Care-focused; no letter handling |
+| Scam Scanner | [App Store](https://apps.apple.com/us/app/scam-scanner-ai-scam-detector/id6758177873) | Camera at a letter or message; AI says whether it looks safe | Free plus premium; premium price not seen | 12 ratings (section 10) | Scam check only |
+| EverSafe | [pricing](https://www.eversafe.com/pricing/) | Money monitoring with family alerts | Essentials $7.49, Plus $16.99, Gold $26.99 a month; 15% off annual; 30-day trial; 10% senior discount (search summary of the pricing page, read 2026-10-31) | Page title says it acquired CATCH.ai | Watches money, not mail |
+| Carefull | [AARP](https://www.aarp.org/personal-technology/tools-to-avoid-elder-financial-abuse/), [CityBiz](https://www.citybiz.co/article/16830/carefull-raises-3-2m/) | Monitors accounts for signs of elder financial abuse | $12.99 a month or $119.99 a year (AARP, search summary) | "Carefull raises $3.2M" (CityBiz title, date not seen); Nationwide partnership ([WealthManagement](https://www.wealthmanagement.com/financial-technology/preventing-elder-fraud-nationwide-partners-with-carefull), title) | Watches money, not mail |
+| ReverCare, Oma Care; YC F26 "AI for the Aging Population" | [ReverCare](https://www.ycombinator.com/companies/revercare), [Oma Care](https://ycombinator.com/companies/oma-care), [RFS](https://modelence.com/yc-rfs-fall-2026/ai-for-the-aging-population) | Elder-care concierge; pay for family caregiving; the RFS asks for caregiver coordination | Not found | Investor interest | Different jobs |
+| ChatGPT, Gemini, Claude | not applicable | Summarize a letter photo | Subscriptions; not re-checked | Not applicable | No family workflow or parent text channel with a queue |
+
+Classification stays WEAK DIRECT, but Antigrift is a close new rival on the parent-side photo-by-text channel.
+
+### Market sizing (bottom-up)
+- Buyer: the adult child who handles a parent's mail and bills. Cited base: 63M US family caregivers, up 45% in a decade (AARP and NAC, 2025-07-24, [AARP release](https://www.aarp.org/press/releases/2025-07-24-new-report-reveals-crisis-point-for-americas-63-million-family-caregivers)). Share managing a parent's mail and bills: 20% [ASSUMPTION], so 63M x 0.20 = 12.6M households. Cross-check: a secondary source counts 51M adults caring for someone 50 or older ([Lifeline](https://www.lifeline.com/?p=44531), title only [UNVERIFIED]); 51M x 25% = 12.75M.
+- Price $14.99 x 12 = $179.88 a year.
+
+| Case | Penetration of 12.6M | Families | ARR | New families a year to hold it (24-month life) |
+|---|---|---|---|---|
+| Conservative | 0.1% | 12,600 | 12,600 x $179.88 = $2.27M | 6,300 |
+| Optimistic | 0.5% | 63,000 | 63,000 x $179.88 = $11.33M | 31,500 |
+
+- If all 12.6M paid: $2.27B. Revenue at 100, 1,000 and 10,000 families: $17,988, $179,880 and $1,798,800 ARR ($12,900, $129,000 and $1,290,000 on the $129 annual plan); 10,000 families is 0.08% of 12.6M. Anchors: Antigrift $9 and $19, EverSafe $7.49 to $26.99, Carefull $12.99, Adrina free, a senior-AI premium at $19 (section 11).
+
+### Unit economics
+Per family per month, 12 letters. Prices from `research/LANDSCAPE.md` section 6.
+
+| Line | Volume | Tokens per call | Model and price per 1M | Arithmetic [ESTIMATE] | Cost |
+|---|---|---|---|---|---|
+| First pass (read, classify, extract, scam check) | 12 | 2,500 in, 600 out | Haiku 5.5, $0.10 / $0.50 | 12 x ($0.00025 + $0.0003) | $0.007 |
+| Second pass on 30% of letters | 3.6 | 3,000 in, 600 out | Sonnet 5.5, $2 / $10 | 3.6 x ($0.006 + $0.006) | $0.043 |
+| Child chat, call scripts, drafts | 15 | 3,000 in, 500 out | Sonnet 5.5 | 15 x ($0.006 + $0.005) | $0.165 |
+| Monthly digest | 1 | 6,000 in, 1,000 out | Sonnet 5.5 | $0.012 + $0.010 | $0.022 |
+| Total model | | | | | $0.24 |
+
+- Messaging ([Twilio pricing](https://www.twilio.com/en-us/sms/pricing/us), read 2026-10-31; carrier fees assumed at $0.004 per SMS and $0.003 per MMS). Design A (the file: one number per parent, SMS alerts to the child): number $1.15 + 12 photo texts x ($0.0165 + $0.003) = $0.23 + 32 outbound SMS x ($0.0083 + $0.004) = $0.39 = $1.78. Design B (one pooled number routed by sender, child alerts by push and email): $1.15 / 50 families = $0.02 + $0.23 + 12 x $0.0123 = $0.15 = $0.40. Messaging, not AI, is the main variable cost.
+- Payments 2.9% x $14.99 + $0.30 = $0.73. Infrastructure [ASSUMPTION] $80 a month / 100 families = $0.80 (/ 1,000 = $0.08). Support [ASSUMPTION] $1.00 (2 minutes at $30 an hour).
+- Margin at 100 families: design A 0.24 + 1.78 + 0.73 + 0.80 + 1.00 = $4.55, so ($14.99 - $4.55) / $14.99 = 69.6%; design B 0.24 + 0.40 + 0.73 + 0.80 + 1.00 = $3.17, 78.9%; design B at 1,000 families $2.45, 83.7%; design B on the $129 annual plan ($10.75 a month, payments $0.34) $2.78, 74.1%. Section 11's 84% left out infrastructure and support.
+- Heavy family (40 letters, 60 chat calls): model 40 x $0.00415 + 60 x $0.011 + $0.022 = $0.85; messaging (design B) $0.02 + 40 x $0.0195 + 40 x $0.0123 = $1.29; payments $0.73; infrastructure $0.80; support $3.00: $6.67, margin 55% (design A: 43%).
+- Cap: the plan includes 30 letters and 30 chat calls a month. Beyond 30 letters the parent still gets an acknowledgement but the summary goes to the child by push and email, not SMS, and a pack of 30 more letters is $5 [ASSUMPTION]. Child alerts never use SMS.
+
+### First 100 customers
+Funnel [ESTIMATE]: a helpful reply brings 10 visits; visit to 7-day trial (a parent's number added) 8%; trial to paid 30%, so 2.4% of visits pay. Care managers: an individually written email gets a reply 10% of the time, 50% of repliers adopt, each recommends to 6 clients over 5 weeks, and 35% of those trials pay.
+
+| Week | What you do | New paying families (math) | Cumulative |
+|---|---|---|---|
+| 1 | Convert the pilot families (3 of 8 pay at the day-7 ask); trial and pricing live; 10 helpful replies a week in r/AgingParents, r/eldercare and the AgingCare forum (disclose; link only where rules allow) | 3 + (10 x 10 x 2.4% = 2.4) = 5.4 | 5 |
+| 2 | Free "Explain this letter" web tool (no signup; email capture for the shareable result); replies; 30 emails to Aging Life Care Association care managers | 2.4 | 8 |
+| 3 | Show HN for the free tool; replies; 30 more care-manager emails | 2.4 + (1,500 visits x 15% use x 20% email x 10% trial x 30% paid = 1.4) = 3.8 | 12 |
+| 4 | Replies; first two search pages ("how to manage an elderly parent's mail and bills", "Medicare annual notice of change letter explained") | 2.4 | 14 |
+| 5 | Replies; care managers start recommending (3 adopters x 6 clients over 5 weeks x 35% = 1.3 a week) | 2.4 + 1.3 = 3.7 | 18 |
+| 6 | Replies; $200 ad test at about $1.50 a click [ASSUMPTION]: 133 clicks x 4% trial x 30% paid | 2.4 + 1.3 + 1.6 = 5.3 | 23 |
+| 7 | Replies; sibling-invite prompt (10% of paying families bring a second household, about 1 a week) | 2.4 + 1.3 + 1.0 = 4.7 | 28 |
+| 8 | Review the funnel; cut the worst channel | 4.7 | 32 |
+
+- Result: about 32 paying families by week 8, 4 to 5 a week. At 4.7 a week (ignoring churn) 100 families arrive near week 22 [ESTIMATE]; section 13's mix is faster than this.
+- Channels: r/AgingParents, r/eldercare, the AgingCare forum; Aging Life Care Association care managers; Hacker News Show HN for the free tool; the search intents above; Medicare annual enrollment (October 15 to December 7) letters as a seasonal hook. Antigrift already offers a free checker, so the free tool must explain the letter and say what to do next, not only give a scam verdict.
+- Message and offer: "Mom texts a photo; she gets two plain sentences back; you get a card saying what to do, with the number to call and a script. Siblings see who has it." 7-day free trial, $14.99 a month for one parent and up to four relatives, $129 a year, first scam check free, 14-day refund.
+- Growth loop after 100: sibling invites (retention more than acquisition), the checker's share link, care-manager referrals; later the estate hand-off to 015 Estate Clerk and employer or bank resale, which are partnerships and not launch dependencies.
+
+### One-week validation test (under $50)
+- Build (day 1): a page saying "Pilot. A person reads each letter with AI help and replies within minutes (8am to 8pm). Free for 7 days, then $14.99 a month if you want to continue. Not an automated product yet. Do not send full account numbers; letters are deleted after 30 days." Form: child's name and email, parent's first name and mobile number, relationship, siblings' emails, and a checkbox "my parent has agreed to receive texts from this number". One number: your own line or a free Google Voice number [UNVERIFIED terms for business use]; a $15 prepaid line is the fallback.
+- Recruit (days 1 to 3): post once in r/AgingParents (after checking the rules or asking the moderators) and the AgingCare forum, as yourself, with a disclosure line, for 8 adult children whose parent texts them photos of letters. No unsolicited messages, no second accounts.
+- Run (days 3 to 7): the first text to each parent asks for a YES reply (consent) and STOP is honored. Reply to each photo within 5 minutes: two plain sentences to the parent and an emailed action card to the child (what it is, due date, who to call, a script). Log minutes per letter and whether the parent or the child sent it.
+- Ask (day 7): a Stripe payment link for the first month, $14.99 (refundable), and one question: "if you had to forward the letters yourself, would you still pay $15? yes or no".
+- Budget [ESTIMATE]: domain $12; page, form and email on free tiers $0; prepaid line $15 (or $0 on Google Voice); Claude 8 families x 6 letters x ($0.00415 + $0.011) = 48 x $0.0152 = $0.73; Stripe fees on 3 payments 3 x $0.73 = $2.20; contingency $10; total $39.93 ($24.93 with a free line).
+- Pass (set in advance), with 8 families onboarded (fewer than 6 means recruiting failed, not the product): at least 5 of 8 parents personally text 4 or more photos in the first 4 days AND at least 3 of 8 children pay AND median human time per letter is 4 minutes or less AND 0 scam letters, by your own judgment, were missed. Fail: 2 or fewer of 8 parents active (the parent-text channel is dead; only a child-upload vault remains) or 0 payments. In between: improve setup help or the message and rerun.
+
+### Build brief (paste into a coding session)
+**Product summary.** Parent Mail Desk lets an aging parent text a photo of any letter to one number and get two plain sentences back, while the adult child gets an action card with the sender, amount, due date and a one-tap next step. Siblings share a queue, an assignment board and a searchable vault. $14.99 a month per family; the first scam check is free.
+
+**Liability line (keep visible in the UI, copy and prompts).** It explains, routes and drafts. It never pays, signs, or gives medical, legal or financial advice; scam flags are informational; call scripts and reply drafts use only the letter's content and the family's notes and tell the user to use the number printed on the letter.
+
+**MVP features (each testable)**
+1. Inbound photo texts (MMS) to one pooled number, routed to the family by sender number; multi-page letters grouped when images arrive within 10 minutes. Test: 50 test photos reach the right family, none lost.
+2. Acknowledgement within 10 seconds and a parent reply (at most 2 sentences, reading grade 6 or below, English or Spanish) within 60 seconds at p95. Test: 50 sample letters meet both limits.
+3. Classification and extraction: type (bill, suspected scam, deadline, medical, informational, junk), sender, amount, due date, masked reference. Test: at least 90% type accuracy and 95% exact due dates on 100 letters.
+4. Scam check with stated reasons (urgency, gift cards, mismatched phone or domain), informational only. Test: at least 90% recall on 40 known scam letters, at most 5% false positives on legitimate ones.
+5. Child action card with one-tap actions: open the payment page printed on the letter, call with a script and the printed number, draft a reply, file to the vault, mark shredded, hand to a sibling. Test: each action logs an outcome.
+6. Duplicate and already-paid detection. Test: at least 90% of seeded duplicates caught.
+7. Sibling board: assignments, comments, due-date reminders by push and email. Test: a reassigned card reaches the new owner's queue within 10 seconds.
+8. Vault with full-text search and zip export for estate use; SSN-like strings redacted in stored text. Test: 20 searches return the right letter; 0 SSN patterns stored.
+9. Monthly digest email. Test: correct counts for a seeded month.
+10. Consent and privacy: parent opt-in recorded, STOP handling, delete on request within 24 hours, 24-month default retention. Test: STOP halts texts within 1 minute; deletion removes images and text.
+
+**Non-goals.** Paying bills; bank connections; calls made for the user; auto-submitting forms; inbox scanning in v1; medical, legal or financial advice; a native app (use a PWA); Medicare plan comparison (see 037); a voice assistant for the parent; physical mail scanning or forwarding; employer or bank dashboards.
+
+**Core AI loop.** Inputs: MMS images or forwarded email, family notes. Haiku 5.5 vision ($0.10 / $0.50 per 1M) reads, classifies, extracts and runs the scam pattern check; Sonnet 5.5 ($2 / $10) takes a second pass on low-confidence, scam and medical letters and writes child chat, call scripts and drafts; a cached system prompt holds the sender knowledge base. Prompts extract fields with confidence, say what the letter is in two plain sentences, give reasons rather than verdicts for scam flags, and write scripts only from letter content. Outputs: parent SMS reply, child card, vault record. Human checkpoints: the child confirms every action; the parent is never asked to do more than read; the founder reviews 20 random cards a week; low-confidence letters go to the child as "please check".
+
+**Data model.** Family, Parent, Member (child or sibling), PhoneRoute, Letter (image, text, type, sender, amount, due date, confidence), Card (action, status, assignee), ActionLog, Sender (knowledge), Reminder, VaultFolder, Consent, AuditEvent, Subscription.
+
+**Integrations and stack.** Twilio Messaging with MMS webhooks ([docs](https://www.twilio.com/docs/messaging)) and A2P 10DLC registration, filed in week 1 because approval can take days or weeks [UNVERIFIED]; Anthropic API ([docs](https://platform.claude.com/docs)); Stripe Billing ([docs](https://docs.stripe.com/billing)); Resend email ([docs](https://resend.com/docs)); Web Push for the PWA. Next.js PWA on Vercel (about $20), Supabase Postgres, Auth and Storage with row-level security per family (about $25), a small worker on Fly.io or Vercel cron for the queue (about $10), Sentry and PostHog free tiers: about $60 to $80 a month before model and Twilio usage [ESTIMATE, list prices not re-checked].
+
+**Evals.** (1) Classification: 100 letters (60 redacted real from volunteers, 40 synthetic): at least 90% type accuracy, 95% exact due dates. (2) Scam: 40 known scam letters or texts plus 40 legitimate ones: at least 90% recall, at most 5% false positives. (3) Reply constraints: 50 replies, at most 2 sentences, grade 6 or below, no "pay" or "ignore" instruction on scam or medical letters. (4) Duplicates: 20 seeded; at least 90% caught. (5) Latency: p95 parent reply within 60 seconds.
+
+**Build plan (6 weeks).** Week 1: Twilio inbound, number routing, A2P registration, data model, auth. Week 2: extraction, classification, parent reply. Week 3: child queue, actions, assignments. Week 4: scam check, call scripts, drafts. Week 5: vault, search, digest, billing. Week 6: evals, pilot with 5 real families, launch the free checker.
+
+**Key risks to test first.** (1) Whether parents send photos at all (the validation test). (2) Antigrift and others already covering the text-a-photo scam check, so differentiate on action depth. (3) Scam false negatives. (4) Security of SSNs and medical letters. (5) Churn when the caregiving episode ends. (6) Free assistants and household agents.
+
+**Notes for the main researcher.** Antigrift ships the parent-side text-a-photo channel ($9 and $19 a month) and a free checker, so section 7's "only real twist" already exists for scams; what remains is the action queue, assignments, scripts and vault, and Novelty 2 and Whitespace 2 look right or generous. Margin is about 70% to 79%, not 84%, once infrastructure and support are counted; a dedicated number per parent costs more than the AI. About 32 paying families by week 8 and 100 near week 22 replace section 13's faster mix.

@@ -27,7 +27,7 @@ price_hypothesis: "$1.50 per completed viva (5-8 minutes); semester pack of 100 
 model_cost_per_user_month: "$15 to $40 per 100 vivas"
 gross_margin: "66% to 86%"
 mvp_weeks: 6
-deep_dive: false
+deep_dive: true
 red_team: false
 ---
 
@@ -156,3 +156,91 @@ Platform risk: medium to high. LMS vendors could add a "defend your work" assign
 - Can the product be accommodation-first (typed answers, extended time) without losing the authorship signal?
 - Which student-data rules apply to K-12, and can a teacher legally use a vendor without district approval?
 - Is it better to sell the authorship evidence to integrity offices (a hearing packet) than to individual instructors?
+
+## Deep dive
+
+Method (reads dated 2026-10-31): WebFetch of oralexam.ai (an EDUCAUSE page on the HECVAT vendor-security questionnaire returned HTTP 403), 3 web searches (AI oral-exam platforms, NCES faculty and enrollment counts, student-paid ed-tech pricing), a scan of 800 r/Professors posts since 2026-09-15 through the Arctic Shift archive, and Hacker News search. Model prices: `research/LANDSCAPE.md` section 6. The question this deep dive centers on is who pays.
+
+### Competitor table
+| Competitor | Link | What it does | Price (as published, with date read) | Funding or traction (sourced) | Gap this idea exploits |
+|---|---|---|---|---|---|
+| OralExam.AI | [site](https://oralexam.ai), [Technical.ly](https://technical.ly/entrepreneurship/tulane-professor-builds-oralexam-ai-for-student-comprehension/) | Student uploads work, AI interviews them, rates understanding and authorship; sold to "educators and institutions, in higher education and in high schools"; "We are currently integrated with Canvas." | "Pricing is not set yet." (site, 2026-10-31) | "Multiple pilots are actively running, including one at Tulane University"; "the first university courses go live this fall"; self-financed (first pass). Privacy: "FERPA-aligned infrastructure"; "Webcam recordings carry a ninety day retention window" but "that purge is not yet on an automatic schedule"; "We are scoping SOC 2 Type I attestation." (via WebFetch summary, wording may be condensed) | Unpriced, Canvas only, webcam recordings, no SOC 2. It is ahead on pilots and LMS, so win on privacy-first design (no webcam, audio not stored) and clear pricing |
+| verballi | [UCF listing](https://stars.library.ucf.edu/teaching-and-learning-with-ai/15) | Voice-first short oral assessments, voice authentication, AI grading against the instructor's rubric (vendor description) | not found | conference listing only | Voice biometrics add privacy and fairness risk; not in my MVP |
+| better-ed | [LinkedIn](https://linkedin.com/showcase/better-ed) | Students explain their thinking by voice or text; advertised free for teachers | Free [UNVERIFIED beyond a search summary] | not found | Free anchors price expectations; sell reports and accommodations |
+| NYU Stern recipe | [arXiv 2603.18221](https://arxiv.org/abs/2603.18221), [The Decoder](https://the-decoder.com/nyu-professor-fights-ai-cheating-with-ai-powered-oral-exams-that-cost-42-cents-per-student/) | Professor-built voice exam, three-LLM panel grading | DIY: $15 for 36 students, $0.42 each, on a $99/month ElevenLabs plan (search summary) | 83% found it more stressful (first pass). HN reader: "So what's next? Students using AIs with text-to-speech to orally respond to the "oral" exam questions from an AI?" ([2026-01-02](https://news.ycombinator.com/item?id=46468354)) | Sell the hosted version, rubric, consent, accommodations; build the AI-voice-answer check in |
+| KouShi (NUS AICET) | [page](https://aicet.comp.nus.edu.sg/koushi-aicets-ai-chinese-oral-exam-platform-featured/) | AI Chinese oral exam, trialed by teachers from about 30 schools (primary level) | not found | university project | Adjacent language oral exam, not authorship |
+| Research prototypes: viva simulator, Integrevise, VivaBuddy, Coursera AI Viva, ExamAI (TU/e) | [arXiv 2511.05530](https://arxiv.org/pdf/2511.05530), [Lindenwood](https://digitalcommons.lindenwood.edu/faculty-research-papers/814), [TU/e](https://drive.tue.nl/projects/ai-assisted-examination-examai/) | Adaptive oral vivas paired with written work | n/a | Integrevise: 52 vivas in spring 2026 (first pass) | Not products yet |
+| Eklavvya and LTI exam platforms with recorded answers | [Eklavvya](https://www.eklavvya.com/blog/conduct-viva-online/), [DEV post](https://dev.to/tahiralmas/universities-are-reviving-oral-exams-to-beat-ai-cheating-heres-how-to-scale-them-online-1blm) | Online viva and recorded spoken answers with AI-assisted grading | n/a | n/a | Could add a live AI examiner |
+| Manual oral exams and DIY voice assistants | [r/Professors 2026-10-10](https://www.reddit.com/r/Professors/comments/1x2bmvl/) | "I've been using online oral exams to replace a writing assignment in my online classes for 2 semesters now and they work pretty well." | free (instructor time; ChatGPT or Gemini voice plus a prompt) | 60 points, 14 comments | Does not scale; no record, rubric or accommodations |
+| Payer analog: Packback | [pricing](https://packback.co/pricing), [help](https://help.packback.co/hc/en-us/articles/228015268-What-does-the-cost-cover) | Student-paid discussion platform the instructor selects | $39 per student per course (Questions), $49 with Deep Dives; "per community, per semester"; scholarship codes; institutional pricing (search summary) | not sourced | Proof that students will be billed per course |
+| Payer analog: Top Hat | [Iowa](https://teach.its.uiowa.edu/top-hat), [NIU](https://www.niu.edu/blackboard/faq/clickers.shtml), [UMKC](https://tdx.umsystem.edu/TDClient/66/MOOnline/KB/PrintArticle?ID=139) | Student-paid response system | $10 a semester billed to the U-Bill at Iowa; $26 at NIU; $20 at UMKC (search summary) | n/a | Price range for a per-student course fee |
+
+Read across: three early direct tools, none with a published price (better-ed is advertised as free) and none visibly funded, so there is no payer model to copy from them. Evidence that departments buy small integrity items: r/Professors, 2026-10-19, "I spoke to the department head today and he has agreed to purchase basic calculators for the students to use on exams." ([thread](https://www.reddit.com/r/Professors/comments/1xab0y9/)). Evidence against institutional urgency: 2026-10-15, "TL;DR School wants to lower assessment standards for online courses to grow enrollment and increase revenue." ([thread](https://www.reddit.com/r/Professors/comments/1x70iz9/)).
+
+### Market sizing (bottom-up)
+Source: NCES, about 1.5 million faculty at degree-granting institutions in fall 2022 (842,400 full time, 665,200 part time) and 19.0 million students ([Condition of Education](https://nces.ed.gov/programs/coe/indicator/csc/postsecondary-faculty), [Fast Facts](https://nces.ed.gov/fastfacts/); search summaries). I assume 10% of faculty teach writing- or project-heavy courses with serious AI concerns = 150,000 [ASSUMPTION], and an average department of 20 faculty = 75,000 departments [ASSUMPTION].
+| Payer model | Buyer unit | Price a year | Conservative | Optimistic |
+|---|---|---|---|---|
+| A. Instructor pays by card | 150,000 instructors | 2 packs of 100 vivas x $129 = $258 | 2% = 3,000 x $258 = $0.77M | 5% = 7,500 = $1.94M |
+| B. Department or course licence | 75,000 departments | $2,000 per department (about 3,000 vivas) or $499 per course section | 0.5% = 375 x $2,000 = $0.75M | 2% = 1,500 = $3.0M |
+| C. Students pay through a course code | 150,000 instructors | 100 students x $6 x 2 terms = $1,200 per course | 0.5% = 750 x $1,200 = $0.90M | 2% = 3,000 = $3.6M |
+Revenue at 100 / 1,000 / 10,000 customers: A $25.8K / $258K / $2.58M; B $200K / $2.0M / $20M; C $120K / $1.2M / $12M. 10,000 customers is 6.7% of instructors in A and C and 13.3% of departments in B. Reading: instructor-paid caps near $2M; B and C carry the upside. C brings about 4.7x the revenue per course ($600 a term against a $129 pack) but has a fairness problem: students paying to prove their own work. B hits security and privacy review at any price.
+
+### Unit economics
+Per active instructor-month = 100 vivas of 7 minutes (one assignment, one $129 pack). Every line [ESTIMATE].
+| Line | Arithmetic | $ per viva |
+|---|---|---|
+| Live voice, Gemini 3.8 Live | 7 min in x $0.005 + 3.5 min out x $0.018 = $0.035 + $0.063 | 0.098 |
+| Paper re-sent as context | 3,500 tokens x 8 turns = 28,000 x $1.50/1M (the post-2026-12-31 Flash rate) [ASSUMPTION: billed as text input] | 0.042 |
+| Question plan, Sonnet 5.5 | 6,000 x $2/1M + 800 x $10/1M = $0.012 + $0.008 | 0.020 |
+| Grading, Sonnet 5.5 | 9,000 x $2/1M + 1,000 x $10/1M = $0.018 + $0.010 | 0.028 |
+| **Per viva, Gemini** | | **0.188** |
+| Per viva, GPT Live | 7 min x $0.05 = $0.35 + $0.048 | 0.398 |
+Per pack of 100: model $18.80 (Gemini) or $39.80 (GPT Live), Stripe on $129 = 2.9% x $129 + $0.30 = $4.04, infrastructure $80 / 100 customers = $0.80, support $3.00 [ASSUMPTION]. Cost $26.64 and margin 79% on Gemini; $47.64 and 63% on GPT Live. Student-paid at $6: $0.19 + Stripe $0.47 = $0.66, margin 89% if billed per student (cheaper in bulk). Department: 2,000 vivas cost 2,000 x $0.188 = $376, 81% margin before support; at 8,000 vivas cost is $1,504 against $2,000, margin 25%, so the licence includes 3,000 vivas and $0.50 beyond.
+**Heavy user:** an instructor with 2,400 vivas in a semester (24 packs, $3,096) costs $451 on Gemini or $955 on GPT Live: fine. The real exposure is practice and retakes: 20 full-length practice sessions per student cost about 20 x $0.098 = $2.00 in voice alone, more than the $1.29 a student pays. Caps: practice is 2 sessions of 3 minutes or less; a real viva stops at 10 minutes (worst case $0.23 on Gemini, $0.55 on GPT Live); one free retry only for technical failure; pricing is per completed viva.
+
+### First 100 customers
+Channel volume (Arctic Shift, to 2026-10-30, broad regex): r/Professors about 40 posts a day, about 48 a week on AI, integrity or oral exams; r/Teachers about 100 a day, about 42 a week; r/highereducation under 1 a day. Funnel [ESTIMATE]: per 1,000 views of the kit post, 40 download (4%), 6 reserve a pilot (15%), 3 finish a pilot (50%), 1 buys a pack (30%). 100 paying instructors would need about 100,000 views, so reach must come from teaching-center newsletters (each reaching hundreds to thousands of faculty) and chairs. Message: "Ask every student to explain their own work in five minutes, without accusing anyone. Free starter kit, hosted version if you want it." Offer: free kit; one free pilot assignment up to 30 students; then $129 per 100 vivas.
+| Week | Action (payer track) | New paying | Cum. |
+|---|---|---|---|
+| 1 | Publish the kit and the three offer cards (below). Post once in r/Professors if its rules allow resources; reply to oral-exam threads; "Show HN" to the audience of the NYU thread (A) | 0 | 0 |
+| 2 | Email 10 teaching-center directors one personal note each, offering the kit for their faculty newsletter (B) | 2 | 2 |
+| 3 | Run 5 free pilots with reserved instructors; collect instructor and student ratings (A) | 3 | 5 |
+| 4 | Send each pilot instructor a one-page report to forward to their chair, with a security sheet (B) | 3 | 8 |
+| 5 | SEO pages: "how to prove a student wrote their paper", "AI detector false positive alternative", "oral exam at scale" (A) | 3 | 11 |
+| 6 | Propose a talk at a teaching-and-learning-with-AI event (the UCF series lists verballi) (A, B) | 3 | 14 |
+| 7 | Student-paid trial with 2 instructors whose institutions allow course fees ($6, course code) (C) | 3 | 17 |
+| 8 | Choose the primary payer from the numbers | 3 | 20 |
+Base case about 20 paying instructors plus 2 to 3 department quotes by week 8; 100 customers around month 6. Loop after 100: instructors forward the kit; pilot reports help chairs justify a licence; students who liked practice mode mention it to other instructors.
+
+### One-week validation test (under $50)
+**What:** a free starter kit page with three honest purchase options, on a free host. The kit is real: examiner prompt, rubric template, consent text, accommodation policy, and steps to run an oral check with any voice assistant. Below it: "Want it hosted? The hosted version is not live. Reserve a pilot slot." Cards: **A** Instructor pack, 100 vivas for $129 (reserve with a $19 refundable deposit). **B** Course or department licence, $499 per section or $2,000 per department-year: request a one-page quote and security sheet; no payment; "who would sign (chair, teaching center, IT)?" **C** Students pay $6 each through a course code: join the interest list; "does your institution allow course fees for tools?" The form asks role and institution type. Traffic: one resource post in r/Professors only if its rules allow, replies in oral-exam threads, one "Show HN", your LinkedIn, 5 personal emails to teaching-center directors. No student data is collected, no LMS access, no ads.
+**Budget:** domain $12 (optional); Stripe fees on 3 refunded $19 deposits 3 x ($0.55 + $0.30) = $2.55; model credit $10 to test the kit prompts in voice mode; host and forms $0. About $25.
+**Decision rules, fixed now.** Downloads: 100 or more by instructors. Reservations: 15 or more. A passes with 3 or more deposits. B passes with 2 or more quote requests that name a budget holder who replies within 7 days. C passes only if 5 or more instructors say they would add a $6 course fee and at least 1 confirms the institution allows it, and fewer than 3 object that students should not pay to prove their work. Overall pass: 100 downloads and (A or B passes). If A fails but B passes, sell to departments. If only C is liked, do not build it. **Fail:** under 40 downloads, under 5 reservations, or no deposits and no budget-holder replies.
+
+### Build brief (paste into a coding session)
+```text
+PRODUCT: Viva Voce lets an instructor attach a short AI-led voice conversation to any written or project assignment. The student submits, then explains their own work in 5 to 8 minutes.
+The instructor gets a one-page report: rubric scores with quotes, what the student could not explain, inconsistencies, confidence. The instructor decides; nothing is graded or reported automatically.
+MVP FEATURES (each testable)
+1 Instructor creates an assignment: prompt, rubric, question budget, 10-minute cap, typed fallback, retention days. Test: settings persist and are enforced.
+2 Student link with consent screen and a 3-minute practice mode (2 sessions max).
+3 Submission upload (PDF, DOCX, text) with text extraction. Test: 20 sample files extract.
+4 Question plan: 3 to 5 questions, each tied to a quoted passage, easiest to hardest, with follow-up bank.
+5 Browser voice session: one question at a time, waits for silence, at most 2 follow-ups, hard stop at 10 minutes. Test: transcripts show one question per turn in 95% of turns.
+6 Typed or extended-time alternative with the same questions.
+7 Report with quote verification: every quote appears in the transcript or the submission, else regenerate.
+8 Instructor dashboard: flagged reports first, request-human-follow-up button, student can ask for a human.
+9 Retention and deletion: audio not stored, transcript deleted at the chosen day, export for the instructor.
+10 Stripe: $129 pack of 100 completed vivas; licence by invoice later.
+NON-GOALS: LMS/LTI integration, voice biometrics, webcam or proctoring, AI-detector scores, automatic grades or accusations, K-12 accounts, native apps.
+CORE AI LOOP: (a) question plan, Sonnet 5.5 (about 6,000 in, 800 out); (b) live examiner on Gemini 3.8 Live (default, $0.005/min in, $0.018/min out) or GPT Live (fallback, $0.05/min) with a system prompt: neutral tone, one question, wait, no judging aloud, end at 8 minutes; (c) grading, Sonnet 5.5 (about 9,000 in, 1,000 out) to rubric scores and "could not explain" with quotes; (d) optional Haiku 5.5 pass to check that every report claim has a quote. Humans: instructor reviews every flag and decides; the student can request a human conversation.
+DATA MODEL: Instructor, Course, Assignment(rubric, settings), Student(pseudonymous id), Submission(file, text, hash), Session(token, consent, accommodation, mode, started, ended, cost), Turn(speaker, text, t), QuestionPlan, Report(scores, flags, confidence, model_versions), Review(decision), Order(Stripe), RetentionPolicy, AuditLog.
+INTEGRATIONS: Gemini Live API https://ai.google.dev/gemini-api/docs/live; OpenAI Realtime https://platform.openai.com/docs/guides/realtime; LiveKit Agents https://docs.livekit.io/agents/; Stripe https://docs.stripe.com/payments/payment-links; later LTI 1.3 https://www.imsglobal.org/spec/lti/v1p3/ and Canvas API https://canvas.instructure.com/doc/api/.
+STACK (about $100 to $200 a month): Next.js on Vercel $20, Supabase $25, LiveKit Cloud or direct WebRTC $0 to $50 [ASSUMPTION], Stripe, Sentry and Langfuse free, pilot voice minutes $45 to $120.
+EVALS: 1 Authentic persona (answers grounded in the paper), 10 runs: no authorship flag, most rubric items scored 3 of 4 or better. 2 Ghost-written persona (knows only the abstract), 10 runs: report lists 3 or more specific passages not explained in 8 of 10; no accusatory words. 3 Anxious persona with long pauses: examiner waits 8 seconds or more, offers typed fallback after 2 long pauses, delivery speed not scored, 10 of 10. 4 Question stacking: at most one question mark per examiner turn in 95% of turns over 30 sessions. 5 Quote integrity: 100% of quotes in reports found verbatim.
+BUILD PLAN (6 weeks): W1 auth, assignments, upload and extraction, Stripe pack. W2 question planner and eval harness. W3 browser voice session, consent, practice mode, typed fallback. W4 transcript, grading, report with quote check. W5 dashboard, review actions, retention and deletion, accessibility. W6 pilot with 6 instructors, tune examiner behaviour, privacy page.
+RISKS TO TEST FIRST: 1 payer (the validation test); 2 student fairness and stress (83% found the NYU exam more stressful); 3 AI-voice answers read by students (HN, 2026-01-02); 4 student-data rules and institutional security review (HECVAT page not read) [UNVERIFIED]; 5 accessibility for speech differences and second-language speakers; 6 OralExam.AI's head start with Canvas.
+```
+
+**Notes for the main researcher:** OralExam.AI states "Pricing is not set yet" and is already Canvas-integrated, so Whitespace 2 and WTP 2 look right. Payer is unresolved: instructor-paid caps near $2M ARR, department licences carry the upside but face security review, and student-paid earns about 4.7x per course with a fairness problem. The test splits all three; no score change proposed.

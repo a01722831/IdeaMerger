@@ -27,7 +27,7 @@ price_hypothesis: "$149/month per organization (up to 5 grants), +$29 per extra 
 model_cost_per_user_month: "$2.50"
 gross_margin: "94%"
 mvp_weeks: 7
-deep_dive: false
+deep_dive: true
 red_team: false
 ---
 
@@ -161,3 +161,92 @@ Platform risk: moderate. Intuit's [Accounting Agent](https://quickbooks.intuit.c
 - Do Intuit's API terms and any usage fees allow write-back at this price [UNVERIFIED]?
 - Would auditors accept model-assisted allocation with a clause citation and an approval log?
 - How does 4granted work in practice, and is it still maintained?
+
+## Deep dive
+
+Method (reads dated 2026-10-31): IRS Exempt Organizations Business Master File extracts (eo1 to eo4 CSVs, downloaded and counted), WebFetch of an Intuit App Partner Program explainer, 4 web searches (Intuit program, Xero developer pricing, Aplos and Instrumentl pricing, nonprofit counts), and the Arctic Shift Reddit archive for channel volume and platform mentions. Model prices: `research/LANDSCAPE.md` section 6.
+
+### Competitor table
+| Competitor | Link | What it does | Price (as published, with date read) | Funding or traction (sourced) | Gap this idea exploits |
+|---|---|---|---|---|---|
+| 4granted | [listing](https://hunted.space/product/4granted) | "AI Powered Grant management portal"; tracks grants, budgets, receipts; QuickBooks Online integration | not published | 0 upvotes, 1 comment (first pass) | Nothing on reading the agreement or line-level enforcement |
+| Instrumentl | [Virtuous listing](https://marketplace.virtuous.org/solutions/instrumentl?taxon_id=7), [Capterra](https://www.capterra.com/p/233384/Instrumentl/) | AI funder matching; post-award spend-down tracking and funder reports | Capterra: Basic $179/month (5 projects), Standard $299 (10), Pro $499 (20), Advanced $899 (40). A competitor, GrantWatch, reports $349 monthly or $299 billed annually, and $999 for Full Lifecycle. Conflicting, [UNVERIFIED] (search summary, 2026-10-31) | not found | Discovery first; does not allocate ledger lines |
+| Foundant GrantHub Pro | [roundup](https://opengrants.io/best-grant-management-software-for-nonprofits/) | Adds post-award financial tracking (roundup) | not read | not found | Same gap |
+| Aplos | [pricing](https://www.aplos.com/pricing) | Fund accounting for small nonprofits | Lite $79/month, Core $129/month, 50% off for 3 months, 15-day trial (official page per search summary, 2026-10-31); third-party listings show Core $99, Advanced $189 to $229 | not found | A replacement ledger with funds as buckets, so orgs already on QuickBooks must migrate; does not read agreements |
+| Sage Intacct for nonprofits, Blackbaud | [Sage](https://www.sage.com/en-us/industry/nonprofit-1/), [Blackbaud](https://www.blackbaud.com/competitors/quickbooks-comparison) | Fund accounting; Sage pitches AI for fund, grant and project accounting | not published in sources read | not sourced | Aimed above the small end |
+| QuickBooks classes, Intuit Accounting Agent | [Blue & Co guide](https://blueandco.com/tracking-grants-programs-quickbooks), [Accounting Agent](https://quickbooks.intuit.com/learn-support/en-global/help-article/bank-transactions/learn-accounting-agent-features/L6pl9rv94_ROW_en) | One grant = one class or sub-customer; the agent suggests categories. Intuit lists a "Principal Product Manager, AI-Native Nonprofit" role (title only, first pass) | not read | Intuit is the platform | No agreement reading; the largest platform risk |
+| Claude for Small Business with QuickBooks; Microsoft Copilot nonprofit scenario | [TechInformed](https://techinformed.com/anthropic-brings-claude-workflows-to-small-businesses/), [Microsoft](https://adoption.microsoft.com/en-gb/scenario-library/nonprofit/grant-tracking-and-reporting) | Assistant and macro routes: prompt with an agreement and an export | n/a | n/a | No approvals, no audit trail, no memory of corrections |
+| Bookkeepers and Excel | SVC-10 ($85 to $95 an hour); Arctic Shift sample | In 1,000 r/nonprofit posts (2026-08-17 to 2026-10-30) Excel or spreadsheets appear in 18, QuickBooks in 10, Sage in 1, Blackbaud in 1, Xero 0, Aplos 0 | n/a | n/a | The real baseline is a spreadsheet; QuickBooks is the named platform |
+
+**Marketplace channel check (QuickBooks and Xero).**
+- Intuit ([explainer](https://www.apideck.com/blog/quickbooks-api-pricing-and-the-intuit-app-partner-program), published 2025-09-20, updated 2026-10-06): Builder $0 a month, Silver $300, Gold $1,700, Platinum $4,500. Core calls (create, update) are free and uncapped; CorePlus calls (reads, queries, reports) are metered: Builder gets 500,000 credits a month and is blocked beyond that, Silver 1M with overage at $3.50 per 1,000 calls, Platinum up to 75M at $0.25 per 1,000. Full variable fees began 2025-11-01. My app is read-heavy, so it uses CorePlus: about 90 calls per org-month (30 nightly syncs x 3 queries) [ESTIMATE], so the free tier covers about 5,500 orgs, and Silver overage would cost 90 x $3.50 / 1,000 = $0.32 per org-month. Fees are not the barrier. Not covered by the page: production-key review, store listing rules, review time, AI-data terms [UNVERIFIED].
+- Xero ([developer FAQ](https://developer.xero.com/faq/pricing-and-policy-updates), [pricing](https://developer.xero.com/pricing), search summaries): since 2026-03-02 tiers are by connections (Starter 5, Core 50, Plus 1,000, Advanced 10,000, Enterprise unlimited); secondary sources give about AUD 0 / 35 / 245 / 1,445 a month; the app-store revenue share was dropped; public listing is reportedly required only at Enterprise; updated developer terms reportedly bar using API data for AI or ML training and certain automated tools. Read those terms before building. Demand evidence is thin: Xero appears in 0 of 1,000 r/nonprofit posts.
+- Verdict: cheap to connect, unproven as a channel. Connect by invitation (OAuth) for the first 100 customers, apply for the Intuit listing around customer 20 as a trust badge, treat Xero as optional.
+
+### Market sizing (bottom-up)
+Source: IRS Exempt Organizations Business Master File, [eo1.csv](https://www.irs.gov/pub/irs-soi/eo1.csv) to eo4.csv (eo1 last modified 2026-10-13), counted 2026-10-31: 1,650,468 records with SUBSECTION 03 (501(c)(3)); 1,519,714 after removing private foundations (FOUNDATION codes 02, 03, 04). Latest-return income (INCOME_AMT, income not expenses) of $250K to $5M: 169,515; $500K to $5M: 111,655; $1M to $5M: 65,951. Some may be inactive.
+| Case | Buyers | Adoption | Annual price | Serviceable ARR |
+|---|---|---|---|---|
+| Conservative | 111,655 x 40% with 2+ restricted grants x 50% on QuickBooks Online [both ASSUMPTION; QuickBooks leads platform mentions] = 22,331 | 2% = 447 orgs | $149 x 12 = $1,788 | $0.80M |
+| Optimistic | 169,515 x 60% x 65% = 66,111 | 5% = 3,306 orgs | $1,788 + 1 extra grant x $29 x 12 = $2,136 | $7.06M |
+Revenue at 100 / 1,000 / 10,000 orgs: $179K / $1.79M / $17.9M at $149 (or $214K / $2.14M / $21.4M at $2,136). 10,000 orgs would be 45% of the conservative pool and 15% of the optimistic one, so that row needs the bookkeeper channel plus UK, Canada and Australia. The first-pass 100,000 is plausible but is an upper bound after the grant and QuickBooks filters.
+
+### Unit economics
+Per org-month: 5 grants, 600 lines, 150 receipts. Every line [ESTIMATE].
+| Line | Arithmetic | $ |
+|---|---|---|
+| Read agreements, Sonnet 5.5 | 30 pages x 500 x 1.3 = 19,500 in x $2/1M = $0.039 + 3,000 out x $10/1M = $0.030 = $0.069 per grant x 5 / 12 months | 0.03 |
+| First-pass coding, Haiku 5.5 | (6,000 cached x $0.01 + 500 x $0.10 + 150 x $0.50) / 1M = $0.000185 per line x 600 | 0.11 |
+| 20% escalated to Sonnet 5.5 | (6,000 cached x $0.10 + 2,000 x $2 + 400 x $10) / 1M = $0.0086 x 120 lines | 1.03 |
+| OCR and receipt extraction | 150 x 1.5 pages x $4/1,000 = $0.90 (price UNVERIFIED) + 150 x $0.00025 Haiku = $0.04 | 0.94 |
+| Reports and checks | 5 narratives x $0.035 + $0.06 board pack + $0.08 funder draft + 5 scans x $0.022 | 0.43 |
+| Hosting, storage, email | [ASSUMPTION] | 1.00 |
+| Stripe on $149 | 2.9% x $149 + $0.30 | 4.62 |
+| Infrastructure share | $90 / 100 orgs | 0.90 |
+| Support | 12 min at $25/hour [ASSUMPTION] | 5.00 |
+| **Total** | model and OCR $2.53 + the rest | **14.05** |
+Gross margin (149 - 14.05) / 149 = 91%. In the first two months add an hour of founder review at $25: margin 74%. **Heavy user:** 15 grants, 3,000 lines, 600 receipts (900 pages): agreements $0.09, Haiku 3,000 x $0.000185 = $0.56, Sonnet 600 x $0.0086 = $5.16, OCR 900 x $0.004 = $3.60, extraction $0.15, reports $1.32, QuickBooks reads $0.35 = $11.22. Priced at $149 + 10 extra grants x $29 = $439, cost with Stripe $13.03, hosting $3, infrastructure $0.90 and support $10 is $38.15: margin 91%. Left on the $149 plan it would cost $29.74: margin 80%. Caps: the base plan includes 1,000 lines and 300 receipts; each extra grant adds 200 lines; extra lines $0.02; Sonnet escalations above 25% of lines prompt the user to create a vendor rule.
+
+### First 100 customers
+Channel volume (Arctic Shift to 2026-10-30, broad regex): r/nonprofit about 12.6 posts a day, about 15 a week on grants, restricted funds, QuickBooks or audits; r/Accounting about 94 a day, about 40 a week on nonprofit, grant or fund accounting; r/QuickBooks about 8 a day, about 4 a week. Reddit is thin; associations and bookkeepers carry volume. Message: "Which grant paid for this flight? Answer in 30 seconds, with the clause and the receipt." Offer: free allocation audit (one agreement plus 3 months of export), then $149 a month, first month free. Funnel [ESTIMATE]: audit request to completed submission 50%, audit to paid 25%, webinar attendee to audit request 15%, bookkeeper call to pilot 40%.
+| Week | Action | New paid | Cum. |
+|---|---|---|---|
+| 1 | Convert audits from the validation test; post an "expense-to-grant lookup checklist" in r/nonprofit and r/Accounting after reading their rules | 2 | 2 |
+| 2 | Pitch 2 state nonprofit associations for a member webinar or newsletter slot (30 attendees x 15% = about 4 audits each) | 2 | 4 |
+| 3 | 40 individual notes to bookkeepers and CPA firms that list nonprofit clients; aim for 10 calls | 2 | 6 |
+| 4 | Run 12 audits; publish an allowable-cost checklist keyed to 2 CFR 200 (SEO: "allowable costs checklist 2 CFR 200", "which grant paid for this expense") | 3 | 9 |
+| 5 | 4 bookkeeper firms pilot with 1 to 3 clients each; 20% revenue share | 4 | 13 |
+| 6 | LinkedIn nonprofit-finance groups; second webinar | 4 | 17 |
+| 7 | Apply for the Intuit App Store listing (lead time unknown) | 4 | 21 |
+| 8 | Review corrections and accuracy; price test $149 vs $99 | 4 | 25 |
+Base case about 25 paying orgs by week 8; 100 around month 6 if 10 firms bring 6 clients each. Loop: each funder report and board pack carries a link from every line to its receipt and clause, so program officers and auditors meet the product; bookkeepers add clients through a multi-client dashboard.
+
+### One-week validation test (under $50)
+**What:** a free manual sample allocation, labeled as such. Day 1: one-page site and form: "Send one grant agreement (PDF) and a 3-month QuickBooks transaction export (CSV or Excel, personal and donor names removed). In 48 hours I return every line coded to a grant with the clause that allows it, plus an exception list. Manual test, no software live, files deleted after 14 days, no QuickBooks login needed." Days 1 to 2: post once in r/nonprofit and once in r/Accounting after reading rules; a LinkedIn post; 5 individual emails to bookkeepers who list nonprofit clients; 1 email to a state nonprofit association. Days 2 to 6: run the pipeline by hand (Sonnet 5.5 to read the agreement, Haiku 5.5 first pass, Sonnet on about 10% of lines), return the sheet; the finance lead marks each exception "useful" or "wrong" and 10 random auto-allowed lines "agree" or "disagree". Day 7: ask for a $99 refundable founding deposit (or a signed intent) and a 3-question survey.
+**Budget:** domain $12 (optional); model credit $20 (8 audits x about $1.95: agreement $0.07 + 1,800 Haiku lines x $0.000185 = $0.33 + about 180 Sonnet lines x $0.0086 = $1.55); Stripe fees on 3 refunded $99 deposits 3 x ($2.87 + $0.30) = $9.51. About $42.
+**Pass:** 5 or more orgs submit both files; 75% or more of flagged exceptions marked useful; 38 or more of 40 random auto-allowed lines agreed (4 orgs); 2 or more deposits or signed intents; 3 of 5 say they would pay $99 a month or more. **Fail:** under 3 submissions, exception precision under 65%, an obviously unallowable line (alcohol, entertainment) auto-allowed twice, or zero deposits.
+
+### Build brief (paste into a coding session)
+```text
+PRODUCT: Grant Ledger reads each grant agreement into a rules record, codes every nonprofit expense to the right grant with a clause citation, and drafts funder and board reports.
+The finance lead works an exception inbox; nothing is written back to QuickBooks. Target: nonprofits with $250K to $5M in income, 2 to 10 restricted grants, QuickBooks Online.
+MVP FEATURES (each testable)
+1 QuickBooks Online OAuth, read-only, nightly sync of Purchase, Bill, Deposit, JournalEntry, Account, Class, Customer, Vendor and attachments. Test: 600 lines sync in under 2 minutes and totals match the QBO report.
+2 Agreement upload (PDF) to a rules record: period, budget lines, allowed and unallowed categories, caps, indirect rate, prior-approval items, report dates; each rule with clause quote and page; edit screen. Test: every quote found in the PDF text.
+3 Line coder: allowed / needs approval / disallowed / split, with clause, confidence, reason.
+4 Exception inbox with approve or correct; corrections become vendor and account rules.
+5 Per-grant ledger: search any expense, see receipt and clause (the "which grant paid for this flight" answer).
+6 Budget-vs-actuals, underspend and deadline alerts, Excel and PDF export.
+7 Draft funder narrative and board pack from approved lines only; numbers copied from the ledger.
+8 Weekly email digest. 9 Stripe: $149/month up to 5 grants, +$29 per grant, 1,000 lines included. 10 Audit log of every decision (model version, prompt hash, user action), exportable.
+NON-GOALS: write-back to QuickBooks, Xero, bank feeds, grant discovery, donor CRM, payroll or time tracking, multi-entity, single-audit prep, native apps.
+CORE AI LOOP: (a) agreement to rules JSON, Sonnet 5.5, once per grant, human edits; (b) first-pass coding, Haiku 5.5 with the rules record cached and per-vendor memory; (c) low-confidence or high-dollar lines to Sonnet 5.5 with memo and receipt; (d) receipt OCR plus Haiku 5.5 extraction; (e) reports, Sonnet 5.5, from ledger JSON; (f) disallowed-cost scan before every export. Prompts: cite a clause id or say "no clause found"; never mark "allowed" without a citation; suggest-only mode. Humans: finance lead approves exceptions; auto-approve only lines matching a previously approved rule.
+DATA MODEL: Org, User, QboConnection, Grant(period, budget), Agreement, RuleRecord, Rule(category, status, cap, quote, page), Transaction, Receipt, Allocation(txn, grant, status, confidence, clause_id, model_version), Exception, Correction, VendorRule, Report, AuditLog.
+INTEGRATIONS: QuickBooks Online API https://developer.intuit.com/app/developer/qbo/docs/get-started (path not opened; tiers and fees: https://www.apideck.com/blog/quickbooks-api-pricing-and-the-intuit-app-partner-program); Xero https://developer.xero.com/pricing (optional, read the AI terms first); Stripe https://docs.stripe.com/billing; Resend https://resend.com/docs; ExcelJS https://github.com/exceljs/exceljs; Mistral OCR https://docs.mistral.ai/ (price UNVERIFIED).
+STACK (about $90 to $120 a month): Next.js on Vercel $20, Supabase $25, Inngest free tier, Resend, Stripe, Sentry and Langfuse free, OCR pay per use.
+EVALS: 1 Synthetic agreement with 12 clauses (prior approval for travel above $1,000, alcohol unallowed, indirect cap 10% of direct costs, period 2026-01-01 to 2026-12-31) and 60 labeled lines: 90% match, zero false "allowed" on the 10 unallowable lines. 2 Split: a $1,200 software invoice with memo "60/40 Grant A/B": two allocations summing to exactly $1,200. 3 Out of period: an expense dated 2025-12-30 flagged against a grant starting 2026-01-01, 10 of 10. 4 Citation integrity: 100% of cited quotes appear verbatim in the agreement. 5 Learning: after one vendor correction the next 10 lines from that vendor follow it; report totals equal ledger sums to the cent.
+BUILD PLAN (7 weeks): W1 auth, Stripe, QBO OAuth and sync, schema. W2 agreement upload, rules extraction, edit screen, quote check. W3 line coder with cached prompts; evals 1 to 3. W4 exception inbox, vendor rules, per-grant ledger. W5 budget-vs-actuals, alerts, exports. W6 receipt OCR, narratives, digest. W7 audit log, privacy settings, onboarding, pilot with 5 orgs.
+RISKS TO TEST FIRST: 1 one wrong "allowed" call destroys trust (suggest-only mode, citations); 2 Intuit production-key and listing review (unknown); 3 many orgs misuse or skip classes, so lines lack a grant hint; 4 will auditors accept model-assisted coding with an approval log; 5 Xero AI-data terms; 6 buyer is the nonprofit or its bookkeeper.
+```
+
+**Notes for the main researcher:** The IRS file gives 169,515 public charities with $250K to $5M of latest-return income, so section 12's 100,000 is a plausible upper bound after the grant and QuickBooks filters, not a count. Marketplace fees are low (Intuit Builder tier $0), but listing review and reach are unverified, so Distribution 3 rests on bookkeepers and associations. No score change proposed.

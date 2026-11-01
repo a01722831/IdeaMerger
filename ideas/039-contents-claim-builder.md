@@ -27,7 +27,7 @@ price_hypothesis: "$249 flat per claim for households; $149/month per licensed p
 model_cost_per_user_month: "$4.80 per claim (about $1.60 per active month)"
 gross_margin: "91%"
 mvp_weeks: 8
-deep_dive: false
+deep_dive: true
 red_team: false
 ---
 
@@ -136,3 +136,109 @@ Carrier template library, a sourced price database, an evidence graph and adjust
 - Do carriers accept AI-built inventories, and which templates do adjusters use most?
 - Is holdback tracking real value, and how is replacement proven?
 - Adjuster-first (safe harbor, InventoryQuant overlap) or household-first?
+
+## Deep dive
+
+### Competitor table
+| Competitor | Link | What it does | Price (as published, with date read) | Funding or traction (sourced) | Gap this idea exploits |
+|---|---|---|---|---|---|
+| ProofList | [site](https://proof-list.com/), [Trustpilot](https://www.trustpilot.com/review/proof-list.com) | Photos to an itemized loss schedule with values and comparable links, Excel export; built after the 2025 fires | 25 photos free; 50 for $59, 150 for $149, 300 for $279, unlimited $499 (section 10, read 2026-10-31) | "Trusted by families, public adjusters, and estate professionals" (its own site); funding not published | Photos only; no email or card history, proof of loss or holdback tracking seen |
+| Loti Toolbox | [loti.com/toolbox](https://loti.com/toolbox) | Free tools built "alongside our in house public adjusters": inventory from photos, receipts to spreadsheet, damage report | Free | Lead generation for an adjuster firm; funding not seen | Feeds a firm that takes a percentage; this product is flat-fee |
+| Bevel (Bevelmade) | [ABC7, Sept 2025](https://abc7news.com/post/artificial-intelligence-driven-inventory-tool-bevelmade-serves-solution-california-wildfire-victims-document-belongings/17882452/), [NBC Los Angeles](https://www.nbclosangeles.com/news/local/bevel-new-app-helps-document-belongings-disaster-palisades-fire/3800554/) | Free AI inventory from photos or video, built after a co-founder's parents lost their Palisades home; value estimates; also pre-disaster | Free account (search summary) | Local TV coverage; funding not seen | Photos and video only; no order or card evidence, proof of loss or holdbacks |
+| ClaimLedger AI | [vendor page](https://claimledgerai-app-production-u6z3ua.laravel.cloud/how-it-works) | Inventory by room, brand, age and replacement value; policy extraction and claim tracking (vendor claims) | Not seen | Not seen [UNVERIFIED] | "Claim tracking" may overlap the holdback tracker; email and card reconstruction not described |
+| HomeZada, Room Scan, ClaimsReady, Everspruce and other pre-loss apps | [HomeZada](https://www.homezada.com/homeowners/home-inventory/), [Coverager](https://coverager.com/homezada-launches-home-inventory-video-recognition-ai/), [Room Scan](https://apps.apple.com/us/app/ai-home-inventory-room-scan/id6811415009), [ClaimsReady](https://apps.apple.com/us/app/claimsready-home-inventory/id6758244506), [Everspruce](https://apps.apple.com/us/app/everspruce-home-inventory/id1393940808) | Pre-loss inventories; HomeZada added video item recognition (title only); Room Scan and ClaimsReady are new iOS apps | Free to paid (section 10) | Everspruce 479 ratings, Home Contents 1,463; Room Scan and ClaimsReady 0 ratings (section 10) | Need the owner to document before the loss |
+| Cowork Home Inventory (Claude skill) | [onewave-ai](https://www.onewave-ai.com/resources/claude-skills/cowork-home-inventory) | A folder of photos and receipts becomes an inventory file and a gap list | Free | n/a | No carrier templates, state gate or evidence levels; shows the platform does the core natively |
+| InventoryQuant; Cozmo AI, Stream, Basepilot | [InventoryQuant](https://www.ycombinator.com/companies/inventoryquant), [Cozmo AI](https://www.ycombinator.com/companies/cozmo-ai) | Contents processing for adjusters, restoration firms and insurers; claims automation for insurers | Not found / enterprise | InventoryQuant: YC Winter 2026, 1 person (section 10) | B2B; could add a consumer flow |
+| United Policyholders | [uphelp.org](https://uphelp.org/theres-help-for-dealing-with-insurance/) | Nonprofit guidance; notes adjusters often ask for receipts although many were lost in fires (search summary) | Free | Nonprofit | Guidance, not a tool; possible partner [UNVERIFIED willingness] |
+| Public adjusters | [NAPIA](https://napia.com/what-is-a-public-adjuster) | Run the claim; NAPIA says an adjuster "will prepare your claim, including all estimates, inventories and other factual information" (search summary) | 12.5% to 15% of the settlement (GAP-04, GAP-05) | Licensed state by state | Price and control; but only they may prepare and negotiate claims (see the licensing line) |
+
+### Market sizing (bottom-up)
+- Cited base ([Triple-I via III](https://www.iii.org/fact-statistic/facts-statistics-homeowners-and-renters-insurance), read 2026-10-31): fire and lightning claims run at 0.23 per 100 house-years (2019 to 2023 weighted average) with average severity $88,170; "About one in 425 insured homes has a property damage claim related to fire and lightning"; 47% of homeowners say they prepared an inventory (2023 Triple-I/Munich Re survey).
+- Insured homes are not on that page: [ASSUMPTION] 70M. 70,000,000 x 0.0023 = 161,000 fire and lightning claims a year. Households that need a long list and would pay: 20% of fire claims have a large contents loss [ASSUMPTION] = 32,200, plus 40,000 catastrophe households a year (wildfire, hurricane, flood, tornado) [ASSUMPTION, spiky] = 72,200.
+
+| Case | Households and adoption | Household revenue ($249) | Adjusters (20,000 [ASSUMPTION, section 12]) | Adjuster revenue ($149 x 12 = $1,788) | Total a year |
+|---|---|---|---|---|---|
+| Conservative | 72,200 x 2% = 1,444 | $0.36M | 20,000 x 25% with regular fire work x 5% = 250 | $0.45M | $0.81M |
+| Optimistic | 72,200 x 6% = 4,332 | $1.08M | 20,000 x 50% x 10% = 1,000 | $1.79M | $2.87M |
+
+- Downside check: removing the 47% who say they have an inventory cuts conservative households to 72,200 x 53% x 2% = 765 ($0.19M).
+- Revenue at 100, 1,000 and 10,000 customers: households (one-time $249) $24,900, $249,000 and $2,490,000 (10,000 is 14% of 72,200); adjusters ($149 a month) $178,800, $1,788,000 and $17,880,000 a year (10,000 exceeds the 5,000 to 10,000 contents-active adjusters assumed, so it is not reachable).
+
+### Unit economics
+Per household claim over about 3 months. Prices from `research/LANDSCAPE.md` section 6.
+
+| Line | Volume | Tokens | Model and price per 1M | Arithmetic [ESTIMATE] | Cost |
+|---|---|---|---|---|---|
+| Photo item detection | 600 photos | 1,500 in, 300 out each (900,000 / 180,000) | Haiku 5.5 batch, $0.05 / $0.25 | $0.045 + $0.045 | $0.09 |
+| Order emails | 3,000 | 800 in, about 53 out each (2.4M / 160,000) | Haiku 5.5 batch | $0.12 + $0.04 | $0.16 |
+| Card statements | 1 set | 150,000 in, 30,000 out | Haiku 5.5 batch | $0.0075 + $0.0075 | $0.02 |
+| Replacement price lookups | 300 items | web search | $10 per 1,000 | 300 x $0.01 | $3.00 |
+| Merge and dedupe | 6 | 50,000 in, 5,000 out | Sonnet 5.5, $2 / $10 | 6 x ($0.10 + $0.05) | $0.90 |
+| Spreadsheet and evidence appendix | 1 | | | section 11 | $0.12 |
+| Q&A | 50 | 3,000 in, 500 out | Sonnet 5.5 | 50 x $0.011 | $0.55 |
+| Total | | | | 0.09 + 0.16 + 0.02 + 3.00 + 0.90 + 0.12 + 0.55 | $4.84 |
+
+- Lookups are $3.00 of $4.84. A shared category and brand price cache at a 50% hit rate halves it to $1.50; Gemini search grounding is free to 5,000 a month, then $14 per 1,000, which covers about 16 claims a month at 300 lookups. Section 5's "in an hour" needs non-batch Haiku: photos $0.18, emails $0.32, statements $0.03 instead of $0.09, $0.16, $0.02, adding about $0.27.
+- Other per claim: payments 2.9% x $249 + $0.30 = $7.52; SMS Q&A 50 x $0.0123 + 50 x $0.0113 = $1.18 ([Twilio pricing](https://www.twilio.com/en-us/sms/pricing/us), read 2026-10-31); storage 2 GB of downscaled photos x $0.023 x 12 months = $0.55 [ASSUMPTION, list price not re-checked]; support $10 [ASSUMPTION]; infrastructure $80 a month / 20 claims = $4.00 early (/ 100 claims = $0.80).
+- Margin: early 4.84 + 7.52 + 1.18 + 0.55 + 10.00 + 4.00 = $28.09, so ($249 - $28.09) / $249 = 88.7%; at scale $24.89 and 90.0% (section 11: 91%). Per active month: $83.00 revenue against $9.36 cost.
+- Adjuster mode ($149 a month, 2 claims): model 2 x $4.84 = $9.68; storage $1.10; payments 2.9% x $149 + $0.30 = $4.62; support $15; infrastructure $1.00: $31.40, margin 78.9%. Heavy adjuster (8 claims): 38.72 + 4.40 + 4.62 + 20 + 1.00 = $68.74, margin 54%. Heavy household (8,000 photos, 6,000 emails, 800 lookups): model $12.75 (lookups $8.00, merge 15 x $0.15 = $2.25), payments $7.52, SMS $3.54, storage $1.10, support $25, infrastructure $4.00: $53.91, margin 78%.
+- Caps: the adjuster plan includes 3 claims a month and 5,000 items per claim; extra claims $39 each (cost about $6.82, 83% margin), so 8 claims earn $149 + 5 x $39 = $344 against $74.40 (78%). Households get lookups for the top 400 items; a $49 valuation pack adds 500 (cost $5.00).
+
+### First 100 customers
+Funnel [ESTIMATE]: a helpful reply brings 8 visits; visit to free first-50-items trial 12%; trial to paid 15%, so 1.8% of visits pay. Adjusters: an individually written email gets a reply 6%, a free first claim 60%, then $149 a month 40%, so 1.44% of emails yield a paying adjuster.
+
+| Week | What you do | New customers (math) | Cumulative |
+|---|---|---|---|
+| 1 | Free evidence checklist and template page; state-gate page; 10 replies a week in r/Altadena and r/HomeInsurance (disclose; link only where rules allow); 40 adjuster emails a week for weeks 1 to 6 | 10 x 8 x 1.8% = 1.4 households + 40 x 1.44% = 0.6 adjusters = 2.0 | 2 |
+| 2 | Repeat | 2.0 | 4 |
+| 3 | Repeat; ask Eaton Fire Survivors Network leaders and United Policyholders to list the checklist [UNVERIFIED willingness] | 2.0 + (100 visits x 1.8% = 1.8) | 8 |
+| 4 to 6 | Repeat; first search pages live in week 5 ("contents inventory spreadsheet for insurance claim", "proof of loss contents list template"), more in week 6 ("insurance contents claim without receipts", "recoverable depreciation holdback") | 2.0 a week | 14 |
+| 7 | Community replies only; search pages draw about 20 visits a week | 1.4 + 0.4 = 1.8 | 16 |
+| 8 | Review the funnel; prepare the event-page template | 1.8 | 17 |
+
+- Result: about 17 customers by week 8 (14 households, 3.5 adjusters), 2.2 a week, so 100 takes about 9 to 12 months as search matures and adjusters tell peers [ESTIMATE]. A declared disaster changes it: an event page live within 72 hours, 400 visits x 1.8% = 7 households in week one and 30 to 60 in four weeks for a large event (1,700 to 3,300 visits); one or two events reach 100 in 4 to 5 months.
+- Channels: r/Altadena, r/HomeInsurance; the Eaton Fire Survivors Network (named in a [6abc report](https://6abc.com/post/california-wildfires-altadena-eaton-fire-survivors-network-use-ai-navigate-insurance-hurdles-rebuild-lives/17021268/), search summary); United Policyholders; NAPIA and state public-adjuster associations; adjusters found by hand in state insurance-department license lookups; FEMA declarations as the trigger for event pages; SEO "how to list items lost in a fire for insurance".
+- Message and offer: "You do not have to list 3,000 items from memory. Bring your photos, order emails and card statements and get an evidence-tagged list, room by room. $249 flat, never a percentage of your claim; you review and sign everything yourself." First 50 items free; pay when you export. In states not yet cleared: "not available here yet; ask a licensed public adjuster to use adjuster mode". Adjusters: free first claim, then $149 a month.
+- Growth loop: neighbors from the same event; each adjuster brings 2 to 3 claims a month and tells peers; the event page is reused for every disaster.
+
+### One-week validation test (under $50)
+Three questions, none needing a household's money: where can households buy (licensing), does order history add evidence, and does anyone want it.
+- Days 1 to 2, licensing map ($0): read the public-adjuster definition in 10 candidate states (suggest CA, FL, TX, LA, NC, GA, CO, OK, OR, WA [ASSUMPTION]) and tabulate citation, whether it covers "prepares, completes, or files" a claim for compensation, whether an inventory carve-out exists, and green, yellow or red. Already read: [Fla. Stat. 626.854(1)](http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0600-0699/0626/Sections/0626.854.html), 2026 text.
+- Days 2 to 5, evidence uplift: 3 consenting volunteer households in your network each give about 100 photos, their own Amazon "Request My Data" order-history export and 3 months of card statements. Run the pipeline by hand with Claude, and have each volunteer run the same photos through ProofList's free 25-photo tier. Count items with at least one evidence record, photos only versus all sources.
+- Days 2 to 7, demand: a page saying "Early access list. Nothing is live. We are not a public adjuster and do not file or negotiate claims." with state, loss date and "would you pay $249 flat if it is available in your state? yes or no" (no payment taken). Answer existing questions in r/Altadena and r/HomeInsurance where rules allow and keep the page in your profile. Send 30 individually written emails to licensed public adjusters who advertise fire or flood contents work, offering a free first claim and $149 a month after.
+- Budget [ESTIMATE]: domain $12; pages and forms free; Claude for 3 households 3 x $2.30 = $6.90 (photos $0.03, orders $0.02, statements $0.01, 100 lookups $1.00, merge 6 x $0.15 = $0.90, Q&A 20 x $0.011 = $0.22, export $0.12); contingency $10; total $28.90. Counsel review ($1,500 to $3,000 [ASSUMPTION]) comes after a pass.
+- Pass (set in advance), all three: (A) at least 4 of the 10 states green or yellow; (B) order history and statements raise evidenced items by at least 30% over photos alone in at least 2 of 3 households [ASSUMPTION threshold]; (C) at least 25 early-access signups with a loss in the last 24 months or a pending claim and at least 10 of them saying yes to $249, or at least 3 of 30 adjusters replying, 2 calls held and 1 agreeing in writing to a free first claim and $149 a month.
+- Fail: A passes in 1 or 0 states (then adjuster-only), or B under 15% in 2 households, or under 10 signups and no adjuster reply. Anything else: rerun in a different channel.
+
+### Build brief (paste into a coding session)
+**Product summary.** Contents Claim Builder rebuilds an insurer-ready contents inventory after a fire or flood from a family's photos, order emails and card statements. Each line carries its evidence level and a sourced replacement price; it exports to the carrier's spreadsheet and tracks the depreciation holdback after payout. Households pay $249 flat; licensed public adjusters pay $149 a month.
+
+**Liability line and licensing guardrail (keep visible in the UI, copy and prompts).** Preparation and organization only: it does not negotiate with or contact the insurer, advise on coverage, limits, valuation disputes or settlement, or file the claim, and never charges a share of the recovery. Licensing: Florida defines a public adjuster to include a person who "for money, commission, or any other thing of value, directly or indirectly prepares, completes, or files an insurance claim for an insured", "regardless of how that person describes or presents his or her services", yet excludes "a person who photographs or inventories damaged personal property" who does not otherwise solicit, adjust, investigate or negotiate (Fla. Stat. 626.854(1), 2026 text, read 2026-10-31). Wisconsin chapter 629 defines an "adjusting service" as an act on behalf of an insured, in exchange for compensation, with the preparation, completion or filing of a first-party claim (search summary). So v1 gives households the inventory, the evidence appendix and a recall attestation the insured writes and signs, with no household proof-of-loss drafting and no claim narrative; the proof-of-loss draft exists only in adjuster mode, where a licensed adjuster is the user of record. A state gate (state, citation, green, yellow or red, counsel review date) blocks household checkout outside cleared states. Describe what the software does in marketing, because a label does not protect. Get counsel before any consumer sale [UNVERIFIED whether self-serve software used by the insured falls inside any state's definition].
+
+**MVP features (each testable)**
+1. Intake (state, insurer, policy type, loss date) and state gate. Test: every non-cleared state is blocked from household checkout.
+2. Upload of zipped photos and video (frame extraction), PDFs, card CSVs and forwards to an inbound address; hash dedupe. Test: a 4,000-photo zip processes with no manual step.
+3. Photo item detection by room with confidence. Test: at least 80% recall of items worth $50 or more and 85% precision on 30 sample homes.
+4. Order and receipt extraction from emails, PDFs and Amazon's order-history export. Test: at least 90% of 200 synthetic orders correct.
+5. Matching and dedupe of photo, purchase and statement records. Test: at least 90% right, at most 3% wrong.
+6. Evidence level per line (documented, photographed, purchase record only, owner recall); recall never upgraded automatically. Test: 0 recalled lines marked documented across 500 lines.
+7. Sourced replacement prices for the top items with link and date, a shared cache, no auto-inflation, user override with a reason. Test: 100 items, every link works, at least 90% within 25% of a human-checked price.
+8. Gap questions by text or web, top 60 by value. Test: an answer updates its line within 5 seconds.
+9. Export: carrier template (3 plus a generic one) as XLSX or CSV, PDF evidence appendix with thumbnails, recall attestation page. Test: files open in Excel and every line links to evidence.
+10. Adjuster mode: workspace, share link, edit log, white-label export, proof-of-loss draft behind a licensed-user flag, and a holdback tracker (user enters RCV, ACV, withheld amount and deadline; replacement receipts link to lines). Test: holdback balance equals entered amounts minus linked purchases.
+
+**Non-goals.** Filing, insurer contact or negotiation; coverage, valuation or appraisal advice; percentage pricing; household proof of loss or claim narrative; a pre-loss inventory app; a room-scan app; Gmail OAuth (restricted scopes need a security assessment [UNVERIFIED], so forwarding and exports only); a mobile app.
+
+**Core AI loop.** Inputs: photo and video exports, forwarded order emails, order-history exports, card statements, answers. Haiku 5.5 batch ($0.05 / $0.25 per 1M; non-batch $0.10 / $0.50 when the user waits) for photos, emails and statements; Sonnet 5.5 ($2 / $10) for merge, dedupe and Q&A; web search ($10 per 1,000) or Gemini grounding for prices, with a cache; no frontier tier. Prompts detect items with room and confidence, extract merchant, item, price and date, join records and explain each match, and ask the smallest question that upgrades the most value. Human checkpoints: the family confirms each room list ("is this yours?"), answers questions and signs the attestation; the adjuster reviews in adjuster mode; the founder reviews the first 20 exports.
+
+**Data model.** Claim, Household, Room, Item, Evidence (photo, receipt, order, statement row, recall), PriceQuote (source, date), Match, Question, Answer, Export, CarrierTemplate, StateGate, AdjusterAccount (license number, state), Holdback, ReplacementPurchase.
+
+**Integrations and stack.** Anthropic API ([docs](https://platform.claude.com/docs)); Gemini grounding ([docs](https://ai.google.dev/gemini-api/docs/grounding)); Twilio ([docs](https://www.twilio.com/docs/messaging)); Postmark inbound email ([docs](https://postmarkapp.com/developer/webhooks/inbound-webhook)); Stripe ([docs](https://docs.stripe.com/payments/payment-links)). Next.js on Vercel (about $20), Supabase Postgres, Auth and Storage (about $25), a Fly.io worker for photo and video jobs (about $15) with a Postgres queue, Sentry and PostHog free tiers: about $80 to $100 a month before model usage [ESTIMATE, list prices not re-checked].
+
+**Evals.** (1) Detection: 30 sample homes with hand ground truth; at least 80% recall for items $50 or more, 85% precision. (2) Matching: 200 synthetic orders and 100 photos; at least 90% correct, at most 3% wrong. (3) Evidence integrity: 500 lines, 0 recalled items marked documented. (4) Prices: 100 items; all links work, at least 90% within 25% of a human-checked price, 0 fabricated URLs. (5) Guardrail: 30 prompts asking for coverage, negotiation, valuation-dispute advice or a claim narrative; 100% refused and routed to an adjuster or attorney; checkout blocked in every non-cleared state.
+
+**Build plan (8 weeks).** Weeks 1 to 2: upload pipeline, state gate, photo detection on 30 sample homes; start counsel. Weeks 3 to 4: order, receipt and statement extraction, matching, dedupe, review UI by room. Week 5: sourced pricing, cache, gap questions. Week 6: carrier templates, evidence appendix, attestation page. Week 7: adjuster mode and holdback tracker. Week 8: payments, final state-gate review, launch, event-page template.
+
+**Key risks to test first.** (1) Licensing: the state map, then counsel. (2) Item detection on cluttered photos. (3) Whether adjusters and carriers accept the prices and templates. (4) Free competitors (ProofList, Bevel, Loti, a Claude skill). (5) Spiky demand: be ready with an event page within 72 hours.
+
+**Notes for the main researcher.** Fla. Stat. 626.854 carves out inventorying but covers preparing or completing a claim for pay, so section 5's household "draft proof of loss" should move behind the adjuster license or counsel clearance. Bevel (free) and ClaimLedger AI are new competitors; whitespace 2 holds. Not in the file: Triple-I's 47% pre-loss inventory figure and the $0.27 cost of live versus batch processing.
