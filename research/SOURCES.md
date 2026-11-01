@@ -46,5 +46,23 @@ Every source used or attempted, with access status. Track files list their exact
 | help.openai.com | BLOCKED (403) | |
 | CNBC | BLOCKED (403); FT, Bloomberg, 404 Media paywalled | Headlines only |
 
-## Sources added by research tracks
-Each track file has a "Method" and "Blocked sources" section. The main thread merges notable additions here after each wave.
+## Sources added by research tracks (Phase 2 to 5)
+Each track file has its own "Method" and "Blocked sources" section with exact queries. Notable additions:
+
+| Source | Status | Used for |
+|---|---|---|
+| Arctic Shift Reddit archive | works (server-side search times out; newest 100 posts per window) | Exact Reddit text in tracks T2 to T10 |
+| Freelancer.com live project listings | works (plain GET, robots-allowed paths) | Buyer budgets for outsourced tasks (T5) |
+| Fiverr public category pages | mostly works with a descriptive user agent | Price floors (T5) |
+| AgingCare forum | works via curl | Caregiver signals (T6, wave 2 plan) |
+| BiggerPockets forums (JSON-LD), Mike Holt forum, trade-forum RSS feeds | works (RSS gives first-post excerpts only) | Landlord and trades signals (T3a) |
+| govinfo.gov and the Federal Register API | works (federalregister.gov full text shows a CAPTCHA) | Rule texts and dates (T8) |
+| CMS, CBP, DOJ, EU Commission pages; Pew; KFF | works | Forcing-function facts, market counts |
+| IRS exempt-organization master file, FMCSA open data | works | Bottom-up market sizing in deep dives (005, 001) |
+| yc-oss mirror of YC's directory | works | Competition checks against YC companies |
+| AppleVis | BLOCKED (403, Cloudflare) | Blind-user evidence missing |
+| salongeek.com, campaignlive.com, AccountingWEB, Fishbowl, insurance-forums.com, Overdrive, Deccan Herald, ohiocpa.com, NYLAG, EDUCAUSE | BLOCKED (403) | |
+| Clio community, VIN, AAPC, Dentaltown | gated (members only) | |
+| ContractorTalk, ElectricianTalk, PlumbingZone, LawnSite, HVAC-Talk | proof-of-work challenge (RSS excerpts only) | |
+| eur-lex.europa.eu, official e-invoicing sites (PL, FR, BE, DE), fmcsa.dot.gov | JS shell or 403/reset | Used secondary sources and the Federal Register API |
+| Stack Exchange API | works but yielded almost nothing usable for these topics | |

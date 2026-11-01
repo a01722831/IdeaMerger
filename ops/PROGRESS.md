@@ -52,33 +52,33 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - [x] 4.4 40+ full idea files (41); rebuild index after every batch; commit and push per batch
 
 ### Phase 5: calibration, deep dives, red team
-- [ ] 5.1 Calibration pass across all ideas
-- [ ] 5.2 Deep dives top 12 (competitor table w/ pricing, bottom-up sizing, unit economics w/ real prices, first 100 customers, <$50 1-week validation test w/ threshold, paste-ready build brief)
-- [ ] 5.3 Red team subagent on top ideas; record critique + response; adjust scores
-- [ ] 5.4 Commit and push
+- [x] 5.1 Calibration pass across all ideas
+- [x] 5.2 Deep dives top 12 (competitor table w/ pricing, bottom-up sizing, unit economics w/ real prices, first 100 customers, <$50 1-week validation test w/ threshold, paste-ready build brief)
+- [x] 5.3 Red team subagent on top ideas; record critique + response; adjust scores
+- [x] 5.4 Commit and push
 
 ### Phase 6: synthesis
-- [ ] 6.1 REPORT.md (10 sections)
-- [ ] 6.2 README.md (intro, top 10 table, links)
-- [ ] 6.3 Commit and push
+- [x] 6.1 REPORT.md (10 sections)
+- [x] 6.2 README.md (intro, top 10 table, links)
+- [x] 6.3 Commit and push
 
 ### Phase 7: QA and finish
-- [ ] 7.1 Template compliance, real signal IDs, INDEX/scoreboard match, no placeholders/TODOs, URLs from research
-- [ ] 7.2 Mark done here, commit and push
-- [ ] 7.3 Reply in chat with top 10 and where to start reading
+- [x] 7.1 Template compliance, real signal IDs, INDEX/scoreboard match, no placeholders/TODOs, URLs from research
+- [x] 7.2 Mark done here, commit and push
+- [x] 7.3 Reply in chat with top 10 and where to start reading
 
 ## Definition of done (mirror of MISSION.md)
-- [ ] MISSION.md, CLAUDE.md, METHODOLOGY.md, ops/PROGRESS.md, ops/RESEARCH_BRIEF.md exist
+- [x] MISSION.md, CLAUDE.md, METHODOLOGY.md, ops/PROGRESS.md, ops/RESEARCH_BRIEF.md exist
 - [x] LANDSCAPE.md and SOURCES.md complete (SOURCES.md keeps growing)
 - [x] All 9 pain tracks covered (plus T10 gap-fill)
 - [x] SIGNALS.md has 150+ sourced signals (571)
 - [x] POOL.md has 200+ seeds, each with a status (213)
 - [x] 40+ full idea files, each with a recorded competition check (41; wave 2 adds 3)
-- [ ] Calibration done
-- [ ] Top 12 have deep dives, red-team critiques and build briefs
-- [ ] REPORT.md, README.md, INDEX.md and scoreboard.csv complete and consistent
-- [ ] QA passed
-- [ ] Everything committed and pushed
+- [x] Calibration done
+- [x] Top 12 have deep dives, red-team critiques and build briefs
+- [x] REPORT.md, README.md, INDEX.md and scoreboard.csv complete and consistent
+- [x] QA passed
+- [x] Everything committed and pushed
 
 ## Subagent task budget (target 25-30 total)
 | Wave | Tasks | Count |
@@ -122,8 +122,13 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 - 2026-10-31 18:10: First calibration pass via scripts/calibrate.py (changes recorded in each file's section 2). Live top 8 for deep dives: 006, 027, 039, 007, 001, 008, 005, 018. Last 4 slots after wave 2.
 - 2026-10-31 18:20: Second usage limit hit (resets 22:00 UTC). Wave 2, deep-dive 1 and deep-dive 2 agents stopped before writing anything.
 - 2026-11-01 11:40: Resumed (user asked). Decision: prioritize required steps under usage limits. Order: (1) resume deep-dive batches 1 (006, 027, 039, 007) and 2 (001, 008, 005, 018); (2) deep-dive batch 3 (034 Wage Check, 036 Do It With Me, 037 Retirement Desk, 025 Cite Check; Cite Check chosen over the tied 032/033 for user diversity and because 032 scores AI leverage 2); (3) red team on top 12 -> research/RED_TEAM.md, then main thread writes critique + response into each file and adjusts scores; (4) synthesis (REPORT, README), QA. Wave 2 (042-044) deferred: only if budget remains after (3); otherwise documented as next step for EXTEND.
+- 2026-11-01 12:40: Red team A (6 ideas) and B (6 ideas) integrated: each file has a '## Red team' section (critique, response, score changes); Cite Check killed after red team (CROWDED). Skeptical pass applied to 032, 033, 010 so they are comparable. Final live top: 006 (63.2), 039 (61.1), 005 (60.0), 027 (58.9), 007 (56.8), 001 (55.8), 008 (53.7), 018 (53.7), then a tie at 52.6 (032, 033, 036). Report top 10 picks 036 and 033 over 032 for diversity (032 shares Haul Paid's buyer and scores AI leverage 2).
+- 2026-11-01 13:00: REPORT.md (10 sections) and README.md finalized. QA: build_index --check clean (41 files, all signal IDs valid), no placeholders, no em dashes outside verbatim quotes, URL spot check 27/30 return 200 (3 are bot blocks or a timeout on real domains). Wave 2 (S226-S228) not run; documented as the first EXTEND step.
 
 ## NEXT STEPS (keep current)
+Done. If the human sends EXTEND: (1) deep-dive and red-team 033 Chat-to-Ledger and 032 Authority Guard; (2) run wave 2 (seeds S226 LTC Claim Desk, S227 Guardian Ledger, S228 Comp Audit Defense; concept notes 042-044 in POOL.md; one agent mines track 11 with prefix WAV- and drafts files 042-044); (3) mine least-covered areas (funeral homes, small farms, churches, dental labs, non-US markets); (4) refresh REPORT and README.
+
+## Previous next-steps list (completed)
 1. Wait for deep-dive batches 1-3; check each file got a '## Deep dive' section and deep_dive: true; rebuild index; commit.
 2. Launch red team (ops/REDTEAM_BRIEF.md) on the 12 deep-dived ideas.
 3. Integrate red team into idea files ('## Red team' section: critique summary, response, score changes via scripts/calibrate.py); set red_team: true.
@@ -133,8 +138,8 @@ Branch: `claude/practical-rubin-cchd5o`. Started: 2026-10-31 (UTC).
 ## Counts
 - Signals: 586 raw / 571 distinct (130 strong) across 10 tracks + LAND; 54 themes
 - Seeds: 213 (201 S + 12 W); 41 developed; all pending resolved
-- Idea files: 20 drafted (A, B, C); 9 live, 11 killed as CROWDED after review; D, E, F (21) in progress
-- Deep dives: 0
+- Idea files: 41 (16 live, 25 killed: 24 crowded at review, 1 after red team)
+- Deep dives: 12 (with red team on all 12); 3 non-red-teamed live ideas got a main-thread skeptical pass
 
 ## Blocked sources
 (see research/SOURCES.md for the full list)
